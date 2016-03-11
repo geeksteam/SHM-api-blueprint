@@ -1,0 +1,100 @@
+# Authorization
+FORMAT: 1A
+
+# Group Panel Authorization
+
+First of all you must login into panel.
+For login you must use your credentials of user or root login and password if you are the server administrator.
+
+## Basic user login [/login]
+
+If login and password is correct you will recieve success login response.
+`Theme`  is GUI theme for using after logged. `Language` is a user defined interface language.
+
+### Login success [POST]
+
++ Request Login Success (application/json)
+
+        {
+        "Login": "root",
+        "Password": "goodPassword"
+        }
+
++ Response 200 (application/json)
+
+        {
+        "Auth": "Logged",
+        "Theme": "Simple",
+        "Language": "EN"
+        }
+
+
+### Login fails [POST]
+
++ Request Login Fails (application/json)
+
+        {
+        "Login": "root",
+        "Password": "wrongPassword"
+        }
+
++ Response 403 (application/json)
+
+        {
+         "Auth": "Denied"
+        }
+        
+### HOTP code required [POST]
+
++ Request Login Fails (application/json)
+
+        {
+        "Login": "hotpUser",
+        "Password": "goodPassword"
+        }
+
++ Response 449 (application/json)
+
+        {
+         "Auth": "HOTP required"
+        }
+        
+## HOTP: Two step authorization [/login]
+
+If user turned on two step authorization by code from Google Authnticator or other HOTP compatible app, 
+HOTP code must be present with login and password fields.
+
+### Login with HOTP success [POST]
+
++ Request Login Success (application/json)
+
+        {
+        "Login": "root",
+        "Password": "goodPassword",
+        "HOTP":12345
+        }
+
++ Response 200 (application/json)
+
+        {
+        "Auth": "Logged",
+        "Theme": "Simple",
+        "Language": "EN"
+        }
+
+
+### Login fails because HOTP wrong code [POST]
+
++ Request Login Fails (application/json)
+
+        {
+        "Login": "root",
+        "Password": "goodPassword",
+        "HOTP":54321
+        }
+
++ Response 403 (application/json)
+
+        {
+         "Auth": "HOTP wrong code"
+        }
