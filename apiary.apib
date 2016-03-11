@@ -8,13 +8,11 @@ For login you must use your credentials of user or root login and password if yo
 
 ## User login [/login]
 
-If login and password is correct you will recieve success login response.
-`Theme`  is GUI theme for using after logged. `Language` is a user defined interface language.
-
 + Attributes
     + Login (required,string) - User's login, which is email or root for admin.
     + Password (required,string) - User defined password or root password for admin.
     + Auth (string) - Authorization status.
+
 
 ### Login success [POST]
 If login and password is correct you will recieve success login response.
@@ -40,8 +38,8 @@ If login and password is correct you will recieve success login response.
         }
 
 ### Login fails [POST]
-If login and password is not correct you will recieve 403. 
-Debug informaion about user not found or wrong password are in the system's log file.
+If login and password is not correct you will recieve `403 Forbidden`. 
+Debug informaion about login, user not found or wrong password are in the system's log file.
 
 + Request Login Fails (application/json)
 
@@ -57,8 +55,9 @@ Debug informaion about user not found or wrong password are in the system's log 
         }
 
 ### HOTP code required [POST]
-If user turned on two step authorization by code from Google Authnticator or other HOTP compatible app, 
-HOTP code must be present with login and password fields.
+If user turned on two step authorization from Google Authenticator or other HOTP compatible mobile app, 
+HOTP code must be present along with login and password fields.
+You need to repeat login request with HOTP code from user's mobile app.
 
 
 + Attributes
@@ -78,6 +77,7 @@ HOTP code must be present with login and password fields.
         }
  
 ### Login with HOTP success [POST]
+If HOTP code from user's app correct, you'll recieve `200` and standart `Login success` reply.
 
 + Request Login Success (application/json)
 
@@ -97,6 +97,8 @@ HOTP code must be present with login and password fields.
 
 
 ### Login fails because HOTP wrong code [POST]
+In case of wrong HOTP code `403` would be recieved. 
+You can send another request with correct HOTP code.
 
 + Request Login Fails (application/json)
 
