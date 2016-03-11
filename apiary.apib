@@ -15,13 +15,14 @@ If login and password is correct you will recieve success login response.
     + Login (required,string) - User's login, which is email or root for admin.
     + Password (required,string) - User defined password or root password for admin.
     + Auth (string) - Authorization status.
-    + HOTP (number) - Code from device for two step authorization.
-    + Theme:Simple (string) - User defined GUI theme.
-    + Language:EN (string) - User defined language for GUI.
-    
 
 ### Login success [POST]
+If login and password is correct you will recieve success login response.
+`Theme`  is GUI theme for using after logged. `Language` is a user defined interface language.
 
++ Attributes
+    + Theme:Simple (string) - User defined GUI theme.
+    + Language:EN (string) - User defined language for GUI.
 
 + Request Login Success (application/json)
 
@@ -38,8 +39,9 @@ If login and password is correct you will recieve success login response.
         "Language": "EN"
         }
 
-
 ### Login fails [POST]
+If login and password is not correct you will recieve 403. 
+Debug informaion about user not found or wrong password are in the system's log file.
 
 + Request Login Fails (application/json)
 
@@ -54,11 +56,13 @@ If login and password is correct you will recieve success login response.
          "Auth": "Denied"
         }
 
-## Basic user login []
+### HOTP code required [POST]
 If user turned on two step authorization by code from Google Authnticator or other HOTP compatible app, 
 HOTP code must be present with login and password fields.
-       
-### HOTP code required [POST]
+
+
++ Attributes
+    + HOTP (number) - Code from device for two step authorization.
 
 + Request Login Fails (application/json)
 
