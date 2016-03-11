@@ -18,12 +18,13 @@ TODO
 Our theme is free under GNU license, you can modify and use them at your own themes.
 We used AngularJS and Bootstrap for them.
 
-For using your own theme just upload theme files to `html/ThemeName` folder inside panel homedir and
-add theme name to main config `etc/main.conf` at `[Core]` section to `Templates`.
+For using your own theme just upload theme files to `html/MyOwnTheme` folder inside panel homedir and
+add theme name to main config `etc/main.conf` at `[Core]` section to `Themes`.
+First theme in the list will be default theme for all users. Default language is `EN`.
 
 For example: 
 ```
 [Core]
-Templates = ["MyOwnTheme", "Simple"]
+Themes = ["MyOwnTheme", "Simple"]
 ```
 Service restart needed to reload config.
