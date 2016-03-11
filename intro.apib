@@ -1,10 +1,29 @@
 # SHM v1 API
 FORMAT: 1A
+
 ## About SHM
+
 TODO
 
 ## API Requests
+
+TODO
+
+## Modify Login form
+
 TODO
 
 ## Your own theme recomendations
-TODO
+
+Our theme is free under GNU license, you can modify and use them at your own themes.
+We used AngularJS and Bootstrap for them.
+
+For using your own theme just upload theme files to `html/ThemeName` folder inside panel homedir and
+add theme name to main config `etc/main.conf` at `[Core]` section to `Templates`.
+
+For example: 
+```
+[Core]
+Templates = ["MyOwnTheme", "Simple"]
+```
+Service restart needed to reload config.
