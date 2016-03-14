@@ -12,7 +12,7 @@ For login you must use your credentials of user or root login and password if yo
 
 
 ### Login success [POST]
-If login and(or) password is correct you will recieve success login response with
+If login and(or) password is correct you will receive success login response with
 `Theme` is a GUI theme, `Language` is a user defined interface language.
 Login script do redirect to `https://server:port/Theme` to load GUI for theme.
 
@@ -37,8 +37,8 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
         }
 
 ### Login fails [POST]
-If login and password is not correct you will recieve `403 Forbidden`. 
-Debug informaion about login, user not found or wrong password are in the system's log file.
+If login and password is not correct you will receive `403 Forbidden`. 
+Debug information about login, user not found or wrong password are in the system's log file.
 
 + Request Login Fails (application/json)
 
@@ -76,7 +76,7 @@ You need to repeat login request with HOTP code from user's mobile app.
         }
  
 ### Login with HOTP success [POST]
-If HOTP code from user's app correct, you'll recieve `200` and standart `Login success` reply.
+If HOTP code from user's app correct, you'll receive `200` and `Login success` reply.
 
 + Request Login Success (application/json)
 
@@ -96,7 +96,7 @@ If HOTP code from user's app correct, you'll recieve `200` and standart `Login s
 
 
 ### Login fails because HOTP wrong code [POST]
-In case of wrong HOTP code `403` would be recieved. 
+In case of wrong HOTP code `403` would be received. 
 You can send another request with correct HOTP code.
 
 + Request Login Fails (application/json)

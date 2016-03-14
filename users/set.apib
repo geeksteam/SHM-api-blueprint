@@ -5,7 +5,7 @@ otherwise new user with given `Username` will be added to system.
 
 + Attributes
     + Username (required,string) - User new or existing login name.
-    + Password (optional,string) - Password for user. Leave blank if username already exist and you don't whant to change the password.
+    + Password (optional,string) - Password for user. Leave blank if username already exist and you don't want to change the password.
     + Info (required) - User's information schema.
     + Info.Active (required,boolean) - Activate or deactivate user. Users in disabled state cannot login to panel.
     + Info.Template (required,string) - Privileges template apply for user.
@@ -19,12 +19,23 @@ otherwise new user with given `Username` will be added to system.
 ### Success [POST]
 If all parameters are correct new user will be created or existing user modified.
 
-+ Request Login Success (application/json)
++ Request Success request(application/json)
 
-        {
-        "Login": "root",
-        "Password": "goodSHMpassword"
+    {  
+        "Username":"Tester",
+        "Password":"verysecretTesterPassword",
+        "Info":{  
+            "Active":false,
+            "Comment":"Just a testing user",
+            "Template":"SuperAdmin",
+            "Email":"root@localhost",
+            "Theme":"Simple",
+            "Language":"EN",
+            "HOTP":{  
+                "Active":false
+            }
         }
+    }
 
 + Response 204 (application/json)
 
@@ -33,9 +44,15 @@ If there is wrong parameter in request you will get error message with some info
 
 + Request Login Success (application/json)
 
-        {
-        "Login": "root",
-        "Password": "goodSHMpassword"
+    {  
+        "Username":"Tester",
+        "Password":"verysecretTesterPassword",
+        "Info":{  
+            "Active":false,
+            "Comment":"Some wrong user",
+            "Template":"TemplateThatNotExists",
+            "Email":"root@localhost",
         }
+    }
 
 + Response 500 (application/json)
