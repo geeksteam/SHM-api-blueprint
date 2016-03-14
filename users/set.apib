@@ -21,21 +21,21 @@ If all parameters are correct new user will be created or existing user modified
 
 + Request Success request(application/json)
 
-    {  
-        "Username":"Tester",
-        "Password":"verysecretTesterPassword",
-        "Info":{  
-            "Active":false,
-            "Comment":"Just a testing user",
-            "Template":"SuperAdmin",
-            "Email":"root@localhost",
-            "Theme":"Simple",
-            "Language":"EN",
-            "HOTP":{  
-                "Active":false
+        {  
+            "Username":"Tester",
+            "Password":"verysecretTesterPassword",
+            "Info":{  
+                "Active":false,
+                "Comment":"Just a testing user",
+                "Template":"SuperAdmin",
+                "Email":"root@localhost",
+                "Theme":"Simple",
+                "Language":"EN",
+                "HOTP":{  
+                    "Active":false
+                }
             }
         }
-    }
 
 + Response 204 (application/json)
 
@@ -44,15 +44,15 @@ If there is wrong parameter in request you will get error message with some info
 
 + Request Login Success (application/json)
 
-    {  
-        "Username":"Tester",
-        "Password":"verysecretTesterPassword",
-        "Info":{  
-            "Active":false,
-            "Comment":"Some wrong user",
-            "Template":"TemplateThatNotExists",
-            "Email":"root@localhost",
+        {  
+            "Username":"Tester",
+            "Password":"verysecretTesterPassword",
+            "Info":{  
+                "Active":false,
+                "Comment":"Some wrong user",
+                "Template":"TemplateThatNotExists",
+                "Email":"root@localhost",
+            }
         }
-    }
 
 + Response 500 (application/json)
