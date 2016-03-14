@@ -54,14 +54,10 @@ If user turned on two step authorization from Google Authenticator or other HOTP
 HOTP code must be present along with login and password fields.
 You need to repeat login request with HOTP code from user's mobile app.
 
-
-+ Attributes
-    + HOTP (number) - Code from device for two step authorization.
-
 + Request Login Fails (application/json)
         {
             "Login": "hotpUser",
-            "Password": "goodPassword"
+            "Password": "hotpUserSecretPassword"
         }
 
 + Response 449 (application/json)
@@ -72,11 +68,14 @@ You need to repeat login request with HOTP code from user's mobile app.
 ### Login with HOTP success [POST]
 If HOTP code from user's app correct, you'll receive `200` and `Login success` reply.
 
++ Attributes
+    + HOTP (string) - Code from device for two step authorization.
+
 + Request Login Success (application/json)
         {
-            "Login": "root",
-            "Password": "goodPassword",
-            "HOTP":12345
+            "Login": "hotpUser",
+            "Password": "hotpUserSecretPassword",
+            "HOTP":"12345"
         }
 
 + Response 200 (application/json)
@@ -93,9 +92,9 @@ You can send another request with correct HOTP code.
 
 + Request Login Fails (application/json)
         {
-        "Login": "root",
-        "Password": "goodPassword",
-        "HOTP":54321
+        "Login": "hotpUser",
+        "Password": "hotpUserSecretPassword",
+        "HOTP":"54321"
         }
 
 + Response 403 (application/json)
