@@ -4,7 +4,3 @@ auth/login.apib
 
 users/about.apib
 users/set.apib
-users/list.apib
-users/del.apib
-users/password.apib
-users/activate.apib
