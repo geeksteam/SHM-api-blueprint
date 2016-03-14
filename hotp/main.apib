@@ -1,4 +1,4 @@
-## Generate QR [/hotp/qr]
+## Generate QR [/api/hotp/qr]
 
 This request will generate one time code that you need to save in your Google Authenticator app.
 
@@ -7,7 +7,7 @@ Generate PNG image with QR code you can scan by Google Authenticator to add acco
 
 + Response 200 (image/jpeg)
 
-## Generate code for enter by hand [/hotp/code]
+## Generate code for enter by hand [/api/hotp/code]
 
 This request will generate one time code that you need to enter while add new account to Google Authenticator app.
 
@@ -19,7 +19,7 @@ Generate one time key code.
             "Key": "12368615794617"
         }
 
-## Check for correct app binding [/hotp/check]
+## Check for correct app binding [/api/hotp/check]
 Before two step authorization cat be enabled we need to check if everything is good. 
 You need to enter first generated code from your app.
 
