@@ -23,7 +23,16 @@ Generate one time key code.
 Before two step authorization cat be enabled we need to check if everything is good. 
 You need to enter first generated code from your app.
 
-### Checking key code [POST]
+### Checking first app code [POST]
+
++ Request Login Fails (application/json)
+        {
+            "Confirm": "95726283"
+        }
+
++ Response 204 (application/json)
+
+###  [POST]
 Generate one time key code.
 
 + Request Login Fails (application/json)
@@ -32,3 +41,4 @@ Generate one time key code.
         }
 
 + Response 204 (application/json)
+
