@@ -1,7 +1,9 @@
 intro.apib
 
 auth/login.apib
-auth/hotp.apib
+
+hotp/about.apib
+hotp/main.apib
 
 users/about.apib
 users/set.apib
