@@ -22,18 +22,16 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
     + Language:EN (string) - User defined language for GUI.
 
 + Request Login Success (application/json)
-
         {
-        "Login": "root",
-        "Password": "goodSHMpassword"
+            "Login": "root",
+            "Password": "goodSHMpassword"
         }
 
 + Response 200 (application/json)
-
         {
-        "Auth": "Logged",
-        "Theme": "Simple",
-        "Language": "EN"
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
         }
 
 ### Login fails [POST]
@@ -41,16 +39,14 @@ If login and password is not correct you will receive `403 Forbidden`.
 Debug information about login, user not found or wrong password are in the system's log file.
 
 + Request Login Fails (application/json)
-
         {
         "Login": "root",
         "Password": "wrongPassword"
         }
 
 + Response 403 (application/json)
-
         {
-         "Auth": "Denied"
+            "Auth": "Denied"
         }
 
 ### HOTP code required [POST]
@@ -63,35 +59,31 @@ You need to repeat login request with HOTP code from user's mobile app.
     + HOTP (number) - Code from device for two step authorization.
 
 + Request Login Fails (application/json)
-
         {
-        "Login": "hotpUser",
-        "Password": "goodPassword"
+            "Login": "hotpUser",
+            "Password": "goodPassword"
         }
 
 + Response 449 (application/json)
-
         {
-         "Auth": "HOTP required"
+            "Auth": "HOTP required"
         }
  
 ### Login with HOTP success [POST]
 If HOTP code from user's app correct, you'll receive `200` and `Login success` reply.
 
 + Request Login Success (application/json)
-
         {
-        "Login": "root",
-        "Password": "goodPassword",
-        "HOTP":12345
+            "Login": "root",
+            "Password": "goodPassword",
+            "HOTP":12345
         }
 
 + Response 200 (application/json)
-
         {
-        "Auth": "Logged",
-        "Theme": "Simple",
-        "Language": "EN"
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
         }
 
 
@@ -100,7 +92,6 @@ In case of wrong HOTP code `403` would be received.
 You can send another request with correct HOTP code.
 
 + Request Login Fails (application/json)
-
         {
         "Login": "root",
         "Password": "goodPassword",
@@ -108,7 +99,6 @@ You can send another request with correct HOTP code.
         }
 
 + Response 403 (application/json)
-
         {
-         "Auth": "HOTP wrong code"
+            "Auth": "HOTP wrong code"
         }

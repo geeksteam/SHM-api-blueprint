@@ -20,7 +20,6 @@ otherwise new user with given `Username` will be added to system.
 If all parameters are correct new user will be created or existing user modified.
 
 + Request Success request(application/json)
-
         {  
             "Username":"Tester",
             "Password":"verysecretTesterPassword",
@@ -43,7 +42,6 @@ If all parameters are correct new user will be created or existing user modified
 If there is wrong parameter in request you will get error message with some information.
 
 + Request Login Success (application/json)
-
         {  
             "Username":"Tester",
             "Password":"verysecretTesterPassword",
@@ -51,7 +49,7 @@ If there is wrong parameter in request you will get error message with some info
                 "Active":false,
                 "Comment":"Some wrong user",
                 "Template":"TemplateThatNotExists",
-                "Email":"root@localhost",
+                "Email":"root@localhost"
             }
         }
 
