@@ -1,0 +1,41 @@
+## Add or edit user [/api/users/set]
+
+If user with `Username` already exist new request will change parameters for him, 
+otherwise new user with given `Username` will be added to system.
+
++ Attributes
+    + Username (required,string) - User new or existing login name.
+    + Password (optional,string) - Password for user. Leave blank if username already exist and you don't whant to change the password.
+    + Info (required) - User's information schema.
+    + Info.Active (required,boolean) - Activate or deactivate user. Users in disabled state cannot login to panel.
+    + Info.Template (required,string) - Privileges template apply for user.
+    + Info.Comment (optional,string) - Comment about user.
+    + Info.Email (required,string) - Email for information messages.
+    + Info.Theme (optional,string) - GUI theme for user. First in themes list is a default.
+    + Info.Language (optional,string) - Language for GUI. Default is `EN`.
+    + Info.HOTP.Active (optional,boolean) - Enable or disable two step authorization for user account.
+
+
+### Success [POST]
+If all parameters are correct new user will be created or existing user modified.
+
++ Request Login Success (application/json)
+
+        {
+        "Login": "root",
+        "Password": "goodSHMpassword"
+        }
+
++ Response 204 (application/json)
+
+### Fail [POST]
+If there is wrong parameter in request you will get error message with some information.
+
++ Request Login Success (application/json)
+
+        {
+        "Login": "root",
+        "Password": "goodSHMpassword"
+        }
+
++ Response 500 (application/json)
