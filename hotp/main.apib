@@ -2,7 +2,33 @@
 
 This request will generate one time code that you need to save in your Google Authenticator app.
 
-### Getting QR code image [POST]
-Generated QR code you can scan by Google Authenticator to add account.
+### Getting QR image with code [GET]
+Generate PNG image with QR code you can scan by Google Authenticator to add account.
 
 + Response 200 (image/jpeg)
+
+## Generate code for enter by hand [/hotp/code]
+
+This request will generate one time code that you need to enter while add new account to Google Authenticator app.
+
+### Getting key code [GET]
+Generate one time key code.
+
++ Response 200 (application/json)
+        {
+            "Key": "12368615794617"
+        }
+
+## Check for correct app binding [/hotp/check]
+Before two step authorization cat be enabled we need to check if everything is good. 
+You need to enter first generated code from your app.
+
+### Checking key code [POST]
+Generate one time key code.
+
++ Request Login Fails (application/json)
+        {
+            "Confirm": "95726283"
+        }
+
++ Response 204 (application/json)
