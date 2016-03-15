@@ -7,4 +7,7 @@ hotp/main.apib
 
 users/about.apib
 users/set.apib
+users/password.apib
+users/toggle.apib
+users/list.apib
 users/del.apib
