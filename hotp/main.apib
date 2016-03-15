@@ -20,10 +20,11 @@ Generate one time key code.
         }
 
 ## Check for correct app binding [/api/hotp/check]
+
 Before two step authorization cat be enabled we need to check if everything is good. 
 You need to enter first generated code from your app.
 
-### Checking first app code [POST]
+### Code correct [POST]
 
 + Request Login Fails (application/json)
         {
@@ -32,13 +33,13 @@ You need to enter first generated code from your app.
 
 + Response 204 (application/json)
 
-###  [POST]
-Generate one time key code.
+### Wrong code [POST]
+If app was not binded properly, first code was not accepted.
 
 + Request Login Fails (application/json)
         {
-            "Confirm": "95726283"
+            "Confirm": "7324545"
         }
 
-+ Response 204 (application/json)
++ Response 406 (application/json)
 

@@ -10,6 +10,20 @@ For login you must use your credentials of user or root login and password if yo
     + Password (required,string) - User defined password or root password for admin.
     + Auth (string) - Authorization status.
 
+### Login fails [POST]
+If login and password is not correct you will receive `403 Forbidden`. 
+Debug information about login, user not found or wrong password are in the system's log file.
+
++ Request Login Fails (application/json)
+        {
+        "Login": "root",
+        "Password": "wrongPassword"
+        }
+
++ Response 403 (application/json)
+        {
+            "Auth": "Denied"
+        }
 
 ### Login success [POST]
 If login and(or) password is correct you will receive success login response with
@@ -32,21 +46,6 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
             "Auth": "Logged",
             "Theme": "Simple",
             "Language": "EN"
-        }
-
-### Login fails [POST]
-If login and password is not correct you will receive `403 Forbidden`. 
-Debug information about login, user not found or wrong password are in the system's log file.
-
-+ Request Login Fails (application/json)
-        {
-        "Login": "root",
-        "Password": "wrongPassword"
-        }
-
-+ Response 403 (application/json)
-        {
-            "Auth": "Denied"
         }
 
 ### HOTP code required [POST]
