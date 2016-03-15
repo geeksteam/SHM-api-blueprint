@@ -1,4 +1,4 @@
-## Disable, enable users [/api/users/password]
+## Disable, enable users [/api/users/toggle]
 
 Inactive users can not login into panel, webdomains are disabled too.
 This request toggle user status from active to disabled or vice versa.
@@ -8,7 +8,9 @@ This request toggle user status from active to disabled or vice versa.
 
 ### Success [POST]
 
++ Request (application/json)
+        {  
+            "Name":"Tester",
+        }
+
 + Response 200 (application/json)
-	{
-	
-	}
