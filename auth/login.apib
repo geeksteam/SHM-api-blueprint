@@ -75,7 +75,7 @@ If HOTP code from user's app correct, you'll receive `200` and `Login success` r
         {
             "Login": "hotpUser",
             "Password": "hotpUserSecretPassword",
-            "HOTP":"12345"
+            "Hotp":"12345"
         }
 
 + Response 200 (application/json)
@@ -94,7 +94,7 @@ You can send another request with correct HOTP code.
         {
         "Login": "hotpUser",
         "Password": "hotpUserSecretPassword",
-        "HOTP":"54321"
+        "Hotp":"54321"
         }
 
 + Response 403 (application/json)
