@@ -10,6 +10,6 @@ def skip_test(transaction):
   transaction['skip'] = True
 
 # Skip IMAGE/PNG body
-@hooks.beforeValidation("Two step authorization > Generate QR > Getting QR image with code")
+@hooks.before_validation("Two step authorization > Generate QR > Getting QR image with code")
 def skip_body(transaction):
     transaction['real']['body'] = ''
