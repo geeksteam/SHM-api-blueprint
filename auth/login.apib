@@ -32,8 +32,8 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
 
 
 + Attributes
-    + Theme:Simple (string) - User defined GUI theme.
-    + Language:EN (string) - User defined language for GUI.
+    + Theme:Simple (required, string) - User defined GUI theme.
+    + Language:EN (required, string) - User defined language for GUI.
 
 + Request Login Success (application/json)
         {
@@ -54,7 +54,7 @@ If user turned on two step authorization from Google Authenticator or other HOTP
 HOTP code must be present along with login and password fields.
 You need to repeat login request with HOTP code from user's mobile app.
 
-+ Request Login Fails (application/json)
++ Request (application/json)
         {
             "Login": "hotpUser",
             "Password": "hotpUserSecretPassword"
@@ -69,9 +69,9 @@ You need to repeat login request with HOTP code from user's mobile app.
 If HOTP code from user's app correct, you'll receive `200` and `Login success` reply.
 
 + Attributes
-    + HOTP (string) - Code from device for two step authorization.
+    + HOTP (required, string) - Code from device for two step authorization.
 
-+ Request Login Success (application/json)
++ Request (application/json)
         {
             "Login": "hotpUser",
             "Password": "hotpUserSecretPassword",
@@ -90,7 +90,7 @@ If HOTP code from user's app correct, you'll receive `200` and `Login success` r
 In case of wrong HOTP code `403` would be received. 
 You can send another request with correct HOTP code.
 
-+ Request Login Fails (application/json)
++ Request (application/json)
         {
         "Login": "hotpUser",
         "Password": "hotpUserSecretPassword",
