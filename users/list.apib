@@ -4,21 +4,22 @@ Return all users exists in panel and information.
 
 ### Success [GET]
 
-+ Response 200 (text/plain)
-		[
-		{  
-		"Username":"Tester",
-		"Info":
-			{  
-			"Active":false,
-			"Comment":"Just a testing user",
-			"Template":"SuperAdmin",
-			"Email":"root@localhost",
-			"Theme":"Simple",
-			"Language":"EN",
-				"HOTP":{  
-				"Active":false
-				}
-			}
-		}
-		]
++ Response 200 (application/json)
+        [
+            {
+            "Username":"Tester",
+            "Info":
+                {
+                "Active":false,
+                "Comment":"Just a testing user",
+                "Template":"SuperAdmin",
+                "Email":"root@localhost",
+                "Theme":"Simple",
+                "Language":"EN",
+                "HOTP":
+                    {
+                    "Active":false
+                    }
+                }
+            }
+        ]
