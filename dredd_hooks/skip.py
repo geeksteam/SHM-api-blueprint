@@ -5,10 +5,6 @@ import dredd_hooks as hooks
 def skip_test(transaction):
   transaction['skip'] = True
 
-@hooks.before("Panel Authorization > User login > Login fails because HOTP wrong code")
-def skip_test(transaction):
-  transaction['skip'] = True
-
 # Skip IMAGE/PNG body
 @hooks.before_validation("Two step authorization > Generate QR > Getting QR image with code")
 def skip_body(transaction):
