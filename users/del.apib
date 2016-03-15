@@ -1,0 +1,33 @@
+## Remove user [/api/users/del]
+
+Removing user from panel and OS. Removing all user databases, domains, files and etc.
+
++ Attributes
+    + Name (required,string) - Username to remove.
+
+### Success [POST]
+If user exists and no `root` it will be successful removed.
+
++ Request (application/json)
+        {  
+            "Name":"Tester"
+        }
+
++ Response 204 (text/plain)
+
+### Fail [POST]
+If user is not exists or root it will fail with error.
+
++ Request (application/json)
+        {  
+            "Name":"NotExistingUser"
+        }
+
++ Response 500 (application/json)
+        {
+            "error":
+            {
+                "code": "error code",
+                "text":"error text"
+            }
+        }

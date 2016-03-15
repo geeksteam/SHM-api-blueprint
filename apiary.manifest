@@ -7,3 +7,4 @@ hotp/main.apib
 
 users/about.apib
 users/set.apib
+users/del.apib
