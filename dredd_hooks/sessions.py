@@ -6,7 +6,7 @@ stash = {}
 # hook to retrieve session on a login
 @hooks.after('Panel Authorization > User login > Login success')
 def stash_session_id(transaction):
-        stash['sessID'] = 'sessionID=VVzHIXanHmZPqDijtXLggaCs'
+        stash['sessID'] = 'sessionID=kgekgTeGyRBrqXPnSjtWXVtu'
         #stash['sessID'] = transaction['real']['headers']['set-cookie']
 
 # hook to set the session cookie in all following requests
