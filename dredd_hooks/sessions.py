@@ -35,15 +35,16 @@ def stash_user_session_id(transaction):
 # Set the ROOT or USER session cookie in all requests
 @hooks.before_each
 def add_session_cookie(transaction):
-	# Check is request GROUP in USER list
-	if transaction['origin']['resourceGroupName'] in user_group_requests and 'user_sessID' in stash:
-			transaction['request']['headers']['Cookie'] = stash['user_sessID']
-			return
-
-	# Check is request in USER list
-	if transaction['name'] in user_requests and 'user_sessID' in stash:
-			transaction['request']['headers']['Cookie'] = stash['user_sessID']
-			return
+	
+	if 'user_sessID' in stash:
+		# Check is request GROUP in USER list
+		if transaction['origin']['resourceGroupName'] in user_group_requests:
+				transaction['request']['headers']['Cookie'] = stash['user_sessID']
+				return
+		# Check is request in USER list
+		if transaction['name'] in user_requests:
+				transaction['request']['headers']['Cookie'] = stash['user_sessID']
+				return
 
 	# run it as ROOT by default
 	if 'root_sessID' in stash:
