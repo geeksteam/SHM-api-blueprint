@@ -2,6 +2,17 @@
 
 User information have his info and usage statistics to show in GUI dashboard.
 
++ Attributes
+    + Active (required, boolean) - Is current user is Enabled or disabled.
+    + Created (required, string) - When user was created.
+    + Modules (required, array) - Which panel modules user can access.
+    + Homedir (required, string) - User's homedir.
+    + UID (required, number) - User system UID.
+    + SSH (required, boolean) - Does user can access to server by SSH.
+    + Template (required, string) - Privileges template name.
+    + Limits (required, object) - Resources limits apply to user.
+    + Stats (required, object) - Resources usage stats by user.
+
 + Response 200 (application/json)
 		{ 
 		"Username":"Mark", 
