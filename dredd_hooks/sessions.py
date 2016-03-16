@@ -16,6 +16,7 @@ user_group_requests = [
 #
 user_requests = [
 		'Sessions > Session information > Regular user',
+		'Logout > User logout > User logout',
 	]
 # Local stash
 stash = {}

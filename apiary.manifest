@@ -21,3 +21,5 @@ user/main.apib
 sessions/about.apib
 sessions/root.apib
 sessions/user.apib
+
+logout/about.apib
