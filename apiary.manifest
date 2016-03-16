@@ -17,3 +17,7 @@ users/del.apib
 
 user/about.apib
 user/main.apib
+
+sessions/about.apib
+sessions/root.apib
+sessions/user.apib

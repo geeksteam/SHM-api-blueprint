@@ -1,0 +1,9 @@
+# Group Sessions
+
+After successful authorization users have their session stored in panel's memory. 
+SessionID is a unique key that stores in browser cookie. 
+By default clients IP addresses also check with SessionID but you can disable it by turning `false` config file parameter `Core.StrictSessionIP`. 
+In this case only SessionID will be checked for session identification without IP address verification. 
+Its safe because panel have its own bruteforce protection but we are not suggest to disable this check unless your users behind NAT with frequently IP changes have often `401 Unauthorized` errors.
+
+## Session information [/api/info/session]

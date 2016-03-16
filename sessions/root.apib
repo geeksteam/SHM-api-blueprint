@@ -1,0 +1,31 @@
+### Root user [GET]
+
+Root user as administrator have different session information.
+Administrator will get information about server status and resources usage to show those information at admin's gui dashboard.
+
++ Attributes
+    + Users (required, array) - All Usernames existing in a panel.
+    + Templates (required, array) - All User privileges templates.
+    + ActiveSessions (required, number) - Total active users sessions for now.
+    + Stats.DBs (required, number) - Total Databases (MySQL, PgSQL and etc.) owned by users.
+    + Stats.DBUsers (required, number) - Total Databases Users (MySQL, PgSQL and etc.) owned by users.
+    + Stats.FTPs (required, number) - Total FTP accounts owned by users.
+    + Stats.WebDomains (required, number) - Total webdomains owned by users.
+    + Stats.DNSDomains (required, number) - Total domains in DNS server owned by users.
+    + Stats.Emails (required, number) - Total email accounts owned by users.
+
++ Response 200 (application/json)
+        {
+        "Users":[],
+        "Templates":[],
+        "ActiveSessions":0,
+        "Stats":
+            {
+            "DBs":0,
+            "DBUsers":0,
+            "FTPs":0,
+            "WebDomains":0,
+            "DNSDomains":0,
+            "Emails":0
+            }
+        }

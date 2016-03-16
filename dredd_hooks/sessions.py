@@ -1,15 +1,21 @@
 import json
 import dredd_hooks as hooks
 
-stash = {}
-
-# List of groups that must be run as USER
+# List of GROUP that must be run as USER
+#
 user_group_requests = [
         'User defined settings',
     ]
 
-# List of requests that must be run from USER
-user_requests = []
+# List of REQUESTS that must be run from USER
+#
+user_requests = [
+		'Sessions > Session information > Regular user',
+	]
+
+
+# Local stash
+stash = {}
 
 
 # Retrieve ROOT sessionID on a login
