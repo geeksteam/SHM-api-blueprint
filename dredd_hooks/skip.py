@@ -10,7 +10,7 @@ skip_requests = [
 
 # Skip requests
 @hooks.before_each
-def skip_requests(transaction):
+def skip_requests_func(transaction):
 	if transaction['name'] in skip_requests:
 		transaction['skip'] = True
 
