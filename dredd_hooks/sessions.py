@@ -3,9 +3,10 @@ import dredd_hooks as hooks
 
 stash = {}
 
-# List of requests from USER not root
+# List of requests that must be from USER
 user_requests = [
-		'User defined settings > Change user password > Password change'
+		'User defined settings > Change user password > *',
+
 	]
 
 
@@ -25,8 +26,8 @@ def stash_user_session_id(transaction):
 def add_session_cookie(transaction):
 	# Check is transaction in user list
 	if transaction['name'] in user_requests and 'user_sessID' in stash:
-                transaction['request']['headers']['Cookie'] = stash['user_sessID']+'; User: not-root;'
+                transaction['request']['headers']['Cookie'] = stash['user_sessID']
     	# run it as root
     	else:
     		if 'root_sessID' in stash:
-                	transaction['request']['headers']['Cookie'] = stash['root_sessID']+'; User: root;'
+                	transaction['request']['headers']['Cookie'] = stash['root_sessID']
