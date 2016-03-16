@@ -10,6 +10,7 @@ User information have his info and usage statistics to show in GUI dashboard.
     + UID (required, number) - User system UID.
     + SSH (required, boolean) - Does user can access to server by SSH.
     + Template (required, string) - Privileges template name.
+    + NS (required, array) - Default Name servers for new domains.
     + Limits (required, object) - Resources limits apply to user.
     + Stats (required, object) - Resources usage stats by user.
 
@@ -23,7 +24,8 @@ User information have his info and usage statistics to show in GUI dashboard.
 		"Homedir":"/home/Mark", 
 		"UID":564, 
 		"SSH":true, 
-		"Template":"RegularUser", 
+		"Template":"RegularUser",
+		"NS":["ns1.ns.com","ns1.ns.com"],
 		"Limits":
 			{ 
 			"Diskspace":0, 

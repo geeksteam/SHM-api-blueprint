@@ -17,16 +17,18 @@ Administrator will get information about server status and resources usage to sh
 + Response 200 (application/json)
         {
         "Build":"01.12.2016 Date",
-        "Users":[],
-        "Templates":[],
-        "ActiveSessions":0,
+        "Users": ["UserOne","UserTwo"],
+        "Templates": ["SimpleUser","BigBoss"],
+        "ActiveSessions":10,
         "Stats":
             {
-            "DBs":0,
-            "DBUsers":0,
-            "FTPs":0,
-            "WebDomains":0,
-            "DNSDomains":0,
-            "Emails":0
+            "Diskspace": 50,
+            "Traffic": 0,
+            "DBs":12,
+            "DBUsers":24,
+            "FTPs":5,
+            "WebDomains":4,
+            "DNSDomains":4,
+            "Emails":54
             }
         }
