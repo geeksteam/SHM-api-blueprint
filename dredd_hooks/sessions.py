@@ -3,6 +3,12 @@ import dredd_hooks as hooks
 
 stash = {}
 
+# List of requests from USER not root
+user_requests = [
+		'User defined settings > /api/user/password > POST'
+	]
+
+
 # Retrieve ROOT sessionID on a login
 @hooks.after('Panel Authorization > Root login > Root login success')
 def stash_root_session_id(transaction):
@@ -13,15 +19,15 @@ def stash_root_session_id(transaction):
 def stash_user_session_id(transaction):
         stash['user_sessID'] = transaction['real']['headers']['set-cookie']
 
-# Set the ROOT session cookie in all requests
-# @hooks.before_each
-# def add_session_cookie(transaction):
-#         if 'root_sessID' in stash:
-#                 transaction['request']['headers']['Cookie'] = stash['root_sessID']
 
-# Hooks that must BE executed as USER not as root
-
-@hooks.before('User defined settings')
-def add_userdefset_session_cookie(transaction):
+# Set the ROOT or USER session cookie in all requests
+@hooks.before_each
+def add_session_cookie(transaction):
+	# Check is transaction in user list
+	if transaction['name'] in user_requests:
         if 'user_sessID' in stash:
                 transaction['request']['headers']['Cookie'] = stash['user_sessID']
+    # run it as root
+    else:
+    	if 'root_sessID' in stash:
+                transaction['request']['headers']['Cookie'] = stash['root_sessID']
