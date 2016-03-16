@@ -14,10 +14,10 @@ def stash_user_session_id(transaction):
         stash['user_sessID'] = transaction['real']['headers']['set-cookie']
 
 # Set the ROOT session cookie in all requests
-@hooks.before_each
-def add_session_cookie(transaction):
-        if 'root_sessID' in stash:
-                transaction['request']['headers']['Cookie'] = stash['root_sessID']
+# @hooks.before_each
+# def add_session_cookie(transaction):
+#         if 'root_sessID' in stash:
+#                 transaction['request']['headers']['Cookie'] = stash['root_sessID']
 
 # Hooks that must BE executed as USER not as root
 
