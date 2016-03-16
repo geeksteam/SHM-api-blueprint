@@ -4,7 +4,7 @@ import dredd_hooks as hooks
 stash = {}
 
 # Retrieve ROOT sessionID on a login
-@hooks.after('Panel Authorization > Root login > Login success')
+@hooks.after('Panel Authorization > Root login > Root login success')
 def stash_root_session_id(transaction):
         stash['root_sessID'] = transaction['real']['headers']['set-cookie']
 
