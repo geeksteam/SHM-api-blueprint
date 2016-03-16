@@ -6,14 +6,11 @@ import dredd_hooks as hooks
 user_group_requests = [
         'User defined settings',
     ]
-
 # List of REQUESTS that must be run from USER
 #
 user_requests = [
 		'Sessions > Session information > Regular user',
 	]
-
-
 # Local stash
 stash = {}
 

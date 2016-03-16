@@ -1,15 +1,20 @@
 import dredd_hooks as hooks
 
-# Skip HOTP codes
-@hooks.before("Panel Authorization > User login > Login with HOTP success")
-def skip_login_hotp(transaction):
-  transaction['skip'] = True
+#
+# List of requests NAMEs to skip
+skip_requests = [
+		'Panel Authorization > User login > Login with HOTP success',
+		'Two step authorization > Check for correct app binding > Code correct',
+	]
 
-# Skip HOTP code confirm
-@hooks.before("Two step authorization > Check for correct app binding > Code correct")
-def skip_hotp_check_code(transaction):
-  transaction['skip'] = True
 
+# Skip requests
+@hooks.before_each
+def skip_requests(transaction):
+	if transaction['name'] in skip_requests:
+		transaction['skip'] = True
+
+#
 # Skip HOTP QR IMAGE body
 @hooks.before_validation("Two step authorization > Generate QR > Getting QR image with code")
 def skip_hotp_image(transaction):
