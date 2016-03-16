@@ -1,10 +1,10 @@
 ## Root login [/login]
 For login you must use your root system password and login `root`.
 
-### Login fails [POST]
+### Root login fails [POST]
 If password is not correct you will receive `403 Forbidden`. 
 
-+ Request Login Fails (application/json)
++ Request (application/json)
         {
         "Login": "root",
         "Password": "wrongPassword"
@@ -15,13 +15,13 @@ If password is not correct you will receive `403 Forbidden`.
             "Auth": "Denied"
         }
 
-### Login success [POST]
+### Root login success [POST]
 
 + Attributes
     + Theme:Simple (required, string) - User defined GUI theme.
     + Language:EN (required, string) - User defined language for GUI.
 
-+ Request Login Success (application/json)
++ Request (application/json)
         {
             "Login": "root",
             "Password": "goodSHMpassword"

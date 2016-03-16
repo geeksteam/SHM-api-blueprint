@@ -2,6 +2,7 @@ intro.apib
 
 auth/about.apib
 auth/user.apib
+auth/hotp.apib
 auth/root.apib
 
 hotp/about.apib
