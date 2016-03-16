@@ -1,0 +1,27 @@
+## Change user password [/api/user/password]
+
+User can change his password for accessing panel and SSH (if ssh is allowed for him).
+
+### Password change [POST]
+
++ Request (application/json)
+        {
+            "Password": "goodUserPassword"
+        }
+
++ Response 204 (text/plain)
+
+## User defined settings change [/api/user/set]
+
+User can change his gui theme, language and email for notifications.
+
+### User settings change [POST]
+
++ Request (application/json)
+        {
+         "Email":"newUserEmail@localhost",
+         "Theme":"Simple",
+         "Language":"EN"
+        }
+
++ Response 204 (text/plain)

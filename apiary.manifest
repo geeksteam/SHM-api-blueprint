@@ -14,3 +14,6 @@ users/password.apib
 users/toggle.apib
 users/list.apib
 users/del.apib
+
+user/about.apib
+user/main.apib

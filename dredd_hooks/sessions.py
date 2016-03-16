@@ -18,3 +18,10 @@ def stash_user_session_id(transaction):
 def add_session_cookie(transaction):
         if 'root_sessID' in stash:
                 transaction['request']['headers']['Cookie'] = stash['root_sessID']
+
+# Hooks that must BE executed as USER not as root
+
+@hooks.before('User defined settings')
+def add_userdefset_session_cookie(transaction):
+        if 'user_sessID' in stash:
+                transaction['request']['headers']['Cookie'] = stash['user_sessID']
