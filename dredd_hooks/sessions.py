@@ -5,7 +5,7 @@ stash = {}
 
 # List of requests from USER not root
 user_requests = [
-		'User defined settings > /api/user/password > POST'
+		'User defined settings > Change user password > Password change'
 	]
 
 
@@ -24,10 +24,9 @@ def stash_user_session_id(transaction):
 @hooks.before_each
 def add_session_cookie(transaction):
 	# Check is transaction in user list
-	if transaction['name'] in user_requests:
-        if 'user_sessID' in stash:
-                transaction['request']['headers']['Cookie'] = stash['user_sessID']
-    # run it as root
-    else:
-    	if 'root_sessID' in stash:
-                transaction['request']['headers']['Cookie'] = stash['root_sessID']
+	if transaction['name'] in user_requests and 'user_sessID' in stash:
+                transaction['request']['headers']['Cookie'] = stash['user_sessID']+'; User: not-root;'
+    	# run it as root
+    	else:
+    		if 'root_sessID' in stash:
+                	transaction['request']['headers']['Cookie'] = stash['root_sessID']+'; User: root;'
