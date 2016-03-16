@@ -3,14 +3,18 @@ import dredd_hooks as hooks
 
 stash = {}
 
-# hook to retrieve session on a login
-@hooks.after('Panel Authorization > User login > Login success')
-def stash_session_id(transaction):
-        stash['sessID'] = 'sessionID=KUAkGYuJcBFQJIElNZBkrsTH'
-        #stash['sessID'] = transaction['real']['headers']['set-cookie']
+# Retrieve ROOT sessionID on a login
+@hooks.after('Panel Authorization > Root login > Login success')
+def stash_root_session_id(transaction):
+        stash['root_sessID'] = transaction['real']['headers']['set-cookie']
 
-# hook to set the session cookie in all following requests
+# Retrieve USER sessionID on a login
+@hooks.after('Panel Authorization > User login > Login success')
+def stash_user_session_id(transaction):
+        stash['user_sessID'] = transaction['real']['headers']['set-cookie']
+
+# Set the ROOT session cookie in all requests
 @hooks.before_each
 def add_session_cookie(transaction):
-        if 'sessID' in stash:
-                transaction['request']['headers']['Cookie'] = stash['sessID']
+        if 'root_sessID' in stash:
+                transaction['request']['headers']['Cookie'] = stash['root_sessID']
