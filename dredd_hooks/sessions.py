@@ -1,6 +1,12 @@
 import json
 import dredd_hooks as hooks
 
+###
+# Requests and groups of requests listed below in arrays will run as regular USER by adding sessinID in requests headers,
+# which catch and save to stash during user login testing.
+# All requests which not listed here will run as ROOT user.
+###
+
 # List of GROUP that must be run as USER
 #
 user_group_requests = [

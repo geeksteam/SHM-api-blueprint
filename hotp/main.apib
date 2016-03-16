@@ -27,7 +27,7 @@ Generate one time key code.
 Before two step authorization cat be enabled we need to check if everything is good. 
 You need to enter first generated code from your app.
 
-### Code correct [POST]
+### HOTP app Code correct [POST]
 
 + Request (application/json)
         {
@@ -36,7 +36,7 @@ You need to enter first generated code from your app.
 
 + Response 204 (text/plain)
 
-### Wrong code [POST]
+### HOTP app Wrong code [POST]
 If app was not binded properly, first code was not accepted.
 
 + Request (application/json)
