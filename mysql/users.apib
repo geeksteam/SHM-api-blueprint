@@ -11,7 +11,7 @@ Add or edit database user if username already exist.
 
 + Request (application/json)
         {  
-		   "Username":"DBuser1",
+		   "Username":"DBU",
 		   "Password":"NewMyDBPassword",
 		   "Host":"localhost"
 		}
@@ -30,7 +30,7 @@ List all database users of current session panel user.
 + Response 200 (application/json)
 		[  
 		   {  
-		      "Username":"Testuser_DBuser1",
+		      "Username":"Testuser_DBU",
 		      "Host":"localhost",
 		      "DBs":0
 		   }
@@ -47,7 +47,7 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 + Request (application/json)
         {  
-		   "Username":"DBuser1"
+		   "Username":"DBU"
 		}
 
 + Response 204 (text/plain)
