@@ -52,9 +52,10 @@ def add_session_cookie(transaction):
 		# Check is request in USER list
 		if transaction['name'] in user_requests:
 				transaction['request']['headers']['Cookie'] = stash['user_sessID']
-				transaction['request']['headers']['User'] = 'Root'
+				transaction['request']['headers']['User'] = 'RegularUser'
 				return
 
 	# run it as ROOT by default
 	if 'root_sessID' in stash:
 			transaction['request']['headers']['Cookie'] = stash['root_sessID']
+			transaction['request']['headers']['User'] = 'Root'
