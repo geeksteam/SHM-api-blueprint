@@ -1,0 +1,95 @@
+## Add or edit template [/api/utemplates/set]
+
+Add or edit privileges template if template with that name already exists.
+
++ Attributes
+    + Name (required, string) - Template name.
+    + Modules (required, array) - List of modules which user can access.
+    + SSH (required, boolean) - Allow SSH access to the server.
+    + Limits.Diskspace (required, number) - Disk space quota in Megabytes.
+    + Limits.Traffic (required, number) -  User traffic limit.
+    + Limits.DBs (required, number) - Databases (MySQL, PgSQL, etc.) limit.
+    + Limits.DBUsers (required, number) - Databases users (MySQL, PgSQL, etc.) limit.
+    + Limits.FTPs (required, number) - FTP accounts limit.
+    + Limits.WebDomains (required, number) - Web domains limit.
+    + Limits.DNSDomains (required, number) - Limit domains in DNS server.
+    + Limits.Emails (required, number) - Maximum email boxes.
+
+### Add or edit [POST]
+
++ Request (application/json)
+        {  
+            "Name":"TestingTemplate",
+            "Modules":[  
+                "iptables",
+                "ftp",
+                "filemanager",
+                "uploads"
+            ],
+            "SSH":true,
+            "Limits":{  
+                "Diskspace":100,
+                "Traffic":101,
+                "DBs":102,
+                "DBUsers":103,
+                "FTPs":104,
+                "WebDomains":105,
+                "DNSDomains":106,
+                "Emails":107
+            }
+        }
+
++ Response 204 (text/plain)
+
+## List all privileges templates [/api/utemplates/list]
+
+Lists all existing users privileges templates.
+
++ Attributes
+    + Used (required, number) - How many users using this privileges template.
+
+### List [GET]
+
++ Response 200 (application/json)
+
+        [  
+            {  
+                "Name":"TestingTemplate",
+                "Modules":[  
+                    "iptables",
+                    "ftp",
+                    "filemanager",
+                    "uploads"
+                ],
+                "SSH":true,
+                "Limits":
+                {  
+                    "Diskspace":100,
+                    "Traffic":101,
+                    "DBs":102,
+                    "DBUsers":103,
+                    "FTPs":104,
+                    "WebDomains":105,
+                    "DNSDomains":106,
+                    "Emails":107
+                },
+                "Used":24
+            }
+        ]
+
+## Delete privileges template [/api/utemplates/del]
+
+Remove privileges template from the system. In case of some user can use removing template you must provide existing template to replace those was removing.
+
++ Attributes
+    + ReplaceBy (required, string) - Template name which replaces removing template in case of some users using it.
+
+### Delete [POST]
+
++ Request (application/json)
+        {  
+            "Name":"TestingTemplate",
+            "ReplaceBy":"SuperAdmin"
+        }
+
++ Response 204 (text/plain)

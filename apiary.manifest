@@ -8,6 +8,9 @@ auth/root.apib
 hotp/about.apib
 hotp/main.apib
 
+utemplates/about.apib
+utemplates/main.apib
+
 users/about.apib
 users/set.apib
 users/password.apib
