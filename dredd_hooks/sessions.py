@@ -23,6 +23,10 @@ user_requests = [
 stash = {}
 
 
+###
+# Hook functions
+###
+
 # Retrieve ROOT sessionID on a login
 @hooks.after('Panel Authorization > Root login > Root login success')
 def stash_root_session_id(transaction):

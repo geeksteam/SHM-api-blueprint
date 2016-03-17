@@ -1,0 +1,19 @@
+## MySQL add or edit user [/api/mysql/users/set]
+
+Add or edit database user if username already exist.
+
++ Attributes
+	+ Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
+	+ Password (required, string) - Database user password.
+	+ Host:localhost (optional, string) - Hostname  from which user can login to database.
+
+### Add or edit user [POST]
+
++ Request (application/json)
+        {  
+		   "Username":"Mark_user1",
+		   "Password":"NewMyDBPassword",
+		   "Host":"localhost"
+		}
+
++ Response 204 (text/plain)

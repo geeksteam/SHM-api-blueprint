@@ -21,10 +21,15 @@ users/del.apib
 user/about.apib
 user/main.apib
 
+mysql/about.apib
+mysql/users.apib
+mysql/dbs.apib
+mysql/import.apib
+mysql/export.apib
+
 sessions/about.apib
 sessions/root.apib
 sessions/user.apib
 sessions/domains.apib
 
 logout/about.apib
-
