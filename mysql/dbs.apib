@@ -41,3 +41,22 @@ List all panel user databases.
 		      }
 		   }
 		]
+## MySQL Delete Databases [/api/mysql/db/del]
+
+Remove databases.
+
+### Remove databases [POST]
+
++ Response 200 (application/json)
+		[  
+		   {  
+		      "DbName":"DBOne",
+		      "DbUser":"RegularUser_DBUser1",
+		      "Size":999,
+		      "Tables":111,
+		      "Host":"localhost",
+		      "Privileges":{   
+		            "Delete_priv":true
+		      }
+		   }
+		]
