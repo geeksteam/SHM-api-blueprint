@@ -47,8 +47,17 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 + Request (application/json)
         {  
-		   "Username":"DBuser1",
-		   "ReplaceBy":"DBuser2"
+		   "Username":"DBuser1"
 		}
 
 + Response 204 (text/plain)
+
+### Delete user error [POST]
+If no such db user found we got an error.
+
++ Request (application/json)
+        {  
+		   "Username":"DBuser2"
+		}
+
++ Response 500 (application/json)
