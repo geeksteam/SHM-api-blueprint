@@ -47,10 +47,12 @@ def add_session_cookie(transaction):
 		# Check is request GROUP in USER list
 		if transaction['origin']['resourceGroupName'] in user_group_requests:
 				transaction['request']['headers']['Cookie'] = stash['user_sessID']
+				transaction['request']['headers']['User'] = 'RegularUser'
 				return
 		# Check is request in USER list
 		if transaction['name'] in user_requests:
 				transaction['request']['headers']['Cookie'] = stash['user_sessID']
+				transaction['request']['headers']['User'] = 'Root'
 				return
 
 	# run it as ROOT by default
