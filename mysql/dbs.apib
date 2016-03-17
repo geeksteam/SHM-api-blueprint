@@ -1,0 +1,47 @@
+## MySQL Add or Edit Databases [/api/mysql/dbs/set]
+
+Add or edit database for database user.
+
++ Attributes
+	+ DbName (required, string) - Database name.
+	+ DbUser (required, string) - Database user owner for new database.
+	+ Host:localhost (optional, string) - Hostname  from which user can login to database.
+	+ Privileges (optional, object) - Database priveleges for user.
+
+### Add or edit database [POST]
+
++ Request (application/json)
+        {  
+		   "DbName":"DbOne",
+		   "DbUser":"DBUser1",
+		   "Host":"localhost",
+		   "Privileges":[  
+		      {  
+		         "Delete_priv":true
+		      }
+		   ]
+		}
+
++ Response 204 (text/plain)
+
+## MySQL List Databases [/api/mysql/dbs/list]
+
+List all panel user databases.
+
+### List all databases [GET]
+
++ Response 200 (application/json)
+		[  
+		   {  
+		      "DbName":"DBOne",
+		      "DbUser":"RegularUser_DBUser1",
+		      "Size":999,
+		      "Tables":111,
+		      "Host":"localhost",
+		      "Privileges":[  
+		         {  
+		            "Delete_priv":true
+		         }
+		      ]
+		   }
+		]

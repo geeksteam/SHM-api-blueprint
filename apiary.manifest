@@ -23,6 +23,7 @@ user/main.apib
 
 mysql/about.apib
 mysql/users.apib
+mysql/dbs.apib
 
 pgsql/about.apib
 pgsql/users.apib
