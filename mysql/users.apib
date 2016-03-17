@@ -1,4 +1,4 @@
-## MySQL add or edit user [/api/mysql/users/set]
+## Modifying MySQL users [/api/mysql/users/set]
 
 Add or edit database user if username already exist.
 
@@ -14,6 +14,41 @@ Add or edit database user if username already exist.
 		   "Username":"Mark_user1",
 		   "Password":"NewMyDBPassword",
 		   "Host":"localhost"
+		}
+
++ Response 204 (text/plain)
+
+## Get all MySQL users  [/api/mysql/users/list]
+
+List all database users of current session panel user.
+
++ Attributes
+	+ DBs (required, number) - Number of user's databases. 
+
+### List users [GET]
+
++ Response 200 (application/json)
+		[  
+		   {  
+		      "Username":"Mark_user1",
+		      "Host":"localhost",
+		      "DBs":0
+		   }
+		]
+
+## Removing MySQL users [/api/mysql/users/del]
+
+Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases not be deleted, they transfered to DB username in request instead.
+
++ Attributes
+	+ ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
+
+### Delete user [POST]
+
++ Request (application/json)
+        {  
+		   "Username":"Mark_user1",
+		   "ReplaceBy":"Den_8b2vd"
 		}
 
 + Response 204 (text/plain)

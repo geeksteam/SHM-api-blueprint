@@ -11,6 +11,7 @@ import dredd_hooks as hooks
 #
 user_group_requests = [
         'User defined settings',
+        'MySQL',
     ]
 # List of REQUESTS that must be run from USER
 #
