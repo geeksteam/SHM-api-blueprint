@@ -13,6 +13,11 @@ Dump MySQL databse and send it.
 		}
 
 + Response 200 (text/plain)
+	+ Headers
+		content-disposition: attachment;
+
 	+ Body
-        ---BOUNDARY
-        Content-Disposition: attachment; name="DbOne.sql"
+	        ---BOUNDARY
+	        Content-Disposition: attachment; name="DbOne.sql"
+
+	        ---BOUNDARY--
