@@ -23,6 +23,7 @@ List all uploaded files of current user session.
     + Filename (required, string) - Original filename.
     + TmpFilename (required, string) - Temporary filename to operate it by the panel.
     + Created (required,string) - Date time of file upload creation.
+    + Size (required, number) - Size in bytes.
 
 ### List [GET]
 
@@ -31,7 +32,8 @@ List all uploaded files of current user session.
             {
                 "Filename":    "backup.sql",
                 "TmpFilename": "max_h8762h",
-                "Created":     "2015-09-12 12:45:32"
+                "Created":     "2015-09-12 12:45:32",
+                "Size": 999
             }
         ]
 
