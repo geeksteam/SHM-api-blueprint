@@ -21,6 +21,9 @@ users/del.apib
 user/about.apib
 user/main.apib
 
+uploads/about.apib
+uploads/main.apib
+
 mysql/about.apib
 mysql/users.apib
 mysql/dbs.apib
