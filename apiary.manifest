@@ -27,10 +27,14 @@ uploads/main.apib
 mysql/about.apib
 mysql/users.apib
 mysql/dbs.apib
+mysql/import.apib
 mysql/export.apib
 
 pgsql/about.apib
 pgsql/users.apib
+pgsql/dbs.apib
+pgsql/import.apib
+pgsql/export.apib
 
 sessions/about.apib
 sessions/root.apib
