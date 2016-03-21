@@ -1,0 +1,44 @@
+## Add or Edit FTP account [/api/pftpd/set]
+
+Add or edit FTP accounts.
+
++ Attributes
+	+ Login (required, string) - FTP account login name.
+	+ Password (required, string) - FTP account password.
+	+ Dir (required, string) - FTP directory path related to current user's homedir.
+
+### Add or edit FTP [POST]
+
++ Request (application/json)
+		{
+        "Login":     "FTP1",
+        "Password" : "FTPPassword",
+        "Dir":       "ftpdir"
+        }
+
++ Response 204 (text/plain)
+
+## List FTP accounts [/api/pftpd/list]
+
+List all user's FTP account.
+
+### List all databases [GET]
+
++ Response 200 (application/json)
+		{  
+		   "RegularUser_FTP1": {
+            "User": "RegularUser",
+            "Dir":  "/ftpdir"
+        	}
+        }
+
+## Remove FTP accounts [/api/pftpd/del]
+
+Remove FTP accounts
+
+### List all databases [POST]
+
++ Request (application/json)
+		["FTP1"]
+
++ Response 204 (text/plain)

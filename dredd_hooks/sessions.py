@@ -13,6 +13,7 @@ user_group_requests = [
         'User defined settings',
         'MySQL',
         'PgSQL',
+        'FTP accounts',
     ]
 # List of REQUESTS that must be run from USER
 #
