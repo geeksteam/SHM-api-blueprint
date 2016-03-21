@@ -44,4 +44,7 @@ sessions/domains.apib
 pftpd/about.apib
 pftpd/main.apib
 
+email/about.apib
+email/main.apib
+
 logout/about.apib

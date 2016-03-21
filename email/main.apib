@@ -1,0 +1,60 @@
+## Add or Edit Email box [/api/email/set]
+
+Add new or edit existent email box.
+
++ Attributes
+	+ Email (required, string) - Email box name.
+	+ Alias (required, string) - Box aliases.
+	+ Size (required, number) - Box size limit in megabytes. Zero is unlimited.
+	+ Password (required, string) - Password of the box.
+	+ Username (optional, string) - Owner of the box. Only `root` can set this parameter.
+
+### Add or edit Email box [POST]
+
++ Request (application/json)
+		{  
+		   "Email":"test@test.com",
+		   "Alias":"kmsddf@mail.ru",
+		   "Size":123,
+		   "Password":"bc861g23d"
+		}
+
++ Response 204 (text/plain)
+
+## List Email boxes [/api/email/list]
+
+List all email boxes.
+
+### List email boxes[GET]
+
++ Response 200 (application/json)
+		[  
+		   {  
+		      "Email":"test@test.com",
+		      "Size":123,
+		      "Username":"regularUser",
+		      "Mbox":"/var/mail/test.com/test",
+		      "Alias":"kms@mail.ru",
+		      "DKIM":false
+		   }
+		]
+
+## Remove Email boxes [/api/email/del]
+
+Remove Email box.
+
+### Remove Email box [POST]
+
++ Request (application/json)
+		["test@test.com"]
+
++ Response 204 (text/plain)
+
+### Remove non existent emailbox [POST]
+
++ Request (application/json)
+		["testNotExistent@test.com"]
+
++ Response 500 (application/json)
+		{
+		}
