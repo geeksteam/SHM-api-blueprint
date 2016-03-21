@@ -15,6 +15,7 @@ user_group_requests = [
         'PgSQL',
         'FTP accounts',
         'Email boxes',
+        'DKIM',
     ]
 # List of REQUESTS that must be run from USER
 #

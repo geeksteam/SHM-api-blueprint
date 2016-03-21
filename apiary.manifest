@@ -47,4 +47,7 @@ pftpd/main.apib
 email/about.apib
 email/main.apib
 
+dkim/about.apib
+dkim/main.apib
+
 logout/about.apib
