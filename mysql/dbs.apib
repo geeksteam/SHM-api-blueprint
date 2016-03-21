@@ -16,11 +16,13 @@ Add or edit database for database user.
 		   "DbUsers":[ 
 		   		{
 	   			"DBUser1": {
-	   				"Delete_priv":true
-	   				}
+	   				"Privileges":{
+	   					"Delete_priv":true
+	   					}
+	   				},
+	   				"Host":"localhost"
 				}
-		   	],
-		   "Host":"localhost"
+		   	]
 		}
 
 + Response 204 (text/plain)
@@ -34,17 +36,19 @@ List all panel user databases.
 + Response 200 (application/json)
 		[  
 		   {  
-		      "DbName":"DBOne",
-		      "DbUsers":[ 
-			   		{
-		   			"DBUser1": {
-		   				"Delete_priv":true
-		   				}
-					}
-		   		],
+			"DbName":"DBOne",
+			"DbUsers":[ 
+				{
+				"DBUser1": {
+					"Privileges":{
+						"Delete_priv":true
+						}
+					},
+					"Host":"localhost"
+				}
+		   	],
 		      "Size":999,
-		      "Tables":111,
-		      "Host":"localhost"
+		      "Tables":111
 		   }
 		]
 ## MySQL Delete Databases [/api/mysql/db/del]
