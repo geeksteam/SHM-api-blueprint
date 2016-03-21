@@ -14,6 +14,7 @@ user_group_requests = [
         'MySQL',
         'PgSQL',
         'FTP accounts',
+        'Email boxes',
     ]
 # List of REQUESTS that must be run from USER
 #
