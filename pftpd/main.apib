@@ -34,11 +34,20 @@ List all user's FTP account.
 
 ## Remove FTP accounts [/api/pftpd/del]
 
-Remove FTP accounts
+Remove FTP accounts.
 
-### List all databases [POST]
+### Remove ftp account [POST]
 
 + Request (application/json)
 		["FTP1"]
 
 + Response 204 (text/plain)
+
+### Remove non existent ftp account [POST]
+
++ Request (application/json)
+		["FTPNotExist"]
+
++ Response 500 (application/json)
+		{
+		}
