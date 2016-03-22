@@ -2,9 +2,7 @@ import dredd_hooks as hooks
 
 #
 # List of requests NAMEs to skip
-skip_groups = [
-		'MySQL',
-	]
+skip_groups = []
 
 #
 # List of requests NAMEs to skip
