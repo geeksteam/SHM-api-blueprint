@@ -2,6 +2,12 @@ import dredd_hooks as hooks
 
 #
 # List of requests NAMEs to skip
+skip_groups = [
+		'MySQL',
+	]
+
+#
+# List of requests NAMEs to skip
 skip_requests = [
 		'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
@@ -12,6 +18,10 @@ skip_requests = [
 # Skip requests
 @hooks.before_each
 def skip_requests_func(transaction):
+	# Check is request GROUP in SKIP list
+	if transaction['origin']['resourceGroupName'] in skip_groups:
+		transaction['skip'] = True
+	# Check for request
 	if transaction['name'] in skip_requests:
 		transaction['skip'] = True
 
