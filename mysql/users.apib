@@ -8,11 +8,12 @@ Add or edit database user if username already exist.
   + Host:localhost (optional, string) - Hostname  from which user can login to database.
 
 + Request (application/json)
+
         {  
-       "Username":"DBU",
-       "Password":"NewMyDBPassword",
-       "Host":"localhost"
-    }
+           "Username":"DBU",
+           "Password":"NewMyDBPassword",
+           "Host":"localhost"
+        }
 
 + Response 204 (text/plain)
 
@@ -24,13 +25,14 @@ List all database users of current session panel user.
   + DBs (required, number) - Number of user's databases. 
 
 + Response 200 (application/json)
-    [  
-       {  
-          "Username":"Testuser_DBU",
-          "Host":"localhost",
-          "DBs":0
-       }
-    ]
+
+        [  
+           {  
+              "Username":"Testuser_DBU",
+              "Host":"localhost",
+              "DBs":0
+           }
+        ]
 
 ## Removing MySQL users [/api/mysql/users/del]
 
@@ -42,9 +44,10 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 ### Delete user [POST]
 
 + Request (application/json)
+
         {  
-       "Username":"DBU"
-    }
+        "Username":"DBU"
+        }
 
 + Response 204 (text/plain)
 
@@ -53,9 +56,11 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 If no such db user found we got an error.
 
 + Request (application/json)
+
         {  
-       "Username":"DBuser2"
-    }
+        "Username":"DBuser2"
+        }
 
 + Response 500 (application/json)
-    { }
+
+        { }

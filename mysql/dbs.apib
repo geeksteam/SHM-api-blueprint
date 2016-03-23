@@ -9,7 +9,8 @@ Add or edit database for database user.
   + Privileges (optional, object) - Database priveleges for user.
 
 + Request (application/json)
-        {  
+
+    {  
        "DbName":"DbOne",
        "DbUsers":[ 
            {
@@ -30,6 +31,7 @@ Add or edit database for database user.
 List all panel user databases.
 
 + Response 200 (application/json)
+
     [  
        {  
       "DbName":"DBOne",
@@ -52,8 +54,10 @@ List all panel user databases.
 Remove databases listed in request.
 
 + Request (application/json)
-        [  
+
+    [
        "DbOne"
     ]
 
 + Response 204 (text/plain)
+
