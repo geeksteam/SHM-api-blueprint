@@ -1,4 +1,4 @@
-## Modifying MySQL users [/api/mysql/users/set]
+## Modifying MySQL users [POST /api/mysql/users/set]
 
 Add or edit database user if username already exist.
 
@@ -6,8 +6,6 @@ Add or edit database user if username already exist.
 	+ Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
 	+ Password (required, string) - Database user password.
 	+ Host:localhost (optional, string) - Hostname  from which user can login to database.
-
-### Add or edit user [POST]
 
 + Request (application/json)
         {  
@@ -18,14 +16,12 @@ Add or edit database user if username already exist.
 
 + Response 204 (text/plain)
 
-## Get all MySQL users  [/api/mysql/users/list]
+## Get all MySQL users  [GET /api/mysql/users/list]
 
 List all database users of current session panel user.
 
 + Attributes
 	+ DBs (required, number) - Number of user's databases. 
-
-### List users [GET]
 
 + Response 200 (application/json)
 		[  
