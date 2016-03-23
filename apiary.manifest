@@ -29,11 +29,13 @@ uploads/main.apib
 webdomains/about.apib
 webdomains/main.apib
 
-mysql/about.apib
-mysql/users.apib
-mysql/dbs.apib
-mysql/import.apib
-mysql/export.apib
+mysql-users/about.apib
+mysql-users/main.apib
+
+mysql-dbs/about.apib
+mysql-dbs/main.apib
+mysql-dbs/import.apib
+mysql-dbs/export.apib
 
 pgsql/about.apib
 pgsql/users.apib

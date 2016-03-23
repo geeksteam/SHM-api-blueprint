@@ -1,4 +1,4 @@
-## Modifying MySQL users [POST /api/mysql/users/set]
+## Modifying users [POST /api/mysql/users/set]
 
 Add or edit database user if username already exist.
 
@@ -17,9 +17,9 @@ Add or edit database user if username already exist.
 
 + Response 204 (text/plain)
 
-## Get all MySQL users  [GET /api/mysql/users/list]
+## Get all users  [GET /api/mysql/users/list]
 
-List all database users of current session panel user.
+List all database users owned by the current session panel user.
 
 + Attributes
   + DBs (required, number) - Number of user's databases. 
@@ -34,7 +34,7 @@ List all database users of current session panel user.
            }
         ]
 
-## Removing MySQL users [POST /api/mysql/users/del]
+## Removing users [POST /api/mysql/users/del]
 
 Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases not be deleted, they transfered to DB username in request instead.
 

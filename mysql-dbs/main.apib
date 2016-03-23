@@ -1,12 +1,12 @@
-## MySQL Add or Edit Databases [POST /api/mysql/db/set]
+## Modifying Databases [POST /api/mysql/db/set]
 
-Add or edit database for database user.
+Add or edit database (if database with the same name already exists) for database user.
 
 + Attributes
   + DbName (required, string) - Database name.
   + DbUsers (required, array) - Database users owners.
   + Host:localhost (optional, string) - Hostname  from which user can login to database.
-  + Privileges (optional, object) - Database priveleges for user.
+  + Privileges (optional, object) - Database privileges for user.
 
 + Request (application/json)
 
@@ -26,9 +26,9 @@ Add or edit database for database user.
 
 + Response 204 (text/plain)
 
-## MySQL List Databases [GET /api/mysql/db/list]
+## List Databases [GET /api/mysql/db/list]
 
-List all panel user databases.
+List all panel user databases and they owners.
 
 + Response 200 (application/json)
 
@@ -49,7 +49,7 @@ List all panel user databases.
        }
     ]
 
-## MySQL Delete Databases [POST /api/mysql/db/del]
+## Delete Databases [POST /api/mysql/db/del]
 
 Remove databases listed in request.
 
