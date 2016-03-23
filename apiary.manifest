@@ -1,4 +1,6 @@
+
 intro.apib
+structs.apib
 
 auth/about.apib
 auth/user.apib
