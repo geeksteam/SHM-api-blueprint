@@ -12,7 +12,8 @@ import dredd_hooks as hooks
 user_group_requests = [
         'User defined settings',
         'Web Domains',
-        'MySQL',
+        'MySQL Users',
+        'MySQL Databases',
         'PgSQL',
         'FTP accounts',
         'Email boxes',

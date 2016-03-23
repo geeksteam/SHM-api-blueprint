@@ -41,7 +41,7 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 + Attributes
   + ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
 
-+ Request Delete user (application/json)
++ Request (application/json)
 
         {  
         "Username":"DBU"
@@ -49,8 +49,9 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 + Response 204 (text/plain)
 
+## Removing non existent user [POST /api/mysql/users/del]
 
-+ Request Delete user error (application/json)
++ Request (application/json)
 
         {  
         "Username":"DBuser2"
