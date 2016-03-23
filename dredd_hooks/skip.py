@@ -10,6 +10,8 @@ skip_requests = [
 		'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
 		'File uploads > Upload file in temporary storage > Upload file',
+		'MySQL Databases > Export database > Export database',
+		'PgSQL Databases > Export database > Export database',
 	]
 
 

@@ -1,12 +1,10 @@
-## PgSQL Add or Edit Databases [/api/pgsql/db/set]
+## Add or Edit Databases [POST /api/pgsql/db/set]
 
 Add or edit database for database user.
 
 + Attributes
   + DbName (required, string) - Database name.
   + DbUser (required, string) - Database user owner for new database.
-
-### Add or edit database [POST]
 
 + Request (application/json)
         {  
@@ -16,11 +14,9 @@ Add or edit database for database user.
 
 + Response 204 (text/plain)
 
-## PgSQL List Databases [/api/pgsql/db/list]
+## List Databases [GET /api/pgsql/db/list]
 
 List all panel user databases.
-
-### List all databases [GET]
 
 + Response 200 (application/json)
     [  
@@ -31,11 +27,9 @@ List all panel user databases.
           "Tables":111
        }
     ]
-## PgSQL Delete Databases [/api/pgsql/db/del]
+## PgSQL Delete Databases [POST /api/pgsql/db/del]
 
 Remove databases which names in the list of request.
-
-### Remove databases [POST]
 
 + Request (application/json)
         [  

@@ -37,11 +37,13 @@ mysql-dbs/main.apib
 mysql-dbs/import.apib
 mysql-dbs/export.apib
 
-pgsql/about.apib
-pgsql/users.apib
-pgsql/dbs.apib
-pgsql/import.apib
-pgsql/export.apib
+pgsql-users/about.apib
+pgsql-users/main.apib
+
+pgsql-dbs/about.apib
+pgsql-dbs/main.apib
+pgsql-dbs/import.apib
+pgsql-dbs/export.apib
 
 sessions/about.apib
 sessions/root.apib
