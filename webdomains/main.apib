@@ -3,32 +3,32 @@
 Add new or edit web domain.
 
 + Attributes
-	+ Domain (required, string) - Web domain name.
-	+ Alias (required, string) - Domain aliases.
-	+ IP (required, string) - IP address to bind web domain.
-	+ IndexFile (required, string) - Index file.
-	+ Encoding (required, string) - Encoding for the files.
-	+ Subdomains (required, boolean) - Auto subdomains.
-	+ PHP (required, boolean) - PHP interpreter.
-	+ DNS (required, boolean) - Add domain to DNS server too.
-	+ SSL (required, boolean) - HTTPS support.
-	+ Analytics (required, boolean) - Domain analytics.
+  + Domain (required, string) - Web domain name.
+  + Alias (required, string) - Domain aliases.
+  + IP (required, string) - IP address to bind web domain.
+  + IndexFile (required, string) - Index file.
+  + Encoding (required, string) - Encoding for the files.
+  + Subdomains (required, boolean) - Auto subdomains.
+  + PHP (required, boolean) - PHP interpreter.
+  + DNS (required, boolean) - Add domain to DNS server too.
+  + SSL (required, boolean) - HTTPS support.
+  + Analytics (required, boolean) - Domain analytics.
 
 ### Add new or edit web domain [POST]
 
 + Request (application/json)
-		{  
-		   "Domain":"test.com",
-		   "Alias":"www.test.com site.test.com",
-		   "Ip":"93.183.203.13",
-		   "IndexFile":"index.html",
-		   "Encoding":"utf8",
-		   "Subdomains":true,
-		   "PHP":true,
-		   "DNS":true,
-		   "SSL":true,
-		   "Analytics":true
-		}
+    {  
+       "Domain":"test.com",
+       "Alias":"www.test.com site.test.com",
+       "Ip":"93.183.203.13",
+       "IndexFile":"index.html",
+       "Encoding":"utf8",
+       "Subdomains":true,
+       "PHP":true,
+       "DNS":true,
+       "SSL":true,
+       "Analytics":true
+    }
 
 + Response 204 (text/plain)
 
@@ -40,47 +40,47 @@ Disabled domains will not be served from webserver.
 ### Toggle active web domains [POST]
 
 + Request (application/json)
-		[  
-		   "test.com"
-		]
+    [  
+       "test.com"
+    ]
 
 + Response 204 (text/plain)
 
 ### Toggle non existent web domain [POST]
 
 + Request (application/json)
-		[  
-		   "notExistingDomain.com"
-		]
+    [  
+       "notExistingDomain.com"
+    ]
 
 + Response 500 (application/json)
-		{
-		}
+    {
+    }
 
 ## List all web domains [/api/webdomains/list]
 
 List all web domains of current user.
 
 + Attributes
-	+ Active (required, boolean) - Is domain active.
-	+ Apache (required, object) - Apache config parameters.
-	+ Nginx (required, object) - Nginx config parameters.
+  + Active (required, boolean) - Is domain active.
+  + Apache (required, object) - Apache config parameters.
+  + Nginx (required, object) - Nginx config parameters.
 
 ### List web domains [GET]
 
 + Response 200 (application/json)
-		[  
-		   {  
-			   "test.com":{  
-			      "Active":true,
-			      "Owner":"regular_User",
-			      "Apache":{},
-			      "Nginx":{  
-			         "ssl":"on"
-			      }
-			   }
-			}
-		]
+    [  
+       {  
+         "test.com":{  
+            "Active":true,
+            "Owner":"regular_User",
+            "Apache":{},
+            "Nginx":{  
+               "ssl":"on"
+            }
+         }
+      }
+    ]
 
 ## Remove web domains [/api/webdomains/del]
 
@@ -89,19 +89,19 @@ Remove web domains.
 ### Remove web domains [POST]
 
 + Request (application/json)
-		[  
-		   "test.com"
-		]
+    [  
+       "test.com"
+    ]
 
 + Response 204 (text/plain)
 
 ### Remove non existent web domain [POST]
 
 + Request (application/json)
-		[  
-		   "notExistingDomain.com"
-		]
+    [  
+       "notExistingDomain.com"
+    ]
 
 + Response 500 (application/json)
-		{
-		}
+    {
+    }

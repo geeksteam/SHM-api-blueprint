@@ -3,16 +3,16 @@
 Dump MySQL databse and send it.
 
 + Attributes
-	+ Database (required, string) - Database name to dump.
+  + Database (required, string) - Database name to dump.
 
 + Request (application/json)
         {  
-		   "Dbname":"DbExport"
-		}
+       "Dbname":"DbExport"
+    }
 
 + Response 200 (text/plain)
-	+ Headers
-		content-disposition: attachment;
-	+ Body
-		-- MySQL dump 
-		-- Dump completed on 
+  + Headers
+    content-disposition: attachment;
+  + Body
+    -- MySQL dump 
+    -- Dump completed on 

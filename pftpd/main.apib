@@ -3,15 +3,15 @@
 Add or edit FTP accounts.
 
 + Attributes
-	+ UserID (required, string) - FTP account login name.
-	+ Password (required, string) - FTP account password.
-	+ User (optional, string) - Panel user which owns FTP account. Only `root` can set User.
-	+ Homedir (required, string) - FTP directory path related to current user's homedir.
+  + UserID (required, string) - FTP account login name.
+  + Password (required, string) - FTP account password.
+  + User (optional, string) - Panel user which owns FTP account. Only `root` can set User.
+  + Homedir (required, string) - FTP directory path related to current user's homedir.
 
 ### Add or edit FTP [POST]
 
 + Request (application/json)
-		{
+    {
         "UserID":     "FTP1",
         "Password" : "FTPPassword",
         "Homedir":       "ftpdir"
@@ -26,9 +26,9 @@ List all user's FTP account.
 ### List all databases [GET]
 
 + Response 200 (application/json)
-		[
-		{  
-		   "UserID":"RegularUser_FTP1",
+    [
+    {  
+       "UserID":"RegularUser_FTP1",
            "Homedir":  "/ftpdir"
         }
         ]
@@ -40,15 +40,15 @@ Remove FTP accounts.
 ### Remove ftp account [POST]
 
 + Request (application/json)
-		["FTP1"]
+    ["FTP1"]
 
 + Response 204 (text/plain)
 
 ### Remove non existent ftp account [POST]
 
 + Request (application/json)
-		["FTPNotExist"]
+    ["FTPNotExist"]
 
 + Response 500 (application/json)
-		{
-		}
+    {
+    }

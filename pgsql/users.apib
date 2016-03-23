@@ -3,16 +3,16 @@
 Add or edit database user if username already exist.
 
 + Attributes
-	+ Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
-	+ Password (required, string) - Database user password.
+  + Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
+  + Password (required, string) - Database user password.
 
 ### Add or edit user [POST]
 
 + Request (application/json)
         {  
-		   "Username":"DBuser1",
-		   "Password":"NewMyDBPassword"
-		}
+       "Username":"DBuser1",
+       "Password":"NewMyDBPassword"
+    }
 
 + Response 204 (text/plain)
 
@@ -21,30 +21,30 @@ Add or edit database user if username already exist.
 List all database users of current session panel user.
 
 + Attributes
-	+ DBs (required, number) - Number of user's databases. 
+  + DBs (required, number) - Number of user's databases. 
 
 ### List users [GET]
 
 + Response 200 (application/json)
-		[  
-		   {  
-		      "Username":"Testuser_DBuser1",
-		      "DBs":99
-		   }
-		]
+    [  
+       {  
+          "Username":"Testuser_DBuser1",
+          "DBs":99
+       }
+    ]
 
 ## Removing PgSQL users [/api/pgsql/users/del]
 
 Removing PgSQL user and all him databases. If `ReplaceBy` parameter, databases not be deleted, they transfered to DB username in request instead.
 
 + Attributes
-	+ ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
+  + ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
 
 ### Delete user [POST]
 
 + Request (application/json)
         {  
-		   "Username":"DBuser1"
-		}
+       "Username":"DBuser1"
+    }
 
 + Response 204 (text/plain)

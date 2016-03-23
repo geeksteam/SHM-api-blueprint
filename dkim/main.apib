@@ -3,14 +3,14 @@
 Generates new DKIM key for domain and add it to EXIM and DNS record. If DKIM already exists it will be overwritten.
 
 + Attributes
-	+ Domain (required, string) - Domain name to generate.
+  + Domain (required, string) - Domain name to generate.
 
 ### Generate new DKIM [POST]
 
 + Request (application/json)
-		{  
-		   "Domain":"test.com"
-		}
+    {  
+       "Domain":"test.com"
+    }
 
 + Response 204 (text/plain)
 
@@ -19,21 +19,21 @@ Generates new DKIM key for domain and add it to EXIM and DNS record. If DKIM alr
 Getting public and private DKIM keys for domain in request.
 
 + Attributes
-	+ Public (required, string) - Public DKIM key.
-	+ Private (required, string) - Private DKIM key.
+  + Public (required, string) - Public DKIM key.
+  + Private (required, string) - Private DKIM key.
 
 ### Get DKIM key [POST]
 
 + Request (application/json)
-		{  
-		   "Domain":"test.com"
-		}
+    {  
+       "Domain":"test.com"
+    }
 
 + Response 200 (application/json)
-		{  
-	      "Public":"public_key",
-	      "Private":"private_key"
-		}
+    {  
+        "Public":"public_key",
+        "Private":"private_key"
+    }
 
 ## Remove DKIM key from domain [/api/dkim/del]
 
@@ -42,15 +42,15 @@ Remove DKIM keys from domain(s).
 ### Remove DKIM keys [POST]
 
 + Request (application/json)
-		["test.com"]
+    ["test.com"]
 
 + Response 204 (text/plain)
 
 ### Remove non existent DKIM key [POST]
 
 + Request (application/json)
-		["notExisting.com"]
+    ["notExisting.com"]
 
 + Response 500 (application/json)
-		{
-		}
+    {
+    }

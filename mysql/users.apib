@@ -3,16 +3,16 @@
 Add or edit database user if username already exist.
 
 + Attributes
-	+ Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
-	+ Password (required, string) - Database user password.
-	+ Host:localhost (optional, string) - Hostname  from which user can login to database.
+  + Username (required, string) - Database username. Prefix must be panel user name, and append in GUI before request.
+  + Password (required, string) - Database user password.
+  + Host:localhost (optional, string) - Hostname  from which user can login to database.
 
 + Request (application/json)
         {  
-		   "Username":"DBU",
-		   "Password":"NewMyDBPassword",
-		   "Host":"localhost"
-		}
+       "Username":"DBU",
+       "Password":"NewMyDBPassword",
+       "Host":"localhost"
+    }
 
 + Response 204 (text/plain)
 
@@ -21,30 +21,30 @@ Add or edit database user if username already exist.
 List all database users of current session panel user.
 
 + Attributes
-	+ DBs (required, number) - Number of user's databases. 
+  + DBs (required, number) - Number of user's databases. 
 
 + Response 200 (application/json)
-		[  
-		   {  
-		      "Username":"Testuser_DBU",
-		      "Host":"localhost",
-		      "DBs":0
-		   }
-		]
+    [  
+       {  
+          "Username":"Testuser_DBU",
+          "Host":"localhost",
+          "DBs":0
+       }
+    ]
 
 ## Removing MySQL users [/api/mysql/users/del]
 
 Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases not be deleted, they transfered to DB username in request instead.
 
 + Attributes
-	+ ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
+  + ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
 
 ### Delete user [POST]
 
 + Request (application/json)
         {  
-		   "Username":"DBU"
-		}
+       "Username":"DBU"
+    }
 
 + Response 204 (text/plain)
 
@@ -53,8 +53,8 @@ If no such db user found we got an error.
 
 + Request (application/json)
         {  
-		   "Username":"DBuser2"
-		}
+       "Username":"DBuser2"
+    }
 
 + Response 500 (application/json)
-		{ }
+    { }

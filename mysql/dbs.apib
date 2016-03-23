@@ -3,25 +3,25 @@
 Add or edit database for database user.
 
 + Attributes
-	+ DbName (required, string) - Database name.
-	+ DbUsers (required, array) - Database users owners.
-	+ Host:localhost (optional, string) - Hostname  from which user can login to database.
-	+ Privileges (optional, object) - Database priveleges for user.
+  + DbName (required, string) - Database name.
+  + DbUsers (required, array) - Database users owners.
+  + Host:localhost (optional, string) - Hostname  from which user can login to database.
+  + Privileges (optional, object) - Database priveleges for user.
 
 + Request (application/json)
         {  
-		   "DbName":"DbOne",
-		   "DbUsers":[ 
-		   		{
-	   			"DBUser1": {
-	   				"Privileges":{
-	   					"Delete_priv":true
-	   					}
-	   				},
-	   				"Host":"localhost"
-				}
-		   	]
-		}
+       "DbName":"DbOne",
+       "DbUsers":[ 
+           {
+           "DBUser1": {
+             "Privileges":{
+               "Delete_priv":true
+               }
+             },
+             "Host":"localhost"
+        }
+         ]
+    }
 
 + Response 204 (text/plain)
 
@@ -30,29 +30,29 @@ Add or edit database for database user.
 List all panel user databases.
 
 + Response 200 (application/json)
-		[  
-		   {  
-			"DbName":"DBOne",
-			"Grants":[ 
-				{
-				 	"Username": "DbUSer1",
-        			"Host": "localhost",
-        			"Privileges":{
-        				"Create_priv": false
-        			}
-				}
-		   	],
-		      "Size":999,
-		      "Tables":111
-		   }
-		]
+    [  
+       {  
+      "DbName":"DBOne",
+      "Grants":[ 
+        {
+           "Username": "DbUSer1",
+              "Host": "localhost",
+              "Privileges":{
+                "Create_priv": false
+              }
+        }
+         ],
+          "Size":999,
+          "Tables":111
+       }
+    ]
 ## MySQL Delete Databases [POST /api/mysql/db/del]
 
 Remove databases listed in request.
 
 + Request (application/json)
         [  
-		   "DbOne"
-		]
+       "DbOne"
+    ]
 
 + Response 204 (text/plain)
