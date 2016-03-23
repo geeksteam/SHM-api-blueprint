@@ -1,11 +1,11 @@
 import dredd_hooks as hooks
 
 #
-# List of requests NAMEs to skip
+# List of GROUPS to skip
 skip_groups = []
 
 #
-# List of requests NAMEs to skip
+# List of REQUESTS to skip
 skip_requests = [
 		'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
