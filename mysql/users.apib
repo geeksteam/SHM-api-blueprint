@@ -34,12 +34,14 @@ List all database users of current session panel user.
            }
         ]
 
-## Removing MySQL users [POST /api/mysql/users/del]
+## Removing MySQL users [/api/mysql/users/del]
 
 Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases not be deleted, they transfered to DB username in request instead.
 
 + Attributes
   + ReplaceBy (required, string) - Database username to transfer all databases from removing database user.
+
+### Delete user [POST]
 
 + Request (application/json)
 
@@ -48,3 +50,16 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
         }
 
 + Response 204 (text/plain)
+
+### Delete user error [POST]
+
+If no such db user found we got an error.
+
++ Request (application/json)
+
+        {  
+        "Username":"DBuser2"
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
