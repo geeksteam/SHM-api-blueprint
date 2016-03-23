@@ -68,18 +68,17 @@ List all web domains of current user.
 ### List web domains [GET]
 
 + Response 200 (application/json)
-    [  
-       {  
-         "testDomain.com":{  
-            "Active":true,
-            "Owner":"regular_User",
-            "Apache":{},
-            "Nginx":{  
-               "ssl":"on"
-            }
-         }
+
+      {  
+       "testDomain.com":{  
+          "Active":true,
+          "Owner":"regular_User",
+          "Apache":{},
+          "Nginx":{  
+             "ssl":"on"
+          }
+       }
       }
-    ]
 
 ## Remove web domains [/api/webdomains/del]
 
