@@ -9,7 +9,7 @@ skip_groups = []
 skip_requests = [
 		'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
-		#'File uploads > Upload file in temporary storage > Upload file',
+		'File uploads > Upload file in temporary storage > Upload file',
 	]
 
 

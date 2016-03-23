@@ -37,14 +37,13 @@ List all panel user databases.
 		[  
 		   {  
 			"DbName":"DBOne",
-			"DbUsers":[ 
+			"Grants":[ 
 				{
-				"DBUser1": {
-					"Privileges":{
-						"Delete_priv":true
-						}
-					},
-					"Host":"localhost"
+				 	"Username": "DbUSer1",
+        			"Host": "localhost",
+        			"Privileges":{
+        				"Create_priv": false
+        			}
 				}
 		   	],
 		      "Size":999,
