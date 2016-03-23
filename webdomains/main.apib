@@ -18,7 +18,7 @@ Add new or edit web domain.
 
 + Request (application/json)
     {  
-       "Domain":"test.com",
+       "Domain":"testDomain.com",
        "Alias":"www.test.com site.test.com",
        "Ip":"93.183.203.13",
        "IndexFile":"index.html",
@@ -41,7 +41,7 @@ Disabled domains will not be served from webserver.
 
 + Request (application/json)
     [  
-       "test.com"
+       "testDomain.com"
     ]
 
 + Response 204 (text/plain)
@@ -70,7 +70,7 @@ List all web domains of current user.
 + Response 200 (application/json)
     [  
        {  
-         "test.com":{  
+         "testDomain.com":{  
             "Active":true,
             "Owner":"regular_User",
             "Apache":{},
@@ -89,7 +89,7 @@ Remove web domains.
 
 + Request (application/json)
     [  
-       "test.com"
+       "testDomain.com"
     ]
 
 + Response 204 (text/plain)
