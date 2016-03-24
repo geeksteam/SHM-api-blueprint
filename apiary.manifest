@@ -48,6 +48,9 @@ pgsql-dbs/main.apib
 pgsql-dbs/import.apib
 pgsql-dbs/export.apib
 
+pdns/about.apib
+pdns/main.apib
+
 sessions/about.apib
 sessions/root.apib
 sessions/user.apib

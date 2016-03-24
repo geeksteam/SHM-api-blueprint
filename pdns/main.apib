@@ -1,0 +1,104 @@
+## Add or Edit DNS domain records [POST /api/pdns/set]
+
+Add or edit DNS domain records
+
++ Attributes
+  + Id (required, number) - ID of domain in pdns database.
+  + Name (required, string) - Domain name.
+  + Records (required, object) - DNS records for domain.
+
++ Request (application/json)
+        {  
+           "Name":"test.com",
+           "Type":"NATIVE",
+           "Records":[  
+              {  
+                 "Name":"www.test.com",
+                 "Type":"A",
+                 "Content":"77.222.142.3",
+                 "Ttl":"86400"
+              },
+              {  
+                 "Name":"test.com",
+                 "Type":"A",
+                 "Content":"77.222.142.3",
+                 "Ttl":"86400"
+              },
+              {  
+                 "Name":"test.com",
+                 "Type":"MX",
+                 "Content":"aspx.gmail.com",
+                 "Ttl":"86400",
+                 "Prio":"10"
+              }
+           ]
+        }
+
++ Response 204 (text/plain)
+
+## Edit DNS domain error [POST /api/pdns/set]
+
+Error while edit not existent domain or domain not owned by the user.
+
++ Request (application/json)
+        {  
+           "Name":"notExistentDomain",
+           "Type":"NATIVE",
+           "Records":[  
+              {  
+                 "Name":"www.test.com",
+                 "Type":"A",
+                 "Content":"77.222.142.3",
+                 "Ttl":"86400"
+              }
+           ]
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
+
+## List Domains records [GET /api/pdns/list]
+
+List all domains and they records.
+
++ Response 200 (application/json)
+    [
+       {
+          "Id":124,
+          "Name":"test.com",
+          "Type":"NATIVE",
+          "Account":502,
+          "Records":[
+             {
+                "Name":"www.domain.com",
+                "Type":"A",
+                "Content":"77.222.142.3",
+                "Ttl":"86400",
+                "Prio":"10"
+             }
+          ]
+       }
+    ]
+
+## Delete domain [POST /api/pdns/del]
+
+Remove domain and it records form PDNS database.
+
++ Request (application/json)
+        [  
+          "test.com"
+        ]
+
++ Response 204 (text/plain)
+
+## Delete domain error [POST /api/pdns/del]
+
+Error while removing non existent or not user owned domain.
+
++ Request (application/json)
+        [  
+          "notExistentDomain.com"
+        ]
+
++ Response 500 (application/json)
+    + Attributes (Error)

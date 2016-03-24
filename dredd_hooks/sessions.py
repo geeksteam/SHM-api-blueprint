@@ -17,6 +17,7 @@ user_group_requests = [
         'MySQL Databases',
         'PgSQL Users',
         'PgSQL Databases',
+        'DNS Domains',
         'FTP accounts',
         'Email boxes',
         'DKIM',
