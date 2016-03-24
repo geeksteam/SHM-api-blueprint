@@ -16,19 +16,19 @@ Add or edit DNS domain records
                  "Name":"www.test.com",
                  "Type":"A",
                  "Content":"77.222.142.3",
-                 "Ttl":86400
+                 "TTL":86400
               },
               {  
                  "Name":"test.com",
                  "Type":"A",
                  "Content":"77.222.142.3",
-                 "Ttl":86400
+                 "TTL":86400
               },
               {  
                  "Name":"test.com",
                  "Type":"MX",
                  "Content":"aspx.gmail.com",
-                 "Ttl":86400,
+                 "TTL":86400,
                  "Prio":10
               }
            ]
@@ -42,7 +42,7 @@ Error while edit not existent domain or domain not owned by the user.
 
 + Request (application/json)
         {  
-          "Id":999,
+          "ID":999,
           "Name":"notExistentDomain.com",
           "Type":"NATIVE",
           "Records":[  
@@ -50,7 +50,7 @@ Error while edit not existent domain or domain not owned by the user.
                "Name":"www.test.com",
                "Type":"A",
                "Content":"77.222.142.3",
-               "Ttl":86400
+               "TTL":86400
             }
           ]
         }
@@ -65,7 +65,7 @@ List all domains and they records.
 + Response 200 (application/json)
     [
        {
-          "Id":124,
+          "ID":124,
           "Name":"test.com",
           "Type":"NATIVE",
           "Account":502,
@@ -74,7 +74,7 @@ List all domains and they records.
                 "Name":"www.domain.com",
                 "Type":"A",
                 "Content":"77.222.142.3",
-                "Ttl":"86400",
+                "TTL":"86400",
                 "Prio":"10"
              }
           ]
