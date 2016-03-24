@@ -16,7 +16,7 @@ Regular user must add domain to WebDomains to own this domain name.
 
 + Request (application/json)
         {  
-           "Domains":"test.com",
+           "Domains":"test24.com",
            "City":"NewYork",
            "State":"NY",
            "Country":"UA",
@@ -38,7 +38,7 @@ Generating self-signed certificate on CSR and KEY which already ben generated or
 
 + Request (application/json)
         {  
-           "Domain":"test.com"
+           "Domain":"test24.com"
         }
 
 + Response 200 (application/json)
@@ -66,7 +66,7 @@ List SSL information for user's domains.
 + Response 200 (application/json)
         [  
            {  
-              "Name":"test.com",
+              "Name":"test24.com",
               "Key":true,
               "CSR":true,
               "CRT":false
@@ -79,7 +79,7 @@ Getting all information about certificate, keys and etc.
 
 + Request (application/json)
         {  
-           "Domain":"test.com"
+           "Domain":"test24.com"
         }
 
 + Response 200 (application/json)
@@ -102,7 +102,7 @@ While removing certificate from domain, `Webdomain` SSL will set to `FALSE`
 
 + Request (application/json)
         [
-           test.com"
+           "test24.com"
         ]
 
 + Response 204 (text/plain)
