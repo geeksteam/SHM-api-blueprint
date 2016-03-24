@@ -35,7 +35,16 @@ Getting public and private DKIM keys for domain in request.
         "Private":"private_key"
     }
 
+## Remove DKIM key from domain [/api/dkim/del]
 
+Remove DKIM keys from domain(s).
+
+### Remove DKIM keys [POST]
+
++ Request (application/json)
+    ["testdkim.com"]
+
++ Response 204 (text/plain)
 
 ### Remove non existent DKIM key [POST]
 

@@ -1,0 +1,33 @@
+## IP address reconfiguration [GET /api/ip/reconfigure]
+
+Add new IP addresses and remove non-existent.
+
++ Response 204 (text/plain)
+
+## List IP addresses [GET /api/ip/list]
+
+List all IP addresses.
+
++ Response 200 (application/json)
+      [
+        { "195.242.161.111": 
+          { 
+            "Users":["user1","user2"], 
+            "Comment":"Shared IP address" 
+          }
+        }
+      ]
+
+## Set IP address settings [POST /api/ip/set]
+
++ Request (application/json)
+      [
+        { "195.242.161.111": 
+          { 
+            "Users":["user1","user2"], 
+            "Comment":"Shared IP address" 
+          }
+        }
+      ]
+
++ Response 204 (text/plain)

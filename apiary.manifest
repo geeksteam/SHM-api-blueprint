@@ -65,5 +65,8 @@ email/main.apib
 dkim/about.apib
 dkim/main.apib
 
+ip/about.apib
+ip/main.apib
+
 logout/about.apib
 
