@@ -1,0 +1,108 @@
+## Create CSR [POST /api/ssl/createcsr]
+
+Creating SSL CSR and Key file.
+Regular user must add domain to WebDomains to own this domain name.
+
++ Attributes
+    + Domains (required,string) - Domains name for certificate.
+    + City (required,string) - City name for CSR.
+    + State (required,string) - State of the city.
+    + Country (required,string) - Two symbols country code.
+    + Company (required,string) - Company full name.
+    + Division (required,string) - Division of the company.
+    + Email (required,string) - Contact email.
+    + Passphrase (required,string) - Password for private key. Leave empty for correct apache using.
+
+
++ Request (application/json)
+        {  
+           "Domains":"test.com",
+           "City":"NewYork",
+           "State":"NY",
+           "Country":"UA",
+           "Company":"Geeks inc.",
+           "Division":"IT",
+           "Email":"test@domain.com",
+           "Passphrase":"qwerty"
+        }
+
++ Response 200 (application/json)
+        {
+        "Key":"Private key",
+        "CSR":"Certificate request"
+        }
+
+## Generate self sighned certificate [POST /api/ssl/generate]
+
+Generating self-signed certificate on CSR and KEY which already ben generated or imported.
+
++ Request (application/json)
+        {  
+           "Domain":"test.com"
+        }
+
++ Response 200 (application/json)
+        {
+        "Crt":"certificate"
+        }
+
+## Error generating certificate [POST /api/ssl/generate]
+
+If no KEY or (and) CSR are exists for domain, there will be an error.
+
++ Request (application/json)
+        {  
+           "Domain":"testNotExistent.com"
+        }
+
+
++ Response 500 (application/json)
+    + Attributes (Error)
+
+## List all certificates [GET /api/ssl/list]
+
+List SSL information for user's domains.
+
++ Response 200 (application/json)
+        [  
+           {  
+              "Name":"test.com",
+              "Key":true,
+              "CSR":true,
+              "CRT":false
+           }
+        ]
+
+## Getting all certificate info [POST /api/ssl/getcert]
+
+Getting all information about certificate, keys and etc.
+
++ Request (application/json)
+        {  
+           "Domain":"test.com"
+        }
+
++ Response 200 (application/json)
+        {  
+           "PrivateKey":"...",
+           "CSRKey":"...",
+           "CRTKey":"...",
+           "IssueDate":"2009-09-01 13:32:12",
+           "ExpireDate":"2009-09-01 13:32:12",
+           "CRTInfo":{  
+              "Domains":"domain.com",
+              "City":"Kiev",
+              "State":"Kiev"
+           }
+        }
+
+## Removing certificate [POST /api/ssl/del]
+
+While removing certificate from domain, `Webdomain` SSL will set to `FALSE`
+
++ Request (application/json)
+        [
+           test.com"
+        ]
+
++ Response 204 (text/plain)
