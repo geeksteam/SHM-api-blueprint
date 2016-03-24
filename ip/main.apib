@@ -9,25 +9,24 @@ Add new IP addresses and remove non-existent.
 List all IP addresses.
 
 + Response 200 (application/json)
-      [
+
         { "195.242.161.111": 
           { 
             "Users":["user1","user2"], 
             "Comment":"Shared IP address" 
           }
         }
-      ]
 
 ## Set IP address settings [POST /api/ip/set]
 
 + Request (application/json)
-      [
+      
         { "195.242.161.111": 
           { 
             "Users":["user1","user2"], 
             "Comment":"Shared IP address" 
           }
         }
-      ]
+      
 
 + Response 204 (text/plain)
