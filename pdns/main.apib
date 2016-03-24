@@ -42,16 +42,17 @@ Error while edit not existent domain or domain not owned by the user.
 
 + Request (application/json)
         {  
-           "Name":"notExistentDomain.com",
-           "Type":"NATIVE",
-           "Records":[  
-              {  
-                 "Name":"www.test.com",
-                 "Type":"A",
-                 "Content":"77.222.142.3",
-                 "Ttl":86400
-              }
-           ]
+          "Id":999,
+          "Name":"notExistentDomain.com",
+          "Type":"NATIVE",
+          "Records":[  
+            {  
+               "Name":"www.test.com",
+               "Type":"A",
+               "Content":"77.222.142.3",
+               "Ttl":86400
+            }
+          ]
         }
 
 + Response 500 (application/json)
