@@ -34,8 +34,8 @@ Lists all active ini settings.
 
 + Response 200 (application/json)
         {
-            "openbase_dir": "/var/php",
-            "core":         "on"
+            "allow_url_fopen": "On",
+            "engine":         "On"
         }
         
 ## Set INI parameter [POST /api/php/iniset]
@@ -44,7 +44,7 @@ Sets ini parameters.
 
 + Request (application/json)
         {
-            "allow_url_fopen":false
+            "allow_url_fopen":"Off"
         }
             
 
