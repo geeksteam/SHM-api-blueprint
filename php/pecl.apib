@@ -21,13 +21,12 @@ Installing pecl packages.
 
 + Request (application/json)
 
-        ["opcache","sqlite"]
+        ["ZendOpcache","sqlite3"]
 
 + Response 200 (application/json)
-        [
-           "String1",
-           "String2
-        ]
+        {
+            "Output":"text from console"
+        }
         
 ## Remove PECL packages [POST /api/php/peclremove]
 
@@ -35,10 +34,10 @@ Removing pecl packages.
 
 + Request (application/json)
 
-        ["opcache","sqlite"]
+        ["ZendOpcache","sqlite3"]
 
 + Response 200 (application/json)
-        [
-           "String1",
-           "String2
-        ]
+        {
+            "Output":"text from console"
+        }
+        

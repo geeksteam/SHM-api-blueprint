@@ -1,0 +1,37 @@
+## Setting Cron Jobs [POST /api/cron/set]
+
+Remove all cron jobs for user and sets them from request.
+
++ Request (application/json)
+
+        [
+        {
+            "User": "nobody",
+            "Mail": "test@localhost",
+            "Jobs": [
+            {"* * * * *":"echo 'Go!'>/tmp/cron_test"}
+            ]
+        }
+        ]
+
++ Response 204 (plain/text)
+       
+## List all cron jobs [GET /api/cron/list]
+
+Lists all cron jobs for all users.
+
++ Attributes
+  + User (required, string) - Owner of the cron job.
+  + Mail (required, array) - Mail for job messages.
+  + Jobs (optional, object) - Cron jobs.
+
++ Response 200 (application/json)
+        [
+            {
+                "User": "nobody",
+                "Mail": "test@localhost",
+                "Jobs": [
+                {"* * * * *":"echo 'Go!'>/tmp/cron_test"}
+                ]
+            }
+        ]

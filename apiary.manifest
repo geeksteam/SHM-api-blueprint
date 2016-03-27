@@ -72,5 +72,8 @@ dkim/main.apib
 ip/about.apib
 ip/main.apib
 
+cron/about.apib
+cron/main.apib
+
 logout/about.apib
 
