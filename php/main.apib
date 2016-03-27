@@ -1,0 +1,55 @@
+## PHPinfo [GET /api/php/info]
+
+Output phpinfo().
+
++ Attributes
+  + Version (required, string) - Current PHP version.
+  + Modules (required, array) - Loaded PHP modules.
+  + Ini (optional, array) - Loaded ini files.
+  + FullInfo (required, array) - Other information.
+
++ Response 200 (application/json)
+        {
+            "Version":"5.3.1",
+            "Modules":
+            [
+                "mysql",
+                "sqlite3"
+            ],
+            "FullInfo":
+            [    
+                "Phar: PHP Archive support => enabled",
+                "Phar EXT version => 2.0.1"
+            ],
+            "Ini":
+            [
+                "/etc/php.d/bcmath.ini",
+                "/etc/php.d/opcache.ini"
+            ]
+        }
+
+## List INI settings [GET /api/php/inilist]
+
+Lists all active ini settings.
+
++ Response 200 (application/json)
+        {
+            "openbase_dir": "/var/php",
+            "core":         "on"
+        }
+        
+## Set INI parameter [POST /api/php/iniset]
+
+Sets ini parameters.
+
++ Request (application/json)
+        {
+            "allow_url_fopen":false
+        }
+            
+
++ Response 200 (application/json)
+        {
+            "openbase_dir": "/var/php",
+            "core":         "on"
+        }

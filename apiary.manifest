@@ -32,6 +32,10 @@ webdomains/main.apib
 ssl/about.apib
 ssl/main.apib
 
+php/about.apib
+php/main.apib
+php/pecl.apib
+
 mysql-users/about.apib
 mysql-users/main.apib
 
