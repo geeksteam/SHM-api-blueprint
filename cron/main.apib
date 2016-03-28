@@ -57,7 +57,7 @@ Lists all cron jobs for all users.
                 "User": "nobody",
                 "Mail": "test@localhost",
                 "Jobs": {
-                    "* * * * *":"echo 'Go!'>/tmp/cron_test"
+                    "@hourly":"echo 'Go!'>/tmp/cron_test"
                 }
             }
         ]
