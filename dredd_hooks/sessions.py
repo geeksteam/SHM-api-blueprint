@@ -31,6 +31,9 @@ user_requests = [
         'Filemanager > Create new directory > Make dir by User',
         'Filemanager > List directory > List dir by User',
         'Filemanager > List directory > List dir Error',
+        'Filemanager > Change permissions > Change permissions by User',
+        'Filemanager > Change permissions > Change permissions Error',
+        'Filemanager > Change permissions > Change permissions while file Not Exist',
 		'Logout > User logout > User logout',
 	]
 # Local stash

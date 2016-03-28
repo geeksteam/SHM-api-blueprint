@@ -28,7 +28,7 @@ Owner can be set only by root user.
 
 ## List directory [/api/filemanager/list]
 
-Root can list all diretories on server.
+Root can list all directories on server.
 User can list only directories under his homedir.
 
 ### List dir by Root [POST]
@@ -60,4 +60,59 @@ User can list only directories under his homedir.
 
 + Response 500 (application/json)
     + Attributes (Error)
-    
+
+## Change permissions [/api/filemanager/set]
+
+Root can change any files.
+User can change only files within his homedirectory. Owner for modified files will be a current user.
+
+### Change permissions by Root [POST]
+
++ Request (application/json)
+        {
+            "Path":  "/var/www/test.html",
+            "Mode":  777,
+            "Owner": 99,
+            "Group": 3
+        }
+
++ Response 204 (text/plain)
+
+
+### Change permissions by User [POST]
+
+User can't change owner of the files, only permissions.
+
++ Request (application/json)
+        {
+            "Path":  "/file.txt",
+            "Mode":  777
+        }
+
++ Response 204 (text/plain)
+
+
+### Change permissions Error [POST]
+User can't change files which not owned.
+
++ Request (application/json)
+         {
+            "Path":  "/from_root.txt",
+            "Mode":  777
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
+
+### Change permissions while file Not Exist [POST]
+User can't change files which not owned.
+
++ Request (application/json)
+         {
+            "Path":  "/dir_which/not_exist.txt",
+            "Mode":  777,
+            "Owner":    0
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
