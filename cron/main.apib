@@ -53,7 +53,7 @@ Only root can set cron jobs for another users. Users can set only they jobs.
                 "User": "root",
                 "Mail": "test@localhost",
                 "Jobs": {
-                    "* * *":"echo 'Go!'>/tmp/cron_test"
+                    "* * * * *":"echo 'Go!'>/tmp/cron_test"
                 }
             }
         ]
