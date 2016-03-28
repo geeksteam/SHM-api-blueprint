@@ -9,7 +9,14 @@ Remove all cron jobs for user and sets them from request.
                 "User": "nobody",
                 "Mail": "test@localhost",
                 "Jobs":{
-                    "* * * * *":"echo 'Go!'>/tmp/cron_test"
+                    "* * * * *":"echo 'Going from nobody!'>/tmp/cron_test"
+                }
+            },
+            {
+                "User": "root",
+                "Mail": "test@localhost",
+                "Jobs":{
+                    "* * * * *":"echo 'Going from root!'>/tmp/cron_root_test"
                 }
             }
         ]
@@ -23,13 +30,6 @@ Setting cron job with wrong parameters.
 + Request (application/json)
 
         [
-            {
-                "User": "nobody",
-                "Mail": "test@localhost",
-                "Jobs":{
-                    "@nosuchday":"echo 'Go!'>/tmp/cron_test"
-                }
-            },
             {
                 "User": "root",
                 "Mail": "test@localhost",
