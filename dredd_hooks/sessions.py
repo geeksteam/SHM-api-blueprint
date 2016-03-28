@@ -27,6 +27,7 @@ user_group_requests = [
 user_requests = [
 		'Sessions > Session information > Regular user',
 		'Sessions > Domains list > User domains list',
+		'Cron > Setting Job for restricted user > Setting Job for restricted user',
 		'Logout > User logout > User logout',
 	]
 # Local stash
