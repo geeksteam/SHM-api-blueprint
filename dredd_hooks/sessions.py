@@ -28,6 +28,9 @@ user_requests = [
 		'Sessions > Session information > Regular user',
 		'Sessions > Domains list > User domains list',
 		'Cron > Setting Job for restricted user > Setting Job for restricted user',
+        'Filemanager > Create new directory > Make dir by User',
+        'Filemanager > List directory > List dir by User',
+        'Filemanager > List directory > List dir Error',
 		'Logout > User logout > User logout',
 	]
 # Local stash

@@ -1,0 +1,63 @@
+## Create new directory [/api/filemanager/mkdir]
+
+Create new directory.
+Owner can be set only by root user.
+
+### Make dir by root [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "new_test_dir",
+            "Owner": "regularUser"
+        }
+
++ Response 204 (text/plain)
+
+### Make dir by User [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/www",
+            "Mkdir": "new_user_test_dir",
+            "Owner": "root"
+        }
+
++ Response 204 (text/plain)
+
+
+## List directory [/api/filemanager/list]
+
+Root can list all diretories on server.
+User can list only directories under his homedir.
+
+### List dir by Root [POST]
+
++ Request (application/json)
+        {
+            "Dir": "/var/www"
+        }
+
++ Response 200 (application/json)
+    + Attributes (array[Files])
+
+### List dir by User [POST]
+
++ Request (application/json)
+        {
+            "Dir": "/www"
+        }
+
++ Response 200 (application/json)
+    + Attributes (array[Files])
+
+### List dir Error [POST]
+
++ Request (application/json)
+        {
+            "Dir": "/../../www/nodir"
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
+    
