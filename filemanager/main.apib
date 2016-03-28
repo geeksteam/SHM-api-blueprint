@@ -9,7 +9,7 @@ Owner can be set only by root user.
         {
             "Dir":   "/var/www",
             "Mkdir": "new_test_dir",
-            "Owner": "regularUser"
+            "Owner": 99
         }
 
 + Response 204 (text/plain)
@@ -19,11 +19,22 @@ Owner can be set only by root user.
 + Request (application/json)
         {
             "Dir":   "/www",
-            "Mkdir": "new_user_test_dir",
-            "Owner": "root"
+            "Mkdir": "new_user_test_dir"
         }
 
 + Response 204 (text/plain)
+
+### Make dir by root Error no such owner [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "new_test_dir",
+            "Owner": 1999
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)
 
 
 ## List directory [/api/filemanager/list]
@@ -55,7 +66,7 @@ User can list only directories under his homedir.
 
 + Request (application/json)
         {
-            "Dir": "/../../www/nodir"
+            "Dir": "/../../www/no_such_dir"
         }
 
 + Response 500 (application/json)
