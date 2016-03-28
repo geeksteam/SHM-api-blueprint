@@ -9,7 +9,7 @@ Remove all cron jobs for user and sets them from request.
                 "User": "nobody",
                 "Mail": "test@localhost",
                 "Jobs":{
-                    "* * * * *":"echo 'Going from nobody!'>/tmp/cron_test"
+                    "@hourly":"echo 'Going from nobody!'>/tmp/cron_test"
                 }
             },
             {
