@@ -13,7 +13,8 @@ Download file from filesystem. Users can download only files from they homedir.
     + Headers
         Content-Disposition: "attachment; filename=passwd"
     + Body
-        
+            
+            
 
 ### Download file by #User [POST]
 
@@ -25,6 +26,10 @@ Download file from filesystem. Users can download only files from they homedir.
 + Response 200 (application/octet-stream)
     + Headers
         Content-Disposition: "attachment; filename=test.jpg"
+        content-length: 13263
+    + Body
+            
+            
         
 ### Download file #Error by #User [POST]
 
