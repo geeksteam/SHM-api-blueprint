@@ -30,6 +30,7 @@ user_requests = [
     
 # Local stash
 stash = {}
+request_number = 0
 
 ###
 # Local functions
@@ -93,3 +94,9 @@ def add_error_expectation(transaction):
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
                 
+# Add NUMBER to request name.
+@hooks.before_each
+def add_request_number(transaction):
+        # Iterate request number
+        request_number += 1
+        transaction['origin']['actionName'] = '['+ request_number + ']'+ transaction['origin']['actionName']
