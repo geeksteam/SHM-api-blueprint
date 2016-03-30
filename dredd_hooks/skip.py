@@ -14,7 +14,6 @@ skip_requests = [
 		'PgSQL Databases > Export database > Export database',
         'Filemanager > Download files > Download file',
         'Filemanager > Download files > Download file by #User',
-        'Filemanager > Download files > Download file #Error by #User',
 	]
 
 
