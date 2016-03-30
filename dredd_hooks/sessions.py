@@ -32,7 +32,7 @@ user_requests = [
 stash = {}
 
 # Add request number before its name to identify test
-add_request_number = true
+add_request_number = True
 request_number = 0
 
 ###
