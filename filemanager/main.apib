@@ -84,7 +84,8 @@ User can change only files within his homedirectory. Owner for modified files wi
             "Path":  "/var/www/test.html",
             "Mode":  777,
             "Owner": 99,
-            "Group": 3
+            "Group": 3,
+            "Recursive":true
         }
 
 + Response 204 (text/plain)
@@ -97,7 +98,8 @@ User can't change owner of the files, only permissions.
 + Request (application/json)
         {
             "Path":  "/file.txt",
-            "Mode":  777
+            "Mode":  777,
+            "Recursive":true
         }
 
 + Response 204 (text/plain)
