@@ -21,22 +21,16 @@ User can delete only files within his homedirectory and owned by him.
 
 + Response 204 (text/plain)
 
-### Delete Error Unexist by #User [POST]
+### Delete #Error Unexist by #User [POST]
 
 + Request (application/json)
         [
             "/www/unexist_user_test_dir"
         ]
-        
-+ Response 500 (application/json)
-    + Attributes (Error)
 
-### Delete Error No Privileges by #User [POST]
+### Delete #Error No Privileges by #User [POST]
 
 + Request (application/json)
         [
             "/www/dir_from_root"
         ]
-        
-+ Response 500 (application/json)
-    + Attributes (Error)

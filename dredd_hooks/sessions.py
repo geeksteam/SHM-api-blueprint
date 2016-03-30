@@ -80,4 +80,12 @@ def add_session_cookie(transaction):
                 if 'root_sessID' in stash:
                         transaction['request']['headers']['Cookie'] = stash['root_sessID']
                         transaction['request']['headers']['User'] = 'Root'
-                
+
+# Add response expectation if #Error hash tag in request name
+def add_error_expectation(transaction):
+        hashTag = '#error'
+        requestName = transaction['name'].lower()
+        if hashTag in requestName:
+                transaction['expected']['statusCode'] = '500'
+                transaction['expected']['headers']['Content-Type'] == 'application/json':
+                transaction['expected']['schema'] = '{ "error": { "code":"", "text":""} }'
