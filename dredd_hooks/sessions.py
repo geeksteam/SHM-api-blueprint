@@ -88,5 +88,5 @@ def add_error_expectation(transaction):
         requestName = transaction['name'].lower()
         if hashTag in requestName:
                 transaction['expected']['statusCode'] = '500'
-                transaction['expected']['headers']['Content-Type'] == 'application/json':
+                transaction['expected']['headers']['Content-Type'] == 'application/json'
                 transaction['expected']['schema'] = '{ "error": { "code":"", "text":""} }'
