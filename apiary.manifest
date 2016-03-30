@@ -75,6 +75,8 @@ filemanager/set.apib
 filemanager/move.apib
 filemanager/list.apib
 filemanager/del.apib
+filemanager/pack.apib
+filemanager/unpack.apib
 
 ip/about.apib
 ip/main.apib

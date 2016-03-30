@@ -1,0 +1,58 @@
+## Extract archive [/api/filemanager/unpack]
+
+Extract archive. Supported types are `tar.gz`, `zip`.
+
+### Extract tar.gz archive [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/var/www/test_archives",
+            "Filename":  "test.tar.gz",
+            "OutputDir": "/var/www/test_archives/tar"
+        }
+
++ Response 204 (text/plain)
+
+### Extract zip archive [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/var/www/test_archives",
+            "Filename":  "test.zip",
+            "OutputDir": "/var/www/test_archives/zip"
+        }
+
++ Response 204 (text/plain)
+
+### Extract tar.gz archive by #User [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/www/test_archives",
+            "Filename":  "test.tar.gz",
+            "OutputDir": "/www/test_archives/tar"
+        }
+
++ Response 204 (text/plain)
+
+### Extract tar.gz archive #Error by #User no such file [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/www/test_archives",
+            "Filename":  "no_such_archive.tar.gz",
+            "OutputDir": "/www/test_archives/tar"
+        }
+
++ Response
+
+### Extract tar.gz archive #Error by #User output dir not exist [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/www/test_archives",
+            "Filename":  "no_such_archive.tar.gz",
+            "OutputDir": "/www/dir_not_exist/tar"
+        }
+
++ Response

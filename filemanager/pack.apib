@@ -1,0 +1,51 @@
+## Create archive [/api/filemanager/pack]
+
+Create new archive from directory. Supported types are `tar.gz`, `zip`.
+
+### Create tar.gz archive [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/var/www/html",
+            "Type":      "tar.gz",
+            "OutputDir": "/var/www/test_archives",
+            "Archname":  "test.tar.gz"
+        }
+
++ Response 204 (text/plain)
+
+### Create zip archive [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/var/www/html",
+            "Type":      "zip",
+            "OutputDir": "/var/www/test_archives",
+            "Archname":  "test.zip"
+        }
+
++ Response 204 (text/plain)
+
+### Create tar.gz archive by #User [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/www",
+            "Type":      "tar.gz",
+            "OutputDir": "/www/test_archives",
+            "Archname":  "test.tar.gz"
+        }
+
++ Response 204 (text/plain)
+
+### Create tar.gz archive #Error by #User [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/www/dir_no_exist",
+            "Type":      "tar.gz",
+            "OutputDir": "/www/test_archives",
+            "Archname":  "test.tar.gz"
+        }
+
++ Response
