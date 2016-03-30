@@ -82,6 +82,7 @@ def add_session_cookie(transaction):
                         transaction['request']['headers']['User'] = 'Root'
 
 # Add response expectation if #Error hash tag in request name
+@hooks.before_each
 def add_error_expectation(transaction):
         hashTag = '#error'
         requestName = transaction['name'].lower()
