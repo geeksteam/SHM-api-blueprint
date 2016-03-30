@@ -58,27 +58,26 @@ def stash_user_session_id(transaction):
 # Set the ROOT or USER session cookie in all requests
 @hooks.before_each
 def add_session_cookie(transaction):
-	
-	if 'user_sessID' in stash:
-		# Check is request GROUP in USERs list
-		if transaction['origin']['resourceGroupName'] in user_group_requests:
-            transaction['request']['headers']['Cookie'] = stash['user_sessID']
-            transaction['request']['headers']['User'] = 'RegularUser'
-            return
-		# Check is request NAME in USERs list
-		if transaction['name'] in user_requests:
-            transaction['request']['headers']['Cookie'] = stash['user_sessID']
-            transaction['request']['headers']['User'] = 'RegularUser'
-            return
-        # Check for USER hash tag in request name (eg.: #User).
-        hashTag = '#user'
-        requestName = transaction['name'].lower()
-        if hashTag in requestName:
-            transaction['request']['headers']['Cookie'] = stash['user_sessID']
-            transaction['request']['headers']['User'] = 'RegularUser'
-            return
-        # Run it as ROOT by default
-        if 'root_sessID' in stash:
-            transaction['request']['headers']['Cookie'] = stash['root_sessID']
-            transaction['request']['headers']['User'] = 'Root'
+        if 'user_sessID' in stash:
+                # Check is request GROUP in USERs list
+                if transaction['origin']['resourceGroupName'] in user_group_requests:
+                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
+                        transaction['request']['headers']['User'] = 'RegularUser'
+                        return
+                # Check is request NAME in USERs list
+                if transaction['name'] in user_requests:
+                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
+                        transaction['request']['headers']['User'] = 'RegularUser'
+                        return
+                # Check for USER hash tag in request name (eg.: #User).
+                hashTag = '#user'
+                requestName = transaction['name'].lower()
+                if hashTag in requestName:
+                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
+                        transaction['request']['headers']['User'] = 'RegularUser'
+                        return
+                # Run it as ROOT by default
+                if 'root_sessID' in stash:
+                        transaction['request']['headers']['Cookie'] = stash['root_sessID']
+                        transaction['request']['headers']['User'] = 'Root'
                 
