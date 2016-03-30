@@ -1,0 +1,46 @@
+## Move file or folder [/api/filemanager/move]
+
+Root can move any files or directories.
+User can move only files within his homedirectory.
+
+### Move by Root [POST]
+
++ Request (application/json)
+        {
+            "From":  "/var/www/new_test_dir",
+            "To":  "/var/www/new_test_dir_moved"
+        }
+
++ Response 204 (text/plain)
+
+### Move by #User [POST]
+
++ Request (application/json)
+        {
+            "From":  "/www/new_user_test_dir",
+            "To":  "/www/new_user_test_dir_moved"
+        }
+
++ Response 204 (text/plain)
+
+### Move Error Unexist by #User [POST]
+
++ Request (application/json)
+        {
+            "From":  "/www/unexist_user_test_dir",
+            "To":  "/www/unexist_user_test_dir_moved"
+        }
+        
++ Response 500 (application/json)
+    + Attributes (Error)
+
+### Move Error No Privileges by #User [POST]
+
++ Request (application/json)
+        {
+            "From":  "/www/dir_from_root",
+            "To":  "/www/new_dir_from_root"
+        }
+        
++ Response 500 (application/json)
+    + Attributes (Error)

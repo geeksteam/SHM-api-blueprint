@@ -1,0 +1,37 @@
+## Create new directory [/api/filemanager/mkdir]
+
+Create new directory.
+Owner can be set only by root user.
+
+### Make dir by root [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "new_test_dir",
+            "Owner": 99
+        }
+
++ Response 204 (text/plain)
+
+### Make dir by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/www",
+            "Mkdir": "new_user_test_dir"
+        }
+
++ Response 204 (text/plain)
+
+### Error no such owner [POST]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "new_test_dir",
+            "Owner": 1999
+        }
+
++ Response 500 (application/json)
+    + Attributes (Error)

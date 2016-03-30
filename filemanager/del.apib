@@ -1,0 +1,42 @@
+## Delete file or folder [/api/filemanager/del]
+
+Root can delete all files or directories.
+User can delete only files within his homedirectory and owned by him.
+
+### Delete by Root [POST]
+
++ Request (application/json)
+        [
+            "/var/www/new_test_dir"
+        ]
+
++ Response 204 (text/plain)
+
+### Delete by #User [POST]
+
++ Request (application/json)
+        [
+            "/www/new_user_test_dir"
+        ]
+
++ Response 204 (text/plain)
+
+### Delete Error Unexist by #User [POST]
+
++ Request (application/json)
+        [
+            "/www/unexist_user_test_dir"
+        ]
+        
++ Response 500 (application/json)
+    + Attributes (Error)
+
+### Delete Error No Privileges by #User [POST]
+
++ Request (application/json)
+        [
+            "/www/dir_from_root"
+        ]
+        
++ Response 500 (application/json)
+    + Attributes (Error)
