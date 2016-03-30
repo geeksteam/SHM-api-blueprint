@@ -84,4 +84,5 @@ def add_error_expectation(transaction):
                 transaction['expected']['statusCode'] = '500'
                 transaction['expected']['headers'] = {}
                 transaction['expected']['headers']['Content-Type'] = 'application/json'
+                transaction['expected']['body'] = '{ "error": { "code":"", "text":""} }'
                 transaction['expected']['schema'] = '{ "error": { "code":"", "text":""} }'
