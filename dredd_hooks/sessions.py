@@ -98,5 +98,6 @@ def add_error_expectation(transaction):
 @hooks.before_each
 def add_request_number(transaction):
         # Iterate request number
+        global request_number 
         request_number += 1
         transaction['origin']['actionName'] = '['+ request_number + ']'+ transaction['origin']['actionName']
