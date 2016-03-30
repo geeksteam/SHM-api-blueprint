@@ -13,7 +13,7 @@ User can move only files within his homedirectory.
 
 + Response 204 (text/plain)
 
-### Move by User [POST]
+### Move by #User [POST]
 
 + Request (application/json)
         {
@@ -23,7 +23,7 @@ User can move only files within his homedirectory.
 
 + Response 204 (text/plain)
 
-### Move Error Unexist by User [POST]
+### Move #Error Unexist by #User [POST]
 
 + Request (application/json)
         {
@@ -31,10 +31,9 @@ User can move only files within his homedirectory.
             "To":  "/www/unexist_user_test_dir_moved"
         }
         
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response
 
-### Move Error No Privileges by User [POST]
+### Move #Error No Privileges by #User [POST]
 
 + Request (application/json)
         {
@@ -42,5 +41,4 @@ User can move only files within his homedirectory.
             "To":  "/www/new_dir_from_root"
         }
         
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response 500

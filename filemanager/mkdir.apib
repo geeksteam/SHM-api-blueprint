@@ -3,7 +3,7 @@
 Create new directory.
 Owner can be set only by root user.
 
-### Make dir by root [POST]
+### Make dir by Root [POST]
 
 + Request (application/json)
         {
@@ -14,7 +14,7 @@ Owner can be set only by root user.
 
 + Response 204 (text/plain)
 
-### Make dir by User [POST]
+### Make dir by #User [POST]
 
 + Request (application/json)
         {
@@ -24,7 +24,7 @@ Owner can be set only by root user.
 
 + Response 204 (text/plain)
 
-### Error no such owner [POST]
+### No such owner #Error [POST]
 
 + Request (application/json)
         {
@@ -33,5 +33,4 @@ Owner can be set only by root user.
             "Owner": 1999
         }
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

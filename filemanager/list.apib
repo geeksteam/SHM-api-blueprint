@@ -13,7 +13,7 @@ User can list only directories under his homedir.
 + Response 200 (application/json)
     + Attributes (array[Files])
 
-### List dir by User [POST]
+### List dir by #User [POST]
 
 + Request (application/json)
         {
@@ -23,13 +23,11 @@ User can list only directories under his homedir.
 + Response 200 (application/json)
     + Attributes (array[Files])
 
-### List dir Error by User [POST]
+### List dir #Error by #User [POST]
 
 + Request (application/json)
         {
             "Dir": "/../../www/no_such_dir"
         }
 
-+ Response 500 (application/json)
-    + Attributes (Error)
-    
++ Response
