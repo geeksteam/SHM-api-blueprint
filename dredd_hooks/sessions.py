@@ -22,6 +22,7 @@ user_group_requests = [
         'Email boxes',
         'DKIM',
     ]
+    
 # List of REQUESTS that must be run from USER
 #
 user_requests = [
@@ -30,9 +31,29 @@ user_requests = [
 		'Cron > Setting Job for restricted user > Setting Job for restricted user',
 		'Logout > User logout > User logout',
 	]
+    
 # Local stash
 stash = {}
 
+###
+# Local functions
+###
+
+# Set Cookie for User 
+def set_user_cookie(transaction):
+        transaction['request']['headers']['Cookie'] = stash['user_sessID']
+        transaction['request']['headers']['User'] = 'RegularUser'
+# Set Cookie for Root 
+def set_root_cookie(transaction):
+        transaction['request']['headers']['Cookie'] = stash['root_sessID']
+        transaction['request']['headers']['User'] = 'Root'
+# Set Expected response for 500 Errors
+def set_expected_error(transaction):
+        transaction['expected']['statusCode'] = '500'
+        transaction['expected']['headers'] = {}
+        transaction['expected']['headers']['Content-Type'] = 'application/json'
+        transaction['expected']['body'] = '{ "error": { "code":"", "text":""} }'
+        transaction['expected']['schema'] = '{ "error": { "code":"", "text":""} }'
 
 ###
 # Hook functions
@@ -48,41 +69,31 @@ def stash_root_session_id(transaction):
 def stash_user_session_id(transaction):
 		stash['user_sessID'] = transaction['real']['headers']['set-cookie']
 
-
-# Set the ROOT or USER session cookie in all requests
+# Set the ROOT or USER session cookie in all requests        
 @hooks.before_each
 def add_session_cookie(transaction):
         if 'user_sessID' in stash:
                 # Check is request GROUP in USERs list
                 if transaction['origin']['resourceGroupName'] in user_group_requests:
-                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
-                        transaction['request']['headers']['User'] = 'RegularUser'
+                        set_user_cookie(transaction)
                         return
                 # Check is request NAME in USERs list
                 if transaction['name'] in user_requests:
-                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
-                        transaction['request']['headers']['User'] = 'RegularUser'
+                        set_user_cookie(transaction)
                         return
                 # Check for USER hash tag in request name (eg.: #User).
                 hashTag = '#user'
-                requestName = transaction['name'].lower()
-                if hashTag in requestName:
-                        transaction['request']['headers']['Cookie'] = stash['user_sessID']
-                        transaction['request']['headers']['User'] = 'RegularUser'
+                if hashTag in transaction['name'].lower():
+                        set_user_cookie(transaction)
                         return
                 # Run it as ROOT by default
                 if 'root_sessID' in stash:
-                        transaction['request']['headers']['Cookie'] = stash['root_sessID']
-                        transaction['request']['headers']['User'] = 'Root'
+                        set_root_cookie(transaction)
 
 # Add response expectation if #Error hash tag in request name
 @hooks.before_each
 def add_error_expectation(transaction):
         hashTag = '#error'
-        requestName = transaction['name'].lower()
-        if hashTag in requestName:
-                transaction['expected']['statusCode'] = '500'
-                transaction['expected']['headers'] = {}
-                transaction['expected']['headers']['Content-Type'] = 'application/json'
-                transaction['expected']['body'] = '{ "error": { "code":"", "text":""} }'
-                transaction['expected']['schema'] = '{ "error": { "code":"", "text":""} }'
+        if hashTag in transaction['name'].lower():
+                set_expected_error(transaction)
+                
