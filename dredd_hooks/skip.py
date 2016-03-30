@@ -12,7 +12,9 @@ skip_requests = [
 		'File uploads > Upload file in temporary storage > Upload file',
 		'MySQL Databases > Export database > Export database',
 		'PgSQL Databases > Export database > Export database',
-        'Filemanager > Download files',
+        'Filemanager > Download files > Download file',
+        'Filemanager > Download files > Download file by #User',
+        'Filemanager > Download files > Download file #Error by #User',
 	]
 
 
