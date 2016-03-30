@@ -1,0 +1,34 @@
+## Download files [/api/filemanager/download]
+
+Download file from filesystem. Users can download only files from they homedir.
+
+### Download file [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/etc/passwd"
+        }
+
++ Response 200 (application/octet-stream)
+    + Headers
+        Content-Disposition: "attachment; filename=passwd"
+
+### Download file by #User [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/test.jpg"
+        }
+
++ Response 200 (application/octet-stream)
+    + Headers
+        Content-Disposition: "attachment; filename=test.jpg"
+        
+### Download file #Error by #User [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/file_not_exist.bla"
+        }
+
++ Response
