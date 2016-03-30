@@ -30,6 +30,9 @@ user_requests = [
     
 # Local stash
 stash = {}
+
+# Add request number before its name to identify test
+add_request_number = true
 request_number = 0
 
 ###
@@ -98,6 +101,7 @@ def add_error_expectation(transaction):
 @hooks.before_each
 def add_request_number(transaction):
         # Iterate request number
-        global request_number 
-        request_number += 1
-        transaction['origin']['actionName'] = '['+ str(request_number) + ']'+ transaction['origin']['actionName']
+        if add_request_number:
+                global request_number 
+                request_number += 1
+                transaction['origin']['actionName'] = '['+ str(request_number) + '] '+ transaction['origin']['actionName']
