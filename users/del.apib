@@ -15,7 +15,7 @@ If user exists and no `root` it will be successful removed.
 
 + Response 204 (text/plain)
 
-### Fail [POST]
+### #Error [POST]
 If user is not exists or root it will fail with error.
 
 + Request (application/json)
@@ -23,5 +23,4 @@ If user is not exists or root it will fail with error.
             "Name":"NotExistingUser"
         }
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

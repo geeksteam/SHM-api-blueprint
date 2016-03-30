@@ -46,10 +46,9 @@ Remove DKIM keys from domain(s).
 
 + Response 204 (text/plain)
 
-### Remove non existent DKIM key [POST]
+### Remove non existent DKIM key #Error [POST]
 
 + Request (application/json)
     ["notExisting.com"]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

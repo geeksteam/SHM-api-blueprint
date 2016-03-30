@@ -36,7 +36,7 @@ Add or edit DNS domain records
 
 + Response 204 (text/plain)
 
-## Edit DNS domain error [POST /api/pdns/set]
+## Edit DNS domain #Error [POST /api/pdns/set]
 
 Error while edit not existent domain or domain not owned by the user.
 
@@ -55,8 +55,7 @@ Error while edit not existent domain or domain not owned by the user.
           ]
         }
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response
 
 ## List Domains records [GET /api/pdns/list]
 
@@ -92,7 +91,7 @@ Remove domain and it records form PDNS database.
 
 + Response 204 (text/plain)
 
-## Delete domain error [POST /api/pdns/del]
+## Delete domain #Error [POST /api/pdns/del]
 
 Error while removing non existent or not user owned domain.
 
@@ -101,5 +100,4 @@ Error while removing non existent or not user owned domain.
           "notExistentDomain.com"
         ]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

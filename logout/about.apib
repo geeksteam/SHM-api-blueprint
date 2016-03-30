@@ -4,16 +4,12 @@ To close current session user can logout by request. This is not necessary but r
 If user is inactive for 1800 seconds, session will be destroyed by the panel itself. 
 You can change this value in config file at `GHttp.SessionLifeTime`.
 
-## User logout [/logout]
+## #User logout [GET /logout]
 Close the regular user session.
-
-### User logout [GET]
 
 + Response 204 (text/plain)
 
-## Root logout [/logout]
+## Root logout [GET /logout]
 Administrator `root` session close.
-
-### Root logout [GET]
 
 + Response 204 (text/plain)

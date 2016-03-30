@@ -49,7 +49,7 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 + Response 204 (text/plain)
 
-## Removing non existent user [POST /api/mysql/users/del]
+## Removing non existent user #Error [POST /api/mysql/users/del]
 
 + Request (application/json)
 
@@ -57,5 +57,4 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
         "Username":"DBuser2"
         }
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

@@ -26,10 +26,6 @@ user_group_requests = [
 # List of REQUESTS that must be run from USER
 #
 user_requests = [
-		'Sessions > Session information > Regular user',
-		'Sessions > Domains list > User domains list',
-		'Cron > Setting Job for restricted user > Setting Job for restricted user',
-		'Logout > User logout > User logout',
 	]
     
 # Local stash

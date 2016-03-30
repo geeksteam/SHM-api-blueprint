@@ -46,15 +46,14 @@ Disabled domains will not be served from webserver.
 
 + Response 204 (text/plain)
 
-### Toggle non existent web domain [POST]
+### Toggle non existent web domain #Error [POST]
 
 + Request (application/json)
     [  
        "notExistingDomain.com"
     ]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response
 
 ## List all web domains [/api/webdomains/list]
 
@@ -93,12 +92,11 @@ Remove web domains.
 
 + Response 204 (text/plain)
 
-### Remove non existent web domain [POST]
+### Remove non existent web domain #Error [POST]
 
 + Request (application/json)
     [  
        "notExistingDomain.com"
     ]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response

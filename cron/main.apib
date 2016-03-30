@@ -23,7 +23,7 @@ Remove all cron jobs for user and sets them from request.
 
 + Response 204 (text/plain)
 
-## Setting Wrong Cron Job [POST /api/cron/set]
+## Setting Wrong Cron Job #Error [POST /api/cron/set]
 
 Setting cron job with wrong parameters.
 
@@ -39,10 +39,9 @@ Setting cron job with wrong parameters.
             }
         ]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response
 
-## Setting Job for restricted user [POST /api/cron/set]
+## Setting Job for #User permission #Error [POST /api/cron/set]
 
 Only root can set cron jobs for another users. Users can set only they jobs.
 
@@ -58,8 +57,7 @@ Only root can set cron jobs for another users. Users can set only they jobs.
             }
         ]
 
-+ Response 500 (application/json)
-    + Attributes (Error)
++ Response
        
 ## List all cron jobs [GET /api/cron/list]
 
