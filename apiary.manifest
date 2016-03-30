@@ -69,6 +69,11 @@ email/main.apib
 dkim/about.apib
 dkim/main.apib
 
+filemanager/about.apib
+filemanager/mkdir.apib
+filemanager/set.apib
+filemanager/move.apib
+filemanager/list.apib
 
 
 ip/about.apib
