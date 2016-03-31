@@ -5,6 +5,7 @@ import dredd_hooks as hooks
 run_only_groups = [
         'Panel Authorization',
         'User Backups',
+        'Logout',
      ]
 #
 # List certain of GROUPS to skip
