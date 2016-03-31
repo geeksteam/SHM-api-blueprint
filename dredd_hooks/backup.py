@@ -12,9 +12,8 @@ def save_response_to_stash(transaction):
 # Retrieve last backup archive name
 @hooks.after('User Backups > List backups > [120] ( Timer:10) List backups')
 def get_last_backup_name(transaction):
-            arch_list=json.loads(transaction['real']['body'])
-            print(repr(arch_list))
-            last_backup_name = 'noBackupAfter'
+            save_response_to_stash(transaction)
+            blablabla
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
