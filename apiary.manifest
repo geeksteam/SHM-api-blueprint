@@ -85,5 +85,8 @@ ip/main.apib
 cron/about.apib
 cron/main.apib
 
+ubackup/about.apib
+ubackup/main.apib
+
 logout/about.apib
 

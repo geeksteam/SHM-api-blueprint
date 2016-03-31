@@ -1,0 +1,18 @@
+## Create backup [GET /api/ubackup/create]
+
+Create user backup, include web domains files, mysql and pgsql datbases, apache and nginx configs, exim config.
+Backup creation runs in separate process and send internal message to user when backup is done.
+
++ Response 204 (text/plain)
+
+## List backups [GET /api/ubackup/list]
+
+List user backups.
+
++ Response 200 (application/json)
+        [
+            {
+                "Name":"testbackup_data_time.tar.gz",
+                "Size":999
+            }
+        ]
