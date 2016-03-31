@@ -1,6 +1,12 @@
 import dredd_hooks as hooks
 
 #
+# Run only current GROUP of tests not all, empty will run all tests.
+run_only_groups = [
+        'User Backups',
+     ]
+
+#
 # List of GROUPS to skip
 skip_groups = []
 
@@ -16,6 +22,13 @@ skip_requests = [
         'Filemanager > Download files > Download file by #User',
 	]
 
+# Skip all except Run ONLY GROUP
+@hooks.before_each
+def skip_run_only_func(transaction):
+    if len(run_only_groups) > 0:
+        # Check is request GROUP in SKIP list
+        if transaction['origin']['resourceGroupName'] not in run_only_groups:
+            transaction['skip'] = True
 
 # Skip requests
 @hooks.before_each
