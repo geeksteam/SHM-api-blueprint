@@ -3,9 +3,9 @@ import dredd_hooks as hooks
 #
 # Run only current GROUP of tests not all, empty will run all tests.
 run_only_groups = [
+        'Panel Authorization',
         'User Backups',
      ]
-
 #
 # List of GROUPS to skip
 skip_groups = []
