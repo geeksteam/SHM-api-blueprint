@@ -30,6 +30,8 @@ user_group_requests = [
 user_requests = [
 	]
 
+# Add TIMER BEFORE request
+#
 requests_timer = {}
 requests_timer['User Backups > Create backup > Create backup'] = 10
 
@@ -102,13 +104,13 @@ def add_error_expectation(transaction):
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
                 
-# # Add TIMER to requests
-# @hooks.after_each
-# def add_request_timer(transaction):
-#         # Sleep
-#         if transaction['name'] in requests_timer:
-#                 seconds = requests_timer[transaction['name']]
-#                 transaction['request']['headers']['Dredd-Timer'] = str(seconds)
+# Add TIMER to requests
+@hooks.before_each
+def add_request_timer(transaction):
+        # Sleep
+        if transaction['name'] in requests_timer:
+                seconds = requests_timer[transaction['name']]
+                transaction['request']['headers']['Dredd-Timer'] = str(seconds)
                 
 # Add NUMBER to request name.
 @hooks.before_each
