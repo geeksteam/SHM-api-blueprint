@@ -1,5 +1,5 @@
 import json
-import time
+# import time
 import dredd_hooks as hooks
 
 ###
