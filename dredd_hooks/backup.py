@@ -8,7 +8,7 @@ last_backup_name = 'noBackup'
 @hooks.after('User Backups > List backups > List backups')
 def get_last_backup_name(transaction):
             arch_list=json.loads(transaction['real']['body'])
-            last_backup_name = arch_list[0]['Name']
+            last_backup_name = arch_list[1]['Name']
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
