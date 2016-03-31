@@ -110,7 +110,8 @@ def add_request_timer(transaction):
         # Sleep
         if transaction['name'] in requests_timer:
                 seconds = requests_timer[transaction['name']]
-                transaction['request']['headers']['Dredd-Timer'] = str(seconds)
+                transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
+                time.sleep(seconds)
                 
 # Add NUMBER to request name.
 @hooks.before_each
