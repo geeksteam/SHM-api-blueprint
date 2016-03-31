@@ -13,6 +13,6 @@ def get_last_backup_name(transaction):
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
-def get_last_backup_name(transaction):
+def set_last_backup_name(transaction):
             transaction['request']['body'].replace('$BACKUP_ARCHIVE_NAME',stash['last_backup_name'])
 		
