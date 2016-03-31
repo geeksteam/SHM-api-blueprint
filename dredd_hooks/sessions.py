@@ -1,4 +1,5 @@
 import json
+import time
 import dredd_hooks as hooks
 
 ###
@@ -28,7 +29,10 @@ user_group_requests = [
 #
 user_requests = [
 	]
-    
+
+requests_timer = {}
+requests_timer['User Backups > Create backup > Create backup'] = 10
+
 # Local stash
 stash = {}
 
@@ -106,3 +110,11 @@ def add_request_number(transaction):
                 global request_number 
                 request_number += 1
                 transaction['origin']['actionName'] = '['+ str(request_number) + '] '+ transaction['origin']['actionName']
+
+# Add TIMER to requests
+@hooks.after_each
+def add_request_timer(transaction):
+        # Sleep
+        if transaction['name'] in requests_timer:
+                seconds = requests_timer[transaction['name']]
+                time.sleep(seconds)
