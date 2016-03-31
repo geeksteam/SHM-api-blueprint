@@ -31,3 +31,18 @@ Restore user backup. During restore users data may be overwriten.
         }
 
 + Response 204 (text/plain)
+
+## Restore backup #Error [POST /api/ubackup/restore]
+
+Restore error if backup file not found.
+
++ Request (application/json)
+        {
+            "Archive":"backup_file_notexist.tar.gz",
+            "IP":"93.183.203.13",
+            "MySQLUser":"DBUser1",
+            "PgSQLUser":"DbTester",
+            "DNS":true
+        }
+
++ Response
