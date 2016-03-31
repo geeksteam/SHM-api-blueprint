@@ -13,11 +13,14 @@ def save_response_to_stash(transaction):
 @hooks.after('User Backups > List backups > List backups')
 def save_last_backup_name(transaction):
             save_response_to_stash(transaction)
-            dskcjs9b
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
 def set_last_backup_name(transaction):
+            
+            parsed_body = json.loads(response_stash['User Backups > List backups > List backups'])
+            last_backup_name = parsed_body[0]['Name']
+            
             transaction['request']['headers']['Backup-name'] = last_backup_name
             transaction['request']['body'] = transaction['request']['body'].replace('$BACKUP_ARCHIVE_NAME',last_backup_name)
 		
