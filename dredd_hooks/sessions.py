@@ -21,6 +21,7 @@ user_group_requests = [
         'FTP accounts',
         'Email boxes',
         'DKIM',
+        'User Backups',
     ]
     
 # List of REQUESTS that must be run from USER
