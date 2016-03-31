@@ -1,4 +1,5 @@
 import json
+import time
 import dredd_hooks as hooks
 
 ###
@@ -21,16 +22,19 @@ user_group_requests = [
         'FTP accounts',
         'Email boxes',
         'DKIM',
+        'User Backups',
     ]
-    
 # List of REQUESTS that must be run from USER
 #
 user_requests = [
 	]
-    
+# List of Requests after which needs to be some timeout in seconds.
+# 
+timeout_requests = {}
+timeout_requests['User Backups > Create backup > Create backup'] = 10
+
 # Local stash
 stash = {}
-
 # Add request number before its name to identify test
 add_request_number = True
 request_number = 0
@@ -42,11 +46,11 @@ request_number = 0
 # Set Cookie for User 
 def set_user_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['user_sessID']
-        transaction['request']['headers']['User'] = 'RegularUser'
+        transaction['request']['headers']['Dredd.User'] = 'RegularUser'
 # Set Cookie for Root 
 def set_root_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['root_sessID']
-        transaction['request']['headers']['User'] = 'Root'
+        transaction['request']['headers']['Dredd.User'] = 'Root'
 # Set Expected response for 500 Errors
 def set_expected_error(transaction):
         transaction['expected']['statusCode'] = '500'
@@ -96,9 +100,17 @@ def add_error_expectation(transaction):
         hashTag = '#error'
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
-                
+
+# Check for timeout after request.
+@hooks.after_each
+def add_request_timeout(transaction):
+        if transaction['name'] in timeout_requests:
+                  # Sleep for a seconds
+                  transaction['request']['headers']['Dredd.Timeout.Seconds'] = timeout_requests[ transaction['name'] ]
+                  time.sleep( timeout_requests[ transaction['name'] ] )
+               
 # Add NUMBER to request name.
-@hooks.before_each
+@hooks.after_each
 def add_request_number(transaction):
         # Iterate request number
         if add_request_number:
