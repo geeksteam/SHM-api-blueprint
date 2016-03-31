@@ -101,13 +101,13 @@ def add_error_expectation(transaction):
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
 
-# Check for timeout after request.
-@hooks.after_each
-def add_request_timeout(transaction):
-        if transaction['name'] in timeout_requests:
-                  # Sleep for a seconds
-                  transaction['request']['headers']['Dredd.Timeout.Seconds'] = timeout_requests[ transaction['name'] ]
-                  time.sleep( timeout_requests[ transaction['name'] ] )
+# # Check for timeout after request.
+# @hooks.after_each
+# def add_request_timeout(transaction):
+#         if transaction['name'] in timeout_requests:
+#                   # Sleep for a seconds
+#                   transaction['request']['headers']['Dredd.Timeout.Seconds'] = timeout_requests[ transaction['name'] ]
+#                   time.sleep( timeout_requests[ transaction['name'] ] )
                
 # Add NUMBER to request name.
 @hooks.after_each
