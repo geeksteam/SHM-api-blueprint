@@ -9,9 +9,11 @@ def save_response_to_stash(transaction):
             # saving HTTP response to the stash
             response_stash[transaction['name']] = transaction['real']
 
+sdgfdsgdfg
+
 # Retrieve last backup archive name
-@hooks.after('User Backups > List backups > [120] ( Timer:10) List backups')
-def get_last_backup_name(transaction):
+@hooks.after('User Backups > List backups > List backups')
+def save_last_backup_name(transaction):
             save_response_to_stash(transaction)
             blablabla
         
