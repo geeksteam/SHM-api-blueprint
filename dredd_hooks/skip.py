@@ -26,23 +26,23 @@ skip_requests = [
 # Skip all except Run ONLY GROUP
 @hooks.before_each
 def skip_run_only_func(transaction):
-    if len(run_only_groups) > 0:
-        # Check is request GROUP in SKIP list
-        if transaction['origin']['resourceGroupName'] not in run_only_groups:
-            transaction['skip'] = True
+        if len(run_only_groups) > 0:
+                # Check is request GROUP in SKIP list
+                if transaction['origin']['resourceGroupName'] not in run_only_groups:
+                        transaction['skip'] = True
 
 # Skip requests and groups
 @hooks.before_each
 def skip_requests_func(transaction):
-	# Check is request GROUP in SKIP list
-	if transaction['origin']['resourceGroupName'] in skip_groups:
-		transaction['skip'] = True
-	# Check for request
-	if transaction['name'] in skip_requests:
-		transaction['skip'] = True
+        # Check is request GROUP in SKIP list
+        if transaction['origin']['resourceGroupName'] in skip_groups:
+		        transaction['skip'] = True
+        # Check for request
+        if transaction['name'] in skip_requests:
+		        transaction['skip'] = True
 
 #
 # Skip HOTP QR IMAGE body
 @hooks.before_validation("Two step authorization > Generate QR > Getting QR image with code")
 def skip_hotp_image(transaction):
-    transaction['real']['body'] = ''
+        transaction['real']['body'] = ''
