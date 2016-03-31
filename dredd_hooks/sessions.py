@@ -33,7 +33,7 @@ user_requests = [
 # Add TIMER BEFORE request
 #
 requests_timer = {}
-requests_timer['User Backups > Create backup > Create backup'] = 10
+requests_timer['User Backups > List backups > List backups'] = 10
 
 # Local stash
 stash = {}
@@ -104,7 +104,7 @@ def add_error_expectation(transaction):
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
                 
-# Add TIMER to requests
+# Execute TIMER for requests
 @hooks.before_each
 def add_request_timer(transaction):
         # Sleep
@@ -113,9 +113,12 @@ def add_request_timer(transaction):
                 transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
                 time.sleep(seconds)
                 
-# Add NUMBER to request name.
+# Add NUMBER to request name and Timer info.
 @hooks.before_each
 def add_request_number(transaction):
+        # Add Timer information
+        if transaction['name'] in requests_timer:
+                transaction['origin']['actionName'] = '( Timer:'+ str(requests_timer[transaction['name']]) + ') '+ transaction['origin']['actionName']
         # Iterate request number
         if add_request_number:
                 global request_number 
