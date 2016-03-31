@@ -2,10 +2,15 @@ import json
 import dredd_hooks as hooks
 
 # Local stash
+response_stash = {}
 last_backup_name = 'noBackup'
 
+def save_response_to_stash(transaction):
+            # saving HTTP response to the stash
+            response_stash[transaction['name']] = transaction['real']
+
 # Retrieve last backup archive name
-@hooks.after('User Backups > List backups > List backups')
+@hooks.after('User Backups > List backups > [120] ( Timer:10) List backups')
 def get_last_backup_name(transaction):
             arch_list=json.loads(transaction['real']['body'])
             print(repr(arch_list))

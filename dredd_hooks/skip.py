@@ -1,17 +1,17 @@
 import dredd_hooks as hooks
 
 #
-# Run only current GROUP of tests not all, empty will run all tests.
+# Run only current GROUP of tests instead of all, empty will run all tests.
 run_only_groups = [
         'Panel Authorization',
         'User Backups',
      ]
 #
-# List of GROUPS to skip
+# List certain of GROUPS to skip
 skip_groups = []
 
 #
-# List of REQUESTS to skip
+# List certain of REQUESTS to skip
 skip_requests = [
 		'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
@@ -30,7 +30,7 @@ def skip_run_only_func(transaction):
         if transaction['origin']['resourceGroupName'] not in run_only_groups:
             transaction['skip'] = True
 
-# Skip requests
+# Skip requests and groups
 @hooks.before_each
 def skip_requests_func(transaction):
 	# Check is request GROUP in SKIP list
