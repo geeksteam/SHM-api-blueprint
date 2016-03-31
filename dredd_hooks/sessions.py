@@ -117,3 +117,4 @@ def add_request_timer(transaction):
         # Sleep
         if transaction['name'] in requests_timer:
                 seconds = requests_timer[transaction['name']]
+                transaction['request']['headers']['Dredd-Timer'] = str(seconds)
