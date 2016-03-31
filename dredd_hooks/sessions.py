@@ -111,7 +111,7 @@ def add_error_expectation(transaction):
 #                 transaction['request']['headers']['Dredd-Timer'] = str(seconds)
                 
 # Add NUMBER to request name.
-@hooks.after_each
+@hooks.before_each
 def add_request_number(transaction):
         # Iterate request number
         if add_request_number:
