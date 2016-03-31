@@ -16,3 +16,18 @@ List user backups.
                 "Size":999
             }
         ]
+        
+## Restore backup [POST /api/ubackup/list]
+
+Restore user backup. During restore users data may be overwriten.
+
++ Request (application/json)
+        {
+            "Archive":"$BACKUP_ARCHIVE_NAME",
+            "IP":"93.183.203.13",
+            "MySQLUser":"DBUser1",
+            "PgSQLUser":"DbTester",
+            "DNS":true
+        }
+
++ Response 204 (text/plain)
