@@ -106,7 +106,7 @@ def add_error_expectation(transaction):
 def add_request_timer(transaction):
         if transaction['name'] in timeout_requests:
                   # Sleep for a seconds
-                  transaction['request']['headers']['Dredd-Timer'] = timeout_requests[ transaction['name'] ]
+                  # transaction['request']['headers']['Dredd-Timer'] = timeout_requests[ transaction['name'] ]
                   time.sleep( timeout_requests[ transaction['name'] ] )
                
 # Add NUMBER to request name.
