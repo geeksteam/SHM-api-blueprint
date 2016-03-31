@@ -9,7 +9,7 @@ last_backup_name = 'noBackup'
 def get_last_backup_name(transaction):
             arch_list=json.loads(transaction['real']['body'])
             print(repr(arch_list))
-            last_backup_name = arch_list[1]['Name']
+            last_backup_name = 'noBackupAfter'
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
