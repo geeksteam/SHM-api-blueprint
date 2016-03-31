@@ -47,11 +47,11 @@ request_number = 0
 # Set Cookie for User 
 def set_user_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['user_sessID']
-        transaction['request']['headers']['User'] = 'RegularUser'
+        transaction['request']['headers']['Dredd-User'] = 'RegularUser'
 # Set Cookie for Root 
 def set_root_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['root_sessID']
-        transaction['request']['headers']['User'] = 'Root'
+        transaction['request']['headers']['Dredd-User'] = 'Root'
 # Set Expected response for 500 Errors
 def set_expected_error(transaction):
         transaction['expected']['statusCode'] = '500'
