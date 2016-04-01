@@ -7,6 +7,7 @@ run_only_groups = [
         'Iptables firewall',
         'Ruby Gems',
         'Journal',
+        'API Triggers',
         'Logout',
      ]
 #

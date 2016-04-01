@@ -101,6 +101,7 @@ iptables/about.apib
 iptables/main.apib
 
 journal/about.apib
+api/about.apib
 
 logout/about.apib
 
