@@ -1,13 +1,3 @@
-## Update Ruby Gems [GET /api/ruby/update]
-
-Updates Ruby gems packages cache.
-
-+ Response 200 (application/json)
-
-        [
-            "Output"
-        ]
-
 ## Search Ruby Gems [POST /api/ruby/search]
 
 Search for ruby gems.
@@ -43,6 +33,20 @@ Install Ruby gem package.
 ## List installed Ruby Gems packages [GET /api/ruby/list]
 
 List all installed Ruby packages.
+
++ Response 200 (application/json)
+
+        [
+            "Output"
+        ]
+
+## Update Ruby Gems [GET /api/ruby/update]
+
+Updates Ruby gems packages and system gem package.
+
++ Request (application/json)
+
+        ["radar-mysql"]
 
 + Response 200 (application/json)
 
