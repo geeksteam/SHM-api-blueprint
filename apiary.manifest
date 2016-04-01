@@ -106,6 +106,9 @@ sessions/about.apib
 
 timezone/about.apib
 
+syspackages/about.apib
+syspackages/main.apib
+
 api/about.apib
 
 logout/about.apib
