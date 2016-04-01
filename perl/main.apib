@@ -1,0 +1,36 @@
+## Search Perl packages in cpan [POST /api/perl/search]
+
+Search for perl packages in CPAN
+
++ Request (application/json)
+
+        ["mysql*", "sqlite*"]
+
++ Response 200 (application/json)
+
+        [
+            {    
+            "Name":    "db::MySQL",
+            "Version": "1.02-b"
+            }
+        ]
+
+## Install Perl cpan package [POST /api/perl/install]
+
+Install perl package from CPAN.
+
++ Request (application/json)
+
+        ["db::MySQL", "time::Regex"]
+
++ Response 204 (text/plain)
+
+## List all installed Perl packages [GET /api/perl/list]
+
+List all installed Perl packages.
+
++ Response 200 (application/json)
+
+        [
+            "Output"
+        ]

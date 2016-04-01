@@ -36,6 +36,9 @@ php/about.apib
 php/main.apib
 php/pecl.apib
 
+perl/about.apib
+perl/main.apib
+
 mysql-users/about.apib
 mysql-users/main.apib
 
