@@ -33,7 +33,7 @@ user_requests = [
 # Add TIMER BEFORE request
 #
 requests_timer = {}
-requests_timer['User Backups > List backups > List backups'] = 1
+requests_timer['User Backups > List backups > List backups'] = 10
 
 # Local stash
 stash = {}

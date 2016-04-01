@@ -10,7 +10,8 @@ last_backup_name = 'noBackupFound'
 def save_last_backup_name(transaction):
 			global last_backup_name
 			response_json = json.loads(transaction['real']['body'])
-			last_backup_name = response_json[0]['Name']
+            if len(response_json) > 0:
+			        last_backup_name = response_json[0]['Name']
         
 # Set backup arch Name
 @hooks.before('User Backups > Restore backup > Restore backup')
