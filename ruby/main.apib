@@ -1,0 +1,51 @@
+## Update Ruby Gems [GET /api/ruby/update]
+
+Updates Ruby gems packages cache.
+
++ Response 200 (application/json)
+
+        [
+            "Output"
+        ]
+
+## Search Ruby Gems [POST /api/ruby/search]
+
+Search for ruby gems.
+
++ Request (application/json)
+
+        ["mysql"]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "Name":        "Package",
+                "Version":     "1.0.9",
+                "Description": "sql driver"
+            }
+        ]
+
+## Install Gem package [POST /api/ruby/install]
+
+Install Ruby gem package.
+
++ Request (application/json)
+
+        ["mysql"]
+
++ Response 200 (application/json)
+
+        [
+            "Output"
+        ]
+
+## List installed Ruby Gems packages [GET /api/ruby/list]
+
+List all installed Ruby packages.
+
++ Response 200 (application/json)
+
+        [
+            "Output"
+        ]

@@ -5,7 +5,7 @@ import dredd_hooks as hooks
 run_only_groups = [
         'Panel Authorization',
         'Iptables firewall',
-        'Perl packages',
+        'Ruby Gems',
         'Logout',
      ]
 #
