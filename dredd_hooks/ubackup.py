@@ -8,8 +8,8 @@ last_backup_name = 'noBackupFound'
 # Retrieve last backup archive name
 @hooks.after('User Backups > List backups > List backups')
 def save_last_backup_name(transaction):
-			global last_backup_name
-			response_json = json.loads(transaction['real']['body'])
+            global last_backup_name
+            response_json = json.loads(transaction['real']['body'])
             if len(response_json) > 0:
                     last_backup_name = response_json[0]['Name']
         
