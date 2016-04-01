@@ -1,0 +1,79 @@
+## Add new rule to iptables [POST /api/iptables/add]
+Add new rule to iptables firewall.
+
++ Request (application/json)
+        {
+            "Chain": "INPUT",
+            "Action": "ACCEPT",
+            "Rulenum": 1,
+            "Source": "93.183.203.111",
+            "Destination": "",
+            "Protocol": "TCP",
+            "SourcePort": "8080",
+            "DestinationPort": "8080"
+        }
+
++ Response 204 (text/plain)
+
+## Edit rule in iptables [POST /api/iptables/set]
+Edit rule in iptables settings.
+
++ Request (application/json)
+        {
+            "Chain": "INPUT",
+            "Action": "ACCEPT",
+            "Rulenum": 1,
+            "Source": "80.91.191.222,
+            "Destination": "81.91.91.22",
+            "Protocol": "TCP",
+            "SourcePort": "9090",
+            "DestinationPort": "9988"
+        }
+
++ Response 204 (text/plain)
+
+## List iptables rules [ GET /api/iptables/list]
+List all iptables rules.
+
++ Response 200 (application/json)
+        [
+            {
+                "Name": "INPUT",
+                "Action": "ACCEPT",
+                "Rules": [
+                    {
+                        "Rulenum": 1,
+                        "Source": "93.183.203.111",
+                        "Destination": "",
+                        "Protocol": "TCP",
+                        "SourcePort": "8080",
+                        "DestinationPort": "8080",
+                        "Opt": "",
+                        "Additional": "",
+                        "Action": ""
+                    }
+                ]
+            }
+        ]
+
+## Remove iptables rule [POST /api/iptables/remove]
+Remove iptables rule.
+
++ Request (application/json)
+        {
+            "Chain": "INPUT",
+            "Rulenum": 1
+        }
+
++ Response 204 (text/plain)
+
+## Remove iptables rule #Error [POST /api/iptables/remove]
+Remove unexistent iptables rule.
+
++ Request (application/json)
+        {
+            "Chain": "INPUT",
+            "Rulenum": 99
+        }
+
++ Response

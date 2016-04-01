@@ -91,5 +91,8 @@ ubackup/main.apib
 messages/about.apib
 messages/main.apib
 
+iptables/about.apib
+iptables/main.apib
+
 logout/about.apib
 
