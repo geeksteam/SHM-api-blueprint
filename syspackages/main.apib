@@ -23,8 +23,11 @@ Searches for packages in apt or yum.
 Installing packages by apt or yum.
 
 + Request (application/json)
-
-        ["nano","mc"]
+        {
+            "Package":"nano",
+            "Version":"",
+            "Repo":""
+        }
 
 + Response 204 (text/plain)
 
