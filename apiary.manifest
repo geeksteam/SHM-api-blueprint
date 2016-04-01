@@ -61,10 +61,10 @@ pgsql-dbs/export.apib
 pdns/about.apib
 pdns/main.apib
 
-sessions/about.apib
-sessions/root.apib
-sessions/user.apib
-sessions/domains.apib
+info/about.apib
+info/root.apib
+info/user.apib
+info/domains.apib
 
 pftpd/about.apib
 pftpd/main.apib
@@ -101,6 +101,9 @@ iptables/about.apib
 iptables/main.apib
 
 journal/about.apib
+
+sessions/about.apib
+
 api/about.apib
 
 logout/about.apib

@@ -1,9 +1,28 @@
-# Group Sessions
+# Group Panel Sessions
+Active panel sessions
 
-After successful authorization users have their session stored in panel's memory. 
-SessionID is a unique key that stores in browser cookie. 
-By default clients IP addresses also check with SessionID but you can disable it by turning `false` config file parameter `Core.StrictSessionIP`. 
-In this case only SessionID will be checked for session identification without IP address verification. 
-Its safe because panel have its own bruteforce protection but we are not suggest to disable this check unless your users behind NAT with frequently IP changes have often `401 Unauthorized` errors.
+## List all panel sessions [GET /api/sessions/list]
+Lists all active panel users sessions.
 
-## Session information [/api/info/session]
++ Response 200 (application/json)
+
+            [
+                {
+                    "ID":        "234ih23b9ub2323324fc",
+                    "IP":        "127.0.0.1",
+                    "UserAgent": "Mozilla Firefox...",
+                    "Created":   "2015-08-09 13:45:23",
+                    "Username":  "Root"
+                }
+            ]
+
+## Close session [GET /api/sessions/del]
+Root can close certain panel session, which 
+
++ Request (application/json)
+
+        {
+            "SessionID": "dsfkg3984bfv92fsdfsdf"
+        }
+            
++ Response 204 (text/plain)
