@@ -1,0 +1,44 @@
+## Search for packages [POST /api/syspackages/search]
+
+Searches for packages in apt or yum.
+
++ Request (application/json)
+
+        ["nano","mc"]
+
++ Response 200 (application/json)
+        [
+            {
+                "Name":        "httpd",
+                "Description": "Apache httpd server",
+                "Version":     "2.0.1",
+                "Repo":        ""
+            }
+        ]
+
+## Install PECL packages [POST /api/php/peclinstall]
+
+Installing pecl packages.
+
++ Request (application/json)
+
+        ["ZendOpcache","SQLite"]
+
++ Response 200 (application/json)
+        {
+            "Output":"text from console"
+        }
+        
+## Remove PECL packages [POST /api/php/peclremove]
+
+Removing pecl packages.
+
++ Request (application/json)
+
+        ["ZendOpcache","SQLite"]
+
++ Response 200 (application/json)
+        {
+            "Output":"text from console"
+        }
+        

@@ -6,6 +6,7 @@ run_only_groups = [
         'Panel Authorization',
         'Panel Sessions',
         'API Triggers',
+        'Server Time',
         'Logout',
      ]
 #
