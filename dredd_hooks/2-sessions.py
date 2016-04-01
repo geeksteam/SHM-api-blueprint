@@ -30,12 +30,6 @@ user_group_requests = [
 user_requests = [
 	]
 
-# Add TIMER BEFORE request
-#
-requests_timer = {}
-requests_timer['User Backups > List backups > List backups'] = 10
-requests_timer['User Backups > Delete backup > Delete backup'] = 10
-
 # Local stash
 stash = {}
 
@@ -67,17 +61,19 @@ def set_expected_error(transaction):
 # Hook functions
 ###
 
-# Retrieve ROOT sessionID on a login
+## Retrieve ROOT sessionID on a login
 @hooks.after('Panel Authorization > Root login > Root login success')
 def stash_root_session_id(transaction):
 		stash['root_sessID'] = transaction['real']['headers']['set-cookie']
 
-# Retrieve USER sessionID on a login
+## Retrieve USER sessionID on a login
 @hooks.after('Panel Authorization > User login > Login success')
 def stash_user_session_id(transaction):
 		stash['user_sessID'] = transaction['real']['headers']['set-cookie']
 
-# Set the ROOT or USER session cookie in all requests        
+## Set the ROOT or USER session cookie in all requests
+# if #User tag provided in request name or request in group or list 
+# of user request it will handle with user cookie.    
 @hooks.before_each
 def add_session_cookie(transaction):
         if 'user_sessID' in stash:
@@ -104,24 +100,3 @@ def add_error_expectation(transaction):
         hashTag = '#error'
         if hashTag in transaction['name'].lower():
                 set_expected_error(transaction)
-                
-# Execute TIMER for requests
-@hooks.before_each
-def add_request_timer(transaction):
-        # Sleep
-        if transaction['name'] in requests_timer and transaction['skip'] != True:
-                seconds = requests_timer[transaction['name']]
-                transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
-                time.sleep(seconds)
-                
-# Add NUMBER to request name and Timer info.
-@hooks.before_each
-def add_request_number(transaction):
-        # Add Timer information
-        if transaction['name'] in requests_timer:
-                transaction['origin']['actionName'] = '( Timer:'+ str(requests_timer[transaction['name']]) + ') '+ transaction['origin']['actionName']
-        # Iterate request number
-        if add_request_number:
-                global request_number 
-                request_number += 1
-                transaction['origin']['actionName'] = '['+ str(request_number) + '] '+ transaction['origin']['actionName']
