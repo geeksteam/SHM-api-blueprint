@@ -1,0 +1,51 @@
+## Send message [GET /api/messages/send]
+Send message to user.
+
++ Attributes
+    + To (required, string) - Username of reciever.
+    + Title (required, string) - Title of the message.
+    + Text (required, string) - Text of the message.
+    + Type (optional, string) - Messages beetwen users have `info` type. System messages may have `Error` or `Alert` types.
+
++ Request (application/json)
+        {
+            "To":"regularUser",
+            "Title":"Hey, test is here!",
+            "Text":"There is some test message from judge DREDD."
+        }
+
++ Response 204 (text/plain)
+
+## Send message #Error [GET /api/messages/send]
+Send message to unexistent user.
+
++ Request (application/json)
+        {
+            "To":"noSuchUserHere",
+            "Title":"Hey, test is here!",
+            "Text":"There is some test message from judge DREDD."
+        }
+
++ Response
+
+## List #User messages [GET /api/messages/list]
+List all user messages.
+
++ Response 200 (application/json)
+        [  
+            {  
+                "ID":4842,
+                "Read":false,
+                "Datetime":"2022-12-12 13:12:43",
+                "From":"root",
+                "To":"regularUser",
+                "Type":"Alert",
+                "Title":"Send me some money",
+                "Text":"Hi from there!"
+            }
+        ]
+
+## Clear all #User messages [GET /api/messages/clear]
+Delete all user messages.
+
++ Response 204 (text/plain)

@@ -13,7 +13,7 @@ def save_last_backup_name(transaction):
 			last_backup_name = response_json[0]['Name']
         
 # Set backup arch Name
-@hooks.before('User Backups > Restore backup > Restore backup')
+@hooks.before('User Backups > Restore backup > Restore backup', 'User Backups > Delete backup > Delete backup')
 def set_last_backup_name(transaction):            
             transaction['request']['headers']['Backup-name'] = last_backup_name
             transaction['request']['body'] = transaction['request']['body'].replace('$BACKUP_ARCHIVE_NAME',last_backup_name)

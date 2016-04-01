@@ -46,3 +46,25 @@ Restore error if backup file not found.
         }
 
 + Response
+
+## Delete backup [POST /api/ubackup/delete]
+
+Delete user backup.
+
++ Request (application/json)
+        [
+            "$BACKUP_ARCHIVE_NAME"
+        ]
+
++ Response 204 (text/plain)
+
+## Delete backup #Error [POST /api/ubackup/delete]
+
+Delete error if backup file not found.
+
++ Request (application/json)
+        [
+            "NoSuchBackupFile.tar.gz"
+        ]
+
++ Response
