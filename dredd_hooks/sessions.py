@@ -109,7 +109,7 @@ def add_error_expectation(transaction):
 @hooks.before_each
 def add_request_timer(transaction):
         # Sleep
-        if transaction['name'] in requests_timer:
+        if transaction['name'] in requests_timer and transaction['skip'] !== True:
                 seconds = requests_timer[transaction['name']]
                 transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
                 time.sleep(seconds)
