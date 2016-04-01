@@ -33,10 +33,6 @@ user_requests = [
 # Local stash
 stash = {}
 
-# Add request number before its name to identify test
-add_request_number = True
-request_number = 0
-
 ###
 # Local functions
 ###
