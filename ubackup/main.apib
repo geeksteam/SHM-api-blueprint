@@ -18,12 +18,11 @@ List user backups.
         ]
         
 ## Restore backup [POST /api/ubackup/restore]
-
 Restore user backup. During restore users data may be overwriten.
 
 + Request (application/json)
         {
-            "Archive":"$BACKUP_ARCHIVE_NAME",
+            "Archive":"$BACKUP_NAME",
             "IP":"93.183.203.13",
             "MySQLUser":"DBUser1",
             "PgSQLUser":"DbTester",
@@ -53,7 +52,7 @@ Delete user backup.
 
 + Request (application/json)
         [
-            "$BACKUP_ARCHIVE_NAME"
+            "$BACKUP_NAME"
         ]
 
 + Response 204 (text/plain)
