@@ -105,6 +105,7 @@ journal/about.apib
 sessions/about.apib
 
 timezone/about.apib
+timezone/main.apib
 
 syspackages/about.apib
 syspackages/main.apib

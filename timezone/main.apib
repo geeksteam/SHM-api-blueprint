@@ -1,0 +1,33 @@
+
+## Set timezone  [POST /api/timezone/set]
+Set server timezone.
+
++ Request (application/json)
+        {  
+        "Timezone":"Europe/Kiev"
+        }
+
++ Response 204 (text/plain)
+
+## Get timezone  [GET /api/timezone/get]
+
+Get server timezone.
+
++ Response 200 (application/json)
+        {  
+        "Timezone":"Europe/Kiev"
+        }
+
+## Set NTP servers  [POST /api/timezone/setntp]
+Set NTP servers for time sync.
+
++ Request (application/json)
+        ["3.ua.pool.ntp.org","1.ua.pool.ntp.org"]
+
++ Response 204 (text/plain)
+
+## Get NTP servers  [GET /api/timezone/getntp]
+Get current server NTP servers.
+
++ Response 200 (application/json)
+        ["3.ua.pool.ntp.org","1.ua.pool.ntp.org"]

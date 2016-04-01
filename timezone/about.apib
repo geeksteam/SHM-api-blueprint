@@ -1,26 +1,2 @@
 # Group Server Time
 Server time zone and NTP modification.
-
-## Set timezone  [POST /api/timezone/set]
-Set server timezone.
-
-+ Request (application/json)
-        {  
-        "Timezone":"Europe/Kiev"
-        }
-
-+ Response 204 (text/plain)
-
-## Set NTP servers  [POST /api/timezone/setntp]
-Set NTP servers for time sync.
-
-+ Request (application/json)
-        ["3.ua.pool.ntp.org","1.ua.pool.ntp.org"]
-
-+ Response 204 (text/plain)
-
-## Get NTP servers  [GET /api/timezone/getntp]
-Get current server NTP servers.
-
-+ Response 200 (application/json)
-        ["3.ua.pool.ntp.org","1.ua.pool.ntp.org"]
