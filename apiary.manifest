@@ -100,5 +100,7 @@ messages/main.apib
 iptables/about.apib
 iptables/main.apib
 
+journal/about.apib
+
 logout/about.apib
 

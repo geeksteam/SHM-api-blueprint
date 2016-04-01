@@ -22,13 +22,23 @@ Install Ruby gem package.
 
 + Request (application/json)
 
-        ["radar-mysql"]
+        ["google"]
 
 + Response 200 (application/json)
 
         [
             "Output"
         ]
+        
+## Install Gem package #Error [POST /api/ruby/install]
+
+Install Ruby gem package with error.
+
++ Request (application/json)
+
+        ["radar-mysql"]
+
++ Response
 
 ## List installed Ruby Gems packages [GET /api/ruby/list]
 
@@ -37,7 +47,11 @@ List all installed Ruby packages.
 + Response 200 (application/json)
 
         [
-            "Output"
+            {
+                "Name":        "Package",
+                "Version":     "1.0.9",
+                "Description": "sql driver"
+            }
         ]
 
 ## Update Ruby Gems [GET /api/ruby/update]
@@ -46,7 +60,7 @@ Updates Ruby gems packages and system gem package.
 
 + Request (application/json)
 
-        ["radar-mysql"]
+        ["google"]
 
 + Response 200 (application/json)
 
@@ -60,7 +74,7 @@ Remove Ruby gem package.
 
 + Request (application/json)
 
-        ["radar-mysql"]
+        ["google"]
 
 + Response 200 (application/json)
 

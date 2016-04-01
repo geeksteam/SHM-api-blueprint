@@ -6,6 +6,7 @@ run_only_groups = [
         'Panel Authorization',
         'Iptables firewall',
         'Ruby Gems',
+        'Journal',
         'Logout',
      ]
 #
