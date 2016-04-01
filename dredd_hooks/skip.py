@@ -45,4 +45,5 @@ def skip_requests_func(transaction):
 # Skip HOTP QR IMAGE body
 @hooks.before_validation("Two step authorization > Generate QR > Getting QR image with code")
 def skip_hotp_image(transaction):
-        transaction['real']['body'] = ''
+        if transaction['skip'] != True:
+                transaction['real']['body'] = ''
