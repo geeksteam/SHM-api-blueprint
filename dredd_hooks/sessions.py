@@ -34,6 +34,7 @@ user_requests = [
 #
 requests_timer = {}
 requests_timer['User Backups > List backups > List backups'] = 10
+requests_timer['User Backups > Delete backup > Delete backup'] = 10
 
 # Local stash
 stash = {}
