@@ -117,6 +117,9 @@ timezone/main.apib
 syspackages/about.apib
 syspackages/main.apib
 
+services/about.apib
+services/main.apib
+
 api/about.apib
 
 logout/about.apib

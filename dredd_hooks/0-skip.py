@@ -6,6 +6,7 @@ run_only_groups = [
         'Panel Authorization',
         'Exim Logs',
         'DNSBL spam lists',
+        'System Services',
         'Logout',
      ]
 #

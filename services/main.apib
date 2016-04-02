@@ -1,0 +1,39 @@
+## Set service [POST /api/services/set]
+
+Set service on boot status.
+
++ Request (application/json)
+        {
+        "Service": "postgresql",
+        "Onboot":  true
+        }
+
++ Response 204 (text/plain)
+
+## Start or stop service [POST /api/services/push]
+
+Start, stop or restart service.
+
++ Request (application/json)
+        {
+        "Service": "nginx",
+        "Action":  "restart"
+        }
+
++ Response 200 (application/json)
+        {
+            "Text":""
+        }
+        
+## List services [GET /api/services/list]
+
+List system panel services.
+
++ Response 200 (application/json)
+        [
+            {
+                "Name":  "httpd",
+                "Status": true,
+                "Onboot": true
+            }
+        ]
