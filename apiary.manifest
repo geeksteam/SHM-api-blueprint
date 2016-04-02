@@ -79,6 +79,9 @@ eximlog/about.apib
 eximlog/queue.apib
 eximlog/delivery.apib
 
+dnsbl/about.apib
+dnsbl/main.apib
+
 filemanager/about.apib
 filemanager/mkdir.apib
 filemanager/set.apib

@@ -5,6 +5,7 @@ import dredd_hooks as hooks
 run_only_groups = [
         'Panel Authorization',
         'Exim Logs',
+        'DNSBL spam lists',
         'Logout',
      ]
 #

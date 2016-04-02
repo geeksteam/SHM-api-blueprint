@@ -1,0 +1,19 @@
+## Set list [POST /api/dnsbl/set]
+
+Set list of dnsbl servers for stop spam.
+
++ Request (application/json)
+        [
+        "zen.spamhaus.org"
+        ]
+
++ Response 204 (text/plain)
+
+## Get list of DNSBL servers [GET /api/dnsbl/list]
+
+Get list of DNSBL servers.
+
++ Response 200 (application/json)
+        [  
+        "zen.spam.com"
+        ]
