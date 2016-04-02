@@ -75,6 +75,10 @@ email/main.apib
 dkim/about.apib
 dkim/main.apib
 
+eximlog/about.apib
+eximlog/queue.apib
+eximlog/delivery.apib
+
 filemanager/about.apib
 filemanager/mkdir.apib
 filemanager/set.apib

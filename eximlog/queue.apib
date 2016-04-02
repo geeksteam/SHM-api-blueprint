@@ -1,0 +1,70 @@
+## Exim mail queue log
+Outgoing mail queue log.
+
+### Show total mail queue [GET /api/eximlog/queue]
+Show total mail queue count.
+
++ Response 200 (application/json)
+        {  
+            "Count":8274
+        }
+        
+### Show mail queue by date [POST /api/eximlog/queue]
+Show mail queue by date.
+
++ Request (application/json)
+        {  
+            "Date":"2016-04-01"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "Id":"dsgf892bsdfw254gd",
+                "Time":"2015-08-09 14:45:21",
+                "Size":2345,
+                "Sender":"dsfds@dsf.com",
+                "Recipient":"ddd@gmail.com",
+                "Frozen":true
+            }
+        ]
+
+### Show mail queue by date [POST /api/eximlog/queue]
+Show mail queue by date.
+
++ Request (application/json)
+        {  
+            "Date":"2016-04-01"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "Id":"dsgf892bsdfw254gd",
+                "Time":"2015-08-09 14:45:21",
+                "Size":2345,
+                "Sender":"dsfds@dsf.com",
+                "Recipient":"ddd@gmail.com",
+                "Frozen":true
+            }
+        ]
+
+### Show mail queue by email [POST /api/eximlog/queue]
+To find some email in a queue.
+
++ Request (application/json)
+        {  
+            "Email":"test@gmail.com"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "Id":"dsgf892bsdfw254gd",
+                "Time":"2015-08-09 14:45:21",
+                "Size":2345,
+                "Sender":"dsfds@dsf.com",
+                "Recipient":"ddd@gmail.com",
+                "Frozen":true
+            }
+        ]

@@ -1,0 +1,76 @@
+## Exim mail delivery log
+Mail delivery log.
+
+### Show total mail delivery log [GET /api/eximlog/delivery]
+Show total mail delivery count.
+
++ Response 200 (application/json)
+        {  
+            "Count":8274
+        }
+        
+### Show mail delivery by date [POST /api/eximlog/delivery]
+Show mail delivery log by date.
+
++ Request (application/json)
+        {  
+            "Date":"2016-04-01"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "ID":"sjdfgb923uy4ybsffd",
+                "DateTime":"2015-09-09 12:12:12",
+                "From":"dsfdf@ad.com",
+                "To":"tt@gmail.com",
+                "User":"nik1",
+                "Size":123,
+                "Status":"Delivered",
+                "Additional":""
+            }
+        ]
+
+### Show mail delivery by date [POST /api/eximlog/delivery]
+Show mail delivery log by date.
+
++ Request (application/json)
+        {  
+            "Date":"2016-04-01"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "ID":"sjdfgb923uy4ybsffd",
+                "DateTime":"2015-09-09 12:12:12",
+                "From":"dsfdf@ad.com",
+                "To":"tt@gmail.com",
+                "User":"nik1",
+                "Size":123,
+                "Status":"Delivered",
+                "Additional":""
+            }
+        ]
+
+### Show mail delivery log by email [POST /api/eximlog/delivery]
+To find some email in a delivery log.
+
++ Request (application/json)
+        {  
+            "Email":"test@gmail.com"
+        }
+
++ Response 200 (application/json)
+        [  
+            {  
+                "ID":"sjdfgb923uy4ybsffd",
+                "DateTime":"2015-09-09 12:12:12",
+                "From":"dsfdf@ad.com",
+                "To":"tt@gmail.com",
+                "User":"nik1",
+                "Size":123,
+                "Status":"Delivered",
+                "Additional":""
+            }
+        ]
