@@ -4,7 +4,7 @@ Set service on boot status.
 
 + Request (application/json)
         {
-        "Service": "postgresql",
+        "Service": "nginx",
         "Onboot":  true
         }
 
@@ -32,7 +32,7 @@ List system panel services.
 + Response 200 (application/json)
         [
             {
-                "Name":  "httpd",
+                "Name":  "nginx",
                 "Status": true,
                 "Onboot": true
             }
