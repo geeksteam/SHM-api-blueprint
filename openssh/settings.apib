@@ -1,0 +1,26 @@
+## Get current settings [GET /api/openssh/settings/get]
+
+Get openssh server settings.
+
++ Response 200 (application/json)
+        {
+            "Port":                   22,
+            "MaxAuthTries":           2,
+            "PermitRootLogin":        true,
+            "PasswordAuthentication": true,
+            "AllowUsers":             ["usr1", "usr2"],
+        }
+
+## Set current settings [GET /api/openssh/settings/set]
+
+Get openssh server settings.
+
++ Response 200 (application/json)
+        {
+            "Port":                   2022,
+            "MaxAuthTries":           9,
+            "PermitRootLogin":        true,
+            "PasswordAuthentication": true,
+            "AllowUsers":             ["root","shm_test_user"],
+        }
+

@@ -8,6 +8,7 @@ run_only_groups = [
         'DNSBL spam lists',
         'System Services',
         'System Processes',
+        'Open SSH server',
         'Logout',
      ]
 #

@@ -123,6 +123,10 @@ services/main.apib
 ps/about.apib
 ps/main.apib
 
+openssh/about.apib
+openssh/settings.apib
+openssh/keys.apib
+
 api/about.apib
 
 logout/about.apib
