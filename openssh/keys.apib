@@ -1,0 +1,46 @@
+## Create private key and add public [POST /api/openssh/keys/create]
+
+Creates new private key and add public key of new generated to server's authorized keys.
+
++ Request (application/json)
+        {
+            "Password":"dredd_test"
+        }
+
++ Response 200 (application/json)
+        {
+            "PrivateKey":"...Key..."
+        }
+
+## Add public key [GET /api/openssh/keys/import]
+
+Import public key and add to authorized keys.
+
++ Request (application/json)
+        {
+            "PublicKey":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCtNc8Y27kJqpX/gf4xALpcG82dLHT0Hs2ZyOJ+8/EEjHp316jr05Z3dqfjPTVng02H2bnT4EaPKhGbw5Pf4fDED/wTORokfjTYEN9rFjVh4KhHGwdDGXx7RuuFw64l+UeSBUD/IH/QcWIDSEVcfEU7FKgskFie+C9/xdjiiSHAKjD4azjnU2DlIaIKR8jglZakZm5ZaZgDF6jPS7mqDk4nwM+giLw86DPpK9RYnxZ/k8kFlR/fr1htpC2c01NWpNu/yLCygOBc0R5CnprkrPR2repPEJyjYbynV7bvBEe3GbmoUp59KtmuQ0H7+0KedvJ8YmotSn+LbPCGBAhDRW0vPG/PItCFTxwYEAe1wIQqizhepFl0cGg7F82YbEe9O3gi3h2zrTXsPRNVK4cAlLsC/5J8vzevwhB6l9+XI8JQORsUoxuw6NuIO9590hFzYmaykcUZOIXX5WmIWMUjr9Fpz76LL7v9VZF4Z6Ozs7GyifGCTqyqOxxLssa6GitNxjs88ZiHXnhaE1fxEqB2wjbnGdAgoWsa5c8GB3UktehlWlT3ToLvH6vqfMXZV0ndRxDhtMlDmDzm9mGefZzxQMFVsd6y5O60NXVNbMaC+faHb3q4/fUJ+iQyfvWBUjnOAa05ImRoduK3qcAThsMDaVGqx4d1aVOjELjuPJMt6BRweQ== kalashnikovm@mail.ru"
+        }
+
++ Response 204 (text/plain)
+
+## List keys [GET /api/openssh/keys/list]
+
+List authorized public keys list.
+
++ Response 200 (application/json)
+        [
+            {
+                "Name": "Key1",
+                "Type": "DES"
+            }
+        ]
+
+## Remove keys [GET /api/openssh/keys/remove]
+
+Remove authorized keys by index
+
+
++ Request (application/json)
+        [4,5]
+
++ Response 204 (text/plain)
