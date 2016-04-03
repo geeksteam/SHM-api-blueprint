@@ -7,6 +7,7 @@ run_only_groups = [
         'Exim Logs',
         'DNSBL spam lists',
         'System Services',
+        'System Processes',
         'Logout',
      ]
 #

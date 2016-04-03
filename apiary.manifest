@@ -120,6 +120,9 @@ syspackages/main.apib
 services/about.apib
 services/main.apib
 
+ps/about.apib
+ps/main.apib
+
 api/about.apib
 
 logout/about.apib
