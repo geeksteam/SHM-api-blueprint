@@ -125,7 +125,6 @@ ps/main.apib
 
 openssh/about.apib
 openssh/settings.apib
-openssh/keys.apib
 
 api/about.apib
 
