@@ -1,0 +1,37 @@
+## Get all domains statistics [GET /api/ngstat/get]
+Getting count of views by url for all domains by date interval.
+
++ Request (application/json)
+        {  
+        "From":"2015-09-01",
+        "To":"2016-04-04"
+        }
+
++ Response 200 (application/json)
+            {  
+                "2015-09-09":{  
+                    "domain1.com":324
+                },
+                "2015-09-10":{  
+                    "domain1.com":34
+                }
+            }
+
+## Get all domains statistics by #User [GET /api/ngstat/get]
+Getting count of views by url for all user domains by date interval.
+
++ Request (application/json)
+        {  
+        "From":"2015-09-01",
+        "To":"2016-04-04"
+        }
+
++ Response 200 (application/json)
+            {  
+                "2015-09-09":{  
+                    "domain1.com":324
+                },
+                "2015-09-10":{  
+                    "domain1.com":34
+                }
+            }

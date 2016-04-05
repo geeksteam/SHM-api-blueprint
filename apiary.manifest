@@ -15,4 +15,7 @@ network/main.apib
 nginx/about.apib
 nginx/main.apib
 
+ngstat/about.apib
+ngstat/main.apib
+
 logout/about.apib

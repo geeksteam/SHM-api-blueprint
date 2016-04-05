@@ -31,6 +31,9 @@ webdomains/main.apib
 nginx/about.apib
 nginx/main.apib
 
+ngstat/about.apib
+ngstat/main.apib
+
 ssl/about.apib
 ssl/main.apib
 
