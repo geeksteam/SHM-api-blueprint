@@ -1,0 +1,40 @@
+## Set global settings [POST /api/fail2ban/setsettings]
+
+Set global fail2ban settings
+
++ Attributes
+  + IgnoreIP (required, string) - IP which be ignored.
+  + Bantime (required, number) - Number seconds to ban.
+  + Findtime (required, number) - Interval in seconds to scan logs.
+  + Maxretry (required, number) - Maximal retry attempts before ban.
+
++ Request (application/json)
+        {
+            "IgnoreIP": "93.183.203.11", 
+            "Bantime": 333, 
+            "Findtime": 222, 
+            "Maxretry": 12 
+        }
+
++ Response 204 (text/plain)
+
+## Get global settings [GET /api/fail2ban/getsettings]
+
+Get global fail2ban settings
+
++ Response 200 (application/json)
+        {
+            "IgnoreIP": "93.183.203.11", 
+            "Bantime": 333, 
+            "Findtime": 222, 
+            "Maxretry": 12 
+        }
+        
+## Get services settings [GET /api/fail2ban/list]
+
+Get services settings.
+
++ Response 200 (application/json)
+            { 
+                "sshd": {}, 
+            }
