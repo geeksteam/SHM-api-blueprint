@@ -95,7 +95,7 @@ filemanager/download.apib
 ip/about.apib
 ip/main.apib
 
-fail2ban/abpout.apib
+fail2ban/about.apib
 fail2ban/main.apib
 
 cron/about.apib
