@@ -1,0 +1,41 @@
+## Set server hostname [POST /api/network/sethostname]
+Set server hostname.
+
++ Request (application/json)
+            {
+                "Hostname":"shmv1.geeks.team"
+            }
+       
++ Response 204 (text/plain)
+
+## Get IP list [GET /api/network/iplist]
+Getting list of ip addresses.
+
++ Response 200 (application/json)
+            [
+                "127.0.0.1"
+            ]
+
+## Set DNS resolvers [POST /api/network/resolversset]
+Set DNS resolvers list.
+
++ Request (application/json)
+            ["8.8.8.8","8.8.9.9"]
+       
++ Response 204 (text/plain)
+
+## Get DNS resolvers [POST /api/network/resolversget]
+Set DNS resolvers list.
+
++ Response 200 (application/json)
+            [
+                "8.8.8.8",
+                "8.8.9.9",
+                "93.183.203.2"
+            ]
+
+## Check DNS resolvers [POST /api/network/resolverscheck]
+Check each DNS resolver and return fail resolver index.
+
++ Response 200 (application/json)
+            [ 3 ]

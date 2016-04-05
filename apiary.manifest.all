@@ -91,6 +91,9 @@ filemanager/pack.apib
 filemanager/unpack.apib
 filemanager/download.apib
 
+network/about.apib
+network/main.apib
+
 ip/about.apib
 ip/main.apib
 
