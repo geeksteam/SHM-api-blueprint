@@ -12,6 +12,7 @@ fail2ban/main.apib
 network/about.apib
 network/main.apib
 
-api/about.apib
+nginx/about.apib
+nginx/main.apib
 
 logout/about.apib

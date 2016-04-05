@@ -28,6 +28,9 @@ uploads/main.apib
 webdomains/about.apib
 webdomains/main.apib
 
+nginx/about.apib
+nginx/main.apib
+
 ssl/about.apib
 ssl/main.apib
 
