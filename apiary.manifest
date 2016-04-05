@@ -130,8 +130,8 @@ openssh/about.apib
 openssh/settings.apib
 openssh/keys.apib
 
-#clamav/about.apib
-#clamav/main.apib
+clamav/about.apib
+clamav/main.apib
 
 api/about.apib
 

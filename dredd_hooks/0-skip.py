@@ -9,7 +9,7 @@ run_only_groups = [
         'System Services',
         'System Processes',
         'Open SSH server',
-        'ClamAV antivirus',
+        'Fail2ban',
         'Logout',
      ]
 #
