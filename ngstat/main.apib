@@ -11,9 +11,6 @@ Getting count of views by url for all domains by date interval.
             {  
                 "2015-09-09":{  
                     "domain1.com":324
-                },
-                "2015-09-10":{  
-                    "domain1.com":34
                 }
             }
 
@@ -28,10 +25,36 @@ Getting count of views by url for all user domains by date interval.
 
 + Response 200 (application/json)
             {  
-                "2015-09-09":{  
-                    "domain1.com":324
-                },
-                "2015-09-10":{  
-                    "domain1.com":34
+            }
+
+## Get domain statistics by #User [GET /api/ngstat/getdomain]
+Getting domain statistics for urls counts.
+
++ Request (application/json)
+        {  
+        "From":"01.09.2015",
+        "To":"10.06.2016",
+        "Domain":"test.com"
+        }
+
++ Response 200 (application/json)
+            {  
+                "2015-09-08":{  
+                    "domain.com/url1":324
                 }
+            }
+
+## Get URL statistics by #User [GET /api/ngstat/getdomain]
+Getting url extended statistics.
+
++ Request (application/json)
+        {  
+        "From":"01.09.2015",
+        "To":"10.06.2016",
+        "Url":"test.com/hey_now"
+        }
+
++ Response 200 (application/json)
+            {  
+            "2015-09-08 11:00":76
             }
