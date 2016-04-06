@@ -9,7 +9,10 @@ Packs directory to tar.gz archive on the fly.
             "Directory": "/etc/selinux"
         }
         
-+ Response 200 (application/x-gzip)
++ Response 200 (application/zip)
+    + Headers
+        Content-Disposition: "attachment; filename=selinux.zip"
+    + Body
 
 ### Pack directory by #User [POST]
 
@@ -18,7 +21,10 @@ Packs directory to tar.gz archive on the fly.
             "Directory": "/ftpdir"
         }
         
-+ Response 200 (application/x-gzip)
++ Response 200 (application/zip)
+    + Headers
+        Content-Disposition: "attachment; filename=ftpdir.zip"
+    + Body
 
 ### Pack directory #Error by #User [POST]
 Permission denied error.
