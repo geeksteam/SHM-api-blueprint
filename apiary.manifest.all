@@ -95,7 +95,10 @@ filemanager/list.apib
 filemanager/del.apib
 filemanager/pack.apib
 filemanager/unpack.apib
+filemanager/getarchive.apib
 filemanager/download.apib
+filemanager/showfile.apib
+filemanager/editfile.apib
 
 network/about.apib
 network/main.apib

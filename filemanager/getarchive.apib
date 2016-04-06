@@ -1,0 +1,31 @@
+## Download directory as archive [/api/filemanager/getarchive]
+
+Packs directory to tar.gz archive on the fly.
+
+### Pack directory by Root [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/etc/selinux"
+        }
+        
++ Response 200 (application/x-gzip)
+
+### Pack directory by #User [POST]
+
++ Request (application/json)
+        {
+            "Directory": "/ftpdir"
+        }
+        
++ Response 200 (application/x-gzip)
+
+### Pack directory #Error by #User [POST]
+Permission denied error.
+
++ Request (application/json)
+        {
+            "Directory": "../../../../etc/selinux"
+        }
+        
++ Response 

@@ -6,11 +6,18 @@ auth/user.apib
 auth/hotp.apib
 auth/root.apib
 
-fail2ban/about.apib
-fail2ban/main.apib
-
-network/about.apib
-network/main.apib
+filemanager/about.apib
+filemanager/mkdir.apib
+filemanager/set.apib
+filemanager/move.apib
+filemanager/list.apib
+filemanager/del.apib
+filemanager/pack.apib
+filemanager/unpack.apib
+filemanager/getarchive.apib
+filemanager/download.apib
+filemanager/showfile.apib
+filemanager/editfile.apib
 
 nginx/about.apib
 nginx/main.apib

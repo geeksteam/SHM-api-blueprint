@@ -1,0 +1,61 @@
+## Show text file [/api/filemanager/showfile]
+
+User can view text files.
+
+### Show file by Root [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/etc/passwd",
+            "Encoding": "ISO-8859-1"
+        }
+        
++ Response 200 (application/json)
+        {
+            "Text":"text of the file"
+        }
+
+### Show file #Error not exist [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/etc/no_such_file",
+            "Encoding": "ISO-8859-1"
+        }
+        
++ Response
+
+### Show file by #User [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/textfile.html",
+            "Encoding": "ISO-8859-1"
+        }
+        
++ Response 200 (application/json)
+        {
+            "Text":"text of the file"
+        }
+
+### Show file #Error by #User permission denied [POST]
+User can view only user owned files.
+
++ Request (application/json)
+        {
+            "Filename": "/from_root.txt",
+            "Encoding": "ISO-8859-1"
+        }
+        
++ Response
+
+### Show file #Error not text file format [POST]
+Show file work only with text files 1Mb size maximum.
+
++ Request (application/json)
+        {
+            "Filename": "/usr/bin/vim",
+            "Encoding": "ISO-8859-1"
+        }
+        
++ Response

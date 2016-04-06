@@ -1,0 +1,36 @@
+## Edit text file [/api/filemanager/editfile]
+Users can edit text file content.
+
+### Edit text file by Root [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/tmp/textfile.txt",
+            "Encoding": "ISO-8859-1",
+            "Text":"Hello world!"
+        }
+        
++ Response 204 (text/plain)
+
+### Edit text file by #User [POST]
+User can edit only owned files in his homedir.
+
++ Request (application/json)
+        {
+            "Filename": "/textfile.html",
+            "Encoding": "ISO-8859-1",
+            "Text":"<h1>File was modified</h1>"
+        }
+        
++ Response 204 (text/plain)
+
+### Edit text file #Error by #User [POST]
+
++ Request (application/json)
+        {
+            "Filename": "/from_root.txt",
+            "Encoding": "ISO-8859-1",
+            "Text":"Edit by regular User"
+        }
+        
++ Response 
