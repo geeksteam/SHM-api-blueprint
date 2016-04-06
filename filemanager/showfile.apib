@@ -7,7 +7,7 @@ User can view text files.
 + Request (application/json)
         {
             "Filename": "/etc/passwd",
-            "Encoding": "ISO-8859-2"
+            "Encoding": "ISO8859_1"
         }
         
 + Response 200 (application/json)
@@ -20,7 +20,7 @@ User can view text files.
 + Request (application/json)
         {
             "Filename": "/etc/no_such_file",
-            "Encoding": "ISO-8859-2"
+            "Encoding": "ISO8859_1"
         }
         
 + Response
@@ -30,7 +30,7 @@ User can view text files.
 + Request (application/json)
         {
             "Filename": "/textfile.html",
-            "Encoding": "ISO-8859-2"
+            "Encoding": "ISO8859_1"
         }
         
 + Response 200 (application/json)
@@ -44,7 +44,7 @@ User can view only user owned files.
 + Request (application/json)
         {
             "Filename": "/from_root.txt",
-            "Encoding": "ISO-8859-2"
+            "Encoding": "ISO8859_1"
         }
         
 + Response
@@ -55,7 +55,7 @@ Show file work only with text files 1Mb size maximum.
 + Request (application/json)
         {
             "Filename": "/usr/bin/vim",
-            "Encoding": "ISO-8859-2"
+            "Encoding": "ISO8859_1"
         }
         
 + Response
