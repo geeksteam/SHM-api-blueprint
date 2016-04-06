@@ -146,5 +146,9 @@ clamav/main.apib
 
 api/about.apib
 
+watchdog/about.apib
+watchdog/main.apib
+watchdog/chart.apib
+
 logout/about.apib
 

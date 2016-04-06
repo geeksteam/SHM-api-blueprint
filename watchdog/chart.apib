@@ -1,0 +1,66 @@
+## Getting system usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"SysStat",
+                "Date":{  
+                    "From":"2016.01.01 11:05",
+                    "To":"2016.12.17 18:23",
+                    "EntriesCount":10
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+                "labels":[],
+                "datasets":[
+                    {  
+                        "label":"CPU",
+                        "data":[]
+                    },
+                    {  
+                        "label":"RAM",
+                        "data":[]
+                    },
+                    {  
+                        "label":"SWAP",
+                        "data":[]
+                    },
+                    {  
+                        "label":"HDD",
+                        "data":[]
+                    },
+                    {  
+                        "label":"WA",
+                        "data":[]
+                    }
+                ]
+            }
+
+## Getting traffic usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"Traffic",
+                "Interface":"venet0",
+                "Date":{  
+                    "From":"2016.01.16 13:05",
+                    "To":"2016.12.17 18:23",
+                    "EntriesCount":10
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+            "labels":[],
+            "datasets":[  
+                {  
+                    "label":"In",
+                    "data":[]
+                },
+                {  
+                    "label":"Out",
+                    "data":[]
+                }
+            ]
+            }

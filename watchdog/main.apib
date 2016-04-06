@@ -1,0 +1,27 @@
+## Disk space analyzer [GET /api/watchdog/diskanalyzer]
+Disk space analyzer results.
+
+
++ Response 200 (application/json)
+            {  
+                "DiskAnalyzer":[  
+                    {  
+                        "Date":"Tue Nov 17 13:43:14 EET 2015",
+                        "Content":{}
+                    }
+                ]
+            }
+
+## Background process killer [GET /api/watchdog/prockiller]
+Background process killer statistic.
+
+
++ Response 200 (application/json)
+            {  
+                "ProcKiller":[  
+                    {  
+                        "Process":"Fri Nov 13 16:06:52 EET 2015",
+                        "Killed":"bounce"
+                    }
+                ]
+            }
