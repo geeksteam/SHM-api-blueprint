@@ -1,7 +1,7 @@
-## Mail queue log
+## Mail queue log [/api/eximlog/queue]
 Outgoing mail queue log.
 
-### Show total mail queue [GET /api/eximlog/queue]
+### Show total mail queue [GET]
 Show total mail queue count.
 
 + Response 200 (application/json)
@@ -9,7 +9,7 @@ Show total mail queue count.
             "Count":8274
         }
         
-### Show mail queue by date [POST /api/eximlog/queue]
+### Show mail queue by date [POST]
 Show mail queue by date.
 
 + Request (application/json)
@@ -29,7 +29,7 @@ Show mail queue by date.
             }
         ]
 
-### Show mail queue by date [POST /api/eximlog/queue]
+### Show mail queue by date [POST]
 Show mail queue by date.
 
 + Request (application/json)
@@ -49,7 +49,7 @@ Show mail queue by date.
             }
         ]
 
-### Show mail queue by email [POST /api/eximlog/queue]
+### Show mail queue by email [POST]
 To find some email in a queue.
 
 + Request (application/json)

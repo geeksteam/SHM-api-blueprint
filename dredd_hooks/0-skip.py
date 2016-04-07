@@ -19,6 +19,8 @@ skip_requests = [
 		'PgSQL Databases > Export database > Export database',
         'Filemanager > Download files > Download file',
         'Filemanager > Download files > Download file by #User',
+        'Filemanager > Download directory as archive > Pack directory by Root',
+        'Filemanager > Download directory as archive > Pack directory by #User',
 	]
 
 # Skip all except Run ONLY GROUP

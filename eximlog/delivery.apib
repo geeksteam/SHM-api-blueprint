@@ -1,8 +1,8 @@
-## Exim mail delivery log
+## Exim mail delivery log [/api/eximlog/delivery]
 
 Mail delivery log.
 
-### Show total mail delivery log [GET /api/eximlog/delivery]
+### Show total mail delivery log [GET]
 Show total mail delivery count.
 
 + Response 200 (application/json)
@@ -10,7 +10,7 @@ Show total mail delivery count.
             "Count":8274
         }
         
-### Show mail delivery by date [POST /api/eximlog/delivery]
+### Show mail delivery by date [POST]
 Show mail delivery log by date.
 
 + Request (application/json)
@@ -33,7 +33,7 @@ Show mail delivery log by date.
         ]
 
 
-### Show mail delivery log by email [POST /api/eximlog/delivery]
+### Show mail delivery log by email [POST]
 To find some email in a delivery log.
 
 + Request (application/json)
