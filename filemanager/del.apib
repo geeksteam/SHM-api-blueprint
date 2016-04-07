@@ -3,7 +3,7 @@
 Root can delete all files or directories.
 User can delete only files within his homedirectory and owned by him.
 
-### Delete by Root [POST]
+### Delete Dir by Root [POST]
 
 + Request (application/json)
         [
@@ -12,7 +12,7 @@ User can delete only files within his homedirectory and owned by him.
 
 + Response 204 (text/plain)
 
-### Delete by #User [POST]
+### Delete Dir by #User [POST]
 
 + Request (application/json)
         [
@@ -20,6 +20,22 @@ User can delete only files within his homedirectory and owned by him.
         ]
 
 + Response 204 (text/plain)
+
+### Delete file by Root [POST]
+
++ Request (application/json)
+        [
+            "/var/www/test_archives/testTar.tar.gz"
+        ]
+
++ Response 204 (text/plain)
+
+### Delete file by #User [POST]
+
++ Request (application/json)
+        [
+            "/www/test_archives/testTar.tar.gz"
+        ]
 
 ### Delete #Error Unexist by #User [POST]
 

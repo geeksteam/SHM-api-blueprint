@@ -7,7 +7,9 @@ run_only_groups = [
      ]
 #
 # List certain of GROUPS to skip
-skip_groups = []
+skip_groups = [
+        'Nginx URL statistics',
+    ]
 
 #
 # List certain of REQUESTS to skip
@@ -21,6 +23,7 @@ skip_requests = [
         'Filemanager > Download files > Download file by #User',
         'Filemanager > Download directory as archive > Pack directory by Root',
         'Filemanager > Download directory as archive > Pack directory by #User',
+        '',
 	]
 
 # Skip all except Run ONLY GROUP
