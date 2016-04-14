@@ -6,7 +6,6 @@ auth/user.apib
 auth/hotp.apib
 auth/root.apib
 
-dredd_test/before.apib
 
 hotp/about.apib
 hotp/main.apib
@@ -152,6 +151,5 @@ watchdog/about.apib
 watchdog/main.apib
 watchdog/chart.apib
 
-dredd_test/after.apib
 
 logout/about.apib
