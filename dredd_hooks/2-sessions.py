@@ -59,7 +59,7 @@ def set_expected_error(transaction):
 
 ## Retrieve ROOT sessionID on a login
 @hooks.after('Create regularUser for tests > Auth as Root for testing user creation > Auth as Root for testing user creation')
-def stash_root_session_id(transaction):
+def stash_test_root_session_id(transaction):
         print 'Crete executed!'
         stash['root_sessID'] = transaction['real']['headers']['set-cookie']
         
