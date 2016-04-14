@@ -37,15 +37,23 @@ stash = {}
 # Local functions
 ###
 
-# Set Cookie for User 
+# Save sessionID for Root
+def save_session_root(transaction):
+    stash['root_sessID'] = transaction['real']['headers']['set-cookie']
+
+# Save sessionID for User
+def save_session_user(transaction):
+    stash['user_sessID'] = transaction['real']['headers']['set-cookie']
+
+# Set header Cookie for User 
 def set_user_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['user_sessID']
         transaction['request']['headers']['Dredd-User'] = 'RegularUser'
-# Set Cookie for Root 
+# Set header Cookie for Root 
 def set_root_cookie(transaction):
         transaction['request']['headers']['Cookie'] = stash['root_sessID']
         transaction['request']['headers']['Dredd-User'] = 'Root'
-# Set Expected response for 500 Errors
+# Set header Expected response for 500 Errors
 def set_expected_error(transaction):
         transaction['expected']['statusCode'] = '500'
         transaction['expected']['headers'] = {}
@@ -57,26 +65,14 @@ def set_expected_error(transaction):
 # Hook functions
 ###
 
-## Retrieve ROOT sessionID on a login
-@hooks.after('Create regularUser for tests > Auth as Root for testing user creation > Auth as Root for testing user creation')
-def stash_test_root_session_id(transaction):
-        print 'Crete executed!'
-        stash['root_sessID'] = transaction['real']['headers']['set-cookie']
-        
-@hooks.after('Panel Authorization > Root login > Root login success')
-def stash_root_session_id(transaction):
-		stash['root_sessID'] = transaction['real']['headers']['set-cookie']
-
-## Retrieve USER sessionID on a login
-@hooks.after('Panel Authorization > User login > Login success')
-def stash_user_session_id(transaction):
-		stash['user_sessID'] = transaction['real']['headers']['set-cookie']
-
-## Set the ROOT or USER session cookie in all requests
+## Get and Set the ROOT or USER session cookie in all requests
+# if #AuthRoot tag provided in request name, sessionID will be saved for Root requests.
+# if #AuthUser tag provided in request name, sessionID will be saved for User requests.
 # if #User tag provided in request name or request in group or list 
 # of user request it will handle with user cookie.    
 @hooks.before_each
 def add_session_cookie(transaction):
+        # Check for run as User
         if 'user_sessID' in stash:
                 # Check is request GROUP in USERs list
                 if transaction['origin']['resourceGroupName'] in user_group_requests:
@@ -91,9 +87,21 @@ def add_session_cookie(transaction):
                 if hashTag in transaction['name'].lower():
                         set_user_cookie(transaction)
                         return
+
+        # Try to check #Auth tags for save sessionID
+        hashTag = '#authroot'
+        if hashTag in transaction['name'].lower():
+                save_session_root(transaction)
+                return
+        hashTag = '#authuser'
+        if hashTag in transaction['name'].lower():
+                save_session_user
+                return
+                
         # Run it as ROOT by default
         if 'root_sessID' in stash:
                 set_root_cookie(transaction)
+                        return
 
 # Add response expectation if #Error hash tag in request name
 @hooks.before_each
