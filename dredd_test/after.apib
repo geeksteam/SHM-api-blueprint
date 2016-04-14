@@ -1,9 +1,7 @@
 # Group Remove Test environment
 Remove test environment.
 
-## Remove Databases test users [/api/mysql/users/del]
-
-### Remove MySQL test user as #User [POST]
+## Remove MySQL test user [POST /api/mysql/users/del]
 
 + Request (application/json)
         {  
@@ -12,18 +10,16 @@ Remove test environment.
 
 + Response 204 (text/plain)
 
-### Remove PgSQL test user as #User [POST]
+## Remove PgSQL test user [POST /api/pgsql/users/del]
 
 + Request (application/json)
         {  
-            "Username":"DbTester"
+            "Username":"DBUser1"
         }
 
 + Response 204 (text/plain)
 
-## Remove dirs for archive testing [/api/filemanager/del]
-
-### Remove dirs for ZIP archive testing as Root [POST]
+## Remove dirs for ZIP archive testing as Root [POST /api/filemanager/del]
 
 + Request (application/json)
         [
@@ -32,7 +28,7 @@ Remove test environment.
 
 + Response 204 (text/plain)
 
-### Remove dir for TAR archive testing as #User [POST]
+## Remove dir for TAR archive testing as #User [POST /api/filemanager/del]
 
 + Request (application/json)
         [
