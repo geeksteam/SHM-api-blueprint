@@ -23,6 +23,7 @@ skip_requests = [
         'Filemanager > Download files > Download file by #User',
         'Filemanager > Download directory as archive > Pack directory by Root',
         'Filemanager > Download directory as archive > Pack directory by #User',
+        'User Backups > Restore backup > Restore backup',
 	]
 
 # Skip all except Run ONLY GROUP

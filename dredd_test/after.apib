@@ -1,7 +1,7 @@
 # Group Remove Test environment
 Remove test environment.
 
-## Remove MySQL test user [POST /api/mysql/users/del]
+## Remove MySQL test user as #User [POST /api/mysql/users/del]
 
 + Request (application/json)
         {  
@@ -10,11 +10,11 @@ Remove test environment.
 
 + Response 204 (text/plain)
 
-## Remove PgSQL test user [POST /api/pgsql/users/del]
+## Remove PgSQL test user as #User [POST /api/pgsql/users/del]
 
 + Request (application/json)
         {  
-            "Username":"DBUser1"
+            "Username":"DbTester"
         }
 
 + Response 204 (text/plain)
