@@ -1,0 +1,47 @@
+# Group Create Test environment
+Creating test environment.
+
+## Add MySQL test user as #User [POST /api/mysql/users/set]
+
+Add test user for PgSQL dumps.
+
++ Request (application/json)
+        {  
+        "Username":"DBUser1",
+        "Password":"NewMyDBUserPassword",
+        "Host":"localhost"
+        }
+
++ Response 204 (text/plain)
+
+## Add PgSQL test user as #User [POST /api/pgsql/users/set]
+
+Add test user for PgSQL dumps.
+
++ Request (application/json)
+        {  
+            "Username":"DbTester",
+            "Password":"NewMyDBTesterPassword"
+        }
+
++ Response 204 (text/plain)
+
+## Create dirs for ZIP archive testing as Root [POST /api/filemanager/mkdir]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "test_archives/zip"
+        }
+
++ Response 204 (text/plain)
+
+## Create dir for TAR archive testing as #User [POST /api/filemanager/mkdir]
+
++ Request (application/json)
+        {
+            "Dir":   "/www",
+            "Mkdir": "test_archives/tar"
+        }
+
++ Response 204 (text/plain)

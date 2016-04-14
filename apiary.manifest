@@ -6,6 +6,8 @@ auth/user.apib
 auth/hotp.apib
 auth/root.apib
 
+dredd_test/before.apib
+
 hotp/about.apib
 hotp/main.apib
 
@@ -98,7 +100,7 @@ filemanager/getarchive.apib
 filemanager/download.apib
 filemanager/showfile.apib
 filemanager/editfile.apib
-
+filemanager/del.apib
 
 network/about.apib
 network/main.apib
@@ -150,5 +152,6 @@ watchdog/about.apib
 watchdog/main.apib
 watchdog/chart.apib
 
-logout/about.apib
+dredd_test/after.apib
 
+logout/about.apib
