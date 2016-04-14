@@ -39,11 +39,11 @@ stash = {}
 
 # Save sessionID for Root
 def save_session_root(transaction):
-    stash['root_sessID'] = transaction['real']['headers']['set-cookie']
+        stash['root_sessID'] = transaction['real']['headers']['set-cookie']
 
 # Save sessionID for User
 def save_session_user(transaction):
-    stash['user_sessID'] = transaction['real']['headers']['set-cookie']
+        stash['user_sessID'] = transaction['real']['headers']['set-cookie']
 
 # Set header Cookie for User 
 def set_user_cookie(transaction):
