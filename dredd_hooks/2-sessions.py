@@ -101,7 +101,7 @@ def add_session_cookie(transaction):
         # Run it as ROOT by default
         if 'root_sessID' in stash:
                 set_root_cookie(transaction)
-                        return
+                return
 
 # Add response expectation if #Error hash tag in request name
 @hooks.before_each
