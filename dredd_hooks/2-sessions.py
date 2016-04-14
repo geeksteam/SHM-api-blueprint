@@ -65,9 +65,22 @@ def set_expected_error(transaction):
 # Hook functions
 ###
 
-## Get and Set the ROOT or USER session cookie in all requests
+## Get the ROOT or USER session cookie in auth requests
 # if #AuthRoot tag provided in request name, sessionID will be saved for Root requests.
 # if #AuthUser tag provided in request name, sessionID will be saved for User requests.
+@hooks.after_each
+def get_session_cookie(transaction):
+        # Try to check #Auth tags for save sessionID
+        hashTag = '#authroot'
+        if hashTag in transaction['name'].lower():
+                save_session_root(transaction)
+                return
+        hashTag = '#authuser'
+        if hashTag in transaction['name'].lower():
+                save_session_user(transaction)
+                return
+                
+## Set the ROOT or USER session cookie in all requests
 # if #User tag provided in request name or request in group or list 
 # of user request it will handle with user cookie.    
 @hooks.before_each
@@ -87,17 +100,6 @@ def add_session_cookie(transaction):
                 if hashTag in transaction['name'].lower():
                         set_user_cookie(transaction)
                         return
-
-        # Try to check #Auth tags for save sessionID
-        hashTag = '#authroot'
-        if hashTag in transaction['name'].lower():
-                save_session_root(transaction)
-                return
-        hashTag = '#authuser'
-        if hashTag in transaction['name'].lower():
-                save_session_user
-                return
-                
         # Run it as ROOT by default
         if 'root_sessID' in stash:
                 set_root_cookie(transaction)
