@@ -1,0 +1,27 @@
+# Group Remove testing user regularUser
+
+## Auth as Root for testing user removing [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "root",
+            "Password": "goodSHMpassword"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }
+
+## Removing testing user regularUser [POST /api/users/del]
+
++ Request (application/json)
+        {  
+            "Name":"regularUser"
+        }
+
++ Response 204 (text/plain)
+
+## Logout from Root [GET /logout]

@@ -1,0 +1,39 @@
+# Group Create regularUser for tests
+
+## Auth as Root for testing user creation [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "root",
+            "Password": "goodSHMpassword"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }
+
+## Create testing user regularUser [POST /api/users/set]
+
++ Request (application/json)
+        {  
+            "Username":"regularUser",
+            "Password":"goodUserPassword",
+            "Info":{  
+                "Active":true,
+                "Comment":"Just a testing user",
+                "Template":"SimpleUser",
+                "Email":"root@localhost",
+                "Theme":"Alpha",
+                "Language":"EN",
+                "HOTP":{  
+                    "Active":false
+                }
+            }
+        }
+
++ Response 204 (text/plain)
+
+## Logout from Root [GET /logout]

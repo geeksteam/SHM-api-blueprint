@@ -1,6 +1,8 @@
 intro.apib
 structs.apib
 
+dredd_test/regularUser_create.apib
+
 auth/about.apib
 auth/user.apib
 auth/hotp.apib
@@ -154,3 +156,5 @@ watchdog/chart.apib
 dredd_test/after.apib
 
 logout/about.apib
+
+dredd_test/regularUser_remove.apib
