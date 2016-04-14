@@ -90,8 +90,8 @@ def add_session_cookie(transaction):
                 if hashTag in transaction['name'].lower():
                         set_user_cookie(transaction)
                         return
-                # Run it as ROOT by default
-                if 'root_sessID' in stash:
+        # Run it as ROOT by default
+        if 'root_sessID' in stash:
                         set_root_cookie(transaction)
 
 # Add response expectation if #Error hash tag in request name
