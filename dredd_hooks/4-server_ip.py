@@ -11,3 +11,4 @@ server_ip='95.163.191.20'
 def set_server_ip(transaction):
             if transaction['skip'] != True:
                     transaction['request']['body'] = transaction['request']['body'].replace('$SERVER_IP', server_ip)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$SERVER_IP', server_ip)
