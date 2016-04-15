@@ -9,7 +9,7 @@ Generates new DKIM key for domain and add it to EXIM and DNS record. If DKIM alr
 
 + Request (application/json)
     {  
-       "Domain":"testdkim.com"
+       "Domain":"test.com"
     }
 
 + Response 204 (text/plain)
@@ -26,7 +26,7 @@ Getting public and private DKIM keys for domain in request.
 
 + Request (application/json)
     {  
-       "Domain":"testdkim.com"
+       "Domain":"test.com"
     }
 
 + Response 200 (application/json)
@@ -42,7 +42,7 @@ Remove DKIM keys from domain(s).
 ### Remove DKIM keys [POST]
 
 + Request (application/json)
-    ["testdkim.com"]
+    ["test.com"]
 
 + Response 204 (text/plain)
 

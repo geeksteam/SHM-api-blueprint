@@ -9,23 +9,23 @@ Add or edit DNS domain records
 
 + Request (application/json)
         {  
-           "Name":"test.com",
+           "Name":"testpdns.com",
            "Type":"NATIVE",
            "Records":[  
               {  
-                 "Name":"www.test.com",
+                 "Name":"www.testpdns.com",
                  "Type":"A",
                  "Content":"77.222.142.3",
                  "TTL":86400
               },
               {  
-                 "Name":"test.com",
+                 "Name":"testpdns.com",
                  "Type":"A",
                  "Content":"77.222.142.3",
                  "TTL":86400
               },
               {  
-                 "Name":"test.com",
+                 "Name":"testpdns.com",
                  "Type":"MX",
                  "Content":"aspx.gmail.com",
                  "TTL":86400,
@@ -47,7 +47,7 @@ Error while edit not existent domain or domain not owned by the user.
           "Type":"NATIVE",
           "Records":[  
             {  
-               "Name":"www.test.com",
+               "Name":"www.testpdns.com",
                "Type":"A",
                "Content":"77.222.142.3",
                "TTL":86400
@@ -65,7 +65,7 @@ List all domains and they records.
     [
        {
           "ID":124,
-          "Name":"test.com",
+          "Name":"testpdns.com",
           "Type":"NATIVE",
           "Account":502,
           "Records":[
@@ -86,7 +86,7 @@ Remove domain and it records form PDNS database.
 
 + Request (application/json)
         [  
-          "test.com"
+          "testpdns.com"
         ]
 
 + Response 204 (text/plain)
