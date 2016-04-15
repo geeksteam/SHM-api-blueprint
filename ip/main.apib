@@ -10,7 +10,7 @@ List all IP addresses.
 
 + Response 200 (application/json)
 
-        { "93.183.203.13": 
+        { "$SERVER_IP": 
           { 
             "Users":["user1","user2"], 
             "Comment":"Shared IP address" 
@@ -21,7 +21,7 @@ List all IP addresses.
 
 + Request (application/json)
       
-        { "93.183.203.13": 
+        { "$SERVER_IP": 
           { 
             "Users":["user1","user2","regularUser"], 
             "Comment":"Shared IP address, commented by test" 

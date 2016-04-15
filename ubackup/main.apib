@@ -23,7 +23,7 @@ Restore user backup. During restore users data may be overwriten.
 + Request (application/json)
         {
             "Archive":"$BACKUP_NAME",
-            "IP":"93.183.203.13",
+            "IP":"$SERVER_IP",
             "MySQLUser":"DBUser1",
             "PgSQLUser":"DbTester",
             "DNS":true
@@ -38,7 +38,7 @@ Restore error if backup file not found.
 + Request (application/json)
         {
             "Archive":"backup_file_notexist.tar.gz",
-            "IP":"93.183.203.13",
+            "IP":"$SERVER_IP",
             "MySQLUser":"DBUser1",
             "PgSQLUser":"DbTester",
             "DNS":true
