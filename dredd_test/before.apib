@@ -24,6 +24,16 @@ Add test user for PgSQL dumps.
 
 + Response 204 (text/plain)
 
+## Create dirs for TAR archive testing as Root [POST /api/filemanager/mkdir]
+
++ Request (application/json)
+        {
+            "Dir":   "/var/www",
+            "Mkdir": "test_archives/tar"
+        }
+
++ Response 204 (text/plain)
+
 ## Create dirs for ZIP archive testing as Root [POST /api/filemanager/mkdir]
 
 + Request (application/json)
