@@ -28,14 +28,6 @@ Output phpinfo().
             ]
         }
 
-## List INI settings [GET /api/php/inilist]
-
-Lists all active ini settings.
-
-+ Response 200 (application/json)
-        {
-            "allow_url_fopen": "On"
-        }
         
 ## Set INI parameter [POST /api/php/iniset]
 
@@ -48,3 +40,12 @@ Sets ini parameters.
             
 
 + Response 204 (text/plain)
+
+## List INI settings [GET /api/php/inilist]
+
+Lists all active ini settings.
+
++ Response 200 (application/json)
+        {
+            "allow_url_fopen": "Off"
+        }
