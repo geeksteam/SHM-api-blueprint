@@ -13,7 +13,6 @@ regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y-%m-%d")
-
         
 # Replace $SERVER_IP by real ip
 @hooks.before_each
