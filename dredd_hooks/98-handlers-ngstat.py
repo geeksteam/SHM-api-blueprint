@@ -18,8 +18,16 @@ def run_url(urlname):
 @hooks.before('Nginx URL statistics > Get all domains statistics > Get all domains statistics')
 def make_url_statistics(transaction):
         if transaction['skip'] != True:
+        
                 run_url('http://test.com/url_one')
+                
                 run_url('http://test.com/url_two')
+                time.sleep(1)
+                run_url('http://test.com/url_two')
+                time.sleep(1)
+                run_url('http://test.com/url_two')
+                time.sleep(1)
                 run_url('http://test.com/url_three')
                 # Wait for statistic flush to bucket
-                time.sleep(63)
+                time.sleep(65)
+                
