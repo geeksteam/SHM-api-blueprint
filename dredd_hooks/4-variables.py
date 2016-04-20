@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 import dredd_hooks as hooks
 
 ## Local stash
@@ -10,6 +11,8 @@ rootUserPassword='goodSHMpassword'
 # regular User name and password
 regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
+# current date 2022-01-31
+currDateYMD=time.strftime("%Y-%m-%d")
 
         
 # Replace $SERVER_IP by real ip
@@ -27,4 +30,7 @@ def set_variables(transaction):
                     
                     transaction['request']['body'] = transaction['request']['body'].replace('$USER_PASSWORD', regularUserPassword)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$USER_PASSWORD', regularUserPassword)
+                    
+                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_YMD', currDateYMD)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_YMD', currDateYMD)
                     

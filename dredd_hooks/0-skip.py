@@ -7,23 +7,23 @@ run_only_groups = [
 #
 # List certain of GROUPS to skip
 skip_groups = [
-        'Nginx URL statistics',
     ]
 
 #
 # List certain of REQUESTS to skip
 skip_requests = [
-		'Panel Authorization > User login > Login with HOTP success',
+		'Panel Authorization > User login > HOTP code required',
+                'Panel Authorization > User login > Login with HOTP success',
 		'Two step authorization > Check for correct app binding > HOTP app Code correct',
 		'File uploads > Upload file in temporary storage > Upload file',
 		'MySQL Databases > Export database > Export database',
 		'PgSQL Databases > Export database > Export database',
-        'Filemanager > Download files > Download file',
-        'Filemanager > Download files > Download file by #User',
-        'Filemanager > Download directory as archive > Pack directory by Root',
-        'Filemanager > Download directory as archive > Pack directory by #User',
-        'User Backups > Restore backup > Restore backup',
-	]
+                'Filemanager > Download files > Download file',
+                'Filemanager > Download files > Download file by #User',
+                'Filemanager > Download directory as archive > Pack directory by Root',
+                'Filemanager > Download directory as archive > Pack directory by #User',
+                'User Backups > Restore backup > Restore backup',
+                ]
 
 # Skip all except Run ONLY GROUP
 @hooks.before_each
