@@ -13,19 +13,14 @@ def make_url_statistics(transaction):
             if transaction['skip'] != True:
                     link = "http://test.com/url_one"
                     f = requests.get(link)
-                    time.sleep(1)
                     link = "http://test.com/url_two"
                     f = requests.get(link)
-                    time.sleep(1)
                     link = "http://test.com/url_two"
                     f = requests.get(link)
-                    time.sleep(1)
                     link = "http://test.com/url_three"
                     f = requests.get(link)
-                    time.sleep(1)
                     link = "http://test.com/url_three"
                     f = requests.get(link)
-                    time.sleep(1)
                     link = "http://test.com/url_three"
                     f = requests.get(link)
                     # Wait for statistic flush to bucket
