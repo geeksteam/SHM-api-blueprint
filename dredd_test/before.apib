@@ -24,6 +24,41 @@ Add test user for PgSQL dumps.
 
 + Response 204 (text/plain)
 
+## Create test.html file by Root [POST /api/filemanager/editfile]
+Create /var/www/test.html by Root.
+
++ Request (application/json)
+        {
+            "Filename": "/var/www/test.html",
+            "Encoding": "ISO 8859-2",
+            "Text":"<h1>Hello world!</h1>"
+        }
+
++ Response 204 (text/plain)
+
+## Create /test.html file by #User [POST /api/filemanager/editfile]
+Create /home/USER/test.html by User.
+
++ Request (application/json)
+        {
+            "Filename": "/test.html",
+            "Encoding": "ISO 8859-2",
+            "Text":"<h1>Hello world!</h1>"
+        }
+
++ Response 204 (text/plain)
+
+## Create from_root.html in user's dir by Root [POST /api/filemanager/editfile]
+
++ Request (application/json)
+        {
+            "Filename": "/home/regularUser/from_root.html",
+            "Encoding": "ISO 8859-2",
+            "Text":"<h3>Created by root!</h3>"
+        }
+
++ Response 204 (text/plain)
+
 ## Create dirs for TAR archive testing as Root [POST /api/filemanager/mkdir]
 
 + Request (application/json)

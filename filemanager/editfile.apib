@@ -5,9 +5,9 @@ Users can edit text file content.
 
 + Request (application/json)
         {
-            "Filename": "/tmp/textfile.txt",
+            "Filename": "/var/www/test.html",
             "Encoding": "ISO 8859-2",
-            "Text":"Hello world!"
+            "Text":"<h2>Root was here!</h2>"
         }
         
 + Response 204 (text/plain)
@@ -17,9 +17,9 @@ User can edit only owned files in his homedir.
 
 + Request (application/json)
         {
-            "Filename": "/textfile.html",
+            "Filename": "/test.html",
             "Encoding": "ISO 8859-2",
-            "Text":"<h1>File was modified</h1>"
+            "Text":"<h2>RegularUser was here!</h2>"
         }
         
 + Response 204 (text/plain)
@@ -28,7 +28,7 @@ User can edit only owned files in his homedir.
 
 + Request (application/json)
         {
-            "Filename": "/from_root.txt",
+            "Filename": "/from_root.html",
             "Encoding": "ISO 8859-2",
             "Text":"Edit by regular User"
         }
