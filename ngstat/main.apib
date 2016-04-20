@@ -3,13 +3,13 @@ Getting count of views by url for all domains by date interval.
 
 + Request (application/json)
         {  
-        "From":"$DATE_YMD",
-        "To":"$DATE_YMD"
+        "From":"$DATE_DMY",
+        "To":"$DATE_DMY"
         }
 
 + Response 200 (application/json)
             {  
-                "$DATE_YMD":{  
+                "$DATE_DMY":{  
                     "test.com":6
                 }
             }
@@ -19,12 +19,15 @@ Getting count of views by url for all user domains by date interval.
 
 + Request (application/json)
         {  
-        "From":"$DATE_YMD",
-        "To":"$DATE_YMD"
+        "From":"$DATE_DMY",
+        "To":"$DATE_DMY"
         }
 
 + Response 200 (application/json)
-            {
+            {  
+                "$DATE_DMY":{  
+                    "test.com":6
+                }
             }
 
 ## Get domain statistics by #User [GET /api/ngstat/getdomain]
@@ -32,14 +35,14 @@ Getting domain statistics for urls counts.
 
 + Request (application/json)
         {  
-        "From":"$DATE_YMD",
-        "To":"$DATE_YMD",
+        "From":"$DATE_DMY",
+        "To":"$DATE_DMY",
         "Domain":"test.com"
         }
 
 + Response 200 (application/json)
             {  
-                "$DATE_YMD":{  
+                "$DATE_DMY":{  
                     "test.com/url_one":1
                     "test.com/url_two":2
                     "test.com/url_three":3
@@ -51,8 +54,8 @@ Getting url extended statistics.
 
 + Request (application/json)
         {  
-        "From":"$DATE_YMD",
-        "To":"$DATE_YMD",
+        "From":"$DATE_DMY",
+        "To":"$DATE_DMY",
         "Url":"test.com/url_one"
         }
 

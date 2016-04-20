@@ -13,6 +13,7 @@ regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y-%m-%d")
+currDateDMY=time.strftime("%d.%m.%Y")
         
 # Replace $SERVER_IP by real ip
 @hooks.before_each
@@ -32,4 +33,7 @@ def set_variables(transaction):
                     
                     transaction['request']['body'] = transaction['request']['body'].replace('$DATE_YMD', currDateYMD)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_YMD', currDateYMD)
+                    
+                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_DMY', currDateYMD)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_DMY', currDateYMD)
                     
