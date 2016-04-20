@@ -9,7 +9,7 @@ Send message to user.
 
 + Request (application/json)
         {
-            "To":"regularUser",
+            "To":"$USER_NAME",
             "Title":"Hey, test is here!",
             "Text":"There is some test message from judge DREDD."
         }
@@ -38,7 +38,7 @@ List all user messages.
                 "Read":false,
                 "Datetime":"2022-12-12 13:12:43",
                 "From":"root",
-                "To":"regularUser",
+                "To":"$USER_NAME",
                 "Type":"Alert",
                 "Title":"Send me some money",
                 "Text":"Hi from there!"

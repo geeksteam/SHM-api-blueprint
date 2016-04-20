@@ -5,7 +5,7 @@
 + Request (application/json)
         {
             "Login": "root",
-            "Password": "goodSHMpassword"
+            "Password": "$ROOT_PASSWORD"
         }
 
 + Response 200 (application/json)
@@ -19,8 +19,8 @@
 
 + Request (application/json)
         {  
-            "Username":"regularUser",
-            "Password":"goodUserPassword",
+            "Username":"$USER_NAME",
+            "Password":"$USER_PASSWORD",
             "Info":{  
                 "Active":true,
                 "Comment":"Just a testing user",

@@ -13,7 +13,7 @@ Debug information about login, user not found or wrong password are in the syste
 
 + Request (application/json)
         {
-        "Login": "regularUser",
+        "Login": "$USER_NAME",
         "Password": "wrongUserPassword"
         }
 
@@ -34,8 +34,8 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
 
 + Request (application/json)
         {
-            "Login": "regularUser",
-            "Password": "goodUserPassword"
+            "Login": "$USER_NAME",
+            "Password": "$USER_PASSWORD"
         }
 
 + Response 200 (application/json)
