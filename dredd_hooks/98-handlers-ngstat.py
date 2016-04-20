@@ -3,7 +3,7 @@ import time
 import dredd_hooks as hooks
 
 # Run grab url function
-def run_url(urlname)
+def run_url(urlname):
         req = Request(urlname)
         try:
                 response = urlopen(req)
