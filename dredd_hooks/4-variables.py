@@ -34,6 +34,6 @@ def set_variables(transaction):
                     transaction['request']['body'] = transaction['request']['body'].replace('$DATE_YMD', currDateYMD)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_YMD', currDateYMD)
                     
-                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_DMY', currDateYMD)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_DMY', currDateYMD)
+                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_DMY', currDateDMY)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_DMY', currDateDMY)
                     
