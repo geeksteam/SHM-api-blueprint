@@ -1,8 +1,24 @@
-## WebSocket Live system resources usage statistics [GET /api/core/livesysstat]
+## WebSocket Live system resources usage [GET /api/core/livesysstat]
 Send live system resources usage statistics and system processes list to WebSocket as a message every second.
 
 + Response 200 (application/json)
         {
+          "CPU":10,
+          "RAM":11,
+          "SWAP":12,
+          "WA":0,
+          "PS":
+            {
+                "Pid":132,    
+                "Name":"httpd",
+                "UserID":0,
+                "Start":"2016-01-11",
+                "Time":"12:01",
+                "CPU":1,
+                "Mem":2, 
+                "Command":"/usr/bin/httpd", 
+                "State":"active"
+            }
         }
 
 ## Getting core config [GET /api/core/config]

@@ -24,6 +24,7 @@ skip_requests = [
                 'Filemanager > Download directory as archive > Pack directory by Root',
                 'Filemanager > Download directory as archive > Pack directory by #User',
                 'User Backups > Restore backup > Restore backup',
+                'Core information > WebSocket Live system resources usage > WebSocket Live system resources usage',
                 ]
 
 # Skip all except Run ONLY GROUP
