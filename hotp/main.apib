@@ -1,12 +1,3 @@
-## Generate QR [/api/hotp/qr]
-
-This request will generate one time code that you need to save in your Google Authenticator app.
-
-### Getting QR image with code [GET]
-Generate PNG image with QR code you can scan by Google Authenticator to add account.
-
-+ Response 200 (image/jpeg)
-
 ## Generate code for enter by hand [/api/hotp/code]
 
 This request will generate one time code that you need to enter while add new account to Google Authenticator app.
@@ -21,6 +12,16 @@ Generate one time key code.
         {
             "Key": "12368615794617"
         }
+
+## Generate QR [/api/hotp/qr]
+
+This request will generate one time code that you need to save in your Google Authenticator app.
+
+### Getting QR image with code [GET]
+Generate PNG image with QR code you can scan by Google Authenticator to add account.
+
++ Response 200 (image/jpeg)
+          
 
 ## Check for correct app binding [/api/hotp/check]
 
