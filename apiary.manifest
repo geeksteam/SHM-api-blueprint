@@ -154,6 +154,9 @@ watchdog/about.apib
 watchdog/main.apib
 watchdog/chart.apib
 
+core/about.apib
+core/main.apib
+
 dredd_test/after.apib
 
 logout/about.apib
