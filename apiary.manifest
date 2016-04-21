@@ -102,6 +102,7 @@ filemanager/getarchive.apib
 filemanager/download.apib
 filemanager/showfile.apib
 filemanager/editfile.apib
+filemanager/del.apib
 
 network/about.apib
 network/main.apib
