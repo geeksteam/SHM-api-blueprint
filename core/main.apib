@@ -1,7 +1,14 @@
+## WebSocket Live system resources usage statistics [GET /api/core/livesysstat]
+Send live system resources usage statistics and system processes list to WebSocket as a message every second.
+
++ Response 200 (application/json)
+        {
+        }
+
 ## Getting core config [GET /api/core/config]
 Returns all current panel settings.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         {
             "Core": {
             "BuildDate": "2016.04.20.18:27:49",
@@ -26,20 +33,21 @@ Returns all current panel settings.
                 "apache": "httpd",
                 "exim": "exim",
                 "nginx": "nginx"
+                }
             }
         }
 
 ## Current Http(s) requests [GET /api/core/httpstats]
 Returns current http(s) executing request by web-server.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         {
         }
 
 ## Background running processes [GET /api/core/gorm]
 Returns panel's background processes running.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         [
             {
                 "Started": "Apr 21 04:18:30.824",
@@ -48,10 +56,11 @@ Returns panel's background processes running.
                 "Description": "Getting user's unread messages and send em to user's email."
             }
         ]
+        
 ## Core Memory usage [GET /api/core/memstat]
 Panels process(es) memory usage and number of threads.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         
         {
             "NumGoroutine": 1,
@@ -62,7 +71,7 @@ Panels process(es) memory usage and number of threads.
 ## System resources statistic [GET /api/core/sysstat]
 System resources usage statistic.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         
         {
             "CPUuser": 0,
@@ -81,7 +90,7 @@ System resources usage statistic.
 ## System OS and hardware information [GET /api/core/sysinfo]
 Information about OS and system hardware.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         
         {
             "OS": "CentOS 7.1.1503 x86_64\n",
@@ -95,7 +104,7 @@ Information about OS and system hardware.
 ## Panel API handlers [GET /api/core/handlers]
 All panel API handlers.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
         
         [
             "/api/core/handlers"
