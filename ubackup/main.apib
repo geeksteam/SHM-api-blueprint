@@ -19,6 +19,7 @@ List user backups.
         
 ## Restore backup [POST /api/ubackup/restore]
 Restore user backup. During restore users data may be overwriten.
+Restore user backup can be done only logged as user account.
 
 + Request (application/json)
         {
@@ -26,7 +27,6 @@ Restore user backup. During restore users data may be overwriten.
             "IP":"$SERVER_IP",
             "MySQLUser":"DBUser1",
             "PgSQLUser":"DbTester",
-            "DNS":true
         }
 
 + Response 204 (text/plain)
