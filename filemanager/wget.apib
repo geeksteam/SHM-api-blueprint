@@ -1,0 +1,34 @@
+## Download file from remote URL [/api/filemanager/wget]
+
+Download file to directory from remote URL.
+Status of download send to /api/info/actualizer websocket as BackgroundTasks.
+
+### Download file by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/",
+            "Url": "http://vds64.com/bigfile.tar.gz"
+        }
+
++ Response 204 (text/plain)
+
+### Download file url #Error by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/",
+            "Url": "http://vds64.com/no/such.file"
+        }
+
++ Response
+
+### Download file permission #Error by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"../../../../../etc",
+            "Url": "http://vds64.com/bigfile.tar.gz"
+        }
+
++ Response
