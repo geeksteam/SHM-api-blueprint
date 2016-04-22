@@ -10,19 +10,18 @@ Add or edit database (if database with the same name already exists) for databas
 
 + Request (application/json)
 
-    {  
-       "DbName":"DbOne",
-       "DbUsers":[ 
-           {
-           "DBUser1": {
-             "Privileges":{
-               "Delete_priv":true
-               }
-             },
-             "Host":"localhost"
+        {
+        "DbName": "DbOne",
+        "DbUsers":[
+          {
+          "Username": "DBUser1",
+          "Host": "localhost",
+          "Priveleges":{
+              "Delete_priv":true
+              }
+          }
+        ]
         }
-         ]
-    }
 
 + Response 204 (text/plain)
 
