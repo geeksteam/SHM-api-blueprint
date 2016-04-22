@@ -25,106 +25,100 @@ Send live system resources usage statistics and system processes list to WebSock
 Returns all current panel settings.
 
 + Response 200 (application/json)
-
             {
-                "Core": {
-                    "BuildDate": "2016.04.20.18:27:49",
-                    "Debug": true,
-                    "ListenPort": 8090,
-                    "SSL": false,
-                    "SSLKey": "etc/keys/webserver.key",
-                    "SSLCrt": "etc/keys/webserver.crt",
-                    "Themes": [],
-                    "ApiPath": "./apicalls",
-                    "BoltDBMain": "./db/main.db",
-                    "BotlDBUsersBacket": "Users",
-                    "BoltDBDomainsBucket": "Domains",
-                    "BotlDBUserTemplatesBacket": "UserTemplates",
-                    "BoltDBMessagesBucket": "Messages",
-                    "BoltDBIPBucket": "IP",
-                    "MultipleUserSessions": false,
-                    "StrictSessionIP": true,
-                    "DefaultHomeDir": "/home",
-                    "CleanerRunTime": "00:00:00",
-                    "Services": {
-                        "apache": "httpd",
-                        "exim": "exim",
-                        "nginx": "nginx"
-                    }
+            "Core": {
+                "BuildDate": "2016.04.20.18:27:49",
+                "Debug": true,
+                "ListenPort": 8090,
+                "SSL": false,
+                "SSLKey": "etc/keys/webserver.key",
+                "SSLCrt": "etc/keys/webserver.crt",
+                "Themes": [],
+                "ApiPath": "./apicalls",
+                "BoltDBMain": "./db/main.db",
+                "BotlDBUsersBacket": "Users",
+                "BoltDBDomainsBucket": "Domains",
+                "BotlDBUserTemplatesBacket": "UserTemplates",
+                "BoltDBMessagesBucket": "Messages",
+                "BoltDBIPBucket": "IP",
+                "MultipleUserSessions": false,
+                "StrictSessionIP": true,
+                "DefaultHomeDir": "/home",
+                "CleanerRunTime": "00:00:00",
+                "Services": {
+                    "apache": "httpd",
+                    "exim": "exim",
+                    "nginx": "nginx"
                 }
             }
-
+            }
 
 ## Current Http(s) requests [GET /api/core/httpstats]
+
 Returns current http(s) executing request by web-server.
 
 + Response 200 (application/json)
-        {
-        }
+            {
+            }
 
 ## Background running processes [GET /api/core/gorm]
 Returns panel's background processes running.
 
 + Response 200 (application/json)
-        [
-            {
-                "Started": "Apr 21 04:18:30.824",
-                "Type": "main/init unreadToEmail service",
-                "User": "",
-                "Description": "Getting user's unread messages and send em to user's email."
-            }
-        ]
-        
+            [
+                {
+                    "Started": "Apr 21 04:18:30.824",
+                    "Type": "main/init unreadToEmail service",
+                    "User": "",
+                    "Description": "Getting user's unread messages and send em to user's email."
+                }
+            ]
+
 ## Core Memory usage [GET /api/core/memstat]
 Panels process(es) memory usage and number of threads.
 
 + Response 200 (application/json)
-        
-        {
-            "NumGoroutine": 1,
-            "Cwd": "/usr/local/shm",
-            "MemStats": {}
-        }
+            {
+                "NumGoroutine": 1,
+                "Cwd": "/usr/local/shm",
+                "MemStats": {}
+            }
 
 ## System resources statistic [GET /api/core/sysstat]
 System resources usage statistic.
 
 + Response 200 (application/json)
-        
-        {
-            "CPUuser": 0,
-            "CPUSystem": 0,
-            "CPUIdle": 100,
-            "WA": 0,
-            "RAM": 53.47,
-            "Swap": 0,
-            "Uptime": 0,
-            "LoadAverage": "0.00 0.00 0.00",
-            "DiskUsage": 3.79,
-            "Hostname": "shmv1.geeks.team",
-            "Timezone": "EDT"
-        }
-        
+            {
+                "CPUuser": 0,
+                "CPUSystem": 0,
+                "CPUIdle": 100,
+                "WA": 0,
+                "RAM": 53.47,
+                "Swap": 0,
+                "Uptime": 0,
+                "LoadAverage": "0.00 0.00 0.00",
+                "DiskUsage": 3.79,
+                "Hostname": "shmv1.geeks.team",
+                "Timezone": "EDT"
+            }
+
 ## System OS and hardware information [GET /api/core/sysinfo]
 Information about OS and system hardware.
 
 + Response 200 (application/json)
-        
-        {
-            "OS": "CentOS 7.1.1503 x86_64\n",
-            "Kernel": "Linux 2.6.32-042stab112.15 #1 SMP Tue Oct 20 17:22:56 MSK 2015\n",
-            "Processor": {},
-            "RamSize": 4096,
-            "FsSize": 61440,
-            "PhysDisks": []
-        }
+            {
+                "OS": "CentOS 7.1.1503 x86_64\n",
+                "Kernel": "Linux 2.6.32-042stab112.15 #1 SMP Tue Oct 20 17:22:56 MSK 2015\n",
+                "Processor": {},
+                "RamSize": 4096,
+                "FsSize": 61440,
+                "PhysDisks": []
+            }
 
 ## Panel API handlers [GET /api/core/handlers]
 All panel API handlers.
 
 + Response 200 (application/json)
-        
-        [
-            "/api/core/handlers"
-        ]
-    
+            [
+                "/api/core/handlers"
+            ]
