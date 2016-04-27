@@ -2,24 +2,24 @@
 Send live system resources usage statistics and system processes list to WebSocket as a message every second.
 
 + Response 200 (application/json)
-        {
-          "CPU":10,
-          "RAM":11,
-          "SWAP":12,
-          "WA":0,
-          "PS":
             {
-                "Pid":132,    
-                "Name":"httpd",
-                "UserID":0,
-                "Start":"2016-01-11",
-                "Time":"12:01",
-                "CPU":1,
-                "Mem":2, 
-                "Command":"/usr/bin/httpd", 
-                "State":"active"
+                "CPU":10,
+                "RAM":11,
+                "SWAP":12,
+                "WA":0,
+                "PS":
+                {
+                    "Pid":132,    
+                    "Name":"httpd",
+                    "UserID":0,
+                    "Start":"2016-01-11",
+                    "Time":"12:01",
+                    "CPU":1,
+                    "Mem":2, 
+                    "Command":"/usr/bin/httpd", 
+                    "State":"active"
+                }
             }
-        }
 
 ## Getting core config [GET /api/core/config]
 Returns all current panel settings.
@@ -30,36 +30,15 @@ Returns all current panel settings.
                 "BuildDate": "2016.04.20.18:27:49",
                 "Debug": true,
                 "ListenPort": 8090,
-                "SSL": false,
-                "SSLKey": "etc/keys/webserver.key",
-                "SSLCrt": "etc/keys/webserver.crt",
-                "Themes": [],
-                "ApiPath": "./apicalls",
-                "BoltDBMain": "./db/main.db",
-                "BotlDBUsersBacket": "Users",
-                "BoltDBDomainsBucket": "Domains",
-                "BotlDBUserTemplatesBacket": "UserTemplates",
-                "BoltDBMessagesBucket": "Messages",
-                "BoltDBIPBucket": "IP",
-                "MultipleUserSessions": false,
-                "StrictSessionIP": true,
-                "DefaultHomeDir": "/home",
-                "CleanerRunTime": "00:00:00",
-                "Services": {
-                    "apache": "httpd",
-                    "exim": "exim",
-                    "nginx": "nginx"
+                "SSL": false
                 }
             }
-            }
 
-## Current Http(s) requests [GET /api/core/httpstats]
-
+## Current Http requests [GET /api/core/httpstats]
 Returns current http(s) executing request by web-server.
 
 + Response 200 (application/json)
-            {
-            }
+            {}
 
 ## Background running processes [GET /api/core/gorm]
 Returns panel's background processes running.
