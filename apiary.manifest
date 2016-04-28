@@ -26,8 +26,20 @@ users/del.apib
 user/about.apib
 user/main.apib
 
-uploads/about.apib
-uploads/main.apib
+filemanager/about.apib
+filemanager/mkdir.apib
+filemanager/set.apib
+filemanager/move.apib
+filemanager/upload.apib
+filemanager/wget.apib
+filemanager/pack.apib
+filemanager/unpack.apib
+filemanager/getarchive.apib
+filemanager/download.apib
+filemanager/showfile.apib
+filemanager/editfile.apib
+filemanager/list.apib
+filemanager/del.apib
 
 webdomains/about.apib
 webdomains/main.apib
@@ -91,20 +103,6 @@ eximlog/delivery.apib
 dnsbl/about.apib
 dnsbl/main.apib
 
-filemanager/about.apib
-filemanager/mkdir.apib
-filemanager/set.apib
-filemanager/move.apib
-filemanager/wget.apib
-filemanager/pack.apib
-filemanager/unpack.apib
-filemanager/getarchive.apib
-filemanager/download.apib
-filemanager/showfile.apib
-filemanager/editfile.apib
-filemanager/list.apib
-filemanager/del.apib
-
 network/about.apib
 network/main.apib
 
@@ -141,6 +139,9 @@ services/main.apib
 
 ps/about.apib
 ps/main.apib
+
+shell/about.apib
+shell/main.apib
 
 openssh/about.apib
 openssh/settings.apib

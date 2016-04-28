@@ -32,3 +32,23 @@ Status of download send to /api/info/actualizer websocket as BackgroundTasks.
         }
 
 + Response
+
+### Download MySQL dump file by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/www/",
+            "Url": "https://github.com/anchorcms/anchor-cms/raw/master/install/storage/anchor.sql"
+        }
+
++ Response 204 (text/plain)
+
+### Download PgSQL dump file by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/www/",
+            "Url": "http://jenkins.geeks.team/pgsql.sql"
+        }
+
++ Response 204 (text/plain)

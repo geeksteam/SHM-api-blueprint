@@ -1,0 +1,18 @@
+## Execute command [POST /api/shell/exec]
+
+Creating SSL CSR and Key file.
+Regular user must add domain to WebDomains to own this domain name.
+
++ Attributes
+    + Cmd (required,string) - Shell command(s) to execute.
+    + Output (required,string) - Combined output from command.
+
++ Request (application/json)
+        {  
+           "Cmd":"cd /tmp; ls -all;"
+        }
+
++ Response 200 (application/json)
+        {
+            "Output":""
+        }
