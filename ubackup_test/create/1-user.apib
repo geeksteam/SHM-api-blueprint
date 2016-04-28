@@ -1,0 +1,47 @@
+## #AuthRoot for backupUser creation [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "root",
+            "Password": "$ROOT_PASSWORD"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }
+
+## Create backupUser [POST /api/users/set]
+
++ Request (application/json)
+        {
+            "Username":"backupUser",
+            "Password":"testingBackupUser",
+            "Info":{  
+                "Active":true,
+                "Comment":"Just a testing user",
+                "Template":"SimpleUser",
+                "Email":"kalashnikovm@mail.ru",
+                "Theme":"Alpha",
+                "Language":"EN"
+            }
+        }
+
++ Response 204 (text/plain)
+
+## #AuthUser for user environment creation [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "backupUser",
+            "Password": "testingBackupUser"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }

@@ -1,0 +1,57 @@
+## Add pgsql user #User [POST /api/pgsql/users/set]
+
++ Request (application/json)
+
+        {  
+            "Username":"PgUser1",
+            "Password":"NewMyDBPassword"
+        }
+
++ Response 204 (text/plain)
+
+## Add pgsql database #User [POST /api/pgsql/db/set]
+
++ Request (application/json)
+
+        {
+            "DbName": "pgsqlOne",
+            "DbUsers": "PgUser1"
+        }
+
++ Response 204 (text/plain)
+
+## Import dump to mysql database #User [POST /api/mysql/db/import]
+
++ Request (application/json)
+
+        {
+                "Filepath": "/www/testBackup.com/pgsql.sql",
+                "Db": "pgsqlOne"
+        }
+
++ Response 204 (text/plain)
+
+
+
+
+## Get all pgsql users #User  [GET /api/pgsql/users/list]
+
++ Response 200 (application/json)
+    [  
+       {  
+          "Username":"PgUser1",
+          "DBs":1
+       }
+    ]
+
+## Get all pgsql databases #User [GET /api/pgsql/db/list]
+
++ Response 200 (application/json)
+    [  
+       {  
+          "DbName":"pgsqlOne",
+          "DbUser":"PgUser1",
+          "Size":999,
+          "Tables":111
+       }
+    ]

@@ -1,0 +1,83 @@
+## Add Web domain #User [POST /api/webdomains/set]
+
++ Request (application/json)
+        {
+            "Domain":"testBackup.com",
+            "Alias":"www.testBackup.com site.testBackup.com",
+            "Ip":"$SERVER_IP",
+            "IndexFile":"index.html",
+            "Encoding":"utf8",
+            "Subdomains":true,
+            "PHP":true,
+            "DNS":true,
+            "SSL":false,
+            "Analytics":true
+        }
+
++ Response 204 (text/plain)
+
+## Create CSR #User [POST /api/ssl/createcsr]
+
++ Request (application/json)
+        {
+           "Domains":"testBackup.com",
+           "City":"NewYork",
+           "State":"NY",
+           "Country":"UA",
+           "Company":"Geeks inc.",
+           "Division":"IT",
+           "Email":"test@domain.com",
+           "Passphrase":"qwerty"
+        }
+
++ Response 200 (application/json)
+        {
+            "Key":"Private key",
+            "CSR":"Certificate request"
+        }
+
+## Generate self sighned certificate #User [POST /api/ssl/generate]
+
++ Request (application/json)
+        {
+           "Domain":"testBackup.com"
+        }
+
++ Response 200 (application/json)
+        {
+            "Crt":"certificate"
+        }
+        
+## Activate SSL on Web domain #User [POST /api/webdomains/set]
+
++ Request (application/json)
+        {
+            "Domain":"testBackup.com",
+            "Alias":"www.testBackup.com site.testBackup.com",
+            "Ip":"$SERVER_IP",
+            "IndexFile":"index.html",
+            "Encoding":"utf8",
+            "Subdomains":true,
+            "PHP":true,
+            "DNS":true,
+            "SSL":true,
+            "Analytics":true
+        }
+
++ Response 204 (text/plain)
+
+## List all web domains #User [GET /api/webdomains/list]
+
++ Response 200 (application/json)
+
+      {  
+       "testBackup.com":{  
+          "Active":true,
+          "Owner":"regular_User",
+          "Apache":{},
+          "Nginx":{  
+             "ssl":"on"
+          }
+       }
+      }
+

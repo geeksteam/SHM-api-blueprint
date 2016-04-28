@@ -1,0 +1,19 @@
+## Download mysql dump file from remote URL to domains dir #User [POST /api/filemanager/wget]
+
++ Request (application/json)
+        {
+            "Dir":"/www/testBackup.com",
+            "Url": "https://github.com/anchorcms/anchor-cms/raw/master/install/storage/anchor.sql"
+        }
+
++ Response 204 (text/plain)
+
+## Download pgsql dump file from remote URL to domains dir #User [POST /api/filemanager/wget]
+
++ Request (application/json)
+        {
+            "Dir":"/www/testBackup.com",
+            "Url": "http://jenkins.geeks.team/pgsql.sql"
+        }
+
++ Response 204 (text/plain)

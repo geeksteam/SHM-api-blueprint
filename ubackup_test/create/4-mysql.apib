@@ -1,0 +1,85 @@
+## Add mysql user #User [POST /api/mysql/users/set]
+
++ Request (application/json)
+
+        {  
+           "Username":"DBUser1",
+           "Password":"NewMyDBPassword",
+           "Host":"localhost"
+        }
+
++ Response 204 (text/plain)
+
+## Add mysql database #User [POST /api/mysql/db/set]
+
++ Request (application/json)
+
+        {
+                "DbName": "MysqlOne",
+                "DbUsers":[
+                        {
+                        "Username": "DBUser1",
+                        "Host": "localhost",
+                        "Privileges":{
+                                "Select_priv":true,
+                                "Insert_priv":true,
+                                "Update_priv":true,
+                                "Delete_priv":true,
+                                "Create_priv":true,
+                                "Drop_priv":true,
+                                "Grant_priv":true,
+                                "References_priv":true,
+                                "Index_priv":true,
+                                "Alter_priv":true,
+                                "Create_tmp_table_priv":true,
+                                "Lock_tables_priv":true,
+                                "Create_view_priv":true,
+                                "Show_view_priv":true,
+                                "Create_routine_priv":true,
+                                "Alter_routine_priv":true,
+                                "Execute_priv":true,
+                                "Event_priv":true,
+                                "Trigger_priv":true
+                                }
+                        }
+                ]
+        }
+
++ Response 204 (text/plain)
+
+## Import dump to mysql database #User [POST /api/mysql/db/import]
+
++ Request (application/json)
+
+        {
+                "Filepath": "/www/testBackup.com/anchor.sql",
+                "Db": "MysqlOne"
+        }
+
++ Response 204 (text/plain)
+
+
+## Get all mysql users #User  [GET /api/mysql/users/list]
+
++ Response 200 (application/json)
+
+        [  
+           {  
+              "Username":"DBUser1",
+              "Host":"localhost",
+              "DBs":1
+           }
+        ]
+
+## Get all mysql databases #User [GET /api/mysql/db/list]
+
++ Response 200 (application/json)
+
+    [  
+       {  
+      "DbName":"MysqlOne",
+      "Grants":[],
+          "Size":999,
+          "Tables":111
+       }
+    ]

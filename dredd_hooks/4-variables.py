@@ -14,8 +14,13 @@ regularUserPassword='hbv8g28ba23'
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y-%m-%d")
 currDateDMY=time.strftime("%d.%m.%Y")
+
+
+## Backup testing
+backup_server_ip='95.163.191.20'
+
         
-# Replace $SERVER_IP by real ip
+# Replace $VARS
 @hooks.before_each
 def set_variables(transaction):
             if transaction['skip'] != True:
@@ -36,4 +41,7 @@ def set_variables(transaction):
                     
                     transaction['request']['body'] = transaction['request']['body'].replace('$DATE_DMY', currDateDMY)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_DMY', currDateDMY)
+
+                    transaction['request']['body'] = transaction['request']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
                     

@@ -1,0 +1,11 @@
+## Create backup #User [GET /api/ubackup/create]
+
++ Response 204 (text/plain)
+
+## Transfer backup to remote server [GET /api/shell/exec]
+
++ Request (application/json)
+        {
+            "Cmd":"ssh root@$BACKUP_SERVER_IP 'mkdir /tmp/backups; rm -f /tmp/backups/*;'; scp /home/backupUser/backups/*.tar.gz root@$BACKUP_SERVER_IP:/tmp/backups/"
+        }
++ Response 204 (text/plain)
