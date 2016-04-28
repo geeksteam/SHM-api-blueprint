@@ -95,13 +95,15 @@ filemanager/about.apib
 filemanager/mkdir.apib
 filemanager/set.apib
 filemanager/move.apib
-filemanager/list.apib
+filemanager/wget.apib
 filemanager/pack.apib
 filemanager/unpack.apib
 filemanager/getarchive.apib
 filemanager/download.apib
 filemanager/showfile.apib
 filemanager/editfile.apib
+filemanager/list.apib
+filemanager/del.apib
 
 network/about.apib
 network/main.apib
@@ -152,6 +154,9 @@ api/about.apib
 watchdog/about.apib
 watchdog/main.apib
 watchdog/chart.apib
+
+core/about.apib
+core/main.apib
 
 dredd_test/after.apib
 
