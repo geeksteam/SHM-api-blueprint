@@ -33,6 +33,11 @@ user_requests = [
 # Local stash
 stash = {}
 
+# Local vars
+AuthRootTag = '#authroot'
+AuthUserTag = '#authuser'
+SkipAuthTag = '#skipauth'
+
 ###
 # Local functions
 ###
@@ -47,10 +52,18 @@ def save_session_user(transaction):
 
 # Set header Cookie for User 
 def set_user_cookie(transaction):
+        # skip set cookie if AuthTag
+        if (AuthRootTag in transaction['name'].lower()) or ((AuthUserTag in transaction['name'].lower())):
+                return
+        # Set coockie
         transaction['request']['headers']['Cookie'] = stash['user_sessID']
         transaction['request']['headers']['Dredd-User'] = 'RegularUser'
 # Set header Cookie for Root 
 def set_root_cookie(transaction):
+        # skip set cookie if AuthTag
+        if (AuthRootTag in transaction['name'].lower()) or ((AuthUserTag in transaction['name'].lower())):
+                return
+        # Set coockie
         transaction['request']['headers']['Cookie'] = stash['root_sessID']
         transaction['request']['headers']['Dredd-User'] = 'Root'
 # Set header Expected response for 500 Errors
@@ -71,12 +84,10 @@ def set_expected_error(transaction):
 @hooks.after_each
 def get_session_cookie(transaction):
         # Try to check #Auth tags for save sessionID
-        hashTag = '#authroot'
-        if hashTag in transaction['name'].lower():
+        if AuthRootTag in transaction['name'].lower():
                 save_session_root(transaction)
                 return
-        hashTag = '#authuser'
-        if hashTag in transaction['name'].lower():
+        if AuthUserTag in transaction['name'].lower():
                 save_session_user(transaction)
                 return
                 
@@ -85,6 +96,9 @@ def get_session_cookie(transaction):
 # of user request it will handle with user cookie.    
 @hooks.before_each
 def add_session_cookie(transaction):
+        # Check for skip auth
+        if SkipAuthTag in transaction['name'].lower():
+                return
         # Check for run as User
         if 'user_sessID' in stash:
                 # Check is request GROUP in USERs list
