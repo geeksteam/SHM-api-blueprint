@@ -8,4 +8,4 @@
         {
             "Cmd":"ssh root@$BACKUP_SERVER_IP 'mkdir /tmp/backups; rm -f /tmp/backups/*;'; scp /home/backupUser/backups/*.tar.gz root@$BACKUP_SERVER_IP:/tmp/backups/"
         }
-+ Response 204 (text/plain)
++ Response 200 (application/json)
