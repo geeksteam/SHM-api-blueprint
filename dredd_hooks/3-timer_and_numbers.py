@@ -11,7 +11,7 @@ requests_timer['User Backups > Delete backup > Delete backup'] = 15
 requests_timer['User Backups testing > Get all mysql users #User > Get all mysql users #User'] = 5
 requests_timer['User Backups testing > Get all pgsql users #User > Get all pgsql users #User'] = 5
 requests_timer['User Backups testing > Transfer backup to remote server > Transfer backup to remote server'] = 10
-requests_timer['User Backups testing > Add mysql user #User > Add mysql user #User'] = 5
+requests_timer['User Backups testing > Add mysql user #User > Add mysql user #User'] = 10
 
 # Add request number before its name to identify test
 add_request_number = True
