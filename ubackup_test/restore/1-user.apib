@@ -1,0 +1,47 @@
+## #AuthRoot for restoreUser creation [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "root",
+            "Password": "$ROOT_PASSWORD"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }
+
+## Create restoreUser [POST /api/users/set]
+
++ Request (application/json)
+        {
+            "Username":"restoreUser",
+            "Password":"testingBackupUserRestore",
+            "Info":{  
+                "Active":true,
+                "Comment":"Just a testing restore user",
+                "Template":"SimpleUser",
+                "Email":"kalashnikovm@mail.ru",
+                "Theme":"Alpha",
+                "Language":"EN"
+            }
+        }
+
++ Response 204 (text/plain)
+
+## #AuthUser for user environment creation [POST /login]
+
++ Request (application/json)
+        {
+            "Login": "restoreUser",
+            "Password": "testingBackupUserRestore"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }

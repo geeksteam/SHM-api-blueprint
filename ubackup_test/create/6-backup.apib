@@ -6,11 +6,10 @@
 
 + Request (application/json)
         {
-            "Cmd":"ssh root@$BACKUP_SERVER_IP 'mkdir /tmp/backups; rm -f /tmp/backups/*;'; scp /home/backupUser/backups/*.tar.gz root@$BACKUP_SERVER_IP:/tmp/backups/"
+            "Cmd":"ssh root@$BACKUP_SERVER_IP 'rm -dfr /tmp/backups/*; mkdir /tmp/backups;'; scp /home/backupUser/backups/*.tar.gz root@$BACKUP_SERVER_IP:/tmp/backups/latestBackup.tar.gz"
         }
 
 + Response 200 (application/json)
         {
                 "Output":"CMD output"
         }
-

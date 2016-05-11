@@ -1,0 +1,22 @@
+## Add mysql user #User [POST /api/mysql/users/set]
+
++ Request (application/json)
+
+        {  
+           "Username":"NewMySQL1",
+           "Password":"NewMyDBPassword",
+           "Host":"localhost"
+        }
+
++ Response 204 (text/plain)
+
+## Add pgsql user #User [POST /api/pgsql/users/set]
+
++ Request (application/json)
+
+        {  
+            "Username":"NewPgSQL1",
+            "Password":"NewMyDBPassword"
+        }
+
++ Response 204 (text/plain)

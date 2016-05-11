@@ -1,0 +1,62 @@
+## List all web domains #User [GET /api/webdomains/list]
+
++ Response 200 (application/json)
+
+      {  
+       "testBackup.com":{  
+          "Active":true,
+          "Owner":"regular_User",
+          "Apache":{},
+          "Nginx":{  
+             "ssl":"on"
+          }
+       }
+      }
+
+## Get all mysql databases of #User [GET /api/mysql/db/list]
+
++ Response 200 (application/json)
+
+    [  
+       {  
+      "DbName":"MysqlOne",
+      "Grants":[],
+          "Size":999,
+          "Tables":111
+       }
+    ]
+
+## Get all pgsql databases of #User [GET /api/pgsql/db/list]
+
++ Response 200 (application/json)
+    [  
+       {  
+          "DbName":"pgsqlOne",
+          "DbUser":"PgUser1",
+          "Size":999,
+          "Tables":111
+       }
+    ]
+
+## List Domains records of #User [GET /api/pdns/list]
+
+List all domains and they records.
+
++ Response 200 (application/json)
+    [
+       {
+          "ID":124,
+          "Name":"testpdns.com",
+          "Type":"NATIVE",
+          "Account":502,
+          "Records":[
+             {
+                "Name":"www.domain.com",
+                "Type":"A",
+                "Content":"77.222.142.3",
+                "TTL":"86400",
+                "Prio":"10"
+             }
+          ]
+       }
+    ]
