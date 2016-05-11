@@ -45,3 +45,13 @@
             "Theme": "Simple",
             "Language": "EN"
         }
+
+## Move backup file from /tmp to user dir [POST]
+
++ Request (application/json)
+        {
+            "From":  "/tmp/latestBackup.tar.gz",
+            "To":  "/home/restoreUser/backups/latestBackup.tar.gz"
+        }
+
++ Response 204 (text/plain)
