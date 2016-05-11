@@ -1,6 +1,6 @@
 structs.apib
-ubackup_test/create/0-about.apib
-ubackup_test/create/1-user.apib
-ubackup_test/create/2-dbs.apib
-ubackup_test/create/3-restore.apib
-ubackup_test/create/4-checking.apib
+ubackup_test/restore/0-about.apib
+ubackup_test/restore/1-user.apib
+ubackup_test/restore/2-dbs.apib
+ubackup_test/restore/3-restore.apib
+ubackup_test/restore/4-checking.apib
