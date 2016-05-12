@@ -5,7 +5,7 @@ import dredd_hooks as hooks
 
 ## Local stash
 # Testing Server IP
-server_ip='95.163.191.20'
+server_ip='93.183.203.13'
 # Root user password
 rootUserPassword='goodSHMpassword'
 # regular User name and password

@@ -55,12 +55,11 @@
             "Language": "EN"
         }
 
-## Move backup file from /tmp to user dir [POST /api/filemanager/move]
+## Move backup file from /tmp to user dir [POST /api/shell/exec]
 
 + Request (application/json)
         {
-            "From":  "/tmp/backups/latestBackup.tar.gz",
-            "To":  "/home/restoreUser/backups/latestBackup.tar.gz"
+            "Cmd":"cp /tmp/backups/latestBackup.tar.gz /home/restoreUser/backups/latestBackup.tar.gz"
         }
 
 + Response 204 (text/plain)
