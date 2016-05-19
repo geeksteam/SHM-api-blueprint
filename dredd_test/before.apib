@@ -24,6 +24,16 @@ Add test user for PgSQL dumps.
 
 + Response 204 (text/plain)
 
+## Add Import PGSQL db [POST /api/pgsql/db/set]
+
++ Request (application/json)
+        {  
+            "DbName":"DbImport",
+            "DbUser":"DbTester"
+        }
+
++ Response 204 (text/plain)
+
 ## Create test.html file by Root [POST /api/filemanager/editfile]
 Create /var/www/test.html by Root.
 
