@@ -12,7 +12,7 @@ rootUserPassword='goodSHMpassword'
 regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
 # current date 2022-01-31
-currDateYMD=time.strftime("%Y-%m-%d")
+currDateYMD=time.strftime("%Y.%m.%d")
 currDateDMY=time.strftime("%d.%m.%Y")
 
 

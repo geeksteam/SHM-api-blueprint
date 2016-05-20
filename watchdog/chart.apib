@@ -1,12 +1,12 @@
-## Getting system usage chart [GET /api/watchdog/chart]
+## Getting System usage chart [GET /api/watchdog/chart]
 
 + Request (application/json)
             {  
                 "Get":"SysStat",
                 "Date":{  
-                    "From":"2016.04.01 11:05",
-                    "To":"2016.04.06 18:23",
-                    "EntriesCount":10
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
                 }
             }
 
@@ -37,16 +37,51 @@
                 ]
             }
 
-## Getting traffic usage chart [GET /api/watchdog/chart]
+## Getting Network usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"NetStat",
+                "Date":{  
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+                "labels":[],
+                "datasets":[
+                    {  
+                        "label":"InMbitps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"InPps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"OutMbitps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"OutPps",
+                        "data":[]
+                    }
+                ]
+            }
+
+## Getting Traffic usage chart [GET /api/watchdog/chart]
 
 + Request (application/json)
             {  
                 "Get":"Traffic",
                 "Interface":"venet0",
                 "Date":{  
-                    "From":"2016.04.01 11:05",
-                    "To":"2016.04.06 18:23",
-                    "EntriesCount":10
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
                 }
             }
 
@@ -54,13 +89,13 @@
             {  
             "labels":[],
             "datasets":[  
-                {  
-                    "label":"In",
-                    "data":[]
-                },
-                {  
-                    "label":"Out",
-                    "data":[]
-                }
-            ]
+                    {  
+                        "label":"In",
+                        "data":[]
+                    },
+                    {  
+                        "label":"Out",
+                        "data":[]
+                    }
+                ]
             }
