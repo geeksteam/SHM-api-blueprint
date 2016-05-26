@@ -104,12 +104,13 @@ Create /home/USER/test.html by User.
 + Request (application/json)
         {  
                 "Domain":"test.com",
+                "Active":true,
                 "Alias":"www.test.com site.test.com",
                 "Ip":"$SERVER_IP",
                 "IndexFile":"index.html",
                 "Encoding":"utf8",
                 "Subdomains":true,
-                "PHP":true,
+                "PHP":"fpm_nginx",
                 "DNS":true,
                 "SSL":false,
                 "Analytics":true
