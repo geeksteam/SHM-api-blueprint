@@ -9,7 +9,7 @@ Add new or edit web domain.
   + IndexFile (required, string) - Index file.
   + Encoding (required, string) - Encoding for the files.
   + Subdomains (required, boolean) - Auto subdomains.
-  + PHP (required, boolean) - PHP interpreter.
+  + PHP (required, string) - PHP interpreter.
   + DNS (required, boolean) - Add domain to DNS server too.
   + SSL (required, boolean) - HTTPS support.
   + Analytics (required, boolean) - Domain analytics.
@@ -18,13 +18,13 @@ Add new or edit web domain.
 
 + Request (application/json)
     {  
-       "Domain":"testDomain.com",
+       "Name":"testDomain.com",
        "Alias":"www.testDomain.com site.testDomain.com",
        "Ip":"$SERVER_IP",
        "IndexFile":"index.html",
        "Encoding":"utf8",
        "Subdomains":true,
-       "PHP":true,
+       "PHP":"fpm_nginx",
        "DNS":true,
        "SSL":false,
        "Analytics":true
@@ -69,14 +69,19 @@ List all web domains of current user.
 + Response 200 (application/json)
 
       {  
-       "testDomain.com":{  
-          "Active":true,
-          "Owner":"regular_User",
-          "Apache":{},
-          "Nginx":{  
-             "ssl":"on"
-          }
-       }
+        "testDomain.com":{  
+            "Active":true,
+            "Owner":"regular_User",
+            "Alias":"www.testDomain.com site.testDomain.com",
+            "Ip":"$SERVER_IP",
+            "IndexFile":"index.html",
+            "Encoding":"utf8",
+            "Subdomains":true,
+            "PHP":"fpm_nginx",
+            "DNS":true,
+            "SSL":false,
+            "Analytics":true
+        }
       }
 
 ## Remove web domains [/api/webdomains/del]
