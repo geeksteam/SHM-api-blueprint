@@ -10,6 +10,15 @@ Remove test environment.
 
 + Response 204 (text/plain)
 
+## Remove dirs for TAR archive testing as Root [POST /api/filemanager/del]
+
++ Request (application/json)
+        [
+            "/var/www/test_archives/tar"
+        ]
+
++ Response 204 (text/plain)
+
 ## Remove dir for TAR archive testing as #User [POST /api/filemanager/del]
 
 + Request (application/json)
