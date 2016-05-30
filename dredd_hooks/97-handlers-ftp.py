@@ -7,7 +7,7 @@ import dredd_hooks as hooks
 def check_ftp_account(transaction):
         if transaction['skip'] != True:
 				try:
-						ftp = ftplib.FTP(server_ip)
+						ftp = ftplib.FTP(transaction['host'])
 						ftp.login('FTP1', 'FTPPassword')
 						files = ftp.dir()
 				except ftplib.all_errors as e:
