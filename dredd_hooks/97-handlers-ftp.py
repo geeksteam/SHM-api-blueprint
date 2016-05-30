@@ -8,7 +8,7 @@ def check_ftp_account(transaction):
         if transaction['skip'] != True:
 				try:
 						ftp = ftplib.FTP(transaction['host'])
-						ftp.login('FTP1', 'FTPPassword')
+						ftp.login(transaction['request']['headers']['Dredd-User']+'_FTP1', 'FTPPassword')
 						files = ftp.dir()
 				except ftplib.all_errors as e:
 						transaction['fail'] = "FTP account test by Dredd/Python FTPclient. Error: %s" % e

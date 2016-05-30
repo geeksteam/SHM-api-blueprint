@@ -57,7 +57,7 @@ def set_user_cookie(transaction):
                 return
         # Set coockie
         transaction['request']['headers']['Cookie'] = stash['user_sessID']
-        transaction['request']['headers']['Dredd-User'] = 'RegularUser'
+        transaction['request']['headers']['Dredd-User'] = 'regularUser'
 # Set header Cookie for Root 
 def set_root_cookie(transaction):
         # skip set cookie if AuthTag
