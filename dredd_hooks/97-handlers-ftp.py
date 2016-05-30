@@ -12,4 +12,4 @@ def check_ftp_account(transaction):
 						files = ftp.dir()
 				except ftplib.all_errors as e:
 						transaction['fail'] = True
-						transaction['real']['headers']['Dredd-FTP-Client'] = "Cannot login to FTP account by Dredd FTPclient. Error: %s" % e
+						transaction['request']['headers']['Dredd-FTP-Client'] = "Cannot login to FTP account by Dredd FTPclient. Error: %s" % e
