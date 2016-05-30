@@ -11,4 +11,5 @@ def check_ftp_account(transaction):
 						ftp.login('FTP1', 'FTPPassword')
 						files = ftp.dir()
 				except ftplib.all_errors as e:
-						transaction['fail'] = "Cannot login to FTP account by test. Error: %s" % e
+						transaction['fail'] = True
+						transaction['real']['body'] = "Cannot login to FTP account by test. Error: %s" % e
