@@ -1,4 +1,4 @@
-from ftplib
+import ftplib
 import time
 import dredd_hooks as hooks
 
