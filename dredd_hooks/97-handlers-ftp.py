@@ -3,7 +3,7 @@ import time
 import dredd_hooks as hooks
 
 # Create url statistics
-@hooks.after('FTP accounts > List FTP accounts > List FTP accounts')
+@hooks.before('FTP accounts > List FTP accounts > List FTP accounts')
 def check_ftp_account(transaction):
         if transaction['skip'] != True:
 				try:
