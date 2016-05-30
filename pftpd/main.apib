@@ -1,4 +1,4 @@
-## Add or Edit FTP account [/api/pftpd/set]
+## Add or Edit FTP account [POST /api/pftpd/set]
 
 Add or edit FTP accounts.
 
@@ -7,8 +7,6 @@ Add or edit FTP accounts.
   + Password (required, string) - FTP account password.
   + User (optional, string) - Panel user which owns FTP account. Only `root` can set User.
   + Homedir (required, string) - FTP directory path related to current user's homedir.
-
-### Add or edit FTP [POST]
 
 + Request (application/json)
     {
@@ -19,11 +17,9 @@ Add or edit FTP accounts.
 
 + Response 204 (text/plain)
 
-## List FTP accounts [/api/pftpd/list]
+## List FTP accounts [GET /api/pftpd/list]
 
 List all user's FTP account.
-
-### List all databases [GET]
 
 + Response 200 (application/json)
     [
@@ -33,18 +29,16 @@ List all user's FTP account.
         }
     ]
 
-## Remove FTP accounts [/api/pftpd/del]
+## Remove FTP accounts [POST /api/pftpd/del]
 
 Remove FTP accounts.
-
-### Remove ftp account [POST]
 
 + Request (application/json)
     ["FTP1"]
 
 + Response 204 (text/plain)
 
-### Remove non existent ftp account #Error [POST]
+## Remove non existent ftp account #Error [POST /api/pftpd/del]
 
 + Request (application/json)
     ["FTPNotExist"]
