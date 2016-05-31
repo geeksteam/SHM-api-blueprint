@@ -6,13 +6,18 @@ import dns.query
 import dns.resolver
 from dns.exception import DNSException
 
+test_domain='testpdns.com'
+record_type=dns.rdatatype.MX
+
 # Test DNS server response records
 @hooks.before('DNS Domains > List Domains records > List Domains records')
 def check_dns_records(transaction):
         if transaction['skip'] != True:
         
-                # Set the DNS Server                
-                query = dns.message.make_query("testpdns.com", dns.rdatatype.MX)
+                transaction['request']['headers']['Dredd-Testing'] = 'DNS client testing domain %s type %s' % (test_domain, record_type)
+                
+                # Set the DNS Server MX record of domain            
+                query = dns.message.make_query(test_domain, record_type)
                 response = dns.query.udp(query, transaction['host'])
                 rcode = response.rcode()
                 
@@ -23,10 +28,11 @@ def check_dns_records(transaction):
                         else:
                                 transaction['fail'] = "DNS testing error: %s" % (dns.rcode.to_text(rcode))
                                 return
+
                 rrsets = response.answer
                 if len(rrsets) < 1:
-                        transaction['fail'] = "Empty records set got from NS server."
+                        transaction['fail'] = "DNS testing error: Empty records set got from NS server."
                         return
                 if rrsets[0][0].rdtype != dns.rdatatype.MX:
-                        transaction['fail'] = "No MX record found"
+                        transaction['fail'] = "DNS testing error: No MX record found"
                         return
