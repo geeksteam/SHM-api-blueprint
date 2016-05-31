@@ -25,7 +25,7 @@ def check_dns_records(transaction):
                                 return
                 rrsets = response.answer
                 if len(rrsets) < 1:
-                        transaction['fail'] = "Empty records set got from NS"
+                        transaction['fail'] = "Empty records set got from NS server."
                         return
                 if rrsets[0][0].rdtype != dns.rdatatype.MX:
                         transaction['fail'] = "No MX record found"
