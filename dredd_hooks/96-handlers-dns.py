@@ -19,7 +19,7 @@ def check_dns_records(transaction):
                         transaction['fail'] = "DNS testing error: Timed out while resolving %s" % args.host
                         return
                 except dns.exception.DNSException:
-                        transaction['fail'] = "DNS testing error: Unhandled exception: %s" % ns.exception.DNSException
+                        transaction['fail'] = "DNS testing error: Unhandled exception: %s" % dns.exception.DNSException
                         return
                 if len(dnsresult) < 1:
                         transaction['fail'] = "DNS response from %s for testpdns.com MX has no records" % transaction['host']
