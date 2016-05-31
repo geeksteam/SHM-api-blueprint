@@ -15,6 +15,9 @@ def check_dns_records(transaction):
                 except dns.resolver.NXDOMAIN:
                         transaction['fail'] = "DNS testing error: No such domain %s" % args.host
                         return
+                except dns.resolver.NoAnswer:
+                        transaction['fail'] = "DNS testing error: No answer from dns %s" % args.host
+                        return
                 except dns.resolver.Timeout:
                         transaction['fail'] = "DNS testing error: Timed out while resolving %s" % args.host
                         return
