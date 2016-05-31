@@ -7,9 +7,13 @@ Root user and regular user have different reply, because root will get all domai
 Root get all domains and they ownerd
 
 + Response 200 (application/json)
-        {
-        "test.com": "$USER_NAME"
-        }
+        [
+                {
+                        "Name":"test.com", 
+                        "Owner":"$USER_NAME",
+                        "Active":true
+                }
+        ]
 
 ### Domains list for #User [GET]
 
