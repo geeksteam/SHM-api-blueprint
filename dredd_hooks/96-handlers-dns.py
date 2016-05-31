@@ -14,6 +14,8 @@ def check_dns_records(transaction):
                 # Set the DNS Server                
                 query = dns.message.make_query("testpdns.com", dns.rdatatype.MX)
                 response = dns.query.udp(query, transaction['host'])
+                rcode = response.rcode()
+                
                 if rcode != dns.rcode.NOERROR:
                         if rcode == dns.rcode.NXDOMAIN:
                                 transaction['fail'] = "DNS testing error: No such domain"
