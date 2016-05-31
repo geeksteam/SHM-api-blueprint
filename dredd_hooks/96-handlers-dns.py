@@ -10,7 +10,7 @@ def check_dns_records(transaction):
 				# Set the DNS Server
                 resolver = dns.resolver.Resolver()
                 resolver.nameservers=[transaction['host']]
-                dnsresult = dnsresultresolver.query('testpdns.com', 'MX')
+                dnsresult = resolver.query('testpdns.com', 'MX')
                 if len(dnsresult) < 1:
                         transaction['fail'] = "DNS response from %s for testpdns.com MX has no records" % transaction['host']
                 print "Result of checking domains:"
