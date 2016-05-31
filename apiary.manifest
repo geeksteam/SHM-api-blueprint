@@ -18,6 +18,9 @@ hotp/main.apib
 pftpd/about.apib
 pftpd/main.apib
 
+pdns/about.apib
+pdns/main.apib
+
 dredd_test/after.apib
 
 logout/about.apib
