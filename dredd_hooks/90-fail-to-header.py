@@ -4,6 +4,6 @@ import dredd_hooks as hooks
 @hooks.before_each
 def add_failtext_to_header(transaction):
             if transaction['skip'] != True:
-                    if transaction['fail']:
+                    if 'fail' in transaction:
                             if transaction['fail'] != True :
                                     transaction['request']['headers']['Dredd-Fail'] = transaction['fail']
