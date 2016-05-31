@@ -13,13 +13,13 @@ def check_dns_records(transaction):
                 try:
                         dnsresult = resolver.query('testpdns.com', 'MX')
                 except dns.resolver.NXDOMAIN:
-                        transaction['fail'] = "DNS testing error: No such domain %s" % args.host
+                        transaction['fail'] = "DNS testing error: No such domain"
                         return
                 except dns.resolver.NoAnswer:
-                        transaction['fail'] = "DNS testing error: No answer from dns %s" % args.host
+                        transaction['fail'] = "DNS testing error: No answer from dns %s" % transaction['host']
                         return
                 except dns.resolver.Timeout:
-                        transaction['fail'] = "DNS testing error: Timed out while resolving %s" % args.host
+                        transaction['fail'] = "DNS testing error: Timed out while resolving %s" % transaction['host']
                         return
                 except dns.exception.DNSException as e:
                         transaction['fail'] = "DNS testing error: Unhandled exception: %s" % e.message
