@@ -11,7 +11,13 @@ Add or edit DNS domain records
         {  
            "Name":"testpdns.com",
            "Type":"NATIVE",
-           "Records":[  
+           "Records":[
+              {  
+                 "Name":"testpdns.com",
+                 "Type":"SOA",
+                 "Content":"ns1.dnsimple.com admin.testpdns.com 2016022001 86400 7200 604800 300",
+                 "TTL":86400
+              },
               {  
                  "Name":"www.testpdns.com",
                  "Type":"A",
