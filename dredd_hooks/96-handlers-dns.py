@@ -10,7 +10,17 @@ def check_dns_records(transaction):
 				# Set the DNS Server
                 resolver = dns.resolver.Resolver()
                 resolver.nameservers=[transaction['host']]
-                dnsresult = resolver.query('testpdns.com', 'MX')
+                try:
+                        dnsresult = resolver.query('testpdns.com', 'MX')
+                except dns.resolver.NXDOMAIN:
+                        transaction['fail'] = "DNS testing error: No such domain %s" % args.host
+                        return
+                except dns.resolver.Timeout:
+                        transaction['fail'] = "DNS testing error: Timed out while resolving %s" % args.host
+                        return
+                except dns.exception.DNSException:
+                        transaction['fail'] = "DNS testing error: Unhandled exception"
+                        return
                 if len(dnsresult) < 1:
                         transaction['fail'] = "DNS response from %s for testpdns.com MX has no records" % transaction['host']
                 print "Result of checking domains:"
