@@ -11,7 +11,7 @@ def check_dns_records(transaction):
                 resolver = dns.resolver.Resolver()
                 resolver.nameservers=[transaction['host']]
                 try:
-                        dnsresult = resolver.query('testpdns.com', 'MX')
+                        dnsresult = resolver.query.udp('testpdns.com', 'MX')
                 except dns.resolver.NXDOMAIN:
                         transaction['fail'] = "DNS testing error: No such domain"
                         return
