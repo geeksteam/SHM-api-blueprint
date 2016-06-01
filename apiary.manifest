@@ -14,6 +14,8 @@ dredd_test/before.apib
 hotp/about.apib
 hotp/main.apib
 
+pftpd/about.apib
+pftpd/main.apib
 
 webdomains/about.apib
 webdomains/main.apib
