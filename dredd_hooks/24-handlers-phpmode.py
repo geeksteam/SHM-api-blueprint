@@ -1,5 +1,6 @@
 import time
 import json
+from urllib2 import Request, urlopen, URLError, HTTPError
 import dredd_hooks as hooks
 
 # Run grab url function
