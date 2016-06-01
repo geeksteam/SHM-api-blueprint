@@ -1,22 +1,39 @@
 intro.apib
+
+# Global structs
 structs.apib
 
+# Creating test users
 dredd_test/regularUser_remove.apib
 dredd_test/regularUser_create.apib
 
+## Authorization ##
+
+# Panel login auth
 auth/about.apib
 auth/user.apib
 auth/hotp.apib
 auth/root.apib
 
+# Creating test.com and dirs
 dredd_test/before.apib
 
+# HOTP
 hotp/about.apib
 hotp/main.apib
+
+
+### BEGIN ###
+
+
+## USERS ##
+
+# User limit Templates
 
 utemplates/about.apib
 utemplates/main.apib
 
+# Users manipulation
 users/about.apib
 users/set.apib
 users/password.apib
@@ -24,142 +41,224 @@ users/toggle.apib
 users/list.apib
 users/del.apib
 
+# User settings change
 user/about.apib
 user/main.apib
 
+
+## Files manipulation ##
+
+# Filemanager
+# local
 filemanager/about.apib
 filemanager/mkdir.apib
 filemanager/set.apib
 filemanager/move.apib
+# remote
 filemanager/upload.apib
+filemanager/download.apib
 filemanager/wget.apib
+# archives
 filemanager/pack.apib
 filemanager/unpack.apib
 filemanager/getarchive.apib
-filemanager/download.apib
+# content
 filemanager/showfile.apib
 filemanager/editfile.apib
+# list remove
 filemanager/list.apib
 filemanager/del.apib
 
+
+## FTP server ##
+
+# ProFTPD
 pftpd/about.apib
 pftpd/main.apib
 
+
+## WebDomains, related ##
+
+# WebDomains and PHP modes
 webdomains/about.apib
 webdomains/main.apib
 
-nginx/about.apib
-nginx/main.apib
-
-ngstat/about.apib
-ngstat/main.apib
-
+# SSL certificates
 ssl/about.apib
 ssl/main.apib
 
+# PHP settings and info
 php/about.apib
 php/main.apib
 php/pecl.apib
 
-perl/about.apib
-perl/main.apib
 
-ruby/about.apib
-ruby/main.apib
+## Databases ##
 
+# MySQL
+# Users
 mysql-users/about.apib
 mysql-users/main.apib
-
+# Databases
 mysql-dbs/about.apib
 mysql-dbs/main.apib
 mysql-dbs/import.apib
 mysql-dbs/export.apib
 
+# PostgreSQL
+# Users
 pgsql-users/about.apib
 pgsql-users/main.apib
-
+# Databases
 pgsql-dbs/about.apib
 pgsql-dbs/main.apib
 pgsql-dbs/import.apib
 pgsql-dbs/export.apib
 
+
+## DNS ##
+
 pdns/about.apib
 pdns/main.apib
 
+## User specific ##
+
+# Session info
 info/about.apib
 info/root.apib
 info/user.apib
 info/domains.apib
 
+## Email ##
+
+# Email exim dovecot
 email/about.apib
 email/main.apib
 
+# DKIM 
 dkim/about.apib
 dkim/main.apib
 
+# DNSBlists
+dnsbl/about.apib
+dnsbl/main.apib
+
+# Eximlog
 eximlog/about.apib
 eximlog/queue.apib
 eximlog/delivery.apib
 
-dnsbl/about.apib
-dnsbl/main.apib
 
-network/about.apib
-network/main.apib
+## Statistics ##
 
-ip/about.apib
-ip/main.apib
+# Site activity analytics
+ngstat/about.apib
+ngstat/main.apib
 
-fail2ban/about.apib
-fail2ban/main.apib
+# Nginx current requests
+ginx/about.apib
+nginx/main.apib
 
-cron/about.apib
-cron/main.apib
-
-ubackup/about.apib
-ubackup/main.apib
-
-messages/about.apib
-messages/main.apib
-
-iptables/about.apib
-iptables/main.apib
-
-journal/about.apib
-
-sessions/about.apib
-
-timezone/about.apib
-timezone/main.apib
-
-syspackages/about.apib
-syspackages/main.apib
-
-services/about.apib
-services/main.apib
-
-ps/about.apib
-ps/main.apib
-
-shell/about.apib
-shell/main.apib
-
-openssh/about.apib
-openssh/settings.apib
-openssh/keys.apib
-
-clamav/about.apib
-clamav/main.apib
-
-api/about.apib
-
+# Watchdog  SYS, NET, Traffic charts
 watchdog/about.apib
 watchdog/main.apib
 watchdog/chart.apib
 
+
+## System ##
+
+# System time
+timezone/about.apib
+timezone/main.apib
+
+# Cron
+cron/about.apib
+cron/main.apib
+
+# System packages
+syspackages/about.apib
+syspackages/main.apib
+
+# System services
+services/about.apib
+services/main.apib
+
+# System Processes
+ps/about.apib
+ps/main.apib
+
+# OpenSSH server settings
+openssh/about.apib
+openssh/settings.apib
+openssh/keys.apib
+
+# Shell exec
+shell/about.apib
+shell/main.apib
+
+
+## Network ##
+
+# IPtables rules
+iptables/about.apib
+iptables/main.apib
+
+# Fail 2 ban
+fail2ban/about.apib
+fail2ban/main.apib
+
+# System network settings
+network/about.apib
+network/main.apib
+
+# IP
+ip/about.apib
+ip/main.apib
+
+
+## PANEL ##
+
+# User Messages
+messages/about.apib
+messages/main.apib
+
+# Journal
+journal/about.apib
+
+# Sessions
+sessions/about.apib
+
+# Panel Core info
 core/about.apib
 core/main.apib
 
+# Panel API triggers
+api/about.apib
+
+
+## BACKUPS ##
+
+# Users backups
+ubackup/about.apib
+ubackup/main.apib
+
+## Third party ##
+
+# Perl modules
+perl/about.apib
+perl/main.apib
+
+# Ruby modules and info
+ruby/about.apib
+ruby/main.apib
+
+# ClamAV antivirus
+clamav/about.apib
+clamav/main.apib
+
+### END ###
+
+# Remove dirs and test.com
 dredd_test/after.apib
 
 logout/about.apib
