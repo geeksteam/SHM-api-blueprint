@@ -15,7 +15,7 @@ def check_ftp_account(transaction):
 						# List directory
 						files = ftp.dir()
 						# Upload file
-						myfile = open('/bin/sh', 'r')
+						myfile = open('/var/www/html/phpjson.php', 'r')
 						final_file_name = 'test_bin_upload'
 						ftp.storbinary('STOR '+ final_file_name, myfile)
 				except ftplib.all_errors as e:
