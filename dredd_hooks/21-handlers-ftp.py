@@ -16,7 +16,7 @@ def check_ftp_account(transaction):
 						files = ftp.dir()
 						# Upload file
 						myfile = open('/var/www/html/phpjson.php', 'r')
-						final_file_name = 'test_bin_upload'
+						final_file_name = 'phpjson.php'
 						ftp.storbinary('STOR '+ final_file_name, myfile)
 				except ftplib.all_errors as e:
 						transaction['fail'] = "FTP account test by Dredd/Python FTPclient. Error: %s" % e
