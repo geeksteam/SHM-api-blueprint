@@ -105,5 +105,5 @@ def check_php_mode_4(transaction):
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
                 
-                if "<?php " not in response:
+                if '<?php' not in response:
                         transaction["fail"] = "Apache PHP off mode failed. Data is: %s " % response
