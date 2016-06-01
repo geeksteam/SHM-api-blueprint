@@ -10,7 +10,7 @@ phpjson_url='http://test.com/phpjson.php'
 def run_url():
         req = Request(phpjson_url)
         try:
-                response = urlopen(req)
+                response = urlopen(req).read()
         except HTTPError as e:
                 print 'The server couldn\'t fulfill the request.'
                 print 'Error code: ', e.code
