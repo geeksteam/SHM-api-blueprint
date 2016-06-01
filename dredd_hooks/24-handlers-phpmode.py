@@ -27,9 +27,23 @@ def check_nginx_php_fpm(j):
                 return False
         if "nginx" not in j['Server']: 
                 return False
+                
+# Check for apache PHP FPM
+def check_apache_php_fpm(j):
+        if j['SAPI'] != 'fpm-fcgi':
+                return False
+        if "Apache" not in j['Server']: 
+                return False
+
+# Check for apache mod_php
+def check_apache_mod_php(j):
+        if j['SAPI'] != 'apache2handler':
+                return False
+        if "Apache" not in j['Server']: 
+                return False
 
 # Checking PHP mode
-@hooks.before('Web Domains > List all web domains > List web domains')
+@hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
 def check_php_mode(transaction):
         if transaction['skip'] != True:
         
@@ -43,4 +57,36 @@ def check_php_mode(transaction):
                         transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % response
                         return
                 if check_nginx_php_fpm(j) == False:
-                        transaction['fail'] = 'Nginx PHP FPM test failed. Data is:'.join(j)
+                        transaction['fail'] = 'Nginx PHP FPM mode check failed. Data is:'.join(j)
+                        
+@hooks.after('Web Domains > PHP modes > PHP-FPM on Apache')
+def check_php_mode(transaction):
+        if transaction['skip'] != True:
+        
+                response = run_url()        
+                if response == False:
+                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        return
+                try:
+                        j = json.loads(response)
+                except:
+                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % response
+                        return
+                if check_apache_php_fpm(j) == False:
+                        transaction['fail'] = 'Apache PHP FPM mode check failed. Data is:'.join(j)
+                        
+@hooks.after('Web Domains > PHP modes > Apache mod_php')
+def check_php_mode(transaction):
+        if transaction['skip'] != True:
+        
+                response = run_url()        
+                if response == False:
+                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        return
+                try:
+                        j = json.loads(response)
+                except:
+                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % response
+                        return
+                if check_apache_mod_php(j) == False:
+                        transaction['fail'] = 'Apache mod_php mode check failed. Data is:'.join(j)
