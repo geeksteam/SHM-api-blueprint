@@ -27,12 +27,16 @@ def check_nginx_php_fpm(j):
                 return False
         if "nginx" not in j['Server']: 
                 return False
+        if j['User'] != transaction['request']['headers']['Dredd-User']:
+                return False
                 
 # Check for apache PHP FPM
 def check_apache_php_fpm(j):
         if j['SAPI'] != 'fpm-fcgi':
                 return False
         if "Apache" not in j['Server']: 
+                return False
+        if j['User'] != transaction['request']['headers']['Dredd-User']:
                 return False
 
 # Check for apache mod_php
