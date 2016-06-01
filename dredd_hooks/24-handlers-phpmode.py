@@ -44,7 +44,7 @@ def check_apache_mod_php(j):
 
 # Checking PHP mode
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
-def check_php_mode(transaction):
+def check_php_mode_1(transaction):
         if transaction['skip'] != True:
         
                 response = run_url()        
@@ -60,7 +60,7 @@ def check_php_mode(transaction):
                         transaction['fail'] = 'Nginx PHP FPM mode check failed. Data is:'.join(j)
                         
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Apache')
-def check_php_mode(transaction):
+def check_php_mode_2(transaction):
         if transaction['skip'] != True:
         
                 response = run_url()        
@@ -76,7 +76,7 @@ def check_php_mode(transaction):
                         transaction['fail'] = 'Apache PHP FPM mode check failed. Data is:'.join(j)
                         
 @hooks.after('Web Domains > PHP modes > Apache mod_php')
-def check_php_mode(transaction):
+def check_php_mode_3(transaction):
         if transaction['skip'] != True:
         
                 response = run_url()        
@@ -92,7 +92,7 @@ def check_php_mode(transaction):
                         transaction['fail'] = 'Apache mod_php mode check failed. Data is:'.join(j)
 
 @hooks.after('Web Domains > PHP modes > PHP off')
-def check_php_mode(transaction):
+def check_php_mode_4(transaction):
         if transaction['skip'] != True:
         
                 response = run_url()        
