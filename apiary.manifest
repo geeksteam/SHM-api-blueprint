@@ -24,6 +24,4 @@ nginx/about.apib
 nginx/main.apib
 
 
-dredd_test/after.apib
-
 logout/about.apib
