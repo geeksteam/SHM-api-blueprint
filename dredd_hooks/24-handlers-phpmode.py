@@ -49,7 +49,7 @@ def check_php_mode_1(transaction):
         
                 response = run_url()        
                 if response == False:
-                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
                 try:
                         j = json.loads(response)
@@ -65,7 +65,7 @@ def check_php_mode_2(transaction):
         
                 response = run_url()        
                 if response == False:
-                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
                 try:
                         j = json.loads(response)
@@ -81,7 +81,7 @@ def check_php_mode_3(transaction):
         
                 response = run_url()        
                 if response == False:
-                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
                 try:
                         j = json.loads(response)
@@ -97,7 +97,7 @@ def check_php_mode_4(transaction):
         
                 response = run_url()        
                 if response == False:
-                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
                 
                 if "<?php " not in response:
