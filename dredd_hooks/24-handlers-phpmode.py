@@ -5,6 +5,7 @@ import dredd_hooks as hooks
 
 # Url where is phpjson is
 phpjson_url='http://test.com/phpjson.php'
+userName='regularUser'
 
 # Run grab url function
 def run_url():
@@ -27,7 +28,7 @@ def check_nginx_php_fpm(j):
                 return False
         if "nginx" not in j['Server']: 
                 return False
-        if j['User'] != transaction['request']['headers']['Dredd-User']:
+        if j['User'] != userName:
                 return False
                 
 # Check for apache PHP FPM
@@ -36,7 +37,7 @@ def check_apache_php_fpm(j):
                 return False
         if "Apache" not in j['Server']: 
                 return False
-        if j['User'] != transaction['request']['headers']['Dredd-User']:
+        if j['User'] != userName:
                 return False
 
 # Check for apache mod_php
