@@ -29,7 +29,7 @@ def check_php_mode(transaction):
                 try:
                         j = json.loads(run_url())
                 except:
-                        transaction['fail'] = 'Cannot decode response to JSON'
+                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % j
                         return
                 if check_nginx_php_fpm(j) == False:
                         transaction['fail'] = 'Nginx PHP FPM test failed. Data is:'.join(j)
