@@ -26,10 +26,11 @@ def check_nginx_php_fpm(j):
 @hooks.before('Web Domains > List all web domains > List web domains')
 def check_php_mode(transaction):
         if transaction['skip'] != True:
+                response = run_url()
                 try:
-                        j = json.loads(run_url())
+                        j = json.loads(response)
                 except:
-                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % j
+                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % response
                         return
                 if check_nginx_php_fpm(j) == False:
                         transaction['fail'] = 'Nginx PHP FPM test failed. Data is:'.join(j)
