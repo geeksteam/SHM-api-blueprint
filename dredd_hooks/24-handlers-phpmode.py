@@ -106,4 +106,4 @@ def check_php_mode_4(transaction):
                         return
                 
                 if "<?php " not in response:
-                        transaction["fail"] = "Apache PHP off mode failed. Data is: ".response
+                        transaction["fail"] = "Apache PHP off mode failed. Data is: %s " % response
