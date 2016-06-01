@@ -90,3 +90,15 @@ def check_php_mode(transaction):
                         return
                 if check_apache_mod_php(j) == False:
                         transaction['fail'] = 'Apache mod_php mode check failed. Data is:'.join(j)
+
+@hooks.after('Web Domains > PHP modes > PHP off')
+def check_php_mode(transaction):
+        if transaction['skip'] != True:
+        
+                response = run_url()        
+                if response == False:
+                        transaction['fail'] = 'Cennot get test URL %s' % phpjson_url
+                        return
+                
+                if "<?php " not in response:
+                        transaction["fail"] = "Apache PHP off mode failed. Data is: ".response
