@@ -15,6 +15,9 @@ auth/user.apib
 auth/hotp.apib
 auth/root.apib
 
+# Remove dirs and test.com
+dredd_test/after.apib
+
 # Creating test.com and dirs
 dredd_test/before.apib
 
@@ -257,8 +260,5 @@ clamav/about.apib
 clamav/main.apib
 
 ### END ###
-
-# Remove dirs and test.com
-dredd_test/after.apib
 
 logout/about.apib
