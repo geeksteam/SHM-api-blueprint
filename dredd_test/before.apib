@@ -24,7 +24,7 @@ Add test user for PgSQL dumps.
 
 + Response 204 (text/plain)
 
-## Add Import PGSQL db as #User [POST /api/pgsql/db/set]
+## Add PGSQL db for Import as #User [POST /api/pgsql/db/set]
 
 + Request (application/json)
         {  
@@ -115,5 +115,17 @@ Create /home/USER/test.html by User.
                 "SSL":false,
                 "Analytics":true
         }
+
++ Response 204 (text/plain)
+
+### Add info@test.com Email box [POST]
+
++ Request (application/json)
+    {  
+       "Email":"info@test.com",
+       "Alias":"kalashnikovm@mail.ru",
+       "Size":500,
+       "Password":"infoPassword"
+    }
 
 + Response 204 (text/plain)
