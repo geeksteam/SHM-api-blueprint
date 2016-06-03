@@ -28,12 +28,11 @@ Dredd SMTP AUTH sending test message
 subject="Sent from Dredd SMTP AUTH test"
 
 
-
 @hooks.before('Email boxes > List Email boxes > List email boxes')
 def test_email(transaction):
         if transaction['skip'] != True:		
         
-                # Test of server SMTP recieveing email		
+                # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
                 receivers = ['info@test.com']
 
@@ -67,7 +66,7 @@ def test_email(transaction):
                 except Exception, exc:
                         transaction["fail"] = "SMTP AUTH mail failed; %s" % str(exc)
                         
-                # Check POP3 message
+                # Check POP3 message is in box
                 
                 box = poplib.POP3(SMTPserver)
                 box.user(USERNAME)
