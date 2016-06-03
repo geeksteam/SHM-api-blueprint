@@ -86,7 +86,7 @@ def test_email(transaction):
                                 message_found = True
                                 
                         print(msgtext)
-                        box.dele(msgnum) # если надо - удаляем с сервера письмо
+                        box.dele(msgnum)
                 
                 box.quit()
                 
