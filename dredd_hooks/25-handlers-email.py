@@ -54,15 +54,19 @@ def test_email(transaction):
                         
                 # Send email using SMTP AUTH
                 try:
-                        msg = MIMEText(content, text_subtype)
-                        msg['Subject']= subject
-                        msg['From']   = testbox # some SMTP servers will do this automatically, not all
+                        
+                        message = """From: Dredd <info@test.com>
+                        To: <max@geeks.team>
+                        Subject: SMTP e-mail Dredd AUTH test
+
+                        This is a test e-mail message.
+                        """
 
                         conn = smtplib.SMTP(SMTPserver)
                         conn.set_debuglevel(True)
                         
                         conn.login(USERNAME, PASSWORD)
-                        conn.sendmail(testbox, destination, msg.as_string())
+                        conn.sendmail(testbox, destination, message)
                         
                         conn.quit()
 
