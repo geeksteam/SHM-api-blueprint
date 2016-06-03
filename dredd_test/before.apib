@@ -118,7 +118,7 @@ Create /home/USER/test.html by User.
 
 + Response 204 (text/plain)
 
-### Add info@test.com Email box [POST]
+## Add info@test.com Email box [POST /api/email/set]
 
 + Request (application/json)
     {  
@@ -129,3 +129,10 @@ Create /home/USER/test.html by User.
     }
 
 + Response 204 (text/plain)
+
+## Generate DKIM record for info@test.com [POST /api/dkim/set]
+
++ Request (application/json)
+    {  
+       "Domain":"test.com"
+    }
