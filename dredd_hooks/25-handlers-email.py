@@ -50,11 +50,11 @@ def test_email(transaction):
                 try:
                         
                         message = """From: Dredd <info@test.com>
-                        To: <max@geeks.team>
-                        Subject: SMTP e-mail Dredd AUTH test
+To: <max@geeks.team>
+Subject: SMTP e-mail Dredd AUTH test
 
-                        This is a test e-mail message.
-                        """
+This is a test e-mail message.
+"""
 
                         conn = smtplib.SMTP(SMTPserver)
                         conn.set_debuglevel(True)
