@@ -74,7 +74,7 @@ def test_email(transaction):
                         transaction["fail"] = "Dredd SMTP AUTH failed."
                 
                 response, lst, octets = box.list()
-                print "DEBUG: Total %s messages: %s" % (login, len(lst))
+                print "DEBUG: Total messages: %s" % len(lst)
                 total_messages = len(lst)
                 
                 message_found = False
