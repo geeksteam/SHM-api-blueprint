@@ -36,7 +36,7 @@ def test_email(transaction):
                 
                 # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
-                receivers = ['info@test.com']
+                receivers = [testbox]
 
                 message = """From: Dredd <dredd-test@lgeeks.team>
                 To: Test Server <info@test.com>
@@ -58,7 +58,7 @@ def test_email(transaction):
                         msg['Subject']= subject
                         msg['From']   = testbox # some SMTP servers will do this automatically, not all
 
-                        conn = SMTP(SMTPserver)
+                        conn = smtplib.SMTP(SMTPserver)
                         conn.set_debuglevel(False)
                         conn.login(USERNAME, PASSWORD)
                         conn.sendmail(testbox, destination, msg.as_string())
