@@ -28,10 +28,11 @@ Dredd SMTP AUTH sending test message
 subject="Sent from Dredd SMTP AUTH test"
 
 
-@hooks.before('Email boxes > List Email boxes > List email boxes')
+@hooks.after('Email boxes > List Email boxes > List email boxes')
 def test_email(transaction):
         if transaction['skip'] != True:		
         
+                transaction['real']['body'] = "Dredd testing"
                 # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
                 receivers = ['info@test.com']
