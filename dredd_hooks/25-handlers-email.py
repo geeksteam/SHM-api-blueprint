@@ -33,6 +33,7 @@ def test_email(transaction):
         if transaction['skip'] != True:		
         
                 transaction['real']['body'] = "Dredd testing"
+                
                 # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
                 receivers = ['info@test.com']
@@ -91,7 +92,7 @@ def test_email(transaction):
                         box.quit()
                         
                 except:
-                        transaction["fail"] = "Dredd POP3 Client LOGIN or MESSAGE LIST failed."
+                        transaction["fail"] = "Dredd POP3 Client LOGIN or MESSAGE LIST/DELETE failed."
                         return
                 
                 if message_found == False:
