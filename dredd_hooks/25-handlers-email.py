@@ -1,4 +1,5 @@
 import smtplib
+import poplib, email
 
 import sys
 import os
@@ -25,6 +26,7 @@ content="""\
 Dredd SMTP AUTH sending test message
 """
 subject="Sent from Dredd SMTP AUTH test"
+
 
 
 @hooks.before('Email boxes > List Email boxes > List email boxes')
@@ -66,3 +68,29 @@ def test_email(transaction):
                         transaction["fail"] = "SMTP AUTH mail failed; %s" % str(exc)
                         
                 # Check POP3 message
+                
+                box = poplib.POP3(SMTPserver)
+                box.user(USERNAME)
+                box.pass_(PASSWORD)
+                
+                response, lst, octets = box.list()
+                print "DEBUG: Total %s messages: %s" % (login, len(lst))
+                total_messages = len(lst)
+                
+                message_found = False
+                for msgnum, msgsize in [i.split() for i in lst]:
+                        (resp, lines, octets) = box.retr(msgnum)
+                        msgtext = "n".join(lines) + "nn"
+                        message = email.message_from_string(msgtext) 
+                        # Check for message from Dredd
+                        if message["subject"] == "SMTP e-mail Dredd test":
+                                message_found = True
+                                
+                        print(msgtext)
+                        box.dele(msgnum) # если надо - удаляем с сервера письмо
+                
+                box.quit()
+                
+                if message_found == False:
+                        transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % total_messages
+                        
