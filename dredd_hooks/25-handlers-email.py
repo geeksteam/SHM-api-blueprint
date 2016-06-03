@@ -22,7 +22,7 @@ USERNAME = testbox
 PASSWORD = "testpass"
 
 text_subtype = 'plain'
-content="""\
+content="""
 Dredd SMTP AUTH sending test message
 """
 subject="Sent from Dredd SMTP AUTH test"
@@ -59,9 +59,11 @@ def test_email(transaction):
                         msg['From']   = testbox # some SMTP servers will do this automatically, not all
 
                         conn = smtplib.SMTP(SMTPserver)
-                        conn.set_debuglevel(False)
+                        conn.set_debuglevel(True)
+                        
                         conn.login(USERNAME, PASSWORD)
                         conn.sendmail(testbox, destination, msg.as_string())
+                        
                         conn.quit()
 
                 except Exception, exc:
