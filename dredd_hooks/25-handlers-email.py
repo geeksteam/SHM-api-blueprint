@@ -58,10 +58,8 @@ def test_email(transaction):
                         conn = SMTP(SMTPserver)
                         conn.set_debuglevel(False)
                         conn.login(USERNAME, PASSWORD)
-                        try:
-                                conn.sendmail(testbox, destination, msg.as_string())
-                        finally:
-                                conn.quit()
+                        conn.sendmail(testbox, destination, msg.as_string())
+                        conn.quit()
 
                 except Exception, exc:
                         transaction["fail"] = "SMTP AUTH mail failed; %s" % str(exc)
@@ -69,8 +67,11 @@ def test_email(transaction):
                 # Check POP3 message is in box
                 
                 box = poplib.POP3(SMTPserver)
-                box.user(USERNAME)
-                box.pass_(PASSWORD)
+                try:
+                        box.user(USERNAME)
+                        box.pass_(PASSWORD)
+                except:
+                        transaction["fail"] = "Dredd SMTP AUTH failed."
                 
                 response, lst, octets = box.list()
                 print "DEBUG: Total %s messages: %s" % (login, len(lst))
