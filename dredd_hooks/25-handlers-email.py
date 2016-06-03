@@ -46,7 +46,7 @@ def test_email(transaction):
                         smtpObj = smtplib.SMTP('localhost')
                         smtpObj.sendmail(dreddsender, receivers, message)         
                         print "Successfully sent email"
-                except SMTPException:
+                except:
                         transaction["fail"] = "Error: unable to send email by Dredd smtp"
                         
                 # Send email using SMTP AUTH
