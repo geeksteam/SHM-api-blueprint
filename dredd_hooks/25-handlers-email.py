@@ -49,6 +49,7 @@ def test_email(transaction):
                         print "Successfully sent email"
                 except:
                         transaction["fail"] = "Error: unable to send email by Dredd smtp"
+                        return
                         
                 # Send email using SMTP AUTH
                 try:
@@ -64,6 +65,7 @@ def test_email(transaction):
 
                 except Exception, exc:
                         transaction["fail"] = "SMTP AUTH mail failed; %s" % str(exc)
+                        return
                         
                 # Check POP3 message is in box
                 
@@ -71,26 +73,26 @@ def test_email(transaction):
                 try:
                         box.user(USERNAME)
                         box.pass_(PASSWORD)
+                
+                        response, lst, octets = box.list()
+                        print "DEBUG: Total messages: %s" % len(lst)
+                        total_messages = len(lst)
+                        
+                        message_found = False
+                        for msgnum, msgsize in [i.split() for i in lst]:
+                                (resp, lines, octets) = box.retr(msgnum)
+                                msgtext = "n".join(lines) + "nn"
+                                message = email.message_from_string(msgtext) 
+                                # Check for message from Dredd
+                                if message["subject"] == "SMTP e-mail Dredd test":
+                                        message_found = True
+                                print(msgtext)
+                                box.dele(msgnum)
+                        box.quit()
+                        
                 except:
-                        transaction["fail"] = "Dredd SMTP AUTH failed."
-                
-                response, lst, octets = box.list()
-                print "DEBUG: Total messages: %s" % len(lst)
-                total_messages = len(lst)
-                
-                message_found = False
-                for msgnum, msgsize in [i.split() for i in lst]:
-                        (resp, lines, octets) = box.retr(msgnum)
-                        msgtext = "n".join(lines) + "nn"
-                        message = email.message_from_string(msgtext) 
-                        # Check for message from Dredd
-                        if message["subject"] == "SMTP e-mail Dredd test":
-                                message_found = True
-                                
-                        print(msgtext)
-                        box.dele(msgnum)
-                
-                box.quit()
+                        transaction["fail"] = "Dredd POP3 Client LOGIN or MESSAGE LIST failed."
+                        return
                 
                 if message_found == False:
                         transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % total_messages
