@@ -21,12 +21,6 @@ destination = ['kalashnikovm@mail.ru']
 USERNAME = testbox
 PASSWORD = "testpass"
 
-text_subtype = 'plain'
-content="""
-Dredd SMTP AUTH sending test message
-"""
-subject="Sent from Dredd SMTP AUTH test"
-
 
 @hooks.after('Email boxes > List Email boxes > List email boxes')
 def test_email(transaction):
