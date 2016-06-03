@@ -19,7 +19,7 @@ testbox =     'info@test.com'
 destination = ['kalashnikovm@mail.ru']
 
 USERNAME = testbox
-PASSWORD = "infoPassword"
+PASSWORD = "testpass"
 
 text_subtype = 'plain'
 content="""\
