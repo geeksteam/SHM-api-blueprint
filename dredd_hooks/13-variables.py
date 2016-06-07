@@ -5,7 +5,7 @@ import dredd_hooks as hooks
 
 ## Local stash
 # Testing Server IP
-server_ip='95.163.191.20'
+server_ip='95.163.191.21'
 # Root user password
 rootUserPassword='goodSHMpassword'
 # regular User name and password
@@ -17,7 +17,7 @@ currDateDMY=time.strftime("%d.%m.%Y")
 
 
 ## Backup testing
-backup_server_ip='95.163.191.20'
+backup_server_ip='95.163.191.21'
 
         
 # Replace $VARS
