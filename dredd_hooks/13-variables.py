@@ -5,7 +5,8 @@ import dredd_hooks as hooks
 
 ## Local stash
 # Testing Server IP
-server_ip='95.163.191.21'
+# server_ip='95.163.191.21' Get from transaction host
+
 # Root user password
 rootUserPassword='goodSHMpassword'
 # regular User name and password
@@ -24,6 +25,9 @@ backup_server_ip='95.163.191.21'
 @hooks.before_each
 def set_variables(transaction):
             if transaction['skip'] != True:
+
+                    server_ip = transaction['host']
+
                     transaction['request']['body'] = transaction['request']['body'].replace('$SERVER_IP', server_ip)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$SERVER_IP', server_ip)
                     
