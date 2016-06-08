@@ -4,7 +4,15 @@ import dredd_hooks as hooks
 
 # Local vars
 #
+
+# Timer before requests
 requests_timer = {}
+# Timer before all requests in GROUP
+groups_timer = {}
+
+
+groups_timer['Web Domains'] = 2
+
 requests_timer['User Backups > List backups > List backups'] = 15
 requests_timer['User Backups > Delete backup > Delete backup'] = 15
 
@@ -21,7 +29,14 @@ request_number = 0
 # Execute TIMER BEFORE requests
 @hooks.before_each
 def add_request_timer(transaction):
-        # Sleep
+
+        # Check for GROUP timers
+        if transaction['origin']['resourceGroupName'] in groups_timer and transaction['skip'] != True:
+                seconds = groups_timer[ transaction['origin']['resourceGroupName'] ]
+                transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
+                time.sleep(seconds)
+
+        # Check for requests
         if transaction['name'] in requests_timer and transaction['skip'] != True:
                 seconds = requests_timer[transaction['name']]
                 transaction['request']['headers']['Dredd-Timer-Before'] = str(seconds)
@@ -33,6 +48,10 @@ def add_request_number(transaction):
         # Add Timer information
         if transaction['name'] in requests_timer:
                 transaction['origin']['actionName'] = '( Timer:'+ str(requests_timer[transaction['name']]) + ') '+ transaction['origin']['actionName']
+
+        if transaction['origin']['resourceGroupName'] in groups_timer:
+                transaction['origin']['actionName'] = '( Timer:'+ str(groups_timer[ transaction['origin']['resourceGroupName'] ]) + ') '+ transaction['origin']['actionName']
+        
         # Iterate request number
         if add_request_number:
                 global request_number 
