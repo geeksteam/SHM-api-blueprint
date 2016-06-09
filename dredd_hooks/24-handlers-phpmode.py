@@ -7,7 +7,7 @@ import dredd_hooks as hooks
 userName='regularUser'
 
 # Run grab url function
-def run_url():
+def run_url(phpjson_url):
         req = Request(phpjson_url)
         try:
                 response = urlopen(req).read()
@@ -51,7 +51,7 @@ def check_apache_mod_php(j):
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url()        
+                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
@@ -67,7 +67,7 @@ def check_php_mode_1(transaction):
 def check_php_mode_2(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url()        
+                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
@@ -83,7 +83,7 @@ def check_php_mode_2(transaction):
 def check_php_mode_3(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url()        
+                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
@@ -99,7 +99,7 @@ def check_php_mode_3(transaction):
 def check_php_mode_4(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url()        
+                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
