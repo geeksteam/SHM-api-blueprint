@@ -26,15 +26,17 @@ def make_url_statistics(transaction):
                 if exit_code > 0:
                         transaction['fail'] = "Python http client check by Dredd/Python error: Cannot find IP %s test.com in /etc/hosts" % transaction['host']
                 # Run server requests
-                run_url('http://test.com/url_one')
+                testDomain = transaction['request']['headers']['Testing-domain']
 
-                run_url('http://test.com/url_two')
+                run_url('http://%s/url_one' % testDomain)
+
+                run_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://test.com/url_two')
+                run_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://test.com/url_two')
+                run_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://test.com/url_three')
+                run_url('http://%s/url_three' % testDomain)
                 # Wait for statistic flush to bucket
                 time.sleep(65)
                 

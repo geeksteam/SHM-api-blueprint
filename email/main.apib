@@ -13,7 +13,7 @@ Add new or edit existent email box.
 
 + Request (application/json)
     {  
-       "Email":"test@test.com",
+       "Email":"test@$TESTING_DOMAIN",
        "Alias":"kmsddf@mail.ru",
        "Size":123,
        "Password":"bc861g23d"
@@ -30,7 +30,7 @@ List all email boxes.
 + Response 200 (application/json)
     [  
        {  
-          "Email":"test@test.com",
+          "Email":"test@$TESTING_DOMAIN",
           "Size":123,
           "Alias":"kms@mail.ru"
        }
@@ -43,13 +43,13 @@ Remove Email box.
 ### Remove Email box [POST]
 
 + Request (application/json)
-    ["test@test.com"]
+    ["test@$TESTING_DOMAIN"]
 
 + Response 204 (text/plain)
 
 ### Remove non existent emailbox #Error [POST]
 
 + Request (application/json)
-    ["testNotExistent@test.com"]
+    ["testNotExistent@$TESTING_DOMAIN"]
 
 + Response

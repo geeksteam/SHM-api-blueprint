@@ -12,10 +12,13 @@ rootUserPassword='goodSHMpassword'
 # regular User name and password
 regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
+
+# Testing domain
+testDomain='test9521.com'
+
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y.%m.%d")
 currDateDMY=time.strftime("%d.%m.%Y")
-
 
 ## Backup testing
 backup_server_ip='95.163.191.21'
@@ -48,4 +51,10 @@ def set_variables(transaction):
 
                     transaction['request']['body'] = transaction['request']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
+
+                    # Set testing domainName
+                    transaction['request']['headers']['Testing-domain'] = testDomain
+                    transaction['request']['body'] = transaction['request']['body'].replace('$TESTING_DOMAIN', testDomain)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$TESTING_DOMAIN', testDomain)
+
                     
