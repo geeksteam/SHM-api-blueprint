@@ -14,9 +14,7 @@ import time
 import dredd_hooks as hooks
 
 # Global settings
-testDomain = transaction['request']['headers']['Testing-domain']
-SMTPserver = testDomain
-testbox =     'info@%s' % testDomain
+testbox =     'info@'
 destination = ['kalashnikovm@mail.ru']
 
 USERNAME = testbox
@@ -25,7 +23,10 @@ PASSWORD = "testpass"
 
 @hooks.after('Email boxes > List Email boxes > List email boxes')
 def test_email(transaction):
-        if transaction['skip'] != True:		
+        if transaction['skip'] != True:
+
+                SMTPserver = transaction['request']['headers']['Testing-domain']
+                testbox = testbox + SMTPserver
         
                 transaction['real']['body'] = "Dredd testing"
                 
