@@ -103,9 +103,9 @@ Create /home/USER/test.html by User.
 
 + Request (application/json)
         {  
-                "Name":"test.com",
+                "Name":"$TESTING_DOMAIN",
                 "Active":true,
-                "Alias":"www.test.com site.test.com",
+                "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
                 "Ip":"$SERVER_IP",
                 "IndexFile":"index.html",
                 "Encoding":"utf8",
@@ -122,7 +122,7 @@ Create /home/USER/test.html by User.
 
 + Request (application/json)
     {  
-       "Email":"info@test.com",
+       "Email":"info@$TESTING_DOMAIN",
        "Alias":"",
        "Size":500,
        "Password":"infoPassword"
@@ -134,7 +134,7 @@ Create /home/USER/test.html by User.
 
 + Request (application/json)
     {  
-       "Domain":"test.com"
+       "Domain":"$TESTING_DOMAIN"
     }
 
 + Response 204 (text/plain)
