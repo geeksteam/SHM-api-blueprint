@@ -17,7 +17,7 @@ import dredd_hooks as hooks
 testboxemail =     'info@'
 destination = ['kalashnikovm@mail.ru']
 
-USERNAME = testbox
+# USERNAME = testboxemail@server
 PASSWORD = "testpass"
 
 
@@ -27,6 +27,8 @@ def test_email(transaction):
 
                 SMTPserver = transaction['request']['headers']['Testing-domain']
                 testbox = testboxemail + SMTPserver
+
+                USERNAME = testbox
         
                 transaction['real']['body'] = "Dredd testing"
                 
