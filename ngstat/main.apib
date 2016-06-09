@@ -10,7 +10,7 @@ Getting count of views by url for all domains by date interval.
 + Response 200 (application/json)
             {  
                 "$DATE_YMD":{  
-                    "test.com":6
+                    "$TESTING_DOMAIN":6
                 }
             }
 
@@ -26,7 +26,7 @@ Getting count of views by url for all user domains by date interval.
 + Response 200 (application/json)
             {  
                 "$DATE_YMD":{  
-                    "test.com":6
+                    "$TESTING_DOMAIN":6
                 }
             }
 
@@ -37,15 +37,15 @@ Getting domain statistics for urls counts.
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD",
-            "Domain":"test.com"
+            "Domain":"$TESTING_DOMAIN"
         }
 
 + Response 200 (application/json)
             {  
                 "$DATE_YMD":{  
-                    "test.com/url_one":1,
-                    "test.com/url_two":2,
-                    "test.com/url_three":3
+                    "$TESTING_DOMAIN/url_one":1,
+                    "$TESTING_DOMAIN/url_two":2,
+                    "$TESTING_DOMAIN/url_three":3
                 }
             }
 
@@ -56,7 +56,7 @@ Getting url extended statistics.
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD",
-            "Url":"test.com/url_one"
+            "Url":"$TESTING_DOMAIN/url_one"
         }
 
 + Response 200 (application/json)

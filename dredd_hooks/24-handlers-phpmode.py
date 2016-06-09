@@ -4,7 +4,8 @@ from urllib2 import Request, urlopen, URLError, HTTPError
 import dredd_hooks as hooks
 
 # Url where is phpjson is
-phpjson_url='http://test.com/phpjson.php'
+testDomain = transaction['request']['headers']['Testing-domain']
+phpjson_url='http://%s/phpjson.php' % testDomain
 userName='regularUser'
 
 # Run grab url function

@@ -14,8 +14,9 @@ import time
 import dredd_hooks as hooks
 
 # Global settings
-SMTPserver = 'test.com'
-testbox =     'info@test.com'
+testDomain = transaction['request']['headers']['Testing-domain']
+SMTPserver = testDomain
+testbox =     'info@%s' % testDomain
 destination = ['kalashnikovm@mail.ru']
 
 USERNAME = testbox

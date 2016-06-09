@@ -117,8 +117,8 @@ Domain has a four different modes: fpm_nginx, fpm_apache, mod_php, off
 
 + Request (application/json)
     {  
-       "Name":"test.com",
-       "Alias":"www.test.com site.test.com",
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
        "IP":"$SERVER_IP",
        "IndexFile":"index.html",
        "Encoding":"utf8",
@@ -138,8 +138,8 @@ If .htaccess needed.
 
 + Request (application/json)
     {  
-       "Name":"test.com",
-       "Alias":"www.test.com site.test.com",
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
        "IP":"$SERVER_IP",
        "IndexFile":"index.html",
        "Encoding":"utf8",
@@ -157,8 +157,8 @@ If .htaccess needed.
 
 + Request (application/json)
     {  
-       "Name":"test.com",
-       "Alias":"www.test.com site.test.com",
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
        "IP":"$SERVER_IP",
        "IndexFile":"index.html",
        "Encoding":"utf8",
@@ -178,8 +178,8 @@ Disable php on domain
 
 + Request (application/json)
     {  
-       "Name":"test.com",
-       "Alias":"www.test.com site.test.com",
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
        "IP":"$SERVER_IP",
        "IndexFile":"index.html",
        "Encoding":"utf8",
