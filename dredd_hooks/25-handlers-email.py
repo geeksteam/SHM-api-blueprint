@@ -38,7 +38,7 @@ def test_email(transaction):
 
                 message = """From: Dredd <dredd-test@lgeeks.team>
                 To: Test Server <info@test.com>
-                Subject: SMTP e-mail Dredd test
+                Subject: SMTP e-mail Dredd RECIEVE test
 
                 This is a test e-mail message.
                 """
@@ -89,7 +89,7 @@ This is a test e-mail message.
                                 msgtext = "n".join(lines) + "nn"
                                 message = email.message_from_string(msgtext) 
                                 # Check for message from Dredd
-                                if message["subject"] == "SMTP e-mail Dredd test":
+                                if message["subject"] == "SMTP e-mail Dredd RECIEVE test":
                                         message_found = True
                                 print(msgtext)
                                 box.dele(msgnum)
