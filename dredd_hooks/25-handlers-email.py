@@ -36,12 +36,12 @@ def test_email(transaction):
                 dreddsender = 'dredd-test@geeks.team'
                 receivers = [testbox]
 
-                message = """From: Dredd <dredd-test@lgeeks.team>
-                To: Test Server <info@test.com>
+                message = """From: Dredd <dredd-test@geeks.team>
+                To: Test Server <%s>
                 Subject: SMTP e-mail Dredd RECIEVE test
 
                 This is a test e-mail message.
-                """
+                """ % testbox
                 try:
                         smtpObj = smtplib.SMTP('localhost')
                         smtpObj.sendmail(dreddsender, receivers, message)         
@@ -53,12 +53,12 @@ def test_email(transaction):
                 # Send email using SMTP AUTH
                 try:
                         
-                        message = """From: Dredd <info@test.com>
+                        message = """From: Dredd <%s>
 To: <max@geeks.team>
 Subject: SMTP e-mail Dredd AUTH test
 
 This is a test e-mail message.
-"""
+""" % testbox
 
                         conn = smtplib.SMTP(SMTPserver)
                         conn.set_debuglevel(True)
