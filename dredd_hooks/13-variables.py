@@ -14,7 +14,7 @@ regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
 
 # Testing domain
-testDomain='test9521.com'
+testDomain='9521.geeks.team'
 
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y.%m.%d")
