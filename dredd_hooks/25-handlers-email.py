@@ -18,7 +18,7 @@ testboxemail =     'info@'
 destination = ['kalashnikovm@mail.ru']
 
 # USERNAME = testboxemail@server
-PASSWORD = "testpass"
+PASSWORD = "infoPassword"
 
 
 @hooks.after('Email boxes > List Email boxes > List email boxes')
