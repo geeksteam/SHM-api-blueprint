@@ -4,6 +4,7 @@ import poplib, email
 import sys
 import os
 import re
+import time
 
 from email.mime.text import MIMEText
 
@@ -19,6 +20,9 @@ destination = ['kalashnikovm@mail.ru']
 
 # USERNAME = testboxemail@server
 PASSWORD = "infoPassword"
+
+# Wait until pop3 test
+wait_before_pop3 = 15
 
 
 @hooks.after('Email boxes > List Email boxes > List email boxes')
@@ -37,7 +41,7 @@ def test_email(transaction):
                 receivers = [testbox]
 
                 message = """From: Dredd <dredd-test@geeks.team>
-                To: Test Server <%s>
+                To: <%s>
                 Subject: SMTP e-mail Dredd RECIEVE test
 
                 This is a test e-mail message.
@@ -54,11 +58,11 @@ def test_email(transaction):
                 try:
                         
                         message = """From: Dredd <%s>
-To: <max@geeks.team>
-Subject: SMTP e-mail Dredd AUTH test
+                        To: <max@geeks.team>
+                        Subject: SMTP e-mail Dredd AUTH test
 
-This is a test e-mail message.
-""" % testbox
+                        This is a test e-mail message.
+                        """ % testbox
 
                         conn = smtplib.SMTP(SMTPserver)
                         conn.set_debuglevel(True)
@@ -72,6 +76,10 @@ This is a test e-mail message.
                         transaction["fail"] = "SMTP AUTH mail failed; %s" % str(exc)
                         return
                         
+
+                # Wait 15 sec until message is proccesed by exim
+                time.sleep(wait_before_pop3)
+                
                 # Check POP3 message is in box
                 
                 box = poplib.POP3(SMTPserver)
