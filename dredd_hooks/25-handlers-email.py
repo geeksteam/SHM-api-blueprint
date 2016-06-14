@@ -22,7 +22,7 @@ destination = ['kalashnikovm@mail.ru']
 PASSWORD = "infoPassword"
 
 # Wait until pop3 test
-wait_before_pop3 = 15
+wait_before_pop3 = 30
 
 
 @hooks.after('Email boxes > List Email boxes > List email boxes')
@@ -79,7 +79,7 @@ def test_email(transaction):
 
                 # Wait 15 sec until message is proccesed by exim
                 time.sleep(wait_before_pop3)
-                
+
                 # Check POP3 message is in box
                 
                 box = poplib.POP3(SMTPserver)
