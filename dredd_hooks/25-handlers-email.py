@@ -97,7 +97,7 @@ def test_email(transaction):
                                 msgtext = "n".join(lines) + "nn"
                                 message = email.message_from_string(msgtext) 
                                 # Check for message from Dredd
-                                if message["subject"] == "SMTP e-mail Dredd RECIEVE test":
+                                if "<dredd-test@geeks.team>" in message["from"] :
                                         message_found = True
                                 print(msgtext)
                                 box.dele(msgnum)
