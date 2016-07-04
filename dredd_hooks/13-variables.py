@@ -23,6 +23,8 @@ currDateDMY=time.strftime("%d.%m.%Y")
 ## Backup testing
 backup_server_ip='95.163.191.21'
 
+## Slack plugins token test
+slack_token = "xoxb" + "-" + "56128066644-W7BRzwb99ggH2QMfAMKUetTx"
         
 # Replace $VARS
 @hooks.before_each
@@ -56,5 +58,9 @@ def set_variables(transaction):
                     transaction['request']['headers']['Testing-domain'] = testDomain
                     transaction['request']['body'] = transaction['request']['body'].replace('$TESTING_DOMAIN', testDomain)
                     transaction['expected']['body'] = transaction['expected']['body'].replace('$TESTING_DOMAIN', testDomain)
+
+                    # Set slack plugin token domain name
+                    transaction['request']['body'] = transaction['request']['body'].replace('$SLACK_TOKEN', slack_token)
+                    transaction['expected']['body'] = transaction['expected']['body'].replace('$SLACK_TOKEN', slack_token)
 
                     

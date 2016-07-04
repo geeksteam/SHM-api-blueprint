@@ -156,7 +156,7 @@ ngstat/about.apib
 ngstat/main.apib
 
 # Nginx current requests
-ginx/about.apib
+nginx/about.apib
 nginx/main.apib
 
 # Watchdog  SYS, NET, Traffic charts
