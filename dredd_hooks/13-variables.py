@@ -24,7 +24,7 @@ currDateDMY=time.strftime("%d.%m.%Y")
 backup_server_ip='95.163.191.21'
 
 ## Slack plugins token test
-slack_token = "xoxb" + "-" + "56128066644-W7BRzwb99ggH2QMfAMKUetTx"
+slack_token = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
         
 # Replace $VARS
 @hooks.before_each
