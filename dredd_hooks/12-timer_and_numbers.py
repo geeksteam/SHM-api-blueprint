@@ -22,6 +22,8 @@ requests_timer['User Backups testing > Transfer backup to remote server > Transf
 requests_timer['User Backups testing > Add mysql user #User > Add mysql user #User'] = 10
 requests_timer['User Backups Restore testing > List all web domains of #User > List all web domains of #User'] = 10
 
+requests_timer['Plugins > Start Plugin task > Start Plugin task'] = 10
+
 # Add request number before its name to identify test
 add_request_number = True
 request_number = 0

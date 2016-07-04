@@ -256,6 +256,12 @@ ruby/main.apib
 clamav/about.apib
 clamav/main.apib
 
+## Plugins ##
+
+# Plugins install, remove, tasks
+plugins/about.apib
+plugins/main.apib
+
 ### END ###
 
 # Remove dirs and test.com
