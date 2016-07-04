@@ -266,6 +266,10 @@ plugins/main.apib
 plugins/slack/about.apib
 plugins/slack/main.apib
 
+# PhpMyAdmin
+plugins/pmainstaller/about.apib
+plugins/pmainstaller/main.apib
+
 ### END ###
 
 # Remove dirs and test.com

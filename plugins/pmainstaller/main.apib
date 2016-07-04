@@ -1,0 +1,44 @@
+## Install PhpMyAdmin Plugin [POST /api/plugins/install]
+
+Install plugin from repository
+
+
++ Request (application/json)
+        {
+            "Plugin":"pmainstaller"
+        }
+
++ Response 204 (text/plain)
+
+## Add testPMAplugin.com domain to #User for PhpMyAdmin plugin test [POST /api/webdomains/set]
+
+Add testPMAplugin.com domain with pmainstall true to install phpmyadmin on this domain.
+
++ Request (application/json)
+         {  
+            "Name":"$TESTING_DOMAIN",
+            "Active":true,
+            "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+            "Ip":"$SERVER_IP",
+            "IndexFile":"index.html",
+            "Encoding":"utf8",
+            "Subdomains":true,
+            "PHP":"fpm_nginx",
+            "DNS":true,
+            "SSL":false,
+            "Analytics":true,
+
+            "pmainstall":true
+        }
+
++ Response 204 (text/plain)
+
+
+## Remove PhpMyAdmin Plugin [POST /api/plugins/del]
+
+Remove plugin from system
+
++ Request (application/json)
+        [ "pmainstaller" ]
+
++ Response 204 (text/plain)
