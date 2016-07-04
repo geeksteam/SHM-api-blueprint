@@ -6,7 +6,7 @@ List all plugins from repository.
         [
             {
                 "Installed": true,
-                "Name": "Slack",
+                "Name": "slack",
                 "Version": "1.0.1b",
                 "Author": {
                     "Name": "Pavlo Zibrow",
@@ -16,102 +16,7 @@ List all plugins from repository.
                 "Urls": [
                     "http://9521.geeks.team/slack.tar.gz"
                     ],
-                "Cfg": {},
-                "Triggers": null,
+                "Tasks": {},
+                "Triggers": {}
             }
         ]
-
-## Install Plugin [POST /api/plugins/install]
-
-Install plugin from repository
-
-+ Attributes
-  + Plugin (required, string) - Name of the plugin to install.
-
-+ Request (application/json)
-        {
-            "Plugin":"Slack"
-        }
-
-+ Response 204 (text/plain)
-
-## Install Plugin #Error [POST /api/plugins/install]
-
-Install non existent plugin from repository
-
-+ Request (application/json)
-        {
-            "Plugin":"PluginNotExist"
-        }
-
-+ Response
-
-## Set plugin settings [POST /api/plugins/setsettings]
-
-Set settings.json for plugin.
-
-+ Request (application/json)
-        { 
-        "Plugin":"Slack",
-        "Settings":
-            {
-                "Users":[
-                    {
-                        "Name":"regularUser",
-                        "Token":"xoxb-56128066644-W7BRzwb99ggH2QMfAMKUetTx",
-                        "Channel":"#godev"
-                    }
-                ]
-            }
-        }
-
-+ Response 204 (text/plain)
-
-## Get plugin settings [POST /api/plugins/getsettings]
-
-Get settings.json of plugin.
-
-+ Request (application/json)
-        { 
-            "Plugin":"Slack"
-        }
-
-+ Response 200 (application/json)
-        {
-            "Users":[
-                {
-                    "Name":"regularUser",
-                    "Token":"$SLACK_TOKEN",
-                    "Channel":"#godev"
-                }
-            ]
-        }
-
-## Start Plugin task [GET /api/plugins/task?plugin=Slack&bin=watch]
-
-Start plugin programm from /bin directory as a background task.
-
-+ Response 204 (text/plain)
-
-## Start Plugin task #Error [GET /api/plugins/task?plugin=Slack&bin=nonexistentbin]
-
-Start non existent plugin programm from /bin directory as a background task.
-
-
-## Remove Plugin [POST /api/plugins/del]
-
-Remove plugin from system
-
-+ Request (application/json)
-        [ "Slack" ]
-
-+ Response 204 (text/plain)
-
-## Remove Plugin #Error [POST /api/plugins/del]
-
-Remove non existent plugin from system
-
-+ Request (application/json)
-        [ "NonExistentPlugin" ]
-
-+ Response

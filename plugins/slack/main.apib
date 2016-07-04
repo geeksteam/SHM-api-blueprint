@@ -1,0 +1,89 @@
+## Install Slack Plugin [POST /api/plugins/install]
+
+Install plugin from repository
+
++ Attributes
+  + Plugin (required, string) - Name of the plugin to install.
+
++ Request (application/json)
+        {
+            "Plugin":"slack"
+        }
+
++ Response 204 (text/plain)
+
+## Install Slack Plugin #Error [POST /api/plugins/install]
+
+Install non existent plugin from repository
+
++ Request (application/json)
+        {
+            "Plugin":"PluginNotExist"
+        }
+
++ Response
+
+## Set Slack plugin settings [POST /api/plugins/setsettings?plugin=slack]
+
+Set settings.json for plugin.
+
++ Request (application/json)
+        {
+            "Users":[
+                    {
+                        "Name":"regularUser",
+                        "Token":"$SLACK_TOKEN",
+                        "Channel":"#godev"
+                    }
+                ]
+        }
+
++ Response 204 (text/plain)
+
+## Get Slack plugin settings [POST /api/plugins/getsettings]
+
+Get settings.json of plugin.
+
++ Request (application/json)
+        { 
+            "Plugin":"slack"
+        }
+
++ Response 200 (application/json)
+        {
+            "Users":[
+                {
+                    "Name":"regularUser",
+                    "Token":"$SLACK_TOKEN",
+                    "Channel":"#godev"
+                }
+            ]
+        }
+
+## Start Slack Plugin task watcher [GET /api/plugins/task?plugin=Slack&bin=watch]
+
+Start plugin programm from /bin directory as a background task.
+
++ Response 204 (text/plain)
+
+## Start Slack Plugin task #Error [GET /api/plugins/task?plugin=slack&bin=nonexistentbin]
+
+Start non existent plugin programm from /bin directory as a background task.
+
+## Remove Slack Plugin [POST /api/plugins/del]
+
+Remove plugin from system
+
++ Request (application/json)
+        [ "slack" ]
+
++ Response 204 (text/plain)
+
+## Remove Slack Plugin #Error [POST /api/plugins/del]
+
+Remove non existent plugin from system
+
++ Request (application/json)
+        [ "NonExistentPlugin" ]
+
++ Response

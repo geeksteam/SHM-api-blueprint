@@ -258,9 +258,13 @@ clamav/main.apib
 
 ## Plugins ##
 
-# Plugins install, remove, tasks
+# Plugins list
 plugins/about.apib
 plugins/main.apib
+
+# Slack
+plugins/slack/about.apib
+plugins/slack/main.apib
 
 ### END ###
 
