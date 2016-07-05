@@ -60,7 +60,7 @@ Get settings.json of plugin.
             ]
         }
 
-## Start Slack Plugin task watcher [GET /api/plugins/task?plugin=Slack&bin=watch]
+## Start Slack Plugin task watcher [GET /api/plugins/task?plugin=slack&bin=watch]
 
 Start plugin programm from /bin directory as a background task.
 
@@ -69,15 +69,6 @@ Start plugin programm from /bin directory as a background task.
 ## Start Slack Plugin task #Error [GET /api/plugins/task?plugin=slack&bin=nonexistentbin]
 
 Start non existent plugin programm from /bin directory as a background task.
-
-## Remove Slack Plugin [POST /api/plugins/del]
-
-Remove plugin from system
-
-+ Request (application/json)
-        [ "slack" ]
-
-+ Response 204 (text/plain)
 
 ## Remove Slack Plugin #Error [POST /api/plugins/del]
 

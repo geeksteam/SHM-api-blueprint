@@ -15,6 +15,7 @@
             "Language": "EN"
         }
 
+
 ## Removing testing user regularUser [POST /api/users/del]
 
 + Request (application/json)
@@ -23,6 +24,27 @@
         }
 
 + Response 204 (text/plain)
+
+
+## Remove Slack Plugin [POST /api/plugins/del]
+
+Remove plugin from system
+
++ Request (application/json)
+        [ "slack" ]
+
++ Response 204 (text/plain)
+
+
+## Remove PhpMyAdmin Plugin [POST /api/plugins/del]
+
+Remove plugin from system
+
++ Request (application/json)
+        [ "pmainstaller" ]
+
++ Response 204 (text/plain)
+
 
 ## Logout from Root [GET /logout]
 
