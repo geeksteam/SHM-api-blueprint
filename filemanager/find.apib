@@ -1,0 +1,28 @@
+## Find files [/api/filemanager/find]
+
+Root can search all files or directories.
+User can search within his homedirectory.
+
+### Find by by Root [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/",
+            "Find":"sudo"
+        }
+
++ Response 200 (application/json)
+        [
+            "/usr/bin/sudo"
+        ]
+
+### Find by #User [POST]
+
++ Request (application/json)
+        {
+            "Dir":"/",
+            "Find":"sudo"
+        }
+
++ Response 200 (application/json)
+        []

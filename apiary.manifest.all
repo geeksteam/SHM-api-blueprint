@@ -54,6 +54,7 @@ filemanager/about.apib
 filemanager/mkdir.apib
 filemanager/set.apib
 filemanager/move.apib
+filemanager/find.apib
 # remote
 filemanager/upload.apib
 filemanager/download.apib
