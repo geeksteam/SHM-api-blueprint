@@ -1,8 +1,10 @@
 ## Get all domains statistics [GET /api/ngstat/get]
-Root user (or Administrator) get count of hits for all domains at the server sorted by date interval.
-As a response you will get Dates objects with domains and hits as a values.
 
-+ Attributes (Get All stats)
+`Root` user (or Administrator) get count of hits for all domains at the server sorted by date interval.
+
+As a response you'll get `Dates` objects with `Domain:hits` as a values.
+
++ Attributes (All stats)
 
 + Request (application/json)
         {  
@@ -18,7 +20,10 @@ As a response you will get Dates objects with domains and hits as a values.
             }
 
 ## Get all domains statistics by #User [GET /api/ngstat/get]
+
 Get count of hits for current user domains by date interval.
+
++ Attributes (All stats)
 
 + Request (application/json)
         {  
@@ -34,7 +39,10 @@ Get count of hits for current user domains by date interval.
             }
 
 ## Get domain statistics by #User [GET /api/ngstat/getdomain]
+
 Get URLs with count of hits for Domain and date interval.
+
++ Attributes (Domains stats)
 
 + Request (application/json)
         {  
@@ -53,7 +61,10 @@ Get URLs with count of hits for Domain and date interval.
             }
 
 ## Get URL statistics by #User [GET /api/ngstat/geturl]
+
 Get URL statistic by dates and hits count.
+
++ Attributes (URL stats)
 
 + Request (application/json)
         {  

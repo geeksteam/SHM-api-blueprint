@@ -1,15 +1,21 @@
-# Group URLs statistics
-ServerPanel gather Domain and URL hits statistics at near realtime speed (save every minute) and store it for 30 days.
-Administrator and Users can retrieve those statistics for all domains and by particular urls.
+# Group Domains statistics
+
+ServerPanel gather Domain and URLs hits statistics at near realtime speed (minute or less) and store it for ***30 days*** by default.
+
+`Administrator` and `Users` can retrieve those statistics for all domains and filter it by particular urls and date interval.
+
 With ServerPanel there is no need to analyze large access logs files to retrieve web sitest statistic.
 
 ## Data Structures
 
-### Get All stats
+### All stats
 + From (required, string) - Date from show statistic in 2099.12.31 format.
 + To (required, string) - Date to show statistic in 2099.12.31 format.
 
-## Get Domain stats
+## Domain stats
 + Get All stats
 + Domain (required, string) - For which domain show statistics for urls pathes.
+
+## URL stats
++ Get All stats
 + Url (required, string) - For which url show dates and count statistic.
