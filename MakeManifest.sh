@@ -4,3 +4,4 @@
 # Example of using: ./MakeManifest.sh all
 
 grep -v "#" apiary.manifest.$1 | grep -v -e '^$' > apiary.manifest
+echo "Apiary.Manifest from apiary.manifest.$1 created."
