@@ -45,14 +45,6 @@ users/del.apib
 user/about.apib
 user/main.apib
 
-## User specific ##
-
-# Session info
-info/about.apib
-info/root.apib
-info/user.apib
-info/domains.apib
-
 
 ## Files manipulation ##
 
@@ -129,6 +121,14 @@ pgsql-dbs/export.apib
 
 pdns/about.apib
 pdns/main.apib
+
+## User specific ##
+
+# Session info
+info/about.apib
+info/root.apib
+info/user.apib
+info/domains.apib
 
 ## Email ##
 
