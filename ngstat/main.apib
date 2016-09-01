@@ -9,7 +9,7 @@ As a response you'll get `Dates` objects with `Domain:hits` as a values.
 
 Root will get stats for all Domains.
 
-+ Attributes (All stats)
++ Attributes (Date Interval)
 
 + Request (application/json)
         {  
@@ -96,3 +96,18 @@ As a response you'll get `Date:hits` array.
 + Response 200 (application/json)
             {
             }
+
+
+## Data Structures
+
+### Date Interval
++ From (required, string) - Date from show statistic in 2099.12.31 format.
++ To (required, string) - Date to show statistic in 2099.12.31 format.
+
+### Domain stats
++ Date Interval
++ Domain (required, string) - For which domain show statistics for urls pathes.
+
+### URL stats
++ Date Interval
++ Url (required, string) - For which url show dates and count statistic.
