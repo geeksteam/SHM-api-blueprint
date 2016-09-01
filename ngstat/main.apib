@@ -1,5 +1,12 @@
 ## Get all domains statistics [GET /api/ngstat/get]
-Getting count of views by url for all domains by date interval.
+Root user (or Administrator) get count of hits for all domains at the server sorted by date interval.
+As a response you will get Dates objects with domains and hits as a values.
+
++ Attributes
+    + From (required, string) - Date from show statistic in 2099.12.31 format.
+    + To (required, string) - Date to show statistic in 2099.12.31 format.
+    + Domain (required, string) - For which domain show statistics for urls pathes.
+    + Url (required, string) - For which url show dates and count statistic.
 
 + Request (application/json)
         {  
@@ -8,14 +15,19 @@ Getting count of views by url for all domains by date interval.
         }
 
 + Response 200 (application/json)
-            {  
-                "$DATE_YMD":{  
-                    "$TESTING_DOMAIN":6
+        + Attributes
+                + Date (array) - Date from show statistic in 2099.12.31 format.
+                + Domain (string) - Date to show statistic in 2099.12.31 format.
+                + Hits (number) - For which domain show statistics for urls pathes.
+        + Body
+                {  
+                    "$DATE_YMD":{  
+                        "$TESTING_DOMAIN":6
+                    }
                 }
-            }
 
 ## Get all domains statistics by #User [GET /api/ngstat/get]
-Getting count of views by url for all user domains by date interval.
+Get count of hits for current user domains by date interval.
 
 + Request (application/json)
         {  
@@ -31,7 +43,7 @@ Getting count of views by url for all user domains by date interval.
             }
 
 ## Get domain statistics by #User [GET /api/ngstat/getdomain]
-Getting domain statistics for urls counts.
+Get URLs with count of hits for Domain and date interval.
 
 + Request (application/json)
         {  
@@ -50,7 +62,7 @@ Getting domain statistics for urls counts.
             }
 
 ## Get URL statistics by #User [GET /api/ngstat/geturl]
-Getting url extended statistics.
+Get URL statistic by dates and hits count.
 
 + Request (application/json)
         {  
