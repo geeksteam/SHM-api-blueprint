@@ -1,27 +1,12 @@
-## Get all domains statistics [GET /api/ngstat/get]
+## All domains statistic [/api/ngstat/get]
 
 `Root` user (or Administrator) get count of hits for all domains at the server sorted by date interval.
 
 As a response you'll get `Dates` objects with `Domain:hits` as a values.
 
-+ Attributes (All stats)
+### Get stats [POST]
 
-+ Request (application/json)
-        {  
-            "From":"$DATE_YMD",
-            "To":"$DATE_YMD"
-        }
-
-+ Response 200 (application/json)
-            {  
-                "$DATE_YMD":{  
-                    "$TESTING_DOMAIN":6
-                }
-            }
-
-## Get all domains statistics by #User [GET /api/ngstat/get]
-
-Get count of hits for current user domains by date interval.
+Root will get stats for all Domains.
 
 + Attributes (All stats)
 
@@ -38,9 +23,34 @@ Get count of hits for current user domains by date interval.
                 }
             }
 
-## Get domain statistics by #User [GET /api/ngstat/getdomain]
+### Get domains stats by #User [POST]
+
+User will get stats only for his Domains.
+
++ Attributes (All stats)
+
++ Request (application/json)
+        {  
+            "From":"$DATE_YMD",
+            "To":"$DATE_YMD"
+        }
+
++ Response 200 (application/json)
+            {  
+                "$DATE_YMD":{  
+                    "$TESTING_DOMAIN":6
+                }
+            }
+
+## Statistic by URLs for Domain [/api/ngstat/getdomain]
 
 Get URLs with count of hits for Domain and date interval.
+
+As a response you'll get `Date` objects with `URL/path:hits` as value.
+
+### Get URLs stats for Domain by #User [POST]
+
+User can get stats for his Domains only.
 
 + Attributes (Domains stats)
 
@@ -60,9 +70,13 @@ Get URLs with count of hits for Domain and date interval.
                 }
             }
 
-## Get URL statistics by #User [GET /api/ngstat/geturl]
+## URLs statistics by Date [/api/ngstat/geturl]
 
 Get URL statistic by dates and hits count.
+
+As a response you'll get `Date:hits` array.
+
+### Get stats by Dates for URL path as #User [POST]
 
 + Attributes (URL stats)
 
