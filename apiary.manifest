@@ -72,6 +72,7 @@ eximlog/queue.apib
 eximlog/delivery.apib
 ngstat/about.apib
 ngstat/main.apib
+ngstat/structs.apib
 nginx/about.apib
 nginx/main.apib
 watchdog/about.apib

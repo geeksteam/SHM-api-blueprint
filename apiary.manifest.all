@@ -155,6 +155,7 @@ eximlog/delivery.apib
 # Site activity analytics
 ngstat/about.apib
 ngstat/main.apib
+ngstat/structs.apib
 
 # Nginx current requests
 nginx/about.apib
