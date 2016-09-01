@@ -4,6 +4,7 @@
 
 As a response you'll get `Dates` objects with `Domain:hits` as a values.
 
+
 ### Get stats [POST]
 
 Root will get stats for all Domains.
@@ -22,6 +23,7 @@ Root will get stats for all Domains.
                     "$TESTING_DOMAIN":6
                 }
             }
+
 
 ### Get domains stats by #User [POST]
 
@@ -42,17 +44,19 @@ User will get stats only for his Domains.
                 }
             }
 
+
 ## Statistic by URLs for Domain [/api/ngstat/getdomain]
 
 Get URLs with count of hits for Domain and date interval.
 
 As a response you'll get `Date` objects with `URL/path:hits` as value.
 
+
 ### Get URLs stats for Domain by #User [POST]
 
 User can get stats for his Domains only.
 
-+ Attributes (Domains stats)
++ Attributes (Domain stats)
 
 + Request (application/json)
         {  
@@ -70,11 +74,13 @@ User can get stats for his Domains only.
                 }
             }
 
+
 ## URLs statistics by Date [/api/ngstat/geturl]
 
 Get URL statistic by dates and hits count.
 
 As a response you'll get `Date:hits` array.
+
 
 ### Get stats by Dates for URL path as #User [POST]
 
