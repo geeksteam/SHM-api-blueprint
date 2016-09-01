@@ -9,7 +9,7 @@ As a response you'll get `Dates` objects with `Domain:hits` as a values.
 
 Root will get stats for all Domains.
 
-+ Attributes (Date Interval)
++ Attributes (DateInterval)
 
 + Request (application/json)
         {  
@@ -29,7 +29,7 @@ Root will get stats for all Domains.
 
 User will get stats only for his Domains.
 
-+ Attributes (Date interval)
++ Attributes (DateInterval)
 
 + Request (application/json)
         {  
@@ -56,7 +56,7 @@ As a response you'll get `Date` objects with `URL/path:hits` as value.
 
 User can get stats for his Domains only.
 
-+ Attributes (Domain stats)
++ Attributes (DomainStats)
 
 + Request (application/json)
         {  
@@ -84,7 +84,7 @@ As a response you'll get `Date:hits` array.
 
 ### Get stats by Dates for URL path as #User [POST]
 
-+ Attributes (URL stats)
++ Attributes (UrlStats)
 
 + Request (application/json)
         {  
@@ -96,3 +96,17 @@ As a response you'll get `Date:hits` array.
 + Response 200 (application/json)
             {
             }
+
+## Data Structures
+
+### DateInterval
++ From (required, string) - Date from show statistic in 2099.12.31 format.
++ To (required, string) - Date to show statistic in 2099.12.31 format.
+
+### DomainStats
++ Date Interval
++ Domain (required, string) - For which domain show statistics for urls pathes.
+
+### UrlStats
++ Date Interval
++ Url (required, string) - For which url show dates and count statistic.
