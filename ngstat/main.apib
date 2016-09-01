@@ -2,12 +2,6 @@
 Root user (or Administrator) get count of hits for all domains at the server sorted by date interval.
 As a response you will get Dates objects with domains and hits as a values.
 
-+ Attributes
-    + From (required, string) - Date from show statistic in 2099.12.31 format.
-    + To (required, string) - Date to show statistic in 2099.12.31 format.
-    + Domain (required, string) - For which domain show statistics for urls pathes.
-    + Url (required, string) - For which url show dates and count statistic.
-
 + Request (application/json)
         {  
             "From":"$DATE_YMD",
@@ -15,18 +9,12 @@ As a response you will get Dates objects with domains and hits as a values.
         }
 
 + Response 200 (application/json)
-
-        + Attributes
-                + Date (array) - Date from show statistic in 2099.12.31 format.
-                + Domain (string) - Date to show statistic in 2099.12.31 format.
-                + Hits (number) - For which domain show statistics for urls pathes.
-
-        + Body
-                {  
-                    "$DATE_YMD":{  
-                        "$TESTING_DOMAIN":6
+                + Body
+                    {  
+                        "$DATE_YMD":{  
+                            "$TESTING_DOMAIN":6
+                        }
                     }
-                }
 
 ## Get all domains statistics by #User [GET /api/ngstat/get]
 Get count of hits for current user domains by date interval.
