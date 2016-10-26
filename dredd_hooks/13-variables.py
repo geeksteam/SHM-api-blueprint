@@ -14,14 +14,14 @@ regularUser='regularUser'
 regularUserPassword='hbv8g28ba23'
 
 # Testing domain
-testDomain='9520.geeks.team'
+testDomain='9521.geeks.team'
 
 # current date 2022-01-31
 currDateYMD=time.strftime("%Y.%m.%d")
 currDateDMY=time.strftime("%d.%m.%Y")
 
 ## Backup testing
-backup_server_ip='95.163.191.20'
+backup_server_ip='95.163.191.21'
 
 ## Slack plugins token test
 slack_token = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
