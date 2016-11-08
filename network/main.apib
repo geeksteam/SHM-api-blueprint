@@ -2,6 +2,7 @@
 Set server hostname.
 
 + Request (application/json)
+
             {
                 "Hostname":"shmv1.geeks.team"
             }
@@ -12,6 +13,7 @@ Set server hostname.
 Getting list of ip addresses.
 
 + Response 200 (application/json)
+
             [
                 "127.0.0.1"
             ]
@@ -20,6 +22,7 @@ Getting list of ip addresses.
 Set DNS resolvers list.
 
 + Request (application/json)
+
             ["8.8.8.8","8.8.9.9"]
        
 + Response 204 (text/plain)
@@ -28,6 +31,7 @@ Set DNS resolvers list.
 Set DNS resolvers list.
 
 + Response 200 (application/json)
+
             [
                 "8.8.8.8",
                 "8.8.9.9",
@@ -38,4 +42,38 @@ Set DNS resolvers list.
 Check each DNS resolver and return fail resolver index.
 
 + Response 200 (application/json)
+
             [ 3 ]
+
+
+## Get Network connections [GET /api/network/connections]
+Get network connections.
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "Protocol":"tcp",
+                    "LocalAdd":"0.0.0.0:22",
+                    "ForeignAdd":"0.0.0.0:*",
+                    "State":"LISTEN",
+                    "Program":"sshd",
+                    "PID":4135
+                }
+            ]
+
+
+## Get sockets [GET /api/network/sockets]
+Get unix sockets.
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "Type":"STREAM",
+                    "State":"LISTENING",
+                    "Program":"watchdog",
+                    "PID":19004,
+                    "Path":"/var/run/ngstat.sock"
+                }
+            ]
