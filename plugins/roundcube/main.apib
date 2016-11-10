@@ -1,0 +1,60 @@
+## Install Roundcube Plugin [POST /api/plugins/install]
+
+Install plugin from repository
+
+
++ Request (application/json)
+
+        {
+            "Plugin":"roundcube"
+        }
+
++ Response 204 (text/plain)
+
+## Add RoundCube WebMail to domain as #User [POST /api/webdomains/set]
+
+Add pmainstall true to install phpmyadmin on domain.
+
++ Request (application/json)
+
+         {  
+            "Name":"$TESTING_DOMAIN",
+            "Active":true,
+            "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+            "Ip":"$SERVER_IP",
+            "IndexFile":"index.html",
+            "Encoding":"utf8",
+            "Subdomains":true,
+            "PHP":"fpm_nginx",
+            "DNS":true,
+            "SSL":false,
+            "Analytics":true,
+
+            "roundcube":true
+        }
+
++ Response 204 (text/plain)
+
+## Test email box from RoundCube webmail [POST /api/email/set]
+
+Add email box for testing webmail. Running /roundcube post request as webclient from python.
+
++ Request (application/json)
+
+        {
+                "Email": "webmail@$TESTING_DOMAIN",
+                "Size": 100,
+                "Password": "WebmailTestPass"
+        }
+
++ Response 204 (text/plain)
+
+## Remove PhpMyAdmin Plugin [POST /api/plugins/del]
+
+Remove plugin from system
+
++ Request (application/json)
+
+        [ "roundcube" ]
+
++ Response 204 (text/plain)

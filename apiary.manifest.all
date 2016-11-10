@@ -272,6 +272,10 @@ plugins/slack/main.apib
 plugins/pmainstaller/about.apib
 plugins/pmainstaller/main.apib
 
+# Roundcube
+plugins/roundcube/about.apib
+plugins/roundcube/main.apib
+
 ### END ###
 
 # Remove dirs and test.com
