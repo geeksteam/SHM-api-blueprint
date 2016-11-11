@@ -16,7 +16,15 @@ def test_roundcube_plugin(transaction):
                 testDomain = transaction['request']['headers']['Testing-domain']
 
                 wordpressURL = 'http://%s/wordpress' % testDomain
-                d = pq(url=wordpressURL)
+
+                # Try to open url
+                try:
+                        d = pq(url=wordpressURL)
+                except Exception, e:
+                        # Cant open url
+                        print 'Cannot open URL:'+wordpressURL+' because:'+str(e)
+                        transaction['fail'] = 'Cannot open URL:'+wordpressURL+' because:'+str(e)
+
                 title = d('title').text()
                 # Check for title
                 if 'WordPress' not in title:

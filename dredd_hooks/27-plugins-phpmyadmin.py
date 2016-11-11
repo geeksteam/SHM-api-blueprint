@@ -16,7 +16,15 @@ def test_roundcube_plugin(transaction):
                 testDomain = transaction['request']['headers']['Testing-domain']
 
                 phpmyadminURL = 'http://%s/phpmyadmin' % testDomain
-                d = pq(url=phpmyadminURL)
+
+                # Try to open url
+                try:
+                        d = pq(url=phpmyadminURL)
+                except Exception, e:
+                        # Cant open url
+                        print 'Cannot open URL:'+phpmyadminURL+' because:'+str(e)
+                        transaction['fail'] = 'Cannot open URL:'+phpmyadminURL+' because:'+str(e)
+        
                 title = d('title').text()
                 # Check for title
                 if 'phpMyAdmin' not in title:

@@ -15,15 +15,24 @@ def test_roundcube_plugin(transaction):
                 # Get Test domain
                 testDomain = transaction['request']['headers']['Testing-domain']
 
-                roundcubeURL = 'http://%s/roundcube' % testDomain
-                d = pq(url=roundcubeURL)
+                roundcubeURL = 'http://%s/roundcube' % transaction['request']['headers']['Testing-domain']
+                # Try to open url
+                try:
+                        d = pq(url=roundcubeURL)
+                except Exception, e:
+                        # Cant open url
+                        print 'Cannot open URL:'+roundcubeURL+' because:'+str(e)
+                        transaction['fail'] = 'Cannot open URL:'+roundcubeURL+' because:'+str(e)
+
                 title = d('title').text()
                 message = d('div#message').text()
                 # Check for title
                 if 'Roundcube Webmail' not in title:
                         print title
                         transaction['fail'] = 'Error RoundCube title not found'
+                        return
                 # Check for error message
                 if message != '':
                         print message
                         transaction['fail'] = 'Error message in RoundCube not empty'
+                        return
