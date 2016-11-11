@@ -12,6 +12,9 @@ import urllib
 @hooks.after('Plugin WordPress > Install Wordpress to domain dir as #User > Install Wordpress to domain dir as #User')
 def test_roundcube_plugin(transaction):
         if transaction['skip'] != True:
+                # Get Test domain
+                testDomain = transaction['request']['headers']['Testing-domain']
+
                 wordpressURL = 'http://%s/wordpress' % testDomain
                 d = pq(url=wordpressURL)
                 title = d('title').text()

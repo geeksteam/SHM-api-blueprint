@@ -12,6 +12,9 @@ import urllib
 @hooks.after('Plugin PhpMyAdmin > Add pmainstall to domain as #User > Add pmainstall to domain as #User')
 def test_roundcube_plugin(transaction):
         if transaction['skip'] != True:
+                # Get Test domain
+                testDomain = transaction['request']['headers']['Testing-domain']
+
                 phpmyadminURL = 'http://%s/phpmyadmin' % testDomain
                 d = pq(url=phpmyadminURL)
                 title = d('title').text()
