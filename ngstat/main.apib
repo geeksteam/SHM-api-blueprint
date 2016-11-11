@@ -12,12 +12,14 @@ Root will get stats for all Domains.
 + Attributes (DateInterval)
 
 + Request (application/json)
+
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD"
         }
 
 + Response 200 (application/json)
+
             {  
                 "$DATE_YMD":{  
                     "$TESTING_DOMAIN":6
@@ -26,18 +28,19 @@ Root will get stats for all Domains.
 
 
 ### Get domains stats by #User [POST]
-
 User will get stats only for his Domains.
 
 + Attributes (DateInterval)
 
 + Request (application/json)
+
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD"
         }
 
 + Response 200 (application/json)
+
             {  
                 "$DATE_YMD":{  
                     "$TESTING_DOMAIN":6
@@ -59,6 +62,7 @@ User can get stats for his Domains only.
 + Attributes (DomainStats)
 
 + Request (application/json)
+
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD",
@@ -66,6 +70,7 @@ User can get stats for his Domains only.
         }
 
 + Response 200 (application/json)
+
             {  
                 "$DATE_YMD":{  
                     "$TESTING_DOMAIN/url_one":1,
@@ -83,10 +88,10 @@ As a response you'll get `Date:hits` array.
 
 
 ### Get stats by Dates for URL path as #User [POST]
-
 + Attributes (UrlStats)
 
 + Request (application/json)
+
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD",
@@ -94,5 +99,6 @@ As a response you'll get `Date:hits` array.
         }
 
 + Response 200 (application/json)
+
             {
             }

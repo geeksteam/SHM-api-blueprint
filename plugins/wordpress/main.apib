@@ -1,20 +1,20 @@
-## Install PhpMyAdmin Plugin [POST /api/plugins/install]
-Install PhpMyAdmin plugin from repository
+## Install Wordpress Plugin [POST /api/plugins/install]
+Install Wordpress plugin from repository.
 
 + Request (application/json)
 
         {
-            "Plugin":"pmainstaller"
+            "Plugin":"wpinstaller"
         }
 
 + Response 204 (text/plain)
 
-## Add pmainstall to domain as #User [POST /api/webdomains/set]
-Add pmainstall true to install phpmyadmin on domain.
+## Install Wordpress to domain dir as #User [POST /api/webdomains/set]
+Add wordpress_install_dir to install WP on domain's directory.
 
 + Request (application/json)
 
-         {
+         {  
             "Name":"$TESTING_DOMAIN",
             "Active":true,
             "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
@@ -27,17 +27,16 @@ Add pmainstall true to install phpmyadmin on domain.
             "SSL":false,
             "Analytics":true,
 
-            "pmainstall":true
+            "wordpress_install_dir":"wordpress"
         }
 
 + Response 204 (text/plain)
 
-
-## Remove PhpMyAdmin Plugin [POST /api/plugins/del]
-Remove PhpMyAdmin plugin from system
+## Remove Wordpress Plugin [POST /api/plugins/del]
+Remove Wordpress plugin from system.
 
 + Request (application/json)
 
-        [ "pmainstaller" ]
+        [ "wpinstaller" ]
 
 + Response 204 (text/plain)

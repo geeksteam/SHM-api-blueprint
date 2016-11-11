@@ -118,9 +118,13 @@ clamav/about.apib
 clamav/main.apib
 plugins/about.apib
 plugins/main.apib
+plugins/wordpress/about.apib
+plugins/wordpress/main.apib
 plugins/slack/about.apib
 plugins/slack/main.apib
 plugins/pmainstaller/about.apib
 plugins/pmainstaller/main.apib
+plugins/roundcube/about.apib
+plugins/roundcube/main.apib
 dredd_test/after.apib
 logout/about.apib

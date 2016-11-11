@@ -264,6 +264,10 @@ clamav/main.apib
 plugins/about.apib
 plugins/main.apib
 
+# Wordpress
+plugins/wordpress/about.apib
+plugins/wordpress/main.apib
+
 # Slack
 plugins/slack/about.apib
 plugins/slack/main.apib
