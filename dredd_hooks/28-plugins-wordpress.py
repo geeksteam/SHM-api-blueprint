@@ -24,9 +24,11 @@ def test_roundcube_plugin(transaction):
                         # Cant open url
                         print 'Cannot open URL:'+wordpressURL+' because:'+str(e)
                         transaction['fail'] = 'Cannot open URL:'+wordpressURL+' because:'+str(e)
+                        return
 
                 title = d('title').text()
                 # Check for title
                 if 'WordPress' not in title:
                         print title
                         transaction['fail'] = 'Error WordPress title not found.'
+                        return

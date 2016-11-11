@@ -23,6 +23,7 @@ def test_roundcube_plugin(transaction):
                         # Cant open url
                         print 'Cannot open URL:'+roundcubeURL+' because:'+str(e)
                         transaction['fail'] = 'Cannot open URL:'+roundcubeURL+' because:'+str(e)
+                        return
 
                 title = d('title').text()
                 message = d('div#message').text()

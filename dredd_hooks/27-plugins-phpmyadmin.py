@@ -24,9 +24,11 @@ def test_roundcube_plugin(transaction):
                         # Cant open url
                         print 'Cannot open URL:'+phpmyadminURL+' because:'+str(e)
                         transaction['fail'] = 'Cannot open URL:'+phpmyadminURL+' because:'+str(e)
+                        return
         
                 title = d('title').text()
                 # Check for title
                 if 'phpMyAdmin' not in title:
                         print title
                         transaction['fail'] = 'Error phpMyAdmin title not found'
+                        return
