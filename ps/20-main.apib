@@ -1,0 +1,64 @@
+## Processes list [GET /api/ps/list]
+
+List of server processes.
+
++ Response 200 (application/json)
+        [
+            {
+                "Pid": 1,
+                "Name": "systemd",
+                "UserID": 0,
+                "Start": "2016-03-30 10:57:22 +0300 EEST",
+                "Time": "107h0m10.665142875s",
+                "CPU": 0,
+                "Mem": 3432,
+                "Command": "init -z",
+                "State": "S (sleeping)"
+            }
+         ]
+
+## Show process files and sockets [POST /api/ps/nodes]
+
+Show process files and network/local sockets
+
++ Request (application/json)
+        {
+            "Pid":1
+        }
+
++ Response 200 (application/json)
+            [
+                {
+                    "FD":"",
+                    "Type":"",
+                    "Node":"",
+                    "Name":""
+                }
+            ]
+
+## Kill processes by PID [POST /api/ps/kill]
+
+Kill processes by PIDs.
+
++ Request (application/json)
+        [259909]
+
++ Response 204 (text/plain)
+
+## Kill processes by Name [POST /api/ps/killbyname]
+
+Kill processes by its names.
+
++ Request (application/json)
+        ["python"]
+
++ Response 204 (text/plain)
+
+## Kill processes by User [POST /api/ps/killbyuser]
+
+Kill processes by owner.
+
++ Request (application/json)
+        ["nobody"]
+
++ Response 204 (text/plain)

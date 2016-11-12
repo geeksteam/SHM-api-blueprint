@@ -1,0 +1,61 @@
+## Modifying Databases [POST /api/mysql/db/set]
+
+Add or edit database (if database with the same name already exists) for database user.
+
++ Attributes
+  + DbName (required, string) - Database name.
+  + DbUsers (required, array) - Database users owners.
+  + Host:localhost (optional, string) - Hostname  from which user can login to database.
+  + Privileges (optional, object) - Database privileges for user.
+
++ Request (application/json)
+
+        {
+        "DbName": "DbOne",
+        "DbUsers":[
+          {
+          "Username": "DBUser1",
+          "Host": "localhost",
+          "Privileges":{
+              "Delete_priv":true
+              }
+          }
+        ]
+        }
+
++ Response 204 (text/plain)
+
+## List Databases [GET /api/mysql/db/list]
+
+List all panel user databases and they owners.
+
++ Response 200 (application/json)
+
+    [  
+       {  
+      "DbName":"DBOne",
+      "Grants":[ 
+        {
+           "Username": "DbUSer1",
+              "Host": "localhost",
+              "Privileges":{
+                "Create_priv": false
+              }
+        }
+         ],
+          "Size":999,
+          "Tables":111
+       }
+    ]
+
+## Delete Databases [POST /api/mysql/db/del]
+
+Remove databases listed in request.
+
++ Request (application/json)
+
+    [
+       "DbOne"
+    ]
+
++ Response 204 (text/plain)

@@ -1,0 +1,52 @@
+### Regular #User [GET]
+
+User information have his info and usage statistics to show in GUI dashboard.
+
++ Attributes
+    + Active (required, boolean) - Is current user is Enabled or disabled.
+    + Created (required, string) - When user was created.
+    + Modules (required, array) - Which panel modules user can access.
+    + Homedir (required, string) - User's homedir.
+    + UID (required, number) - User system UID.
+    + SSH (required, boolean) - Does user can access to server by SSH.
+    + Template (required, string) - Privileges template name.
+    + NS (required, array) - Default Name servers for new domains.
+    + Limits (required, object) - Resources limits apply to user.
+    + Stats (required, object) - Resources usage stats by user.
+
++ Response 200 (application/json)
+    { 
+    "Username":"Mark", 
+    "Active":true, 
+    "Created":"2015-08-09 13:45:24", 
+    "Modules":
+      [ "module", "module" ], 
+    "Homedir":"/home/Mark", 
+    "UID":564, 
+    "SSH":true, 
+    "Template":"SimpleUser",
+    "NS":["ns1.ns.com","ns1.ns.com"],
+    "Limits":
+      { 
+      "Diskspace":0, 
+      "Traffic":0, 
+      "DBs":0, 
+      "DBUsers":0, 
+      "FTPs":0, 
+      "WebDomains":0, 
+      "DNSDomains":0, 
+      "Emails":0 
+      }, 
+    "Stats":
+      { 
+        "Diskspace":0, 
+        "Traffic":0, 
+        "DBs":0, 
+        "DBUsers":0, 
+        "FTPs":0, 
+        "WebDomains":0, 
+        "DNSDomains":0, 
+        "Emails":0 
+      } 
+    }
+    

@@ -1,0 +1,69 @@
+## Create backup [GET /api/ubackup/create]
+
+Create user backup, include web domains files, mysql and pgsql datbases, apache and nginx configs, exim config.
+Backup creation runs in separate process and send internal message to user when backup is done.
+
++ Response 204 (text/plain)
+
+## List backups [GET /api/ubackup/list]
+
+List user backups.
+
++ Response 200 (application/json)
+        [
+            {
+                "Name":"testbackup_data_time.tar.gz",
+                "Size":999
+            }
+        ]
+        
+## Restore backup [POST /api/ubackup/restore]
+Restore user backup. During restore users data may be overwriten.
+Restore user backup can be done only logged as user account.
+
++ Request (application/json)
+        {
+            "Archive":"$BACKUP_NAME",
+            "IP":"$SERVER_IP",
+            "MySQLUser":"DBUser1",
+            "PgSQLUser":"DbTester",
+        }
+
++ Response 204 (text/plain)
+
+## Restore backup #Error [POST /api/ubackup/restore]
+
+Restore error if backup file not found.
+
++ Request (application/json)
+        {
+            "Archive":"backup_file_notexist.tar.gz",
+            "IP":"$SERVER_IP",
+            "MySQLUser":"DBUser1",
+            "PgSQLUser":"DbTester",
+            "DNS":true
+        }
+
++ Response
+
+## Delete backup [POST /api/ubackup/delete]
+
+Delete user backup.
+
++ Request (application/json)
+        [
+            "$BACKUP_NAME"
+        ]
+
++ Response 204 (text/plain)
+
+## Delete backup #Error [POST /api/ubackup/delete]
+
+Delete error if backup file not found.
+
++ Request (application/json)
+        [
+            "NoSuchBackupFile.tar.gz"
+        ]
+
++ Response

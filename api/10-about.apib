@@ -1,0 +1,15 @@
+# Group API Triggers
+API triggers run while certain api handler run
+
+## List triggers [GET /api/triggers]
+
+List all registered API triggers and count of they usage.
+
++ Response 200 (application/json)
+            
+            [
+                {
+                "Trigger": "api/domains/add", 
+                "Count": 999
+                }
+            ]

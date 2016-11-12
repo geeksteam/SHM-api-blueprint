@@ -1,7 +1,27 @@
 #!/bin/bash
 # Remove comments '#' and empty lines from Apiary.Manifest.$EXT file
-# for proper apiary.io documentation.
-# Example of using: ./MakeManifest.sh all
+# for proper apiary.io documentation and concat it to one big apib file
+# Example of using: ./MakeManifest.sh all ./apiary.apib
 
-grep -v "#" apiary.manifest.$1 | grep -v -e '^$' > apiary.manifest
-echo "Apiary.Manifest from apiary.manifest.$1 created."
+APIB_FILE=$2
+
+rm -f $APIB_FILE
+
+echo "Start $APIB_FILE creation"
+
+FILES=`grep -v "#" apiary.manifest.$1 | grep -v -e '^$'`
+while read -r line; do
+    echo "$line processed"
+    cat $line >> $APIB_FILE
+    if [ $? -ne 0 ]; then
+        echo "Error during creating apib file"
+        exit 1;
+    fi
+done <<< "$FILES"
+
+echo "+Removing tabs because dredd can't  read em"
+perl -p -i -e 's/\t/  /g' $APIB_FILE
+
+chmod 777 $APIB_FILE
+
+echo "Done."

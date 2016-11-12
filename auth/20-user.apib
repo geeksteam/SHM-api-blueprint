@@ -1,0 +1,46 @@
+## User login [/login]
+For login you must use your credentials of a user that was registered by the `root` in a panel.
+
++ Attributes
+    + Login (required,string) - User's login, which is email or root for admin.
+    + Password (required,string) - User defined password or root password for admin.
+    + Hotp (optional, string) - Code from two step authorization app.
+    + Auth (string) - Authorization status.
+
+### Login fails [POST]
+If login and password is not correct you will receive `403 Forbidden`. 
+Debug information about login, user not found or wrong password are in the system's log file.
+
++ Request (application/json)
+        {
+        "Login": "$USER_NAME",
+        "Password": "wrongUserPassword"
+        }
+
++ Response 403 (application/json)
+        {
+            "Auth": "Denied"
+        }
+
+### Login success #AuthUser [POST]
+If login and(or) password is correct you will receive success login response with
+`Theme` is a GUI theme, `Language` is a user defined interface language.
+Login script do redirect to `https://server:port/Theme` to load GUI for theme.
+
+
++ Attributes
+    + Theme:Simple (required, string) - User defined GUI theme.
+    + Language:EN (required, string) - User defined language for GUI.
+
++ Request (application/json)
+        {
+            "Login": "$USER_NAME",
+            "Password": "$USER_PASSWORD"
+        }
+
++ Response 200 (application/json)
+        {
+            "Auth": "Logged",
+            "Theme": "Simple",
+            "Language": "EN"
+        }

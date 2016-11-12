@@ -1,0 +1,26 @@
+# Group Journal
+Journal of all actions of users in panel.
+
+## List journal records [POST /api/journal/list]
+
+List all journal records for username and datetime interval.
+
++ Request (application/json)
+            {
+            "Username": "$USER_NAME",
+            "DateFrom": "2006-01-02T15:04:05+02:00",
+            "DateTo":   "2017-01-02T15:04:05+02:00"
+            }
+
++ Response 200 (application/json)
+            
+            [
+                {
+                    "SessionID": "874632768234",
+                    "Date":      "2006-01-02T15:04:05Z07:00",
+                    "Username":  "root",
+                    "Operation": "domain/add",
+                    "Content":   "",
+                    "Extra":     ""
+                }
+            ]
