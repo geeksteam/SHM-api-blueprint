@@ -8,9 +8,6 @@ import time
 
 from email.mime.text import MIMEText
 
-# from smtplib import SMTP_SSL as SMTP       # this invokes the secure SMTP protocol (port 465, uses SSL)
-# from smtplib import SMTP                  # use this for standard SMTP protocol   (port 25, no encryption)
-
 import time
 import dredd_hooks as hooks
 

@@ -11,7 +11,7 @@ language: python
 sandbox: false
 server: null
 server-wait: 5
-hooks-worker-timeout: 90000
+hooks-worker-timeout: 120000
 hooks-worker-connect-timeout: 5000
 init: false
 names: false
