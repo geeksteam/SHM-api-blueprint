@@ -1,0 +1,33 @@
+reporter: apiary
+custom:
+  apiaryApiKey: deb54c6cb0df6d7b8542d80360002889
+  apiaryApiName: shmv1
+dry-run: null
+hookfiles:
+- /var/lib/jenkins/workspace/SHM-api-blueprint/dredd_hooks/*.py
+- /var/lib/jenkins/workspace/SHM-api-blueprint/*/dredd_hooks.py
+- /var/lib/jenkins/workspace/SHM-api-blueprint/*/*/dredd_hooks.py
+language: python
+sandbox: false
+server: null
+server-wait: 5
+hooks-worker-timeout: 90000
+hooks-worker-connect-timeout: 5000
+init: false
+names: false
+only: []
+output: []
+header: []
+sorted: false
+user: null
+inline-errors: false
+details: true
+method: []
+color: true
+level: info
+timestamp: false
+silent: false
+path: []
+blueprint: /tmp/apiary.apib
+#endpoint: 'http://93.183.203.13:8090'
+endpoint: 'http://95.163.191.21:8090'
