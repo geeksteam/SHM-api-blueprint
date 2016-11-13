@@ -22,7 +22,7 @@ PASSWORD = "infoPassword"
 wait_before_pop3 = 30
 
 
-@hooks.after('Email boxes > #DreddHook pop3/smtp testing > #DreddHook pop3/smtp testing')
+@hooks.beforeValidation('Email boxes > #DreddHook pop3/smtp testing > #DreddHook pop3/smtp testing')
 def test_email(transaction):
         if transaction['skip'] != True:
 
@@ -107,4 +107,4 @@ def test_email(transaction):
                 # if message_found == False:
                 #         transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % total_messages
                 # # Set to success
-                transaction["fail"] = False
+                transaction['real']['statusCode'] = 202
