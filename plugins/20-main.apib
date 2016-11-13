@@ -1,5 +1,4 @@
 ## List all Plugins from repository [GET /api/plugins/list]
-
 List all plugins from repository.
 
 + Response 200 (application/json)
@@ -20,3 +19,15 @@ List all plugins from repository.
                 "Triggers": {}
             }
         ]
+
+## Start Plugin task #Error [GET /api/plugins/task?plugin=slack&bin=nonexistentbin]
+Start non existent plugin programm from /bin directory as a background task.
+
+
+## Remove Nonexistent Plugin #Error [POST /api/plugins/del]
+Remove non existent plugin from system
+
++ Request (application/json)
+        [ "NonExistentPlugin" ]
+
++ Response

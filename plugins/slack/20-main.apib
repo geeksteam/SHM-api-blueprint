@@ -66,15 +66,11 @@ Start plugin programm from /bin directory as a background task.
 
 + Response 204 (text/plain)
 
-## Start Slack Plugin task #Error [GET /api/plugins/task?plugin=slack&bin=nonexistentbin]
 
-Start non existent plugin programm from /bin directory as a background task.
-
-## Remove Slack Plugin #Error [POST /api/plugins/del]
-
-Remove non existent plugin from system
+## Remove Slack Plugin [POST /api/plugins/del]
+Remove Slack Plugin
 
 + Request (application/json)
-        [ "NonExistentPlugin" ]
+        [ "slack" ]
 
-+ Response
++ Response 204 (text/plain)
