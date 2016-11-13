@@ -108,4 +108,4 @@ def test_email(transaction):
                 #         transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % total_messages
                 # # Set to success
                 transaction['real']['statusCode'] = 202
-                transaction['real']['body'] = 'Test Success'
+                transaction['real']['body'] = ''

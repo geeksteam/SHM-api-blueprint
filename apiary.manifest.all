@@ -29,36 +29,6 @@ users/*.apib
 ## User settings change
 user/*.apib
 
-# Files manipulation
-filemanager/*.apib
-
-# FTP server
-## ProFTPD
-pftpd/*.apib
-
-# WebDomains, PHP modes
-webdomains/*.apib
-
-# SSL certificates
-ssl/*.apib
-
-# PHP settings and info
-php/*.apib
-
-# Databases
-## MySQL
-mysql-users/*.apib
-## PostgreSQL
-pgsql-users/*.apib
-
-# DNS
-## Powerdns
-pdns/*.apib
-
-# User specific
-## Session info
-info/*.apib
-
 # Email
 ## Email exim dovecot
 email/*.apib
@@ -69,63 +39,6 @@ dnsbl/*.apib
 ## Eximlog
 eximlog/*.apib
 
-# Statistics
-## Site activity analytics
-ngstat/*.apib
-## Nginx current requests
-nginx/*.apib
-## Watchdog  SYS, NET, Traffic charts
-watchdog/*.apib
-
-# System
-## System time
-timezone/*.apib
-## Cron
-cron/*.apib
-## System packages
-syspackages/*.apib
-## System services
-services/*.apib
-## System Processes
-ps/*.apib
-## OpenSSH server settings
-openssh/*.apib
-## Shell exec
-shell/*.apib
-
-# Network
-## IPtables rules
-iptables/*.apib
-## Fail 2 ban
-fail2ban/*.apib
-## System network settings
-network/*.apib
-## IP
-ip/*.apib
-
-# PANEL
-## User Messages
-messages/*.apib
-## Journal
-journal/*.apib
-## Sessions
-sessions/*.apib
-## Panel Core info
-core/*.apib
-## Panel API triggers
-api/*.apib
-
-# BACKUPS
-## Users backups
-ubackup/*.apib
-
-# Third party
-## Perl modules
-perl/*.apib
-## Ruby modules and info
-ruby/*.apib
-## ClamAV antivirus
-clamav/*.apib
 
 # Plugins
 ## Plugins main
