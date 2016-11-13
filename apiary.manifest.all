@@ -29,6 +29,36 @@ users/*.apib
 ## User settings change
 user/*.apib
 
+# Files manipulation
+filemanager/*.apib
+
+# FTP server
+## ProFTPD
+pftpd/*.apib
+
+# WebDomains, PHP modes
+webdomains/*.apib
+
+# SSL certificates
+ssl/*.apib
+
+# PHP settings and info
+php/*.apib
+
+# Databases
+## MySQL
+mysql-users/*.apib
+## PostgreSQL
+pgsql-users/*.apib
+
+# DNS
+## Powerdns
+pdns/*.apib
+
+# User specific
+## Session info
+info/*.apib
+
 # Email
 ## Email exim dovecot
 email/*.apib
