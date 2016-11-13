@@ -22,7 +22,7 @@ PASSWORD = "infoPassword"
 wait_before_pop3 = 30
 
 
-@hooks.beforeValidation('Email boxes > #DreddHook pop3/smtp testing > #DreddHook pop3/smtp testing')
+@hooks.before_validation('Email boxes > #DreddHook pop3/smtp testing > #DreddHook pop3/smtp testing')
 def test_email(transaction):
         if transaction['skip'] != True:
 
