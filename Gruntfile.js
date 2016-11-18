@@ -29,4 +29,4 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-exec');
     grunt.registerTask('default', [ 'watch' ]);
-}
+};
