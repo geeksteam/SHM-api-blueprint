@@ -7,20 +7,21 @@ APIB_FILE=$2
 
 rm -f $APIB_FILE
 
-echo "Start $APIB_FILE creation"
+echo "Start $APIB_FILE creation from apiary.manifest.$1 list."
 
 FILES=`grep -v "#" apiary.manifest.$1 | grep -v -e '^$'`
 while read -r line; do
     echo "$line processed"
+    # Concat file
     cat $line >> $APIB_FILE
+    # Catch error
     if [ $? -ne 0 ]; then
         echo "Error during creating apib file"
         exit 1;
     fi
+    # Add new line after each file
+    echo -e "\n" >> $APIB_FILE
 done <<< "$FILES"
-
-echo "+Removing tabs because dredd can't  read em"
-perl -p -i -e 's/\t/  /g' $APIB_FILE
 
 chmod 777 $APIB_FILE
 
