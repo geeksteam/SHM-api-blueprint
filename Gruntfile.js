@@ -29,4 +29,5 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-exec');
     grunt.registerTask('default', [ 'watch' ]);
+    grunt.registerTask('build', ['exec:makeapib','exec:removetabs']);
 };
