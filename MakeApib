@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Remove comments '#' and empty lines from Apiary.Manifest.$EXT file
 # for proper apiary.io documentation and concat it to one big apib file
 # Example of using: ./MakeManifest.sh all ./apiary.apib
@@ -20,7 +21,7 @@ while read -r line; do
         exit 1;
     fi
     # Add new line after each file
-    echo -e "\n" >> $APIB_FILE
+    echo -e "\n\n" >> $APIB_FILE
 done <<< "$FILES"
 
 chmod 777 $APIB_FILE

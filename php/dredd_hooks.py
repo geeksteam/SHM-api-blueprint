@@ -19,6 +19,10 @@ def run_url(phpjson_url):
                 print 'We failed to reach a server.'
                 print 'Reason: ', e.reason
                 return False
+        except Exception:
+                import traceback
+                print('HTTP generic exception: ' + traceback.format_exc())
+                return False
         return response
 
 # Check for nginx PHP FPM

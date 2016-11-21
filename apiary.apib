@@ -35,6 +35,7 @@ Themes = ["MyOwnTheme", "Simple"]
 Service restart needed to reload config.
 
 
+
 # Data Structures
 
 ## Error (object)
@@ -48,6 +49,7 @@ Service restart needed to reload config.
 + Owner (required, number) - Owner of file or dir.
 + Group (required, number) - Group of file or dir.
 + Modified (required, string) - Date time of last modification.
+
 
 
 # Group Remove testing user regularUser
@@ -80,6 +82,7 @@ Service restart needed to reload config.
 ## Logout from Root [GET /logout]
 
 + Response 204 (text/plain)
+
 
 
 # Group Create regularUser for tests
@@ -123,6 +126,7 @@ Service restart needed to reload config.
 ## Logout from Root [GET /logout]
 
 + Response 204 (text/plain)
+
 
 
 # Group Panel Authorization
@@ -267,6 +271,7 @@ If password is not correct you will receive `403 Forbidden`.
         }
 
 
+
 # Group Create Test environment
 Creating test environment.
 
@@ -409,6 +414,7 @@ Create /home/USER/test.html by User.
 + Response 204 (text/plain)
 
 
+
 # Group Two step authorization
 
 For using two step authorization you can install **Google Authenticator** or other mobile app that support HOTP protocol.
@@ -469,6 +475,7 @@ If app was not binded properly, first code was not accepted.
 ## HOTP toggle [/api/hotp/toggle]
 
 !TODO
+
 
 
 
@@ -571,6 +578,7 @@ Remove privileges template from the system. In case of some user can use removin
         }
 
 + Response 204 (text/plain)
+
 
 
 # Group Users
@@ -723,6 +731,7 @@ If user is not exists or root it will fail with error.
 + Response
 
 
+
 # Group User defined settings
 Users can change they gui themes and GUI languages. Alse user can change his password.
 ## Change user password [/api/user/password]
@@ -758,6 +767,7 @@ User can change his gui theme, language and email for notifications.
         }
 
 + Response 204 (text/plain)
+
 
 
 # Group Filemanager
@@ -845,7 +855,8 @@ User can't change files which not owned.
         }
 
 + Response
- ## Move file or folder [/api/filemanager/move]
+
+## Move file or folder [/api/filemanager/move]
 
 Root can move any files or directories.
 User can move only files within his homedirectory.
@@ -1358,6 +1369,7 @@ User can list only directories under his homedir.
 + Response
 
 
+
 # Group FTP accounts
 PFTPD server accounts.
 ## Add or Edit FTP account [POST /api/pftpd/set]
@@ -1406,6 +1418,7 @@ Remove FTP accounts.
     ["FTPNotExist"]
 
 + Response
+
 
 
 # Group Web Domains
@@ -1606,6 +1619,7 @@ Disable php on domain
 + Response 204 (text/plain)
 
 
+
 # Group SSL Certificates
 SSL certificates for domains
 ## Create CSR [POST /api/ssl/createcsr]
@@ -1731,6 +1745,7 @@ Import CSR, Key, CRT for domain.
 + Response 204 (text/plain)
 
 
+
 # Group PHP
 PHP settings and information.
 ## PHPinfo [GET /api/php/info]
@@ -1826,6 +1841,7 @@ Removing pecl packages.
         }
 
 
+
 # Group MySQL Users
 Panel users can have their own database users and databases.
 Database can be on local host and remote. Database connection can be configured by `Mysql.Host`, `Mysql.Port`, `Mysql.User` (Root or admin database user), `Mysql.Password` (Password for root or database admin) section at main config file.
@@ -1891,6 +1907,7 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 + Response
 
 
+
 # Group PgSQL Users
 Panel users can have their own database users and databases.
 Database can be on local host and remote. Database connection can be configured by `Pgsql.Host`, `Pgsql.Port`, `Pgsql.User` (Root or admin database user), `Pgsql.Password` (Password for root or database admin) section at main config file.
@@ -1938,6 +1955,7 @@ Removing PgSQL user and all him databases. If `ReplaceBy` parameter, databases n
     }
 
 + Response 204 (text/plain)
+
 
 
 # Group DNS Domains
@@ -2053,6 +2071,7 @@ Error while removing non existent or not user owned domain.
 + Response
 
 
+
 # Group User Session
 
 After successful authorization users have their session stored in panel's memory. 
@@ -2149,7 +2168,8 @@ User information have his info and usage statistics to show in GUI dashboard.
         "Emails":0 
       } 
     }
-    ## Domains list [/api/info/domains]
+
+## Domains list [/api/info/domains]
 
 In many cases GUI need to get list of user's domains. For example for email box add or so on. 
 Root user and regular user have different reply, because root will get all domains for all users and user will get only its own.
@@ -2172,6 +2192,7 @@ Root get all domains and they ownerd
         [
         "$TESTING_DOMAIN"
         ]
+
 
 
 # Group Email boxes
@@ -2241,6 +2262,7 @@ Remove Email box.
 + Response
 
 
+
 # Group DKIM
 DKIM email keys.
 ## Add DKIM [/api/dkim/set]
@@ -2299,6 +2321,7 @@ Remove DKIM keys from domain(s).
 + Response
 
 
+
 # Group DNSBL spam lists
 DNSBL Spam lists.
 ## Set list [POST /api/dnsbl/set]
@@ -2321,6 +2344,7 @@ Get list of DNSBL servers.
         [  
         "zen.spam.com"
         ]
+
 
 
 # Group Exim Logs
@@ -2456,6 +2480,7 @@ To find some email in a delivery log.
         ]
 
 
+
 # Group Domains statistics
 
 ServerPanel gather ***Domains*** and ***URLs*** hits statistics directly from webserver and DNS.
@@ -2586,6 +2611,7 @@ As a response you'll get `Date:hits` array.
 + Url (required, string) - For which url show dates and count statistic.
 
 
+
 # Group Nginx
 Nginx web server status page.
 ## Get nginx status [GET /api/nginx/status]
@@ -2614,6 +2640,7 @@ Getting nginx status information page.
                     }
                 ]
             }
+
 
 
 # Group Watchdog Statistics
@@ -2748,6 +2775,7 @@ Background process killer statistic.
             }
 
 
+
 # Group Server Time
 Server time zone and NTP modification.
 
@@ -2783,6 +2811,7 @@ Get current server NTP servers.
 
 + Response 200 (application/json)
         ["3.ua.pool.ntp.org","1.ua.pool.ntp.org"]
+
 
 
 # Group Cron
@@ -2869,6 +2898,7 @@ Lists all cron jobs for all users.
         ]
 
 
+
 # Group System packages
 System packages of apt or yum.
 ## Search for packages [POST /api/syspackages/search]
@@ -2930,6 +2960,7 @@ Remove installed packages by apt or yum.
 + Response 204 (text/plain)
 
 
+
 # Group System Services
 System services
 ## Set service [POST /api/services/set]
@@ -2971,6 +3002,7 @@ List system panel services.
                 "Onboot": true
             }
         ]
+
 
 
 # Group System Processes
@@ -3039,6 +3071,7 @@ Kill processes by owner.
         ["nobody"]
 
 + Response 204 (text/plain)
+
 
 
 # Group Open SSH server
@@ -3118,6 +3151,7 @@ Remove authorized keys by index
 + Response 204 (text/plain)
 
 
+
 # Group Shell commands
 Executes shell commands on the server.
 ## Execute command [POST /api/shell/exec]
@@ -3138,6 +3172,7 @@ Regular user must add domain to WebDomains to own this domain name.
         {
             "Output":""
         }
+
 
 
 # Group Iptables firewall
@@ -3227,6 +3262,7 @@ Remove unexistent iptables rule.
 + Response
 
 
+
 # Group Fail2ban
 Fail2ban rules
 ## Set global settings [POST /api/fail2ban/setsettings]
@@ -3269,6 +3305,7 @@ Get services settings.
             { 
                 "proftpd": {}
             }
+
 
 
 # Group Network
@@ -3354,6 +3391,7 @@ Get unix sockets.
             ]
 
 
+
 # Group IP addresses
 Server IP addresses.
 ## IP address reconfiguration [GET /api/ip/reconfigure]
@@ -3388,6 +3426,7 @@ List all IP addresses.
       
 
 + Response 204 (text/plain)
+
 
 
 # Group Messages
@@ -3445,6 +3484,7 @@ Delete all user messages.
 + Response 204 (text/plain)
 
 
+
 # Group Journal
 Journal of all actions of users in panel.
 
@@ -3471,6 +3511,7 @@ List all journal records for username and datetime interval.
                     "Extra":     ""
                 }
             ]
+
 
 
 # Group Panel Sessions
@@ -3507,6 +3548,7 @@ Root can close certain panel session.
         }
             
 + Response 204 (text/plain)
+
 
 
 # Group Core information
@@ -3615,6 +3657,7 @@ All panel API handlers.
             ]
 
 
+
 # Group API Triggers
 API triggers run while certain api handler run
 
@@ -3630,6 +3673,7 @@ List all registered API triggers and count of they usage.
                 "Count": 999
                 }
             ]
+
 
 
 # Group User Backups
@@ -3705,6 +3749,7 @@ Delete error if backup file not found.
 + Response
 
 
+
 # Group Perl packages
 Perl packages
 ## Search Perl packages in cpan [POST /api/perl/search]
@@ -3747,6 +3792,7 @@ List all installed Perl packages.
         [
             "Output"
         ]
+
 
 
 # Group Ruby Gems
@@ -3837,6 +3883,7 @@ Remove Ruby gem package.
 
 
 
+
 # Group ClamAV antivirus
 ClamAV antivirus.
 ## Start ClamAV scan [POST /api/clamav/scan]
@@ -3848,6 +3895,7 @@ Start ClamAV scanner and send user message after scan finish.
         }
         
 + Response 204 (text/plain)
+
 
 
 # Group Plugins
@@ -3885,6 +3933,7 @@ Remove non existent plugin from system
         [ "NonExistentPlugin" ]
 
 + Response
+
 
 
 # Group Plugin PhpMyAdmin
@@ -4104,6 +4153,7 @@ Remove Wordpress plugin from system.
 + Response 204 (text/plain)
 
 
+
 # Group Remove Test environment
 Remove test environment.
 
@@ -4126,6 +4176,7 @@ Remove test environment.
 + Response 204 (text/plain)
 
 
+
 # Group Logout
 
 To close current session user can logout by request. This is not necessary but recommended to close the session.
@@ -4141,5 +4192,6 @@ Close the regular user session.
 Administrator `root` session close.
 
 + Response 204 (text/plain)
+
 
 
