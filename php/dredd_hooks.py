@@ -15,7 +15,7 @@ def open_phpjson_url(phpjson_url):
         req = urllib2.Request(phpjson_url)
         response = urllib2.urlopen(req)
         out = response.read()
-        
+
         return out
 
 # Check for nginx PHP FPM
@@ -47,15 +47,9 @@ def check_apache_mod_php(j):
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
-                phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
+                phpjson_url='http://%s/phpjsonа.php' % transaction['request']['headers']['Testing-domain']
                 response = open_phpjson_url(phpjson_url)
 
-                transaction['fail'] = 'Response %s' % response
-                return
-
-                if response == False:
-                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
-                        return
                 try:
                         j = json.loads(response)
                 except:
