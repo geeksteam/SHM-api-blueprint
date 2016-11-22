@@ -1,4 +1,3 @@
-#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import time
@@ -45,9 +44,9 @@ def check_apache_mod_php(j):
 
 # Checking PHP mode
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
-def check_php_mode_1(transaction):
+def check_php_mode_PHP_FPM_NGINX(transaction):
         if transaction['skip'] != True:
-                phpjson_url='http://%s/phpjsonа.php' % transaction['request']['headers']['Testing-domain']
+                phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
                 response = open_phpjson_url(phpjson_url)
 
                 try:
@@ -59,7 +58,7 @@ def check_php_mode_1(transaction):
                         transaction['fail'] = 'Nginx PHP FPM mode check failed. Data is:'.join(j)
                         
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Apache')
-def check_php_mode_2(transaction):
+def check_php_mode_PHP_FPM_APACHE(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
                 response = run_url(phpjson_url)        
@@ -75,7 +74,7 @@ def check_php_mode_2(transaction):
                         transaction['fail'] = 'Apache PHP FPM mode check failed. Data is:'.join(j)
                         
 @hooks.after('Web Domains > PHP modes > Apache mod_php')
-def check_php_mode_3(transaction):
+def check_php_mode_MOD_PHP(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
                 response = run_url(phpjson_url)        
@@ -91,7 +90,7 @@ def check_php_mode_3(transaction):
                         transaction['fail'] = 'Apache mod_php mode check failed. Data is:'.join(j)
 
 @hooks.after('Web Domains > PHP modes > PHP off')
-def check_php_mode_4(transaction):
+def check_php_mode_PHP_OFF(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
                 response = run_url(phpjson_url)        
