@@ -23,11 +23,19 @@ def check_ftp_account(transaction):
 						final_file_name = 'index.html'
 
 						# go in and store
+						try:
+								ftp.rmd('/path1')
+						except Exception, e:
+								print str(e)
 						ftp.mkd('/path1')
 						ftp.cwd('/path1')
 						ftp.storbinary('STOR '+ final_file_name, myfile)
 						
 						# go in and store
+						try:
+								ftp.rmd('/path2')
+						except Exception, e:
+								print str(e)
 						ftp.mkd('/path2')
 						ftp.cwd('/path2')
 						ftp.storbinary('STOR '+ final_file_name, myfile)
