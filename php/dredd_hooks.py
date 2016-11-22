@@ -6,9 +6,6 @@ import dredd_hooks as hooks
 # Url where is phpjson is
 userName='regularUser'
 
-def just_me(phpjson_url):
-        return 'Just me funct %s' % phpjson_url
-
 # Run grab url function
 def open_phpjson_url(phpjson_url):
 
