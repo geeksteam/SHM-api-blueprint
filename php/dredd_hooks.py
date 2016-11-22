@@ -11,37 +11,7 @@ def just_me():
 
 # Run grab url function
 def run_url(phpjson_url):
-        print 'Trying to open url: %s' % phpjson_url
-        try:
-                req = urllib2fff.Request(phpjson_url)
-        except Exception:
-                import traceback
-                print('HTTP generic exception: ' + traceback.format_exc())
-                return False
-        # try to open
-        try:
-                response = urllib2f.urlopen(req)
-        except urllib2.HTTPError as e:
-                print 'The server couldn\'t fulfill the request.'
-                print 'Error code: ', e.code
-                return False
-        except urllib2.URLError as e:
-                print 'We failed to reach a server.'
-                print 'Reason: ', e.reason
-                return False
-        except Exception:
-                import traceback
-                print('HTTP generic exception: ' + traceback.format_exc())
-                return False
-        # try to read
-        try:
-                out = response.read()
-        except Exception:
-                import traceback
-                print('HTTP generic exception during read: ' + traceback.format_exc())
-                return False
-
-        return 'Trying to open %s' % (phpjson_url )
+        return 'Trying to open %s' % (phpjson_url)
 
 # Check for nginx PHP FPM
 def check_nginx_php_fpm(j):
@@ -72,12 +42,12 @@ def check_apache_mod_php(j):
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
-                response = just_me()
-                transaction['fail'] = 'Response is %s , username %s ' % (response, userName)
+                phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
+                response = run_url(phpjson_url)    
+
+                transaction['fail'] = 'Response %s' % response
                 return
 
-                phpjson_url='http://%s/phpjsoffn.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
