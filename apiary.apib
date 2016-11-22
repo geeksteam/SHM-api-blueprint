@@ -36,6 +36,7 @@ Service restart needed to reload config.
 
 
 
+
 # Data Structures
 
 ## Error (object)
@@ -49,6 +50,7 @@ Service restart needed to reload config.
 + Owner (required, number) - Owner of file or dir.
 + Group (required, number) - Group of file or dir.
 + Modified (required, string) - Date time of last modification.
+
 
 
 
@@ -82,6 +84,7 @@ Service restart needed to reload config.
 ## Logout from Root [GET /logout]
 
 + Response 204 (text/plain)
+
 
 
 
@@ -129,10 +132,15 @@ Service restart needed to reload config.
 
 
 
+
 # Group Panel Authorization
 
 First of all you must login into panel as `root` to gain administrator privileges or as a regular user.
 For login you must use your credentials of user or root login and password if you are the server administrator.
+
+
+
+
 ## User login [/login]
 For login you must use your credentials of a user that was registered by the `root` in a panel.
 
@@ -179,6 +187,10 @@ Login script do redirect to `https://server:port/Theme` to load GUI for theme.
             "Theme": "Simple",
             "Language": "EN"
         }
+
+
+
+
 ### HOTP code required [POST]
 
 How to [turn on two step authorization](two-step-authorization)
@@ -234,6 +246,10 @@ You can send another request with correct HOTP code.
         {
             "Auth": "HOTP wrong code"
         }
+
+
+
+
 ## Root login [/login]
 For login you must use your root system password and login `root`.
 
@@ -269,6 +285,7 @@ If password is not correct you will receive `403 Forbidden`.
             "Theme": "Simple",
             "Language": "EN"
         }
+
 
 
 
@@ -415,6 +432,7 @@ Create /home/USER/test.html by User.
 
 
 
+
 # Group Two step authorization
 
 For using two step authorization you can install **Google Authenticator** or other mobile app that support HOTP protocol.
@@ -423,6 +441,10 @@ There are two ways to add your app for two step authorization:
 * Scan generated QR code on your mobile Google Authenticator app,
 
 For proper QR generation you need to get code first and only after that make request to generate QR.
+
+
+
+
 ## Generate code for enter by hand [/api/hotp/code]
 
 This request will generate one time code that you need to enter while add new account to Google Authenticator app.
@@ -479,10 +501,15 @@ If app was not binded properly, first code was not accepted.
 
 
 
+
 # Group User privileges templates
 
 Every user in the panel has it own priveleges. Priveleges prevent unrestricted access to modules.
 Using privileges prevent dedublicating same restrictions to users.
+
+
+
+
 ## Add or edit template [/api/utemplates/set]
 
 Add or edit privileges template if template with that name already exists.
@@ -581,6 +608,7 @@ Remove privileges template from the system. In case of some user can use removin
 
 
 
+
 # Group Users
 
 Users can login to panel, have their own domains, databases, limited disk space, and etc.
@@ -588,6 +616,10 @@ Users in panel are system users too. They can have or haven't SSH access. Each u
 For managing users privileges in panel we have such thing as "User Limits Templates". There is a templates with list of limits which can apply to one or more users. More information are in "User Templates" section.
 
 Only user with login `root` or user with privileges template named `SuperAdmin` can add, edit or remove users!
+
+
+
+
 ## Add or edit user [/api/users/set]
 
 If user with `Username` already exist new request will change parameters for him, 
@@ -645,6 +677,10 @@ If there is wrong parameter in request you will get error message with some info
         }
 
 + Response
+
+
+
+
 ## Set user password [/api/users/password]
 
 You can change users password for panel and ssh access. `root` can change password for all users, regular users can change only own password.
@@ -662,6 +698,10 @@ You can change users password for panel and ssh access. `root` can change passwo
         }
 
 + Response 204 (text/plain)
+
+
+
+
 ## Disable, enable users [/api/users/toggleactive]
 
 Inactive users can not login into panel, webdomains are disabled too.
@@ -675,6 +715,10 @@ This request toggle user status from active to disabled or vice versa.
         }
 
 + Response 204 (text/plain)
+
+
+
+
 ## Get users list [/api/users/list]
 
 Return all users exists in panel and information.
@@ -703,6 +747,10 @@ Return all users exists in panel and information.
             "Stats":{}
             }
         ]
+
+
+
+
 ## Remove user [/api/users/del]
 
 Removing user from panel and OS. Removing all user databases, domains, files and etc.
@@ -732,8 +780,13 @@ If user is not exists or root it will fail with error.
 
 
 
+
 # Group User defined settings
 Users can change they gui themes and GUI languages. Alse user can change his password.
+
+
+
+
 ## Change user password [/api/user/password]
 
 User can change his password for accessing panel and SSH (if ssh is allowed for him).
@@ -770,9 +823,14 @@ User can change his gui theme, language and email for notifications.
 
 
 
+
 # Group Filemanager
 Filemanager allow manipulating file system as root or as regular user.
 Users canot modify files outside they home directory.
+
+
+
+
 ## Create new directory [/api/filemanager/mkdir]
 
 Create new directory.
@@ -800,6 +858,10 @@ Owner can be set only by root user.
         }
 
 + Response 204 (text/plain)
+
+
+
+
 ## Change permissions [/api/filemanager/set]
 
 Root can change any files.
@@ -856,6 +918,10 @@ User can't change files which not owned.
 
 + Response
 
+
+
+
+
 ## Move file or folder [/api/filemanager/move]
 
 Root can move any files or directories.
@@ -901,6 +967,10 @@ User can move only files within his homedirectory.
         }
         
 + Response
+
+
+
+
 ## Find files [/api/filemanager/find]
 
 Root can search all files or directories.
@@ -929,6 +999,14 @@ User can search within his homedirectory.
 
 + Response 200 (application/json)
         []
+
+
+
+
+
+
+
+
 ## Download files [/api/filemanager/download]
 
 Download file from filesystem. Users can download only files from they homedir.
@@ -970,6 +1048,10 @@ Download file from filesystem. Users can download only files from they homedir.
         }
 
 + Response
+
+
+
+
 ## Download file from remote URL [/api/filemanager/wget]
 
 Download file to directory from remote URL.
@@ -1024,6 +1106,10 @@ Status of download send to /api/info/actualizer websocket as BackgroundTasks.
         }
 
 + Response 204 (text/plain)
+
+
+
+
 ## Create archive [/api/filemanager/pack]
 
 Create new archive from directory. Supported types are `tar.gz`, `zip`.
@@ -1075,6 +1161,10 @@ Create new archive from directory. Supported types are `tar.gz`, `zip`.
         }
 
 + Response
+
+
+
+
 ## Extract archive [/api/filemanager/unpack]
 
 Extract archive. Supported types are `tar.gz`, `zip`.
@@ -1133,6 +1223,10 @@ Extract archive. Supported types are `tar.gz`, `zip`.
         }
 
 + Response
+
+
+
+
 ## Download directory as archive [/api/filemanager/getarchive]
 
 Packs directory to tar.gz archive on the fly.
@@ -1170,6 +1264,10 @@ Permission denied error.
         }
         
 + Response 
+
+
+
+
 ## Show text file [/api/filemanager/showfile]
 
 User can view text files.
@@ -1231,6 +1329,10 @@ Show file work only with text files 1Mb size maximum.
         }
         
 + Response
+
+
+
+
 ## Edit text file [/api/filemanager/editfile]
 Users can edit text file content.
 
@@ -1267,6 +1369,10 @@ User can edit only owned files in his homedir.
         }
         
 + Response 
+
+
+
+
 ## Delete file or folder [/api/filemanager/del]
 
 Root can delete all files or directories.
@@ -1334,6 +1440,10 @@ User can delete only files within his homedirectory and owned by him.
         ]
         
 + Response
+
+
+
+
 ## List directory [/api/filemanager/list]
 
 Root can list all directories on server.
@@ -1370,8 +1480,13 @@ User can list only directories under his homedir.
 
 
 
+
 # Group FTP accounts
 PFTPD server accounts.
+
+
+
+
 ## Add or Edit FTP account [POST /api/pftpd/set]
 
 Add or edit FTP accounts.
@@ -1421,8 +1536,13 @@ Remove FTP accounts.
 
 
 
+
 # Group Web Domains
 Nginx and apache domains.
+
+
+
+
 ## Add or Edit Web domain [/api/webdomains/set]
 
 Add new or edit web domain.
@@ -1531,6 +1651,10 @@ Remove web domains.
 
 + Response
 
+
+
+
+
 ## PHP modes [/api/webdomains/set]
 
 Domain has a four different modes: fpm_nginx, fpm_apache, mod_php, off
@@ -1621,8 +1745,13 @@ Disable php on domain
 
 
 
+
 # Group SSL Certificates
 SSL certificates for domains
+
+
+
+
 ## Create CSR [POST /api/ssl/createcsr]
 
 Creating SSL CSR and Key file.
@@ -1747,8 +1876,13 @@ Import CSR, Key, CRT for domain.
 
 
 
+
 # Group PHP
 PHP settings and information.
+
+
+
+
 ## PHPinfo [GET /api/php/info]
 
 Output phpinfo().
@@ -1798,6 +1932,10 @@ Lists all active ini settings.
         {
             "allow_url_fopen": "Off"
         }
+
+
+
+
 ## Search PECL packages [POST /api/php/peclsearch]
 
 Searches for the mentioned pecl packages and output information about them.
@@ -1843,9 +1981,14 @@ Removing pecl packages.
 
 
 
+
 # Group MySQL Users
 Panel users can have their own database users and databases.
 Database can be on local host and remote. Database connection can be configured by `Mysql.Host`, `Mysql.Port`, `Mysql.User` (Root or admin database user), `Mysql.Password` (Password for root or database admin) section at main config file.
+
+
+
+
 ## Modifying users [POST /api/mysql/users/set]
 
 Add or edit database user if username already exist.
@@ -1909,9 +2052,14 @@ Removing MySQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 
 
+
 # Group PgSQL Users
 Panel users can have their own database users and databases.
 Database can be on local host and remote. Database connection can be configured by `Pgsql.Host`, `Pgsql.Port`, `Pgsql.User` (Root or admin database user), `Pgsql.Password` (Password for root or database admin) section at main config file.
+
+
+
+
 ## Modifying users [POST /api/pgsql/users/set]
 
 Add or edit database user if username already exist.
@@ -1959,8 +2107,13 @@ Removing PgSQL user and all him databases. If `ReplaceBy` parameter, databases n
 
 
 
+
 # Group DNS Domains
 DNS Domains
+
+
+
+
 ## Add or Edit DNS domain records [POST /api/pdns/set]
 
 Add or edit DNS domain records
@@ -2073,6 +2226,7 @@ Error while removing non existent or not user owned domain.
 
 
 
+
 # Group User Session
 
 After successful authorization users have their session stored in panel's memory. 
@@ -2082,6 +2236,10 @@ In this case only SessionID will be checked for session identification without I
 Its safe because panel have its own bruteforce protection but we are not suggest to disable this check unless your users behind NAT with frequently IP changes have often `401 Unauthorized` errors.
 
 ## Session information [/api/info/session]
+
+
+
+
 ### Root user [GET]
 
 Root user as administrator have different session information.
@@ -2118,6 +2276,10 @@ Administrator will get information about server status and resources usage to sh
             "Emails":54
             }
         }
+
+
+
+
 ### Regular #User [GET]
 
 User information have his info and usage statistics to show in GUI dashboard.
@@ -2170,6 +2332,10 @@ User information have his info and usage statistics to show in GUI dashboard.
       } 
     }
 
+
+
+
+
 ## Domains list [/api/info/domains]
 
 In many cases GUI need to get list of user's domains. For example for email box add or so on. 
@@ -2196,8 +2362,13 @@ Root get all domains and they ownerd
 
 
 
+
 # Group Email boxes
 Email boxes.
+
+
+
+
 ## Add or Edit Email box [/api/email/set]
 
 Add new or edit existent email box.
@@ -2264,8 +2435,13 @@ Remove Email box.
 
 
 
+
 # Group DKIM
 DKIM email keys.
+
+
+
+
 ## Add DKIM [/api/dkim/set]
 
 Generates new DKIM key for domain and add it to EXIM and DNS record. If DKIM already exists it will be overwritten.
@@ -2323,8 +2499,13 @@ Remove DKIM keys from domain(s).
 
 
 
+
 # Group DNSBL spam lists
 DNSBL Spam lists.
+
+
+
+
 ## Set list [POST /api/dnsbl/set]
 
 Set list of dnsbl servers for stop spam.
@@ -2348,8 +2529,13 @@ Get list of DNSBL servers.
 
 
 
+
 # Group Exim Logs
 Delivery and message queue log.
+
+
+
+
 
 ## Mail queue log [/api/eximlog/queue]
 Outgoing mail queue log.
@@ -2422,6 +2608,10 @@ To find some email in a queue.
                 "Frozen":true
             }
         ]
+
+
+
+
 ## Exim mail delivery log [/api/eximlog/delivery]
 
 Mail delivery log.
@@ -2482,6 +2672,7 @@ To find some email in a delivery log.
 
 
 
+
 # Group Domains statistics
 
 ServerPanel gather ***Domains*** and ***URLs*** hits statistics directly from webserver and DNS.
@@ -2493,6 +2684,10 @@ There is no need to analyze large `access.log` files to retrieve web sites stati
 `Administrator` and `Users` can retrieve those statistics for all domains and filter it by particular urls and date interval.
 
 ![Domain statistics diagram](https://raw.githubusercontent.com/geeksteam/SHM-api-blueprint/master/images/NgStat.svg "Domain Statistic diagram")
+
+
+
+
 ## All domains statistic [/api/ngstat/get]
 
 `Root` user (or Administrator) get count of hits for all domains at the server sorted by date interval.
@@ -2596,6 +2791,10 @@ As a response you'll get `Date:hits` array.
 
             {
             }
+
+
+
+
 ## Data Structures
 
 ### DateInterval
@@ -2612,8 +2811,13 @@ As a response you'll get `Date:hits` array.
 
 
 
+
 # Group Nginx
 Nginx web server status page.
+
+
+
+
 ## Get nginx status [GET /api/nginx/status]
 Getting nginx status information page.
 
@@ -2643,8 +2847,13 @@ Getting nginx status information page.
 
 
 
+
 # Group Watchdog Statistics
 Watchdog statistics
+
+
+
+
 ## Disk space analyzer [GET /api/watchdog/diskanalyzer]
 Disk space analyzer results.
 
@@ -2672,6 +2881,10 @@ Background process killer statistic.
                     }
                 ]
             }
+
+
+
+
 ## Getting System usage chart [GET /api/watchdog/chart]
 
 + Request (application/json)
@@ -2776,8 +2989,13 @@ Background process killer statistic.
 
 
 
+
 # Group Server Time
 Server time zone and NTP modification.
+
+
+
+
 
 ## Set timezone  [POST /api/timezone/set]
 Set server timezone.
@@ -2814,8 +3032,13 @@ Get current server NTP servers.
 
 
 
+
 # Group Cron
 System cron tasks.
+
+
+
+
 ## Setting Cron Jobs [POST /api/cron/set]
 
 Remove all cron jobs for user and sets them from request.
@@ -2899,8 +3122,13 @@ Lists all cron jobs for all users.
 
 
 
+
 # Group System packages
 System packages of apt or yum.
+
+
+
+
 ## Search for packages [POST /api/syspackages/search]
 
 Searches for packages in apt or yum.
@@ -2961,8 +3189,13 @@ Remove installed packages by apt or yum.
 
 
 
+
 # Group System Services
 System services
+
+
+
+
 ## Set service [POST /api/services/set]
 
 Set service on boot status.
@@ -3005,8 +3238,13 @@ List system panel services.
 
 
 
+
 # Group System Processes
 System processes.
+
+
+
+
 ## Processes list [GET /api/ps/list]
 
 List of server processes.
@@ -3074,8 +3312,13 @@ Kill processes by owner.
 
 
 
+
 # Group Open SSH server
 Manipulating OpenSSH server keys and settings.
+
+
+
+
 ## Get current settings [GET /api/openssh/settings/get]
 
 Get openssh server settings.
@@ -3103,6 +3346,10 @@ Get openssh server settings.
         }
 
 + Response 204 (text/plain)
+
+
+
+
 ## Create private key and add public [POST /api/openssh/keys/create]
 
 Creates new private key and add public key of new generated to server's authorized keys.
@@ -3152,8 +3399,13 @@ Remove authorized keys by index
 
 
 
+
 # Group Shell commands
 Executes shell commands on the server.
+
+
+
+
 ## Execute command [POST /api/shell/exec]
 
 Creating SSL CSR and Key file.
@@ -3175,8 +3427,13 @@ Regular user must add domain to WebDomains to own this domain name.
 
 
 
+
 # Group Iptables firewall
 Iptables firewall rules.
+
+
+
+
 ## Add new rule to iptables [POST /api/iptables/add]
 
 Add new rule to iptables firewall.
@@ -3263,8 +3520,13 @@ Remove unexistent iptables rule.
 
 
 
+
 # Group Fail2ban
 Fail2ban rules
+
+
+
+
 ## Set global settings [POST /api/fail2ban/setsettings]
 
 Set global fail2ban settings
@@ -3308,8 +3570,13 @@ Get services settings.
 
 
 
+
 # Group Network
 System network settings.
+
+
+
+
 ## Set server hostname [POST /api/network/sethostname]
 Set server hostname.
 
@@ -3392,8 +3659,13 @@ Get unix sockets.
 
 
 
+
 # Group IP addresses
 Server IP addresses.
+
+
+
+
 ## IP address reconfiguration [GET /api/ip/reconfigure]
 
 Add new IP addresses and remove non-existent.
@@ -3429,8 +3701,13 @@ List all IP addresses.
 
 
 
+
 # Group Messages
 User messages for chatting, system information and etc.
+
+
+
+
 ## Send message [GET /api/messages/send]
 Send message to user.
 
@@ -3485,6 +3762,7 @@ Delete all user messages.
 
 
 
+
 # Group Journal
 Journal of all actions of users in panel.
 
@@ -3511,6 +3789,7 @@ List all journal records for username and datetime interval.
                     "Extra":     ""
                 }
             ]
+
 
 
 
@@ -3551,8 +3830,13 @@ Root can close certain panel session.
 
 
 
+
 # Group Core information
 Core information gives verbose information about panel's core settings, and live system statistic.
+
+
+
+
 ## WebSocket Live system resources usage [GET /api/core/livesysstat]
 Send live system resources usage statistics and system processes list to WebSocket as a message every second.
 
@@ -3658,6 +3942,7 @@ All panel API handlers.
 
 
 
+
 # Group API Triggers
 API triggers run while certain api handler run
 
@@ -3676,8 +3961,13 @@ List all registered API triggers and count of they usage.
 
 
 
+
 # Group User Backups
 User backups
+
+
+
+
 ## Create backup [GET /api/ubackup/create]
 
 Create user backup, include web domains files, mysql and pgsql datbases, apache and nginx configs, exim config.
@@ -3750,8 +4040,13 @@ Delete error if backup file not found.
 
 
 
+
 # Group Perl packages
 Perl packages
+
+
+
+
 ## Search Perl packages in cpan [POST /api/perl/search]
 
 Search for perl packages in CPAN
@@ -3795,8 +4090,13 @@ List all installed Perl packages.
 
 
 
+
 # Group Ruby Gems
 Ruby gems packages.
+
+
+
+
 ## Search Ruby Gems [POST /api/ruby/search]
 
 Search for ruby gems.
@@ -3884,8 +4184,13 @@ Remove Ruby gem package.
 
 
 
+
 # Group ClamAV antivirus
 ClamAV antivirus.
+
+
+
+
 ## Start ClamAV scan [POST /api/clamav/scan]
 Start ClamAV scanner and send user message after scan finish.
 
@@ -3898,8 +4203,13 @@ Start ClamAV scanner and send user message after scan finish.
 
 
 
+
 # Group Plugins
 Panel plugins
+
+
+
+
 ## List all Plugins from repository [GET /api/plugins/list]
 List all plugins from repository.
 
@@ -3936,8 +4246,13 @@ Remove non existent plugin from system
 
 
 
+
 # Group Plugin PhpMyAdmin
 Plugin PhpMyAdmin test
+
+
+
+
 ## Install PhpMyAdmin Plugin [POST /api/plugins/install]
 Install PhpMyAdmin plugin from repository
 
@@ -3981,8 +4296,16 @@ Remove PhpMyAdmin plugin from system
         [ "pmainstaller" ]
 
 + Response 204 (text/plain)
+
+
+
+
 # Group Plugin Roundcube
 Plugin Roundcube test
+
+
+
+
 ## Install Roundcube Plugin [POST /api/plugins/install]
 
 Install Roundcube plugin from repository
@@ -4029,8 +4352,16 @@ Remove Roundcube plugin from system
         [ "roundcube" ]
 
 + Response 204 (text/plain)
+
+
+
+
 # Group Plugins Slack
 Plugins Slack tests
+
+
+
+
 ## Install Slack Plugin [POST /api/plugins/install]
 
 Install plugin from repository
@@ -4107,8 +4438,16 @@ Remove Slack Plugin
         [ "slack" ]
 
 + Response 204 (text/plain)
+
+
+
+
 # Group Plugin WordPress
 Plugin WordPress test
+
+
+
+
 ## Install Wordpress Plugin [POST /api/plugins/install]
 Install Wordpress plugin from repository.
 
@@ -4154,6 +4493,7 @@ Remove Wordpress plugin from system.
 
 
 
+
 # Group Remove Test environment
 Remove test environment.
 
@@ -4177,6 +4517,7 @@ Remove test environment.
 
 
 
+
 # Group Logout
 
 To close current session user can logout by request. This is not necessary but recommended to close the session.
@@ -4192,6 +4533,7 @@ Close the regular user session.
 Administrator `root` session close.
 
 + Response 204 (text/plain)
+
 
 
 

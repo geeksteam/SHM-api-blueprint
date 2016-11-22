@@ -25,8 +25,8 @@ def check_ftp_account(transaction):
 						# go in and store
 						try:
 								ftp.rmd('/path1')
-						except Exception, e:
-								print str(e)
+						except:
+								pass
 						ftp.mkd('/path1')
 						ftp.cwd('/path1')
 						ftp.storbinary('STOR '+ final_file_name, myfile)
@@ -34,8 +34,8 @@ def check_ftp_account(transaction):
 						# go in and store
 						try:
 								ftp.rmd('/path2')
-						except Exception, e:
-								print str(e)
+						except:
+								pass
 						ftp.mkd('/path2')
 						ftp.cwd('/path2')
 						ftp.storbinary('STOR '+ final_file_name, myfile)

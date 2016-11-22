@@ -14,14 +14,18 @@ FILES=`grep -v "#" apiary.manifest.$1 | grep -v -e '^$'`
 while read -r line; do
     echo "$line processed"
     # Concat file
-    cat $line >> $APIB_FILE
+    for i in $line
+    do
+        cat $i >> $APIB_FILE
+        # Append 3 lines
+        echo -e "\n\n\n" >> $APIB_FILE
+    done
+
     # Catch error
     if [ $? -ne 0 ]; then
         echo "Error during creating apib file"
         exit 1;
     fi
-    # Add new line after each file
-    echo -e "\n\n" >> $APIB_FILE
 done <<< "$FILES"
 
 chmod 777 $APIB_FILE
