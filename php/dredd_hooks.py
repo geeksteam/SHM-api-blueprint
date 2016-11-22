@@ -43,7 +43,7 @@ def check_apache_mod_php(j):
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)    
+                response = just_me(phpjson_url)
 
                 transaction['fail'] = 'Response %s' % response
                 return
