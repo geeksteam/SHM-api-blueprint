@@ -30,5 +30,4 @@ def make_url_statistics(transaction):
                 time.sleep(1)
                 open_ngstat_url('http://%s/path2/index.html' % testDomain)
                 # Wait for statistic flush to bucket
-                #time.sleep(60)
-                
+                time.sleep(60)
