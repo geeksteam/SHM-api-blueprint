@@ -86,9 +86,10 @@ def test_email(transaction):
                 i=0
                 for message in messages:
                         i=i+1
-                        print >> sys.stderr, 'Got Message: %s' % message['from']
+                        print >> sys.stderr, 'Found Mail: %s' % message['from']
                         # Check for message from Dredd
                         if "<dredd-test@geeks.team>" in message['from'] :
+                                print >> sys.stderr, 'Mail from DREDD found: %s' % message['from']
                                 message_found = True
                         # Delete message
                         box.dele(i)
