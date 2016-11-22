@@ -479,6 +479,57 @@ If app was not binded properly, first code was not accepted.
 
 
 
+# Group FTP accounts
+PFTPD server accounts.
+## Add or Edit FTP account [POST /api/pftpd/set]
+
+Add or edit FTP accounts.
+
++ Attributes
+  + UserID (required, string) - FTP account login name.
+  + Password (required, string) - FTP account password.
+  + User (optional, string) - Panel user which owns FTP account. Only `root` can set User.
+  + Homedir (required, string) - FTP directory path related to current user's homedir.
+
++ Request (application/json)
+    {
+        "UserID":     "FTP1",
+        "Password" : "FTPPassword",
+        "Homedir":       "/www/$TESTING_DOMAIN/"
+        }
+
++ Response 204 (text/plain)
+
+## List FTP accounts [GET /api/pftpd/list]
+
+List all user's FTP account.
+
++ Response 200 (application/json)
+    [
+        {  
+       "UserID":"$USER_NAME_FTP1",
+           "Homedir":  "/www/$TESTING_DOMAIN/"
+        }
+    ]
+
+## Remove FTP accounts [POST /api/pftpd/del]
+
+Remove FTP accounts.
+
++ Request (application/json)
+    ["FTP1"]
+
++ Response 204 (text/plain)
+
+## Remove non existent ftp account #Error [POST /api/pftpd/del]
+
++ Request (application/json)
+    ["FTPNotExist"]
+
++ Response
+
+
+
 # Group Web Domains
 Nginx and apache domains.
 ## Add or Edit Web domain [/api/webdomains/set]
@@ -675,6 +726,7 @@ Disable php on domain
     }
 
 + Response 204 (text/plain)
+
 
 
 
