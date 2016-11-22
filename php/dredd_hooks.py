@@ -64,7 +64,7 @@ def check_apache_mod_php(j):
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjsoffn.php' % transaction['request']['headers']['Testing-domain']
-                response = run_urlvf(phpjson_url)        
+                response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
