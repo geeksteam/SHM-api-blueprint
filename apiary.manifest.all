@@ -23,14 +23,14 @@ hotp/*.apib
 
 # USERS
 ## User limit Templates
-#utemplates/*.apib
+utemplates/*.apib
 ## Users manipulation
-#users/*.apib
+users/*.apib
 ## User settings change
-#user/*.apib
+user/*.apib
 
 # Files manipulation
-#filemanager/*.apib
+filemanager/*.apib
 
 # FTP server
 ## ProFTPD
@@ -40,20 +40,20 @@ pftpd/*.apib
 webdomains/*.apib
 
 # SSL certificates
-#ssl/*.apib
+ssl/*.apib
 
 # PHP settings and info
-#php/*.apib
+php/*.apib
 
 # Databases
 ## MySQL
-#mysql-users/*.apib
+mysql-users/*.apib
 ## PostgreSQL
-#pgsql-users/*.apib
+pgsql-users/*.apib
 
 # DNS
 ## Powerdns
-#pdns/*.apib
+pdns/*.apib
 
 # User specific
 ## Session info
