@@ -5,6 +5,7 @@ import sys
 import os
 import re
 import time
+import json
 
 from email.mime.text import MIMEText
 
@@ -74,21 +75,23 @@ def test_email(transaction):
                 box.user(USERNAME)
                 box.pass_(PASSWORD)
 
-                response, lst, octets = box.list()
-                print "DEBUG: Total messages: %s" % len(lst)
-                total_messages = len(lst)
+                #Get messages from server:
+                messages = [box.retr(i) for i in range(1, len(box.list()[1]) + 1)]
+                # Concat message pieces:
+                messages = ["\n".join(mssg[1]) for mssg in messages]
+                #Parse message intom an email object:
+                messages = [parser.Parser().parsestr(mssg) for mssg in messages]
                 
                 message_found = False
-                for msgnum, msgsize in [i.split() for i in lst]:
-                        (resp, lines, octets) = box.retr(msgnum)
-                        msgtext = "n".join(lines) + "nn"
-                        message = email.message_from_string(msgtext)
-                        print >> sys.stderr, 'Got Message: %s' % msgtext
+                i=0
+                for message in messages:
+                        i=i+1
+                        print >> sys.stderr, 'Got Message: %s' % message['from']
                         # Check for message from Dredd
-                        if "<dredd-test@geeks.team>" in message["from"] :
+                        if "<dredd-test@geeks.team>" in message['from'] :
                                 message_found = True
-                        print(msgtext)
-                        box.dele(msgnum)
+                        # Delete message
+                        box.dele(i)
                 box.quit()
                 
                 if message_found == False:
