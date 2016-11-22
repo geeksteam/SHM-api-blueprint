@@ -7,7 +7,7 @@ import re
 import time
 import json
 
-from email.mime.text import MIMEText
+from email import parser
 
 import time
 import dredd_hooks as hooks
