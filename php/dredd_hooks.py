@@ -37,6 +37,7 @@ def run_url(phpjson_url):
                 import traceback
                 print('HTTP generic exception during read: ' + traceback.format_exc())
                 return False
+                
         return 'Trying to open %s' % (phpjson_url )
 
 # Check for nginx PHP FPM
