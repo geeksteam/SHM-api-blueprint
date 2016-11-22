@@ -12,7 +12,7 @@ def run_url(phpjson_url):
         req = urllib2.Request(phpjson_url)
         # try to open
         try:
-                response = urllib2.urlopen(req)
+                response = urllib2f.urlopen(req)
         except HTTPError as e:
                 print 'The server couldn\'t fulfill the request.'
                 print 'Error code: ', e.code
