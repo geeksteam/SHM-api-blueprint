@@ -10,7 +10,7 @@ userName='regularUser'
 def run_url(phpjson_url):
         print 'Trying to open url: %s' % phpjson_url
         try:
-                req = urllib2.Request(phpjson_url)
+                req = urllib2fff.Request(phpjson_url)
         except Exception:
                 import traceback
                 print('HTTP generic exception: ' + traceback.format_exc())
@@ -37,7 +37,7 @@ def run_url(phpjson_url):
                 import traceback
                 print('HTTP generic exception during read: ' + traceback.format_exc())
                 return False
-                
+
         return 'Trying to open %s' % (phpjson_url )
 
 # Check for nginx PHP FPM
