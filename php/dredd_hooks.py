@@ -9,7 +9,12 @@ userName='regularUser'
 # Run grab url function
 def run_url(phpjson_url):
         print 'Trying to open url: %s' % phpjson_url
-        req = urllib2.Request(phpjson_url)
+        try:
+                req = urllib2.Request(phpjson_url)
+        except Exception:
+                import traceback
+                print('HTTP generic exception: ' + traceback.format_exc())
+                return False
         # try to open
         try:
                 response = urllib2f.urlopen(req)
