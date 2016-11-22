@@ -34,7 +34,7 @@ hotp/*.apib
 
 # FTP server
 ## ProFTPD
-#pftpd/*.apib
+pftpd/*.apib
 
 # WebDomains, PHP modes
 webdomains/*.apib

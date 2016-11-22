@@ -1,0 +1,87 @@
+## PHP modes [/api/webdomains/set]
+
+Domain has a four different modes: fpm_nginx, fpm_apache, mod_php, off
+
++ Attributes
+  + PHP (required, string) - PHP interpreter mode.
+
+### PHP-FPM on Nginx [POST]
+
++ Request (application/json)
+    {  
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+       "IP":"$SERVER_IP",
+       "IndexFile":"index.html",
+       "Encoding":"utf8",
+       "Subdomains":true,
+       "PHP":"fpm_nginx",
+       "DNS":true,
+       "SSL":false,
+       "Analytics":true,
+       "Active":true
+    }
+
++ Response 204 (text/plain)
+
+### PHP-FPM on Apache [POST]
+
+If .htaccess needed.
+
++ Request (application/json)
+    {  
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+       "IP":"$SERVER_IP",
+       "IndexFile":"index.html",
+       "Encoding":"utf8",
+       "Subdomains":true,
+       "PHP":"fpm_apache",
+       "DNS":true,
+       "SSL":false,
+       "Analytics":true,
+       "Active":true
+    }
+
++ Response 204 (text/plain)
+
+### Apache mod_php [POST]
+
++ Request (application/json)
+    {  
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+       "IP":"$SERVER_IP",
+       "IndexFile":"index.html",
+       "Encoding":"utf8",
+       "Subdomains":true,
+       "PHP":"mod_php",
+       "DNS":true,
+       "SSL":false,
+       "Analytics":true,
+       "Active":true
+    }
+
++ Response 204 (text/plain)
+
+### PHP off [POST]
+
+Disable php on domain
+
++ Request (application/json)
+    {  
+       "Name":"$TESTING_DOMAIN",
+       "Alias":"www.$TESTING_DOMAIN site.$TESTING_DOMAIN",
+       "IP":"$SERVER_IP",
+       "IndexFile":"index.html",
+       "Encoding":"utf8",
+       "Subdomains":true,
+       "PHP":"off",
+       "DNS":true,
+       "SSL":false,
+       "Analytics":true,
+       "Active":true
+    }
+
++ Response 204 (text/plain)
+
