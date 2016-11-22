@@ -62,7 +62,7 @@ def check_apache_mod_php(j):
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
-                phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
+                phpjson_url='http://%s/phpjsoffn.php' % transaction['request']['headers']['Testing-domain']
                 response = run_url(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
