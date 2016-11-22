@@ -1,6 +1,6 @@
 import time
 import json
-from urllib2 import Request, urlopen, URLError, HTTPError
+import urllib2
 import dredd_hooks as hooks
 
 # Url where is phpjson is
@@ -8,9 +8,9 @@ userName='regularUser'
 
 # Run grab url function
 def run_url(phpjson_url):
-        req = Request(phpjson_url)
+        req = urllib2.Request(phpjson_url)
         try:
-                response = urlopen(req).read()
+                urllib2.urlopen(req)
         except HTTPError as e:
                 print 'The server couldn\'t fulfill the request.'
                 print 'Error code: ', e.code
@@ -23,6 +23,7 @@ def run_url(phpjson_url):
                 import traceback
                 print('HTTP generic exception: ' + traceback.format_exc())
                 return False
+        response = urllib2.urlopen(req).read()
         return response
 
 # Check for nginx PHP FPM
