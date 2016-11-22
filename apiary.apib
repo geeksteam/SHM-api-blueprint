@@ -730,6 +730,301 @@ Disable php on domain
 
 
 
+# Group Domains statistics
+
+ServerPanel gather ***Domains*** and ***URLs*** hits statistics directly from webserver and DNS.
+
+There is no need to analyze large `access.log` files to retrieve web sites statistic. Its available at any time with minute delay.
+
+> Statistics for websites stores at panel database for ***30 days*** period by default.
+
+`Administrator` and `Users` can retrieve those statistics for all domains and filter it by particular urls and date interval.
+
+![Domain statistics diagram](https://raw.githubusercontent.com/geeksteam/SHM-api-blueprint/master/images/NgStat.svg "Domain Statistic diagram")
+## All domains statistic [/api/ngstat/get]
+
+`Root` user (or Administrator) get count of hits for all domains at the server sorted by date interval.
+
+As a response you'll get `Dates` objects with `Domain:hits` as a values.
+
+
+### Get stats [POST]
+
+Root will get stats for all Domains.
+
++ Attributes (DateInterval)
+
++ Request (application/json)
+
+        {  
+            "From":"$DATE_YMD",
+            "To":"$DATE_YMD"
+        }
+
++ Response 200 (application/json)
+
+            {  
+                "$DATE_YMD":{  
+                    "$TESTING_DOMAIN":6
+                }
+            }
+
+
+### Get domains stats by #User [POST]
+User will get stats only for his Domains.
+
++ Attributes (DateInterval)
+
++ Request (application/json)
+
+        {  
+            "From":"$DATE_YMD",
+            "To":"$DATE_YMD"
+        }
+
++ Response 200 (application/json)
+
+            {  
+                "$DATE_YMD":{  
+                    "$TESTING_DOMAIN":6
+                }
+            }
+
+
+## Statistic by URLs for Domain [/api/ngstat/getdomain]
+
+Get URLs with count of hits for Domain and date interval.
+
+As a response you'll get `Date` objects with `URL/path:hits` as value.
+
+
+### Get URLs stats for Domain by #User [POST]
+
+User can get stats for his Domains only.
+
++ Attributes (DomainStats)
+
++ Request (application/json)
+
+        {  
+            "From":"$DATE_YMD",
+            "To":"$DATE_YMD",
+            "Domain":"$TESTING_DOMAIN"
+        }
+
++ Response 200 (application/json)
+
+            {  
+                "$DATE_YMD":{  
+                    "$TESTING_DOMAIN/url_one":1,
+                    "$TESTING_DOMAIN/url_two":2,
+                    "$TESTING_DOMAIN/url_three":3
+                }
+            }
+
+
+## URLs statistics by Date [/api/ngstat/geturl]
+
+Get URL statistic by dates and hits count.
+
+As a response you'll get `Date:hits` array.
+
+
+### Get stats by Dates for URL path as #User [POST]
++ Attributes (UrlStats)
+
++ Request (application/json)
+
+        {  
+            "From":"$DATE_YMD",
+            "To":"$DATE_YMD",
+            "Url":"$TESTING_DOMAIN/url_one"
+        }
+
++ Response 200 (application/json)
+
+            {
+            }
+## Data Structures
+
+### DateInterval
++ From (required, string) - Date from show statistic in 2099.12.31 format.
++ To (required, string) - Date to show statistic in 2099.12.31 format.
+
+### DomainStats
++ Date Interval
++ Domain (required, string) - For which domain show statistics for urls pathes.
+
+### UrlStats
++ Date Interval
++ Url (required, string) - For which url show dates and count statistic.
+
+
+
+# Group Nginx
+Nginx web server status page.
+## Get nginx status [GET /api/nginx/status]
+Getting nginx status information page.
+
++ Response 200 (application/json)
+            {  
+            "hostname":"vds",
+            "server_version":"1.8.0",
+            "basic_status":{  
+                "active_connections":1,
+                "server_accepts":2,
+                "handled":2,
+                "requests":2,
+                "reading":0,
+                "writing":1,
+                "waiting":0
+            },
+            "requests":[  
+                    {  
+                        "client":"45.78.13.21",
+                        "vhost":"93.58.28.25",
+                        "request":"GET /handler HTTP/1.1",
+                        "mode":"W",
+                        "status":200
+                    }
+                ]
+            }
+
+
+
+# Group Watchdog Statistics
+Watchdog statistics
+## Disk space analyzer [GET /api/watchdog/diskanalyzer]
+Disk space analyzer results.
+
+
++ Response 200 (application/json)
+            {  
+                "DiskAnalyzer":[  
+                    {  
+                        "Date":"Tue Nov 17 13:43:14 EET 2015",
+                        "Content":{}
+                    }
+                ]
+            }
+
+## Background process killer [GET /api/watchdog/prockiller]
+Background process killer statistic.
+
+
++ Response 200 (application/json)
+            {  
+                "ProcKiller":[  
+                    {  
+                        "Process":"Fri Nov 13 16:06:52 EET 2015",
+                        "Killed":"bounce"
+                    }
+                ]
+            }
+## Getting System usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"SysStat",
+                "Date":{  
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+                "labels":[],
+                "datasets":[
+                    {  
+                        "label":"CPU",
+                        "data":[]
+                    },
+                    {  
+                        "label":"RAM",
+                        "data":[]
+                    },
+                    {  
+                        "label":"SWAP",
+                        "data":[]
+                    },
+                    {  
+                        "label":"HDD",
+                        "data":[]
+                    },
+                    {  
+                        "label":"WA",
+                        "data":[]
+                    }
+                ]
+            }
+
+## Getting Network usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"NetStat",
+                "Date":{  
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+                "labels":[],
+                "datasets":[
+                    {  
+                        "label":"InMbitps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"InPps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"OutMbitps",
+                        "data":[]
+                    },
+                    {  
+                        "label":"OutPps",
+                        "data":[]
+                    }
+                ]
+            }
+
+## Getting Traffic usage chart [GET /api/watchdog/chart]
+
++ Request (application/json)
+            {  
+                "Get":"Traffic",
+                "Interface":"venet0",
+                "Date":{  
+                    "From":"$DATE_YMD 10:15",
+                    "To":"$DATE_YMD 17:55",
+                    "EntriesCount":24
+                }
+            }
+
++ Response 200 (application/json)
+            {  
+            "labels":[],
+            "datasets":[  
+                    {  
+                        "label":"In",
+                        "data":[]
+                    },
+                    {  
+                        "label":"Out",
+                        "data":[]
+                    }
+                ]
+            }
+
+
+
 # Group Remove Test environment
 Remove test environment.
 
