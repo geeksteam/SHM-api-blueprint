@@ -10,7 +10,7 @@ def open_ngstat_url(urlname):
         return True
 
 # Create url statistics
-@hooks.before('Domains statistics > All domains statistic > All domains statistic')
+@hooks.before('Domains statistics > All domains statistic > Get stats')
 def make_url_statistics(transaction):
         if transaction['skip'] != True:
                 # Check IP and test.com in /etc/hosts
