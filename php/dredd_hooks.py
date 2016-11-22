@@ -61,10 +61,8 @@ def check_php_mode_PHP_FPM_NGINX(transaction):
 def check_php_mode_PHP_FPM_APACHE(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)        
-                if response == False:
-                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
-                        return
+                response = open_phpjson_url(phpjson_url)        
+
                 try:
                         j = json.loads(response)
                 except:
@@ -77,10 +75,8 @@ def check_php_mode_PHP_FPM_APACHE(transaction):
 def check_php_mode_MOD_PHP(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)        
-                if response == False:
-                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
-                        return
+                response = open_phpjson_url(phpjson_url)        
+
                 try:
                         j = json.loads(response)
                 except:
@@ -93,10 +89,8 @@ def check_php_mode_MOD_PHP(transaction):
 def check_php_mode_PHP_OFF(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)        
-                if response == False:
-                        transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
-                        return
+                response = open_phpjson_url(phpjson_url)
+                
                 if response is None:
                         transaction['fail'] = 'Test URL %s is empty' % phpjson_url
                         return
