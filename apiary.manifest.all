@@ -23,41 +23,41 @@ hotp/*.apib
 
 # USERS
 ## User limit Templates
-utemplates/*.apib
+#utemplates/*.apib
 ## Users manipulation
-users/*.apib
+#users/*.apib
 ## User settings change
-user/*.apib
+#user/*.apib
 
 # Files manipulation
-filemanager/*.apib
+#filemanager/*.apib
 
 # FTP server
 ## ProFTPD
-pftpd/*.apib
+#pftpd/*.apib
 
 # WebDomains, PHP modes
-webdomains/*.apib
+#webdomains/*.apib
 
 # SSL certificates
-ssl/*.apib
+#ssl/*.apib
 
 # PHP settings and info
-php/*.apib
+#php/*.apib
 
 # Databases
 ## MySQL
-mysql-users/*.apib
+#mysql-users/*.apib
 ## PostgreSQL
-pgsql-users/*.apib
+#pgsql-users/*.apib
 
 # DNS
 ## Powerdns
-pdns/*.apib
+#pdns/*.apib
 
 # User specific
 ## Session info
-info/*.apib
+#info/*.apib
 
 # Email
 ## Email exim dovecot
@@ -71,67 +71,67 @@ eximlog/*.apib
 
 # Statistics
 ## Site activity analytics
-ngstat/*.apib
+#ngstat/*.apib
 ## Nginx current requests
-nginx/*.apib
+#nginx/*.apib
 ## Watchdog  SYS, NET, Traffic charts
-watchdog/*.apib
+#watchdog/*.apib
 
 # System
 ## System time
-timezone/*.apib
+#timezone/*.apib
 ## Cron
-cron/*.apib
+#cron/*.apib
 ## System packages
-syspackages/*.apib
+#syspackages/*.apib
 ## System services
-services/*.apib
+#services/*.apib
 ## System Processes
-ps/*.apib
+#ps/*.apib
 ## OpenSSH server settings
-openssh/*.apib
+#openssh/*.apib
 ## Shell exec
-shell/*.apib
+#shell/*.apib
 
 # Network
 ## IPtables rules
-iptables/*.apib
+#iptables/*.apib
 ## Fail 2 ban
-fail2ban/*.apib
+#fail2ban/*.apib
 ## System network settings
-network/*.apib
+#network/*.apib
 ## IP
-ip/*.apib
+#ip/*.apib
 
 # PANEL
 ## User Messages
-messages/*.apib
+#messages/*.apib
 ## Journal
-journal/*.apib
+#journal/*.apib
 ## Sessions
-sessions/*.apib
+#sessions/*.apib
 ## Panel Core info
-core/*.apib
+#core/*.apib
 ## Panel API triggers
-api/*.apib
+#api/*.apib
 
 # BACKUPS
 ## Users backups
-ubackup/*.apib
+#ubackup/*.apib
 
 # Third party
 ## Perl modules
-perl/*.apib
+#perl/*.apib
 ## Ruby modules and info
-ruby/*.apib
+#ruby/*.apib
 ## ClamAV antivirus
-clamav/*.apib
+#clamav/*.apib
 
 # Plugins
 ## Plugins main
-plugins/*.apib
+#plugins/*.apib
 ## Per plugins tests
-plugins/*/*.apib
+#plugins/*/*.apib
 
 # =END= #
 
