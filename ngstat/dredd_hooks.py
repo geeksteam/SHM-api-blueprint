@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE
 # Run grab url function
 def open_ngstat_url(urlname):
         req = Request(urlname)
-        response = urlopen(req)
+        response = urlopen(req).read()
         return True
 
 # Create url statistics
