@@ -13,11 +13,11 @@ def run_url(phpjson_url):
         # try to open
         try:
                 response = urllib2f.urlopen(req)
-        except HTTPError as e:
+        except urllib2.HTTPError as e:
                 print 'The server couldn\'t fulfill the request.'
                 print 'Error code: ', e.code
                 return False
-        except URLError as e:
+        except urllib2.URLError as e:
                 print 'We failed to reach a server.'
                 print 'Reason: ', e.reason
                 return False
@@ -64,7 +64,7 @@ def check_apache_mod_php(j):
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjsoffn.php' % transaction['request']['headers']['Testing-domain']
-                response = run_url(phpjson_url)        
+                response = run_urlvf(phpjson_url)        
                 if response == False:
                         transaction['fail'] = 'Cannot get test URL %s' % phpjson_url
                         return
