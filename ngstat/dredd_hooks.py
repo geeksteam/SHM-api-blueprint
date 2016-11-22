@@ -22,15 +22,15 @@ def make_url_statistics(transaction):
                 # Run server requests
                 testDomain = transaction['request']['headers']['Testing-domain']
 
-                open_ngstat_url('http://%s/url_one' % testDomain)
-
-                open_ngstat_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/' % testDomain)
                 time.sleep(1)
-                open_ngstat_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/path1' % testDomain)
                 time.sleep(1)
-                open_ngstat_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/path2' % testDomain)
                 time.sleep(1)
-                open_ngstat_url('http://%s/url_three' % testDomain)
+                open_ngstat_url('http://%s/path2' % testDomain)
+                time.sleep(1)
+                open_ngstat_url('http://%s/path2' % testDomain)
                 # Wait for statistic flush to bucket
                 time.sleep(65)
                 
