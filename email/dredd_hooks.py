@@ -82,7 +82,8 @@ def test_email(transaction):
                 for msgnum, msgsize in [i.split() for i in lst]:
                         (resp, lines, octets) = box.retr(msgnum)
                         msgtext = "n".join(lines) + "nn"
-                        message = email.message_from_string(msgtext) 
+                        message = email.message_from_string(msgtext)
+                        print >> sys.stderr, 'Got Message: %s' % msgtext
                         # Check for message from Dredd
                         if "<dredd-test@geeks.team>" in message["from"] :
                                 message_found = True
