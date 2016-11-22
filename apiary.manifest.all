@@ -71,11 +71,11 @@ webdomains/*.apib
 
 # Statistics
 ## Site activity analytics
-#ngstat/*.apib
+ngstat/*.apib
 ## Nginx current requests
-#nginx/*.apib
+nginx/*.apib
 ## Watchdog  SYS, NET, Traffic charts
-#watchdog/*.apib
+watchdog/*.apib
 
 # System
 ## System time

@@ -4,17 +4,11 @@ import dredd_hooks as hooks
 from subprocess import Popen, PIPE
 
 # Run grab url function
-def run_url(urlname):
+def open_ngstat_url(urlname):
         req = Request(urlname)
-        try:
-                response = urlopen(req)
-        except HTTPError as e:
-                print 'The server couldn\'t fulfill the request.'
-                print 'Error code: ', e.code
-        except URLError as e:
-                print 'We failed to reach a server.'
-                print 'Reason: ', e.reason
- 
+        response = urlopen(req)
+        return True
+
 # Create url statistics
 @hooks.before('Nginx URL statistics > Get all domains statistics > Get all domains statistics')
 def make_url_statistics(transaction):
@@ -28,15 +22,15 @@ def make_url_statistics(transaction):
                 # Run server requests
                 testDomain = transaction['request']['headers']['Testing-domain']
 
-                run_url('http://%s/url_one' % testDomain)
+                open_ngstat_url('http://%s/url_one' % testDomain)
 
-                run_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://%s/url_two' % testDomain)
+                open_ngstat_url('http://%s/url_two' % testDomain)
                 time.sleep(1)
-                run_url('http://%s/url_three' % testDomain)
+                open_ngstat_url('http://%s/url_three' % testDomain)
                 # Wait for statistic flush to bucket
                 time.sleep(65)
                 
