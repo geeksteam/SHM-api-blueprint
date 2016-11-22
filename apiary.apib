@@ -756,7 +756,7 @@ Root will get stats for all Domains.
 
 + Request (application/json)
 
-        {  
+        {
             "From":"$DATE_YMD",
             "To":"$DATE_YMD"
         }
@@ -816,9 +816,8 @@ User can get stats for his Domains only.
 
             {  
                 "$DATE_YMD":{  
-                    "$TESTING_DOMAIN/url_one":1,
-                    "$TESTING_DOMAIN/url_two":2,
-                    "$TESTING_DOMAIN/url_three":3
+                    "$TESTING_DOMAIN/path1/index.html":1,
+                    "$TESTING_DOMAIN/path2/index.html":3
                 }
             }
 
@@ -838,7 +837,7 @@ As a response you'll get `Date:hits` array.
         {  
             "From":"$DATE_YMD",
             "To":"$DATE_YMD",
-            "Url":"$TESTING_DOMAIN/url_one"
+            "Url":"$TESTING_DOMAIN/path2/index.html"
         }
 
 + Response 200 (application/json)
