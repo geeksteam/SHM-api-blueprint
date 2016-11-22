@@ -11,7 +11,12 @@ def just_me(phpjson_url):
 
 # Run grab url function
 def open_phpjson_url(phpjson_url):
-        return 'Trying to open %s' % (phpjson_url)
+
+        req = urllib2.Request(phpjson_url)
+        response = urllib2.urlopen(req)
+        out = response.read()
+        
+        return out
 
 # Check for nginx PHP FPM
 def check_nginx_php_fpm(j):
