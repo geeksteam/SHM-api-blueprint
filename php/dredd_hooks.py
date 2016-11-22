@@ -8,6 +8,7 @@ userName='regularUser'
 
 # Run grab url function
 def run_url(phpjson_url):
+        print 'Trying to open url: %s' % phpjson_url
         req = urllib2.Request(phpjson_url)
         # try to open
         try:
