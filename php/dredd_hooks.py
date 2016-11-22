@@ -6,6 +6,9 @@ import dredd_hooks as hooks
 # Url where is phpjson is
 userName='regularUser'
 
+def just_me():
+        return 'Just me funct'
+
 # Run grab url function
 def run_url(phpjson_url):
         print 'Trying to open url: %s' % phpjson_url
@@ -69,6 +72,10 @@ def check_apache_mod_php(j):
 @hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
 def check_php_mode_1(transaction):
         if transaction['skip'] != True:
+                response = just_me()
+                transaction['fail'] = response
+                return
+
                 phpjson_url='http://%s/phpjsoffn.php' % transaction['request']['headers']['Testing-domain']
                 response = run_url(phpjson_url)        
                 if response == False:
