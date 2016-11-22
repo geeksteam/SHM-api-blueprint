@@ -9,8 +9,9 @@ userName='regularUser'
 # Run grab url function
 def run_url(phpjson_url):
         req = urllib2.Request(phpjson_url)
+        # try to open
         try:
-                urllib2.urlopen(req)
+                response = urllib2.urlopen(req)
         except HTTPError as e:
                 print 'The server couldn\'t fulfill the request.'
                 print 'Error code: ', e.code
@@ -23,8 +24,14 @@ def run_url(phpjson_url):
                 import traceback
                 print('HTTP generic exception: ' + traceback.format_exc())
                 return False
-        response = urllib2.urlopen(req).read()
-        return response
+        # try to read
+        try:
+                out = response.read()
+        except Exception:
+                import traceback
+                print('HTTP generic exception during read: ' + traceback.format_exc())
+                return False
+        return out
 
 # Check for nginx PHP FPM
 def check_nginx_php_fpm(j):
@@ -63,7 +70,7 @@ def check_php_mode_1(transaction):
                 try:
                         j = json.loads(response)
                 except:
-                        transaction['fail'] = 'Cannot decode response to JSON. Response is: %s' % response
+                        transaction['fail'] = 'Cannot decode response from %s to JSON. Response is: %s' % (phpjson_url, response)
                         return
                 if check_nginx_php_fpm(j) == False:
                         transaction['fail'] = 'Nginx PHP FPM mode check failed. Data is:'.join(j)
