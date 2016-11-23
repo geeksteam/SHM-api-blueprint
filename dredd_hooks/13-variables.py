@@ -23,14 +23,18 @@ variables['$BACKUP_SERVER_IP']='95.163.191.21'
 # Slack plugins token test
 variables['$SLACK_TOKEN'] = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
 
+
 # Replace $VARS
 @hooks.before_each
 def set_variables(transaction):
 	if transaction['skip'] != True:
 		print >> sys.stderr, 'Replace Variables HOOK'
+
 		# Set testing domainName
 		transaction['request']['headers']['Testing-domain'] = variables['$TESTING_DOMAIN']
-		server_ip = transaction['host']
+		# Add server_ip
+		variables['$SERVER_IP'] = transaction['host']
+
 		# Iterate over keys
 		for key, value in variables.iteritems():
 			transaction['request']['body'] = transaction['request']['body'].replace(key, value)
