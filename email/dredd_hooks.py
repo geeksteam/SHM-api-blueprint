@@ -21,7 +21,7 @@ destination = 'max@geeks.team'
 PASSWORD = "infoPassword"
 
 # Wait until pop3 test
-wait_before_pop3 = 15
+wait_before_pop3 = 20
 
 
 @hooks.before_validation('Email boxes > !Hooks > !Hook pop3/smtp testing')
@@ -74,10 +74,11 @@ def test_email(transaction):
                 # Check IMAP message is in box
                 print >> sys.stderr, 'Checking mails in %s using IMAP' % SMTPserver
 
-                mail = imaplib.IMAP4_SSL(SMTPserver)
+                imaplib.Debug = 4
+                mail = imaplib.IMAP4(SMTPserver)
                 mail.login(USERNAME, PASSWORD)
                 mail.select('INBOX')
-                result, data = mail.uid('search', None, '(HEADER Subject "'+ subject_recieve_test +'")')
+                result, data = mail.search(None, '(HEADER Subject "'+ subject_recieve_test +'")')
                 ## If no messages found
                 if result != 'OK':
                         transaction["fail"] = 'No mails with subject %s found.' % subject_recieve_test
@@ -87,7 +88,7 @@ def test_email(transaction):
                 ## Delete message
                 for num in data[0].split():
                         print >> sys.stderr, 'Deleting mail with NUM: %s' % num
-                        mail.store(num, '+FLAGS', '\\Deleted')
+                        mail.store(num, '+FLAGS', '\\Seen \\Deleted')
                 mail.expunge()
                 mail.close()
                 mail.logout()
