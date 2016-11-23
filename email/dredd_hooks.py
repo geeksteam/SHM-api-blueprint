@@ -29,7 +29,7 @@ def test_email(transaction):
         if transaction['skip'] != True:
                 SMTPserver = transaction['request']['headers']['Testing-domain']
 
-                print >> sys.stdout, 'Test Email Hook started %s' % SMTPserver
+                print >> sys.stderr, 'Test Email Hook started %s' % SMTPserver
 
                 testbox = testboxemail + SMTPserver
 
@@ -85,7 +85,7 @@ def test_email(transaction):
                         print >> sys.stderr, 'Found Mail: %s' % message['from']
                         # Check for message from Dredd
                         if 'dredd-test@geeks.team' in message['from'] :
-                                print >> sys.stdout, 'Mail from DREDD found: %s' % message['from']
+                                print >> sys.stderr, 'Mail from DREDD found: %s' % message['from']
                                 message_found = True
                         # Delete message
                         box.dele(i)

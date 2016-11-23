@@ -1,5 +1,5 @@
+import sys
 import ftplib
-import time
 import dredd_hooks as hooks
 
 # Test FTP login as created account

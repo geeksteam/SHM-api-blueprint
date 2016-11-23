@@ -1,4 +1,3 @@
-import json
 import sys
 import time
 import dredd_hooks as hooks
@@ -22,7 +21,6 @@ variables['$DATE_DMY']=time.strftime("%d.%m.%Y")
 variables['$BACKUP_SERVER_IP']='95.163.191.21'
 # Slack plugins token test
 variables['$SLACK_TOKEN'] = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
-
 
 # Replace $VARS
 @hooks.before_each
