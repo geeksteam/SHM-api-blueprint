@@ -42,3 +42,5 @@ def check_ftp_account(transaction):
 
 				except ftplib.all_errors as e:
 						transaction['fail'] = "FTP account test by Dredd/Python FTPclient. Error: %s" % e
+		return
+		
