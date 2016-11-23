@@ -24,7 +24,7 @@ PASSWORD = "infoPassword"
 wait_before_pop3 = 15
 
 
-@hooks.before_validation('Email boxes > !Hooks > !Hook pop3/smtp testing')
+@hooks.after('Email boxes > !Hooks > !Hook pop3/smtp testing')
 def test_email(transaction):
         if transaction['skip'] != True:
                 print >> sys.stderr, 'Test Email Hook started'
