@@ -24,11 +24,13 @@ PASSWORD = "infoPassword"
 wait_before_pop3 = 15
 
 
-@hooks.after('Email boxes > !Hooks > !Hook pop3/smtp testing')
+@hooks.before_validation('Email boxes > !Hooks > !Hook pop3/smtp testing')
 def test_email(transaction):
         if transaction['skip'] != True:
-                print >> sys.stderr, 'Test Email Hook started'
                 SMTPserver = transaction['request']['headers']['Testing-domain']
+
+                print >> sys.stdout, 'Test Email Hook started %s' % SMTPserver
+
                 testbox = testboxemail + SMTPserver
 
                 USERNAME = testbox
@@ -83,7 +85,7 @@ def test_email(transaction):
                         print >> sys.stderr, 'Found Mail: %s' % message['from']
                         # Check for message from Dredd
                         if 'dredd-test@geeks.team' in message['from'] :
-                                print >> sys.stderr, 'Mail from DREDD found: %s' % message['from']
+                                print >> sys.stdout, 'Mail from DREDD found: %s' % message['from']
                                 message_found = True
                         # Delete message
                         box.dele(i)
@@ -91,6 +93,7 @@ def test_email(transaction):
                 
                 if message_found == False:
                         transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % i
+                        return
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
