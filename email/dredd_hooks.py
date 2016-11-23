@@ -27,7 +27,7 @@ wait_before_pop3 = 15
 @hooks.before_validation('Email boxes > @Hook pop3/smtp testing > @Hook pop3/smtp testing')
 def test_email(transaction):
         if transaction['skip'] != True:
-
+                print >> sys.stderr, 'Test Email Hook started'
                 SMTPserver = transaction['request']['headers']['Testing-domain']
                 testbox = testboxemail + SMTPserver
 
@@ -92,5 +92,5 @@ def test_email(transaction):
                 if message_found == False:
                         transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % i
                 # Set to success
-                transaction['real']['statusCode'] = 202
+                transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
