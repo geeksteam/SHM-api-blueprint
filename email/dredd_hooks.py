@@ -96,7 +96,7 @@ def test_email(transaction):
                 box.quit()
                 
                 if message_found == False:
-                        transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % total_messages
+                        transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % i
                 # Set to success
                 transaction['real']['statusCode'] = 202
                 transaction['real']['body'] = ''
