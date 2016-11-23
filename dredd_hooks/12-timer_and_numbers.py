@@ -5,14 +5,16 @@ import dredd_hooks as hooks
 # Local vars
 #
 
-# Timer before requests
+# Timer before requests object
 requests_timer = {}
-# Timer before all requests in GROUP
+
+# Timer before all requests in GROUP object
 groups_timer = {}
 
+## Groups timers
+groups_timer['Web Domains'] = 1
 
-groups_timer['Web Domains'] = 2
-
+## Request timers
 requests_timer['User Backups > List backups > List backups'] = 15
 requests_timer['User Backups > Delete backup > Delete backup'] = 15
 
@@ -24,9 +26,15 @@ requests_timer['User Backups Restore testing > List all web domains of #User > L
 
 requests_timer['Plugins > Start Plugin task > Start Plugin task'] = 10
 
-# Add request number before its name to identify test
+## Add request number before its name to identify test
 add_request_number = True
 request_number = 0
+
+## Add group name
+add_group_name = True
+
+##############
+#  Functions
 
 # Execute TIMER BEFORE requests
 @hooks.before_each
@@ -46,7 +54,7 @@ def add_request_timer(transaction):
                 
 # Add NUMBER to request name and Timer info.
 @hooks.before_each
-def add_request_number(transaction):
+def add_request_number_and_group(transaction):
         # Add Timer information
         if transaction['name'] in requests_timer:
                 transaction['origin']['actionName'] = '( Timer:'+ str(requests_timer[transaction['name']]) + ') '+ transaction['origin']['actionName']
@@ -54,8 +62,14 @@ def add_request_number(transaction):
         if transaction['origin']['resourceGroupName'] in groups_timer:
                 transaction['origin']['actionName'] = '( Timer:'+ str(groups_timer[ transaction['origin']['resourceGroupName'] ]) + ') '+ transaction['origin']['actionName']
         
-        # Iterate request number
+        append = ''
+        # Add request number
         if add_request_number:
                 global request_number 
                 request_number += 1
-                transaction['origin']['actionName'] = '['+ str(request_number) + '] '+ transaction['origin']['actionName']
+                append = append + '['+ str(request_number) + '] '
+        # Add group name
+        if add_group_name:
+                append = append + '[' + transaction['origin']['resourceGroupName'] + '] '
+
+        transaction['origin']['actionName'] = append + transaction['origin']['actionName']
