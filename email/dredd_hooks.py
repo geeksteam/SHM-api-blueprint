@@ -1,5 +1,6 @@
 import smtplib
 import poplib, email
+from email.mime.text import MIMEText
 
 import sys
 import os
@@ -14,7 +15,7 @@ import dredd_hooks as hooks
 
 # Global settings
 testboxemail =     'info@'
-destination = ['kalashnikovm@mail.ru']
+destination = ['max@geeks.team']
 
 # USERNAME = testboxemail@server
 PASSWORD = "infoPassword"
@@ -31,38 +32,33 @@ def test_email(transaction):
                 testbox = testboxemail + SMTPserver
 
                 USERNAME = testbox
-        
-                transaction['real']['body'] = "Dredd testing"
                 
                 # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
                 receivers = [testbox]
 
-                message = """From: Dredd <dredd-test@geeks.team>
-                To: <%s>
-                Subject: SMTP e-mail Dredd RECIEVE test
 
-                This is a test e-mail message.
-                """ % testbox
+                msg = MIMEText('This is a text email message from Dredd testing suite.')
+                msg['From'] = dreddsender
+                msg['To'] = testbox
+                msg['Subject'] = 'SMTP e-mail Dredd RECIEVE test'
 
                 smtpObj = smtplib.SMTP('localhost')
                 smtpObj.set_debuglevel(True)
-                smtpObj.sendmail(dreddsender, receivers, message)         
-                print "Successfully sent email"
+                smtpObj.sendmail(dreddsender, receivers, msg.as_string())         
                 smtpObj.quit()
                         
                 # Send email using SMTP AUTH
-                message = """From: Dredd <%s>
-                To: <max@geeks.team>
-                Subject: SMTP e-mail Dredd AUTH test
-
-                This is a test e-mail message.
-                """ % testbox
+                msg = MIMEText('This is a text email message from Dredd testing suite.')
+                msg['From'] = testbox
+                msg['To'] = destination[0]
+                msg['Subject'] = 'SMTP e-mail Dredd AUTH test'
+                
                 conn = smtplib.SMTP(SMTPserver)
                 conn.set_debuglevel(True)
                 
                 conn.login(USERNAME, PASSWORD)
-                conn.sendmail(testbox, destination, message)
+                conn.sendmail(testbox, destination, msg.as_string())
                 conn.quit()
                         
 
@@ -88,7 +84,7 @@ def test_email(transaction):
                         i=i+1
                         print >> sys.stderr, 'Found Mail: %s' % message['from']
                         # Check for message from Dredd
-                        if "<dredd-test@geeks.team>" in message['from'] :
+                        if 'dredd-test@geeks.team' in message['from'] :
                                 print >> sys.stderr, 'Mail from DREDD found: %s' % message['from']
                                 message_found = True
                         # Delete message
