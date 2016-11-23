@@ -6,7 +6,7 @@ import dredd_hooks as hooks
 @hooks.after('FTP accounts > List FTP accounts > List FTP accounts')
 def check_ftp_account(transaction):
 		if transaction['skip'] != True:
-		
+				print >> sys.stderr, 'Test FTP accounts Hook started'
 				transaction['request']['headers']['Dredd-Testing'] = 'FTP Client testing as user %s' % (transaction['request']['headers']['Dredd-User']+'_FTP1')
 				
 				try:
