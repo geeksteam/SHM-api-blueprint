@@ -70,7 +70,9 @@ def test_email(transaction):
 
                 # Check POP3 message is in box
                 print >> sys.stderr, 'Checking mails in %s using POP3' % SMTPserver
+
                 box = poplib.POP3(SMTPserver)
+                box.set_debuglevel(True)
                 box.user(USERNAME)
                 box.pass_(PASSWORD)
 
