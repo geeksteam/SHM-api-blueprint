@@ -15,7 +15,7 @@ import dredd_hooks as hooks
 
 # Global settings
 testboxemail =     'info@'
-destination = ['max@geeks.team']
+destination = 'max@geeks.team'
 
 # USERNAME = testboxemail@server
 PASSWORD = "infoPassword"
@@ -35,30 +35,28 @@ def test_email(transaction):
                 
                 # Test of server SMTP recieveing emails from Dredd	
                 dreddsender = 'dredd-test@geeks.team'
-                receivers = [testbox]
 
-
-                msg = MIMEText('This is a text email message from Dredd testing suite.')
-                msg['From'] = dreddsender
-                msg['To'] = testbox
-                msg['Subject'] = 'SMTP e-mail Dredd RECIEVE test'
+                msg_fromDredd = MIMEText('This is a text email message from Dredd testing suite.')
+                msg_fromDredd['From'] = dreddsender
+                msg_fromDredd['To'] = testbox
+                msg_fromDredd['Subject'] = 'SMTP e-mail Dredd RECIEVE test'
 
                 smtpObj = smtplib.SMTP('localhost')
                 smtpObj.set_debuglevel(True)
-                smtpObj.sendmail(dreddsender, receivers, msg.as_string())         
+                smtpObj.sendmail(dreddsender, [testbox], msg_fromDredd.as_string())         
                 smtpObj.quit()
                         
                 # Send email using SMTP AUTH
-                msg = MIMEText('This is a text email message from Dredd testing suite.')
-                msg['From'] = testbox
-                msg['To'] = destination[0]
-                msg['Subject'] = 'SMTP e-mail Dredd AUTH test'
+                msg_fromTestBOX = MIMEText('This is a text email message from Dredd testing suite.')
+                msg_fromTestBOX['From'] = testbox
+                msg_fromTestBOX['To'] = destination
+                msg_fromTestBOX['Subject'] = 'SMTP e-mail Dredd send AUTH test'
                 
                 conn = smtplib.SMTP(SMTPserver)
                 conn.set_debuglevel(True)
                 
                 conn.login(USERNAME, PASSWORD)
-                conn.sendmail(testbox, destination, msg.as_string())
+                conn.sendmail(testbox, [destination], msg_fromTestBOX.as_string())
                 conn.quit()
                         
 
