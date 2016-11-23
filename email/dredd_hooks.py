@@ -36,6 +36,7 @@ def test_email(transaction):
                 USERNAME = testbox
                 
                 # Test of server SMTP recieveing emails from Dredd	
+                print >> sys.stderr, 'Sending email to %s' % testbox
                 dreddsender = 'dredd-test@geeks.team'
 
                 msg_fromDredd = MIMEText('This is a text email message from Dredd testing suite.')
@@ -49,6 +50,7 @@ def test_email(transaction):
                 smtpObj.quit()
                         
                 # Send email using SMTP AUTH
+                print >> sys.stderr, 'Sending email to %s' % destination
                 msg_fromTestBOX = MIMEText('This is a text email message from Dredd testing suite.')
                 msg_fromTestBOX['From'] = testbox
                 msg_fromTestBOX['To'] = destination
@@ -63,10 +65,11 @@ def test_email(transaction):
                         
 
                 # Wait until message is proccesed by exim
+                print >> sys.stderr, 'Waiting for %s seconds' % wait_before_pop3
                 time.sleep(wait_before_pop3)
 
                 # Check POP3 message is in box
-                
+                print >> sys.stderr, 'Checking mails in %s using POP3' % SMTPserver
                 box = poplib.POP3(SMTPserver)
                 box.user(USERNAME)
                 box.pass_(PASSWORD)
