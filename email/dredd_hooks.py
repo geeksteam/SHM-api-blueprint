@@ -83,6 +83,8 @@ def test_email(transaction):
                 #Parse message intom an email object:
                 messages = [parser.Parser().parsestr(mssg) for mssg in messages]
                 
+                print >> sys.stderr, 'Mail found: %s' % len(messages)
+
                 message_found = False
                 i=0
                 for message in messages:
