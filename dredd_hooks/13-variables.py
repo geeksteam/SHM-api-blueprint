@@ -5,62 +5,33 @@ import dredd_hooks as hooks
 
 ## Local stash
 # Testing Server IP
-# server_ip='95.163.191.21' Get from transaction host
 
+# variables
+variables = {}
 # Root user password
-rootUserPassword='goodSHMpassword'
+variables['$ROOT_PASSWORD']='goodSHMpassword'
 # regular User name and password
-regularUser='regularUser'
-regularUserPassword='hbv8g28ba23'
-
+variables['$USER_NAME']='regularUser'
+variables['$USER_PASSWORD']='hbv8g28ba23'
 # Testing domain
-testDomain='9521.geeks.team'
-
+variables['$TESTING_DOMAIN']='9521.geeks.team'
 # current date 2022-01-31
-currDateYMD=time.strftime("%Y.%m.%d")
-currDateDMY=time.strftime("%d.%m.%Y")
+variables['$DATE_YMD']=time.strftime("%Y.%m.%d")
+variables['$DATE_DMY']=time.strftime("%d.%m.%Y")
+# Backup testing
+variables['$BACKUP_SERVER_IP']='95.163.191.21'
+# Slack plugins token test
+variables['$SLACK_TOKEN'] = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
 
-## Backup testing
-backup_server_ip='95.163.191.21'
-
-## Slack plugins token test
-slack_token = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
-        
 # Replace $VARS
 @hooks.before_each
 def set_variables(transaction):
-            if transaction['skip'] != True:
-                    print >> sys.stderr, 'Replace Variables HOOK'
-                    server_ip = transaction['host']
-
-                    transaction['request']['body'] = transaction['request']['body'].replace('$SERVER_IP', server_ip)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$SERVER_IP', server_ip)
-                    
-                    transaction['request']['body'] = transaction['request']['body'].replace('$ROOT_PASSWORD', rootUserPassword)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$ROOT_PASSWORD', rootUserPassword)
-                    
-                    transaction['request']['body'] = transaction['request']['body'].replace('$USER_NAME', regularUser)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$USER_NAME', regularUser)
-                    
-                    transaction['request']['body'] = transaction['request']['body'].replace('$USER_PASSWORD', regularUserPassword)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$USER_PASSWORD', regularUserPassword)
-                    
-                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_YMD', currDateYMD)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_YMD', currDateYMD)
-                    
-                    transaction['request']['body'] = transaction['request']['body'].replace('$DATE_DMY', currDateDMY)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$DATE_DMY', currDateDMY)
-
-                    transaction['request']['body'] = transaction['request']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$BACKUP_SERVER_IP', backup_server_ip)
-
-                    # Set testing domainName
-                    transaction['request']['headers']['Testing-domain'] = testDomain
-                    transaction['request']['body'] = transaction['request']['body'].replace('$TESTING_DOMAIN', testDomain)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$TESTING_DOMAIN', testDomain)
-
-                    # Set slack plugin token domain name
-                    transaction['request']['body'] = transaction['request']['body'].replace('$SLACK_TOKEN', slack_token)
-                    transaction['expected']['body'] = transaction['expected']['body'].replace('$SLACK_TOKEN', slack_token)
-
-                    
+	if transaction['skip'] != True:
+		print >> sys.stderr, 'Replace Variables HOOK'
+		# Set testing domainName
+		transaction['request']['headers']['Testing-domain'] = testDomain
+		server_ip = transaction['host']
+		# Iterate over keys
+		for key, value in variables.iteritems():
+			transaction['request']['body'] = transaction['request']['body'].replace(key, value)
+			transaction['expected']['body'] = transaction['expected']['body'].replace(key, value)
