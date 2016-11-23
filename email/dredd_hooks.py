@@ -18,7 +18,7 @@ testboxemail =     'info@'
 destination = 'max@geeks.team'
 
 # USERNAME = testboxemail@server
-PASSWORD = "infoPassword"
+PASSWORD = "infoPasswordj"
 
 # Wait until pop3 test
 wait_before_pop3 = 15
