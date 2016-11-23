@@ -1,5 +1,5 @@
 import smtplib
-import poplib, email
+import imaplib
 from email.mime.text import MIMEText
 
 import sys
@@ -32,17 +32,20 @@ def test_email(transaction):
                 print >> sys.stderr, 'Test Email Hook started %s' % SMTPserver
 
                 testbox = testboxemail + SMTPserver
+                message_text = 'This is a text email message from Dredd testing suite.'
+                subject_recieve_test = 'SMTP e-mail Dredd RECIEVE test'
+                subject_auth_test = 'SMTP e-mail Dredd send AUTH test'
 
                 USERNAME = testbox
                 
                 # Test of server SMTP recieveing emails from Dredd	
-                print >> sys.stderr, 'Sending email to %s' % testbox
+                print >> sys.stderr, 'Sending email to %s using localhost' % testbox
                 dreddsender = 'dredd-test@geeks.team'
 
-                msg_fromDredd = MIMEText('This is a text email message from Dredd testing suite.')
+                msg_fromDredd = MIMEText(message_text)
                 msg_fromDredd['From'] = dreddsender
                 msg_fromDredd['To'] = testbox
-                msg_fromDredd['Subject'] = 'SMTP e-mail Dredd RECIEVE test'
+                msg_fromDredd['Subject'] = subject_recieve_test
 
                 smtpObj = smtplib.SMTP('localhost')
                 smtpObj.set_debuglevel(True)
@@ -50,11 +53,11 @@ def test_email(transaction):
                 smtpObj.quit()
                         
                 # Send email using SMTP AUTH
-                print >> sys.stderr, 'Sending email to %s' % destination
-                msg_fromTestBOX = MIMEText('This is a text email message from Dredd testing suite.')
+                print >> sys.stderr, 'Sending email to %s using %s' % (destination, SMTPserver)
+                msg_fromTestBOX = MIMEText(message_text)
                 msg_fromTestBOX['From'] = testbox
                 msg_fromTestBOX['To'] = destination
-                msg_fromTestBOX['Subject'] = 'SMTP e-mail Dredd send AUTH test'
+                msg_fromTestBOX['Subject'] = subject_auth_test
                 
                 conn = smtplib.SMTP(SMTPserver)
                 conn.set_debuglevel(True)
@@ -68,39 +71,27 @@ def test_email(transaction):
                 print >> sys.stderr, 'Waiting for %s seconds' % wait_before_pop3
                 time.sleep(wait_before_pop3)
 
-                # Check POP3 message is in box
-                print >> sys.stderr, 'Checking mails in %s using POP3' % SMTPserver
+                # Check IMAP message is in box
+                print >> sys.stderr, 'Checking mails in %s using IMAP' % SMTPserver
 
-                box = poplib.POP3(SMTPserver)
-                box.set_debuglevel(True)
-                box.user(USERNAME)
-                box.pass_(PASSWORD)
-
-                #Get messages from server:
-                messages = [box.retr(i) for i in range(1, len(box.list()[1]) + 1)]
-                # Concat message pieces:
-                messages = ["\n".join(mssg[1]) for mssg in messages]
-                #Parse message intom an email object:
-                messages = [parser.Parser().parsestr(mssg) for mssg in messages]
-                
-                print >> sys.stderr, 'Mail found: %s' % len(messages)
-
-                message_found = False
-                i=0
-                for message in messages:
-                        i=i+1
-                        print >> sys.stderr, 'Found Mail: %s' % message['from']
-                        # Check for message from Dredd
-                        if 'dredd-test@geeks.team' in message['from'] :
-                                print >> sys.stderr, 'Mail from DREDD found: %s' % message['from']
-                                message_found = True
-                        # Delete message
-                        box.dele(i)
-                box.quit()
-                
-                if message_found == False:
-                        transaction["fail"] = "Dredd POP3 client failed: Message from DREDD not found in messages list. Total messages: %s" % i
+                mail = imaplib.IMAP4_SSL(SMTPserver)
+                mail.login(USERNAME, PASSWORD)
+                mail.select('INBOX')
+                result, data = mail.uid('search', None, '(HEADER Subject "'+ subject_recieve_test +'")')
+                ## If no messages found
+                if result != 'OK':
+                        transaction["fail"] = 'No mails with subject %s found.' % subject_recieve_test
+                        print >> sys.stderr, transaction["fail"]
+                        mail.close()
                         return
+                ## Delete message
+                for num in data[0].split():
+                        print >> sys.stderr, 'Deleting mail with NUM: %s' % num
+                        mail.store(num, '+FLAGS', '\\Deleted')
+                mail.expunge()
+                mail.close()
+                mail.logout()
+
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
