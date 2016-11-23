@@ -30,7 +30,7 @@ slack_token = "xoxb" + "-" + "56128066644-DFy3Bcry4RnFKRHmJZGt9aD8"
 @hooks.before_each
 def set_variables(transaction):
             if transaction['skip'] != True:
-
+                    print >> sys.stderr, 'Replace Variables HOOK'
                     server_ip = transaction['host']
 
                     transaction['request']['body'] = transaction['request']['body'].replace('$SERVER_IP', server_ip)
