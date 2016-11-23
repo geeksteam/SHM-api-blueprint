@@ -29,7 +29,7 @@ def set_variables(transaction):
 	if transaction['skip'] != True:
 		print >> sys.stderr, 'Replace Variables HOOK'
 		# Set testing domainName
-		transaction['request']['headers']['Testing-domain'] = testDomain
+		transaction['request']['headers']['Testing-domain'] = variables['$TESTING_DOMAIN']
 		server_ip = transaction['host']
 		# Iterate over keys
 		for key, value in variables.iteritems():
