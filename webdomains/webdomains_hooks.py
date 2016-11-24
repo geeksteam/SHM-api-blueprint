@@ -60,6 +60,7 @@ def check_php_mode_PHP_FPM_NGINX(transaction):
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
+                transaction['real']['content-type'] = 'text/plain; charset=utf-8'
                         
 @hooks.before_validation('Web Domains > PHP modes > !Hook test PHP-FPM Apache mode')
 def check_php_mode_PHP_FPM_APACHE(transaction):
@@ -78,6 +79,7 @@ def check_php_mode_PHP_FPM_APACHE(transaction):
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
+                transaction['real']['content-type'] = 'text/plain; charset=utf-8'
                         
 @hooks.before_validation('Web Domains > PHP modes > !Hook test mod_php mode')
 def check_php_mode_MOD_PHP(transaction):
@@ -96,6 +98,7 @@ def check_php_mode_MOD_PHP(transaction):
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
+                transaction['real']['content-type'] = 'text/plain; charset=utf-8'
 
 @hooks.before_validation('Web Domains > PHP modes > !Hook test php off mode')
 def check_php_mode_PHP_OFF(transaction):
@@ -112,3 +115,4 @@ def check_php_mode_PHP_OFF(transaction):
                 # Set to success
                 transaction['real']['statusCode'] = 299
                 transaction['real']['body'] = ''
+                transaction['real']['content-type'] = 'text/plain; charset=utf-8'

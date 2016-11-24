@@ -1,0 +1,25 @@
+## Install LetsEncrypt plugin [POST /api/plugins/install]
+Install plugin from repository
+
++ Request (application/json)
+
+        {
+            "Plugin":"letsencrypt"
+        }
+
++ Response 204 (text/plain)
+
+## Access html folder of plugin [GET /plugin/letsencrypt/test.html]
+Test access to html dir of plugin.
+
++ Response 200 (text/html)
+
+
+## Remove LetsEncrypt Plugin [POST /api/plugins/del]
+Remove plugin from system
+
++ Request (application/json)
+
+        [ "letsencrypt" ]
+
++ Response 204 (text/plain)
