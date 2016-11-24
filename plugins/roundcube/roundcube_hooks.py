@@ -9,7 +9,7 @@ import urllib
 
 ## Checking RoundCube webmail as grabbing page and check title
 
-@hooks.before_validation('Plugin Roundcube > Add RoundCube WebMail to domain as #User > !Hook test installation')
+@hooks.before_validation('Plugin Roundcube > !Hook test installation > !Hook test installation')
 def test_roundcube_plugin(transaction):
         if transaction['skip'] != True:
                 # Get Test domain
