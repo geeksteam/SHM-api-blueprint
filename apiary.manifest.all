@@ -30,7 +30,7 @@ hotp/*.apib
 #user/*.apib
 
 # Files manipulation
-filemanager/*.apib
+#filemanager/*.apib
 
 # FTP server
 ## ProFTPD
