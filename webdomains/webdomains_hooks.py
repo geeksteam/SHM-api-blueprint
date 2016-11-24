@@ -43,7 +43,7 @@ def check_apache_mod_php(j):
                 return False
 
 # Checking PHP mode
-@hooks.after('Web Domains > PHP modes > PHP-FPM on Nginx')
+@hooks.before_validation('Web Domains > PHP modes > !Hook test PHP-FPM Nginx mode')
 def check_php_mode_PHP_FPM_NGINX(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
@@ -56,8 +56,12 @@ def check_php_mode_PHP_FPM_NGINX(transaction):
                         return
                 if check_nginx_php_fpm(j) == False:
                         transaction['fail'] = 'Nginx PHP FPM mode check failed. Data is:'.join(j)
+                        return
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''
                         
-@hooks.after('Web Domains > PHP modes > PHP-FPM on Apache')
+@hooks.before_validation('Web Domains > PHP modes > !Hook test PHP-FPM Apache mode')
 def check_php_mode_PHP_FPM_APACHE(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
@@ -70,8 +74,12 @@ def check_php_mode_PHP_FPM_APACHE(transaction):
                         return
                 if check_apache_php_fpm(j) == False:
                         transaction['fail'] = 'Apache PHP FPM mode check failed. Data is:'.join(j)
+                        return
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''
                         
-@hooks.after('Web Domains > PHP modes > Apache mod_php')
+@hooks.before_validation('Web Domains > PHP modes > !Hook test mod_php mode')
 def check_php_mode_MOD_PHP(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
@@ -84,8 +92,12 @@ def check_php_mode_MOD_PHP(transaction):
                         return
                 if check_apache_mod_php(j) == False:
                         transaction['fail'] = 'Apache mod_php mode check failed. Data is:'.join(j)
+                        return
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''
 
-@hooks.after('Web Domains > PHP modes > PHP off')
+@hooks.before_validation('Web Domains > PHP modes > !Hook test php off mode')
 def check_php_mode_PHP_OFF(transaction):
         if transaction['skip'] != True:
                 phpjson_url='http://%s/phpjson.php' % transaction['request']['headers']['Testing-domain']
@@ -96,3 +108,7 @@ def check_php_mode_PHP_OFF(transaction):
                         return
                 if '<?php' not in response:
                         transaction["fail"] = "Apache PHP off mode failed. Data is: %s " % response
+                        return
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''

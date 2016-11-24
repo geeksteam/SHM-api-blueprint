@@ -10,7 +10,7 @@ test_domain='testpdns.com'
 record_type=dns.rdatatype.MX
 
 # Test DNS server response records
-@hooks.before('DNS Domains > List Domains records > List Domains records')
+@hooks.before_validation('DNS Domains > !Hook query DNS server for responses > !Hook query DNS server for responses')
 def check_dns_records(transaction):
         if transaction['skip'] != True:
         
@@ -36,3 +36,7 @@ def check_dns_records(transaction):
                 if rrsets[0][0].rdtype != dns.rdatatype.MX:
                         transaction['fail'] = "DNS testing error: No MX record found"
                         return
+                # Success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''
+                

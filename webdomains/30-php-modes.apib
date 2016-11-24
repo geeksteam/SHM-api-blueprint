@@ -24,6 +24,12 @@ Domain has a four different modes: fpm_nginx, fpm_apache, mod_php, off
 
 + Response 204 (text/plain)
 
+### !Hook test PHP-FPM Nginx mode [HEAD]
+
+Test mode using bot.
+
++ Response 299
+
 ### PHP-FPM on Apache [POST]
 
 If .htaccess needed.
@@ -45,6 +51,12 @@ If .htaccess needed.
 
 + Response 204 (text/plain)
 
+### !Hook test PHP-FPM Apache mode [HEAD]
+
+Test mode using bot.
+
++ Response 299
+
 ### Apache mod_php [POST]
 
 + Request (application/json)
@@ -63,6 +75,12 @@ If .htaccess needed.
     }
 
 + Response 204 (text/plain)
+
+### !Hook test mod_php mode [HEAD]
+
+Test mode using bot.
+
++ Response 299
 
 ### PHP off [POST]
 
@@ -85,3 +103,8 @@ Disable php on domain
 
 + Response 204 (text/plain)
 
+### !Hook test php off mode [HEAD]
+
+Test mode using bot.
+
++ Response 299

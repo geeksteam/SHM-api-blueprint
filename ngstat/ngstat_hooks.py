@@ -10,7 +10,7 @@ def open_ngstat_url(urlname):
         return True
 
 # Create url statistics
-@hooks.before('Domains statistics > All domains statistic > Get stats')
+@hooks.before_validation('Domains statistics > !Hooks > !Hook to simulate get urls')
 def make_url_statistics(transaction):
         if transaction['skip'] != True:
                 # Check IP and test.com in /etc/hosts
@@ -30,4 +30,7 @@ def make_url_statistics(transaction):
                 time.sleep(1)
                 open_ngstat_url('http://%s/path2/index.html' % testDomain)
                 # Wait for statistic flush to bucket
-                # time.sleep(60)
+                time.sleep(60)
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''

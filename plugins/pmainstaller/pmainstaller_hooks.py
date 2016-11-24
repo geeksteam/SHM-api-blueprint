@@ -9,7 +9,7 @@ import urllib
 
 ## Checking PhpMyAdmin as grabbing page and check title
 
-@hooks.after('Plugin PhpMyAdmin > Add pmainstall to domain as #User > Add pmainstall to domain as #User')
+@hooks.before_validation('Plugin PhpMyAdmin > Add pmainstall to domain as #User > !Hook test installation')
 def test_roundcube_plugin(transaction):
         if transaction['skip'] != True:
                 # Get Test domain
@@ -32,3 +32,6 @@ def test_roundcube_plugin(transaction):
                         print title
                         transaction['fail'] = 'Error phpMyAdmin title not found'
                         return
+                # Set to success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''

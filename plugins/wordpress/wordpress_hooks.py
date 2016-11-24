@@ -9,7 +9,7 @@ import urllib
 
 ## Checking WordPress installer as grabbing page and check title
 
-@hooks.after('Plugin WordPress > Install Wordpress to domain dir as #User > Install Wordpress to domain dir as #User')
+@hooks.before_validation('Plugin WordPress > Install Wordpress to domain dir as #User > !Hook test installation')
 def test_roundcube_plugin(transaction):
         if transaction['skip'] != True:
                 # Get Test domain
@@ -32,3 +32,6 @@ def test_roundcube_plugin(transaction):
                         print title
                         transaction['fail'] = 'Error WordPress title not found.'
                         return
+                # Success
+                transaction['real']['statusCode'] = 299
+                transaction['real']['body'] = ''
