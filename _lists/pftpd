@@ -16,8 +16,6 @@ auth/*.apib
 ## Creating test.com and dirs
 dredd_test/before.apib
 
-## HOTP
-hotp/*.apib
 
 #################
 # =BEGIN TESTS= #
@@ -25,6 +23,10 @@ hotp/*.apib
 # FTP server
 ## ProFTPD
 pftpd/*.apib
+
+# Email
+## Email exim dovecot
+email/*.apib
 
 #     =END=    #
 ################
