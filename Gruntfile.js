@@ -14,7 +14,7 @@ module.exports = function(grunt){
             // Remove tabs
             removetabs: [ 'perl', '-p', '-i', '-e', '"s/\t/  /g"', 'apiary.apib' ].join(' '),
             // exec Make
-            makeapib: [ './MakeApib', apibType, './apiary.apib' ].join(' ')
+            makeapib: [ './_bin/MakeApib', apibType, './apiary.apib' ].join(' ')
         },
         watch: {
             scripts: {
