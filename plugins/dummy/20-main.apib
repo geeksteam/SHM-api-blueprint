@@ -1,0 +1,114 @@
+## Install Dummy test plugin [POST /api/plugins/install]
+Install dummy test plugin
+
++ Request (application/json)
+
+        {
+            "Plugin":"dummy"
+        }
+
++ Response 204 (text/plain)
+
+## ↳ Check is bin/install has been run [POST /api/filemanager/del]
+
+Remove /tmp/dummy_plugin_install created by plugin's install script
+
++ Request (application/json)
+
+        [
+            "/tmp/dummy_plugin_install"
+        ]
+
++ Response 204 (text/plain)
+
+
+## Access html folder of plugin [GET /plugin/dummy/test.html]
+Test access to html dir of plugin.
+
++ Response 200 (text/html; charset=utf-8)
+
+        <html>
+        <h1>Test</h1>
+        </html>
+
+## Call dummy plugin bin [POST /api/plugins/call?plugin=dummy&bin=call]
+
+Call dummy plugin bin or script.
+
++ Request (application/json)
+
+        {
+            "TestReq":"OK"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "Test":"OK"
+        }
+
+## Run dummy plugin trigger [POST /api/plugins/list]
+
+Test dummy plugin trigger on plugins/list
+
++ Request (application/json)
+
+        {
+            "TestReq":"OK"
+        }
+
++ Response 200 (application/json)
+
+        {}
+
+## ↳ Check is trigger has been run [POST /api/filemanager/del]
+
+Remove /tmp/dummy_plugin_install created by plugin's install script
+
++ Request (application/json)
+
+        [
+            "/tmp/dummy_plugin_trigger"
+        ]
+
++ Response 204 (text/plain)
+
+## Start dummy plugin task [GET /api/plugins/task?plugin=dummy&bin=plugin_dummy_task]
+
+Start dummy plugin task.
+
++ Response 204 (text/plain)
+
+## ↳ Check is task has been run [POST /api/filemanager/del]
+
+Remove /tmp/dummy_plugin_task created by plugin's task
+
++ Request (application/json)
+
+        [
+            "/tmp/dummy_plugin_task"
+        ]
+
++ Response 204 (text/plain)
+
+## Remove Dummy Plugin [POST /api/plugins/del]
+Remove Dummy Plugin
+
++ Request (application/json)
+
+        [ "dummy" ]
+
++ Response 204 (text/plain)
+
+## ↳ Check is bin/uninstall has been run [POST /api/filemanager/del]
+
+Remove /tmp/dummy_plugin_uninstall created by plugin's uninstall script
+
++ Request (application/json)
+
+        [
+            "/tmp/dummy_plugin_uninstall"
+        ]
+
++ Response 204 (text/plain)
+
