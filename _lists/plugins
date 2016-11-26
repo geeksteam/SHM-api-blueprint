@@ -1,0 +1,36 @@
+# Intro
+intro.apib
+
+# Global structs
+structs.apib
+
+# Creating test users
+dredd_test/regularUser_remove.apib
+dredd_test/regularUser_create.apib
+
+# Authorization and test environment
+
+## Panel login auth
+auth/*.apib
+
+## Creating test.com and dirs
+dredd_test/before.apib
+
+
+#################
+# =BEGIN TESTS= #
+
+# Plugins
+## Plugins main
+plugins/*.apib
+## Per plugins tests
+plugins/*/*.apib
+
+#     =END=    #
+################
+
+# Remove dirs and test.com
+dredd_test/after.apib
+
+# Logout
+logout/*.apib
