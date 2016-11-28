@@ -6,8 +6,8 @@ module.exports = function(grunt){
 
     var apibType = grunt.option('type') || '';
     if ( apibType === '' ) {
-        // apibType = 'all';
-        apibType = 'plugins';
+        apibType = 'all';
+        // apibType = 'plugins';
     }
 
     grunt.initConfig({
